@@ -31,6 +31,7 @@ San Francisco
 Minneapolis
 Seattle
 Signapore
+Silicon Valley
 Sydney
 Mumbai`.split("\n")
 
