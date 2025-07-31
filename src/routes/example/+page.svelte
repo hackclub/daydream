@@ -779,7 +779,7 @@ Mumbai`.split("\n")
 		<div class="absolute top-1/2 left-1/4 w-1 h-1 -translate-x-1/2 -translate-y-1/2" data-point="0.5"></div>
 	</div>
 	<div class="absolute -bottom-44 left-1/2 -translate-x-1/2 w-10/12 h-auto object-contain z-100 cursor-text flex flex-row max-md:flex-wrap items-center justify-center align-middle max-w-5xl">
-		<img src="gamejam-1.png" alt="Here's How You Organize a" class="flex-shrink min-w-0 object-contain">
+		<img src="gamejam-1.png" alt="Here's How You particpate in a" class="flex-shrink min-w-0 object-contain">
 		<img src="gamejam-2.png" alt="Game Jam" class="flex-shrink min-w-0 object-contain">
 	</div>
 </div>
