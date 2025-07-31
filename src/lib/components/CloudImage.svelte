@@ -9,6 +9,7 @@
 
 <style>
   .cloud-wrapper {
+    user-select:none;
     background: white;
     display: flex;
     align-items: center;
@@ -102,6 +103,7 @@
   }
   
   img {
+    user-select:none;
     max-width: 100%;
     height: auto;
     object-fit: contain;
