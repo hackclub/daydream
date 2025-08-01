@@ -19,6 +19,7 @@ Tampa
 Auckland
 Omaha
 Phoenix
+Barranquilla
 Madrid
 Boise
 Ottawa
