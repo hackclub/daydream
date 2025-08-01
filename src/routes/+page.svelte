@@ -32,6 +32,7 @@ Minneapolis
 Seattle
 Singapore
 Sydney
+District of Columbia
 Mumbai`.split("\n")
 
 	function createSmoothPath(points: Array<{ x: number; y: number }>) {
