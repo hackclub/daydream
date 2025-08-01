@@ -4,8 +4,11 @@
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
 	
 	// Event Configuration
-	const EVENT_NAME = "Example";
-	const EVENT_LOCATION = "Example City";
+	const EVENT_NAME = "Daydream";
+	const EVENT_LOCATION = "Sydney";
+	const eventAddress = "1 Martin Place, Sydney NSW 2000";
+	
+
 
 	// Cities where the game jam is happening
 	const cities = `Columbus
