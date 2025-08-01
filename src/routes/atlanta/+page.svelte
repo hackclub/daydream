@@ -4,9 +4,35 @@
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
 	
 	// Event Configuration
-	const EVENT_NAME = "Example";
-	const EVENT_LOCATION = "Example City";
-
+	const eventName = "Daydream Atlanta";
+	const eventLocation = "Atlanta";
+	const eventAddress = "---";
+	const directionsURL = "---"
+	const scheduleData = {
+    saturday: {
+        title: "Saturday, September 27th",
+        items: [
+            { event: "Doors open", time: "11:00 AM" },
+            { event: "Opening ceremony", time: "12:00 PM" },
+            { event: "Lunch", time: "12:30 PM" },
+            { event: "Start working on your project!", time: "1:00 PM" },
+            { event: "Workshop 1", time: "2:00 PM" },
+            { event: "Activity 1", time: "4:00 PM" },
+            { event: "Workshop 2", time: "4:00 PM" },
+            { event: "Dinner", time: "6:00 PM" },
+            { event: "Lightning talks", time: "8:00 PM" },
+            { event: "Midnight surprise", time: "12:00 AM" }
+        ]
+    },
+    sunday: {
+        title: "Sunday, September 28th",
+        items: [
+            { event: "Breakfast", time: "8:00 AM" },
+            { event: "Demos!", time: "10:30 AM" },
+            { event: "Closing ceremony", time: "12:00 PM" }
+        ]
+    }
+};
 	// Cities where the game jam is happening
 	const cities = `Columbus
 Lisbon 
