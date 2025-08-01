@@ -3,9 +3,39 @@
 	import { gsap } from "gsap";
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
 	
-	/** @type {import('./$types').PageData} */
-	export let data;
-
+	// Event Configuration
+	const eventName = "Daydream Aurora";
+	const eventLocation = "Aurora, IL";
+	const eventAddress = "101 S River St, Aurora, IL 60506";
+	const directionsURL = "https://www.google.com/maps/place/Aurora+Public+Library+District,+Illinois/@41.7570671,-88.3200308,17z/data=!3m1!4b1!4m6!3m5!1s0x880efaadea1dbfb1:0xd7bf5d9155e78f1b!8m2!3d41.7570671!4d-88.3200308!16s%2Fm%2F04j9rq1?entry=ttu&g_ep=EgoyMDI1MDcyOS4wIKXMDSoASAFQAw%3D%3D";
+	const contactLink = "mailto: kaushalnareshkumar16@gmail.com";
+	// Sponsors Configuration
+	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
+	const sponsors = [
+    { image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" },
+    { image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
+    { image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
+    { image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
+    { image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
+    { image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
+    { image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
+];
+	const scheduleData = {
+    saturday: {
+        title: "Saturday, September 27th",
+        items: [
+            { event: "Doors open", time: "11:00 AM" },
+            { event: "Opening ceremony", time: "12:00 PM" },
+            { event: "Lunch", time: "12:30 PM" },
+            { event: "Start working on your project!", time: "1:00 PM" },
+            { event: "Workshop 1", time: "2:00 PM" },
+            { event: "Activity 1", time: "4:00 PM" },
+            { event: "Workshop 2", time: "4:00 PM" },
+            { event: "Dinner", time: "6:00 PM" },
+            { event: "Lightning talks", time: "8:00 PM" },
+            { event: "Midnight surprise", time: "12:00 AM" }
+        ]
+    }
 	// Cities where the game jam is happening
 	const cities = `Columbus
 Lisbon 
@@ -27,10 +57,11 @@ Islamabad
 London
 Visakhapatnam
 Dubai
+Aurora
 San Francisco
 Minneapolis
 Seattle
-Singapore
+Signapore
 Sydney
 Mumbai`.split("\n")
 
@@ -261,19 +292,8 @@ Mumbai`.split("\n")
 
 	let showVideoPopup = false;
 	
-	// Generate ticker text from cities array with user's city inserted
-	let tickerText = "";
-	$: {
-		const result: string[] = [];
-		cities.forEach((city, index) => {
-			result.push(city);
-			// Insert user's city after every 12 cities
-			if ((index + 1) % 12 === 0 && data.userCity) {
-				result.push(`<a href="https://example.com"><tspan fill="#f49cc8" style="text-shadow: 0 0 8px #f7d4e6">${data.userCity}?</tspan></a>`);
-			}
-		});
-		tickerText = result.join(" • ");
-	}
+	// Generate ticker text from cities array - constant for local event
+	const tickerText = cities.join(" • ");
 
 	// Particle system
 	let particles: Array<{ id: number; x: number; y: number; opacity: number; rotation: number; velocityY: number; velocityX: number; scale: number }> = [];
@@ -388,18 +408,7 @@ Mumbai`.split("\n")
 	function createParticle () {
 		if (!particleContainer || !isTabVisible) return;
 		
-		// Find the visible button - mobile first, then desktop
-		const buttons = document.querySelectorAll('a[href="https://forms.hackclub.com/daydream-stickers"]');
-		let button = null;
-		
-		for (const btn of buttons) {
-			const styles = window.getComputedStyle(btn);
-			if (styles.display !== 'none') {
-				button = btn;
-				break;
-			}
-		}
-		
+		const button = document.querySelector('a[href="https://forms.hackclub.com/daydream-stickers"]');
 		if (!button) return;
 		
 		const buttonRect = button.getBoundingClientRect();
@@ -473,7 +482,6 @@ Mumbai`.split("\n")
 	}
 
 	onMount(() => {
-		console.log('User city:', data.userCity);
 		
 		// Register GSAP plugins
 		gsap.registerPlugin(ScrollTrigger);
@@ -583,7 +591,6 @@ Mumbai`.split("\n")
 
 <svelte:head>
 	<title>Daydream</title>
-	<script defer data-domain="daydream.hackclub.com" src="https://plausible.io/js/script.js"></script>
 </svelte:head>
 
 <div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
@@ -655,7 +662,7 @@ Mumbai`.split("\n")
 			<h4
 				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
 			>
-				Organized by high schoolers in 100 cities worldwide
+				Organized by teenagers in Aurora Illinois
 			</h4>
 		</div>
 		
@@ -664,7 +671,7 @@ Mumbai`.split("\n")
 				<input
 					type="email"
 					name="email"
-					placeholder="Enter email to organize Daydream"
+					placeholder="Enter email to sign up"
 					class="w-80 px-3 py-1 text-dark focus:outline-none"
 					required
 				/>
@@ -676,7 +683,7 @@ Mumbai`.split("\n")
 			<a
 				href="https://forms.hackclub.com/daydream-stickers"
 				target="_blank"
-				class="w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer mx-auto relative overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none active: mt-4 md:hidden"
+				class="w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer mx-auto relative overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none active:"
 			>
 				Get free stickers
 				<img
@@ -698,7 +705,7 @@ Mumbai`.split("\n")
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/12 left-36 bottom-81 z-20"> -->
 
 	<!-- Particle container -->
-	<div bind:this={particleContainer} class="absolute inset-0 pointer-events-none z-40 opacity-70">
+	<div bind:this={particleContainer} class="absolute inset-0 pointer-events-none z-0 opacity-70">
 		{#each particles as particle (particle.id)}
 			<img
 				src="particle.png"
@@ -709,8 +716,6 @@ Mumbai`.split("\n")
 		{/each}
 	</div>
 
-
-
 	<img src="/clouds-top-middle-bg.svg" alt="" class="absolute left-5/12 -translate-x-1/2 w-7/12 -bottom-24">
 	<div class="absolute left-5/12 -translate-x-1/2 w-7/12 -bottom-24 bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none h-full" style="mask-image: url('/clouds-top-middle-bg.svg'); mask-size: contain; mask-repeat: no-repeat; mask-position: center; -webkit-mask-image: url('/clouds-top-middle-bg.svg'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center;"></div>
 	
@@ -720,9 +725,9 @@ Mumbai`.split("\n")
 	<img src="/clouds-top-left-bg.svg" alt="" class="absolute left-0 w-3/12 -bottom-12  translate-y-1/2">
 	<div class="absolute left-0 w-3/12 -bottom-12 translate-y-1/2 bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none h-full" style="mask-image: url('/clouds-top-left-bg.svg'); mask-size: contain; mask-repeat: no-repeat; mask-position: center; -webkit-mask-image: url('/clouds-top-left-bg.svg'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center;"></div>
 	
-	<img src="/clouds-top-middle.png" alt="" class="absolute left-5/12 -translate-x-1/2 w-7/12 -bottom-24 z-20 pointer-events-none">
-	<img src="/clouds-top-right.png" alt="" class="absolute right-0 w-1/2 -bottom-12 translate-y-1/2 z-20 pointer-events-none">
-	<img src="/clouds-top-left.png" alt="" class="absolute left-0 w-3/12 -bottom-12  translate-y-1/2 z-20 pointer-events-none">
+	<img src="/clouds-top-middle.png" alt="" class="absolute left-5/12 -translate-x-1/2 w-7/12 -bottom-24 z-20">
+	<img src="/clouds-top-right.png" alt="" class="absolute right-0 w-1/2 -bottom-12 translate-y-1/2 z-20">
+	<img src="/clouds-top-left.png" alt="" class="absolute left-0 w-3/12 -bottom-12  translate-y-1/2 z-20">
 	
 
 	
@@ -747,26 +752,6 @@ Mumbai`.split("\n")
 			</div>
 		</button>
 	</div>
-
-	<!-- Desktop stickers button (bottom left) -->
-	<a
-		href="https://forms.hackclub.com/daydream-stickers"
-		target="_blank"
-		class="hidden md:block absolute bottom-16 left-16 z-50 w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none"
-	>
-		Get free stickers
-		<img
-			src="button-clouds.svg" 
-			alt="" 
-			class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
-		>
-		<img
-			src="rock-sticker.png"
-			alt=""
-			class="absolute bottom-2 right-3 translate-2/3 w-18 h-18 object-contain pointer-events-none"
-			style="transform: rotate(-15deg);"
-		>
-	</a>
 </div>
 
 <div class="w-full relative flex items-start justify-center">
@@ -791,25 +776,23 @@ Mumbai`.split("\n")
 				</p>
 				
 				<p class="font-bold text-2xl">
-					Hack Club wants you to organize a hackathon.
+					Hack Club wants you to join this hackathon and have loads of fun.
 				</p>
 				
 				<p>
-					We want more hackers than ever from all over the world to have this life 
-					changing experience, and we want your help in making that happen.
+					We want more hackers than ever from all over the state to have this life 
+					changing experience, and we want your attendance in making that happen.
 				</p>
 				
 				<p>
-					Sign up to organize a Daydream event in your city! All of our hackathons are 
+					Sign up to attend Daydream event in your city! All of our hackathons are 
 					teen-led. You do not need to have any previous experience, and Hack Club 
 					will provide you with funding and coaching.
 				</p>
 				
 				<p>
-					Our goal is to get <span class="font-bold">4,000 Hack Clubbers</span> to make projects they're proud of 
-					through Daydream, and we're giving out over <span class="font-bold">$120k in funding</span> to organizers 
-					like you!
-				</p>
+					Our goal is to get <span class="font-bold">100 Hack Clubbers</span> to make projects they're proud of 
+					through Daydream,
 				
 				<p class="text-center font-bold text-2xl mt-10 text-[#2C3E50]">
 					Check out our <a class="underline hover:text-pink" href="https://www.youtube.com/watch?v=hNYsNSY7Vz0">video!</a>
@@ -818,23 +801,23 @@ Mumbai`.split("\n")
 		</div>
 	</div>
 
-	<div class="w-full absolute z-30 max-h-64 bottom-0 max-2xl:translate-y-1/4 max-lg:translate-y-1/2 pointer-events-none">	
-		<img src="/cloud-cover-1.png" alt="" class="w-full h-full object-contain min-[2048px]:hidden">
+	<div class="w-full absolute z-30 max-h-64 bottom-0 max-xl:translate-y-1/4 max-lg:translate-y-1/2 pointer-events-none">	
+		<img src="/cloud-cover-1.png" alt="" class="w-full h-full object-contain">
 		<div class="absolute top-1/2 left-1/2 w-1 h-1 -translate-x-1/2 -translate-y-1/2" data-point="0"></div>
 		<div class="absolute top-1/2 left-1/4 w-1 h-1 -translate-x-1/2 -translate-y-1/2" data-point="0.5"></div>
 	</div>
-	<div class="absolute -bottom-44 left-1/2 -translate-x-1/2 w-10/12 h-auto object-contain z-100 cursor-text flex flex-row max-lg:flex-wrap md:translate-y-0 max-lg:translate-y-1/5 items-center justify-center align-middle max-w-5xl">
+	<div class="absolute -bottom-44 left-1/2 -translate-x-1/2 w-10/12 h-auto object-contain z-100 cursor-text flex flex-row max-md:flex-wrap items-center justify-center align-middle max-w-5xl">
 		<img src="gamejam-1.png" alt="Here's How You Organize a" class="flex-shrink min-w-0 object-contain">
 		<img src="gamejam-2.png" alt="Game Jam" class="flex-shrink min-w-0 object-contain">
 	</div>
 </div>
 <div class="w-full h-64 bg-[#FCEFC5]"></div>
 
-<div class="flex flex-row flex-wrap w-full h-auto bg-gradient-to-b from-[#FCEFC5] to-[#FEC1CF] px-36 max-md:px-8 pb-50 max-sm:pb-24 relative" id="islands-container">
+<div class="flex flex-row flex-wrap w-full h-auto bg-gradient-to-b from-[#FCEFC5] to-[#FEC1CF] px-36 max-md:px-8 pb-50 max-sm:pb-24 relative xl:pt-12 2xl:pt-48" id="islands-container">
 
-	<img src="/clouds-left-2.png" alt="" class="absolute left-0 w-3/12 top-12 pointer-events-none">
-	<img src="/clouds-left-3.png" alt="" class="absolute left-0 w-2/12 bottom-32 pointer-events-none">
-	<img src="/clouds-right-2.png" alt="" class="absolute right-0 w-3/12 bottom-0 pointer-events-none">
+	<img src="/clouds-left-2.png" alt="" class="absolute left-0 w-3/12 top-12">
+	<img src="/clouds-left-3.png" alt="" class="absolute left-0 w-2/12 bottom-32">
+	<img src="/clouds-right-2.png" alt="" class="absolute right-0 w-3/12 bottom-0">
 
 	<!-- SVG Path Overlay -->
 	<svg class="absolute inset-0 w-full h-full pointer-events-none z-0" id="path-svg">
@@ -850,7 +833,7 @@ Mumbai`.split("\n")
 			<div class="relative w-72 h-40 max-md:w-80 animate-hover ![--hover:-0.15rem] ![animation-delay:1.7s] z-20" data-point="1">
 				<img src="paper1.png" alt="" class="w-full h-full object-contain">
 				<div class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center">
-					<span class="font-sans text-[#E472AB] font-bold text-[1.3rem] mr-1">#1:</span> Find a team of co-organizers
+					<span class="font-sans text-[#E472AB] font-bold text-[1.3rem] mr-1">#1:</span> <a href="https://forms.hackclub.com/daydream" class="underline">Sign up</a> for Daydream {EVENT_NAME}
 				</div>
 			</div>
 		</div>
@@ -864,7 +847,7 @@ Mumbai`.split("\n")
 			<div class="relative w-72 h-40 max-md:w-80 animate-hover ![--hover:-0.15rem] ![animation-delay:0.3s] z-20" data-point="2">
 				<img src="paper2.png" alt="" class="w-full h-full object-contain">
 				<div class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center">
-					<span class="font-sans text-[#639DEB] font-bold text-[1.3rem] mr-1">#2:</span> Find a venue to host your hackathon
+					<span class="font-sans text-[#639DEB] font-bold text-[1.3rem] mr-1">#2:</span> Find a team of other teenagers at the event
 				</div>
 			</div>
 		</div>
@@ -877,7 +860,7 @@ Mumbai`.split("\n")
 			<div class="relative w-72 h-40 max-md:w-80 animate-hover ![--hover:-0.15rem] ![animation-delay:1.4s] z-20" data-point="3">
 				<img src="paper3.png" alt="" class="w-full h-full object-contain">
 				<div class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center">
-					<span class="font-sans text-[#AB68E2] font-bold text-[1.3rem] mr-1">#3:</span> Find sponsors to buy merch and prizes
+					<span class="font-sans text-[#AB68E2] font-bold text-[1.3rem] mr-1">#3:</span> Start building your game - <u>no experience needed</u>
 				</div>
 			</div>
 		</div>
@@ -890,7 +873,7 @@ Mumbai`.split("\n")
 			<div class="relative w-72 h-40 max-md:w-80 animate-hover ![--hover:-0.15rem] ![animation-delay:2.3s] z-20" data-point="4">
 				<img src="paper4.png" alt="" class="w-full h-full object-contain">
 				<div class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center">
-					<span class="font-sans text-[#F2993E] font-bold text-[1.3rem] mr-1">#4:</span> Buy supplies, order food, and prepare workshops
+					<span class="font-sans text-[#F2993E] font-bold text-[1.3rem] mr-1">#4:</span> Attend workshops or talk to one of our mentors for help
 				</div>
 			</div>
 		</div>
@@ -901,7 +884,7 @@ Mumbai`.split("\n")
 	<div class="flex flex-col items-center w-full basis-full translate-y-40 max-md:translate-y-12 z-20">
 		<div class="relative">
 			<div class="bg-[url('/card-final.png')] bg-contain bg-no-repeat bg-center text-2xl font-serif pt-24 px-8 w-128 h-96 text-center max-md:w-80 max-md:h-80 max-md:text-xl max-md:pt-16 animate-hover ![--hover:-0.15rem] ![animation-delay:1.9s]" data-point="5">
-				<span class="font-sans text-[#F2CC32] font-bold text-[1.5rem] mr-1">#5:</span> Run the game jam!
+				<span class="font-sans text-[#F2CC32] font-bold text-[1.5rem] mr-1">#5:</span> Share what you made with the world
 			</div>
 		</div>
 	</div>
@@ -912,109 +895,24 @@ Mumbai`.split("\n")
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none bg-position-[0_100vh]"></div>
 </div>
 
-<div class="w-full bg-gradient-to-b from-[#FDC5D1] to-[#FAE3C9] items-center justify-center px-0 md:px-8 relative pt-36">
-	<div class="w-full max-w-5xl lg:max-w-6xl mx-auto px-2 md:px-8">
-		<div class="relative w-full min-w-72">
-			<img src="banner.png" alt="100 Cities Worldwide" class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 md:-translate-y-[40%] h-48 w-auto z-100 scale-[1.15] md:scale-[1.65] saturate-70 brightness-110 object-contain px-4 pointer-events-none">
-			
-			<!-- Map container with cloudy edges -->
-			<div class="relative w-full h-156 overflow-hidden bg-transparent">
-				<iframe 
-					src="/map"
-					class="w-full h-full border-0 bg-[#acd4e0]"
-					style="
-						mask-image: 
-							linear-gradient(white, white),
-							url('/clouds-loop-mask-2.png'),
-							url('/clouds-loop-mask-1.png'),
-							url('/clouds-loop-mask-3.png'),
-							url('/clouds-loop-mask-4.png'),
-							url('/cloud-corner-1.png'),
-							url('/cloud-corner-2.png'),
-							url('/cloud-corner-3.png'),
-							url('/cloud-corner-4.png');
-						mask-position: 
-							center,
-							top left,
-							bottom left,
-							left top,
-							right top,
-							bottom left,
-							top left,
-							top right,
-							bottom right;
-						mask-size: 
-							auto auto,
-							auto 72px,
-							auto 72px,
-							72px auto,
-							72px auto,
-							100px 100px,
-							100px 100px,
-							100px 100px,
-							100px 100px;
-						mask-repeat: 
-							no-repeat,
-							repeat-x,
-							repeat-x,
-							repeat-y,
-							repeat-y,
-							no-repeat,
-							no-repeat,
-							no-repeat,
-							no-repeat;
-						-webkit-mask-image: 
-							linear-gradient(white, white),
-							url('/clouds-loop-mask-2.png'),
-							url('/clouds-loop-mask-1.png'),
-							url('/clouds-loop-mask-3.png'),
-							url('/clouds-loop-mask-4.png'),
-							url('/cloud-corner-1.png'),
-							url('/cloud-corner-2.png'),
-							url('/cloud-corner-3.png'),
-							url('/cloud-corner-4.png');
-						-webkit-mask-position: 
-							center,
-							top left,
-							bottom left,
-							left top,
-							right top,
-							bottom left,
-							top left,
-							top right,
-							bottom right;
-						-webkit-mask-size: 
-							auto auto,
-							auto 72px,
-							auto 72px,
-							72px auto,
-							72px auto,
-							100px 100px,
-							100px 100px,
-							100px 100px,
-							100px 100px;
-						-webkit-mask-repeat: 
-							no-repeat,
-							repeat-x,
-							repeat-x,
-							repeat-y,
-							repeat-y,
-							no-repeat,
-							no-repeat,
-							no-repeat,
-							no-repeat;
-						mask-type: luminance;
-						mask-mode: luminance;
-						mask-composite: exclude, add, add, add, add, add, add, add, add;
-					"
-					title="Daydream Events Map">
-				</iframe>
+<div class="w-full bg-gradient-to-b from-[#FDC5D1] to-[#FAE3C9] items-center justify-center px-32 relative pt-36">
+	<div class="max-md:absolute max-md:left-1/2 max-md:-translate-x-1/2 max-md:z-100 max-sm:pt-16">
+		<div class="relative w-full max-w-3xl mx-auto min-w-72 max-md:mx-0">
+			<div class="absolute top-0 left-1/2 -translate-x-1/2 max-md:-translate-y-1/2 max-sm:translate-y-[calc(-50%-4rem)] h-48 w-auto z-100 flex items-center justify-center px-4 pointer-events-none">
+				<h2 class="text-4xl font-serif italic text-[#60574b] bg-white px-6 py-3 rounded-lg shadow-lg max-md:text-3xl max-sm:text-2xl text-center">
+					{EVENT_LOCATION}
+				</h2>
 			</div>
-			
-			<p class="text-center font-sans text-2xl pt-12 max-sm:text-xl text-[#60574b] z-10000">All daydream events are organized by high school students like yourself! <br> <span class="font-bold"><a class="underline hover:text-pink" href="https://forms.hackclub.com/daydream">Sign up</a> to organize now!</span></p>
+			<img src="hole.png" alt="" class="w-full h-full max-w-3xl max-sm:scale-200 pointer-events-none">
+			<div 
+				class="absolute top-0 left-0 w-full h-full border-0 max-sm:scale-200 bg-blue-200 flex items-center justify-center text-[#60574b] font-bold text-xl"
+				style="mask: url('hole.png') no-repeat center; -webkit-mask: url('hole.png') no-repeat center; mask-size: contain; -webkit-mask-size: contain;">
+				Local Event
+			</div>
+			<p class="absolute left-1/2 -translate-x-1/2 font-sans text-center text-2xl pt-12 max-sm:pt-40 max-sm:text-xl w-max max-w-[80vh] max-md:max-w-full md:px-12 text-[#60574b] z-10000 ">All daydream events are organized by high school students like yourself! <br> <span class="font-bold"><a class="underline hover:text-pink" href="https://forms.hackclub.com/daydream">Sign up</a> to organize now!</span></p>
 		</div>
 	</div>
-
+	<div class="max-md:h-136"></div>
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
 </div>
 
