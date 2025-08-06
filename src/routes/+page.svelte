@@ -34,7 +34,8 @@ Minneapolis
 Seattle
 Singapore
 Sydney
-Mumbai`.split("\n")
+Mumbai
+Butwal`.split("\n")
 
 	function createSmoothPath(points: Array<{ x: number; y: number }>) {
 		if (points.length < 2) return "";
