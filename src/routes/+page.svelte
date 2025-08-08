@@ -654,7 +654,7 @@ Mumbai`.split("\n")
 			<h3
 				class="text-3xl italic font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent w-max max-sm:text-2xl mx-auto"
 			>
-				Game jam for high schoolers
+				Game jam for high schoolers in Suceava!
 			</h3>
 			<img
 				src="underline.svg"
@@ -673,7 +673,7 @@ Mumbai`.split("\n")
 				<input
 					type="email"
 					name="email"
-					placeholder="Enter email to organize Daydream"
+					placeholder="Enter email to RSVP!"
 					class="w-80 px-3 py-1 text-dark focus:outline-none"
 					required
 				/>
@@ -800,24 +800,25 @@ Mumbai`.split("\n")
 				</p>
 				
 				<p class="font-bold text-2xl">
-					Hack Club wants you to organize a hackathon.
+					Hack Club invites you to experience that magic at Daydream,
 				</p>
 				
 				<p>
 					We want more hackers than ever from all over the world to have this life 
-					changing experience, and we want your help in making that happen.
+					changing experience, and we're organizing a worldwide teen-led game jam 
+					over the weekend of September 27th & 28th, 2025. 
+					We want you to be a part of it!
 				</p>
 				
 				<p>
-					Sign up to organize a Daydream event in your city! All of our hackathons are 
-					teen-led. You do not need to have any previous experience, and Hack Club 
-					will provide you with funding and coaching.
+					Sign up to participate in Daydream Suceava! You do not need experience to make a game,
+					just a desire to learn and create. We will provide you with resources, mentorship,
+					and a supportive community to help you every step of the way.
 				</p>
 				
 				<p>
-					Our goal is to get <span class="font-bold">4,000 Hack Clubbers</span> to make projects they're proud of 
-					through Daydream, and we're giving out over <span class="font-bold">$120k in funding</span> to organizers 
-					like you!
+					Our goal is to make game development accessible to everyone, regardless of their background or experience level.
+					We believe that anyone can create something amazing with the right tools and support.
 				</p>
 				
 				<p class="text-center font-bold text-2xl mt-10 text-[#2C3E50]">
@@ -859,7 +860,7 @@ Mumbai`.split("\n")
 			<div class="relative w-72 h-40 max-md:w-80 animate-hover ![--hover:-0.15rem] ![animation-delay:1.7s] z-20" data-point="1">
 				<img src="paper1.png" alt="" class="w-full h-full object-contain">
 				<div class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center">
-					<span class="font-sans text-[#E472AB] font-bold text-[1.3rem] mr-1">#1:</span> Find a team of co-organizers
+					<span class="font-sans text-[#E472AB] font-bold text-[1.3rem] mr-1">#1:</span> Sign up!
 				</div>
 			</div>
 		</div>
@@ -873,7 +874,7 @@ Mumbai`.split("\n")
 			<div class="relative w-72 h-40 max-md:w-80 animate-hover ![--hover:-0.15rem] ![animation-delay:0.3s] z-20" data-point="2">
 				<img src="paper2.png" alt="" class="w-full h-full object-contain">
 				<div class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center">
-					<span class="font-sans text-[#639DEB] font-bold text-[1.3rem] mr-1">#2:</span> Find a venue to host your hackathon
+					<span class="font-sans text-[#639DEB] font-bold text-[1.3rem] mr-1">#2:</span> Get free stickers!
 				</div>
 			</div>
 		</div>
@@ -886,7 +887,7 @@ Mumbai`.split("\n")
 			<div class="relative w-72 h-40 max-md:w-80 animate-hover ![--hover:-0.15rem] ![animation-delay:1.4s] z-20" data-point="3">
 				<img src="paper3.png" alt="" class="w-full h-full object-contain">
 				<div class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center">
-					<span class="font-sans text-[#AB68E2] font-bold text-[1.3rem] mr-1">#3:</span> Find sponsors to buy merch and prizes
+					<span class="font-sans text-[#AB68E2] font-bold text-[1.3rem] mr-1">#3:</span> Come to the event and build a game!
 				</div>
 			</div>
 		</div>
@@ -899,7 +900,7 @@ Mumbai`.split("\n")
 			<div class="relative w-72 h-40 max-md:w-80 animate-hover ![--hover:-0.15rem] ![animation-delay:2.3s] z-20" data-point="4">
 				<img src="paper4.png" alt="" class="w-full h-full object-contain">
 				<div class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center">
-					<span class="font-sans text-[#F2993E] font-bold text-[1.3rem] mr-1">#4:</span> Buy supplies, order food, and prepare workshops
+					<span class="font-sans text-[#F2993E] font-bold text-[1.3rem] mr-1">#4:</span> Have the best time with your friends and make new ones!
 				</div>
 			</div>
 		</div>
@@ -910,7 +911,7 @@ Mumbai`.split("\n")
 	<div class="flex flex-col items-center w-full basis-full translate-y-40 max-md:translate-y-12 z-20">
 		<div class="relative">
 			<div class="bg-[url('/card-final.png')] bg-contain bg-no-repeat bg-center text-2xl font-serif pt-24 px-8 w-128 h-96 text-center max-md:w-80 max-md:h-80 max-md:text-xl max-md:pt-16 animate-hover ![--hover:-0.15rem] ![animation-delay:1.9s]" data-point="5">
-				<span class="font-sans text-[#F2CC32] font-bold text-[1.5rem] mr-1">#5:</span> Run the game jam!
+				<span class="font-sans text-[#F2CC32] font-bold text-[1.5rem] mr-1">#5:</span> After the event, get merch and a certificate of participation!
 			</div>
 		</div>
 	</div>
