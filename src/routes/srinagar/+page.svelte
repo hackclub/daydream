@@ -17,7 +17,7 @@
 	// Sponsors Configuration
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "https://storage.jukeboxprint.com/s/images/jukebox-logo.svg", name: "Jukebox", url: "https://jukeboxprint.com" },
+		{ image: "https://storage.jukeboxprint.com/s/images/jukebox-logo.svg", name: "Jukebox", url: "https://www.jukeboxprint.com/custom-stickers" },
 	];
 	
 	// Schedule Configuration - You don't need to use this schedule, this is just an example!
@@ -39,9 +39,13 @@
 			title: "Sunday, September 28th",
 			items: [
 				{ event: "Doors open", time: "08:00 AM" },
-				{ event: "Start working on your project!", time: "9:00 AM" },
+				{ event: "Start working on your project!", time: "8:30 AM" },
+				{ event: "Activity 1", time: "11:00 AM" },
 				{ event: "Lunch", time: "01:00 PM" },
-				{ event: "Activity 1", time: "3:00 PM" },
+				{ event: "Hackathon Ends", time: "02:45 PM" },
+				{ event: "Demos Start", time: "03:00 PM" },
+				{ event: "Voting Begins", time: "04:30 PM" },
+				{ event: "Closing Ceremony", time: "05:00 PM" },
 				{ event: "Wrap up", time: "06:00 PM" }
 			]
 		}
