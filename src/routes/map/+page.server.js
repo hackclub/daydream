@@ -11,20 +11,26 @@ export async function load() {
 	}
 
 	try {
-		// Fetch approved events from Airtable
-		const airtableUrl = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/events?filterByFormula={triage_status}="Approved"`;
-		const airtableResponse = await fetch(airtableUrl, {
-			headers: {
-				'Authorization': `Bearer ${AIRTABLE_API_KEY}`
+		// Fetch all approved events from Airtable with pagination
+		const events = [];
+		let offset = null;
+		
+		do {
+			const airtableUrl = `https://api.airtable.com/v0/${AIRTABLE_BASE_ID}/events?filterByFormula={triage_status}="Approved"${offset ? `&offset=${offset}` : ''}`;
+			const airtableResponse = await fetch(airtableUrl, {
+				headers: {
+					'Authorization': `Bearer ${AIRTABLE_API_KEY}`
+				}
+			});
+
+			if (!airtableResponse.ok) {
+				throw new Error(`Airtable API error: ${airtableResponse.status}`);
 			}
-		});
 
-		if (!airtableResponse.ok) {
-			throw new Error(`Airtable API error: ${airtableResponse.status}`);
-		}
-
-		const airtableData = await airtableResponse.json();
-		const events = airtableData.records;
+			const airtableData = await airtableResponse.json();
+			events.push(...airtableData.records);
+			offset = airtableData.offset;
+		} while (offset);
 
 		// Geocode each event location
 		const locations = [];

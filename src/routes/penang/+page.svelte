@@ -1,14 +1,50 @@
 <script lang="ts">
+	const eventName = "Penang";
+	const eventLocation = "Penang";
+	const eventAddress = "Wisma Yeap Chor Ee, 37, Gat Lebuh China, Georgetown, 10200 George Town, Penang";
+	const directionsURL = "https://www.google.com/maps/place/PSC@Heritage+(Penang+Science+Cluster)/@5.4153623,100.3397381,17z/data=!3m1!4b1!4m6!3m5!1s0x304ac38e9e1ad7e9:0xdb5c3a2cdee5013c!8m2!3d5.415357!4d100.342313!16s%2Fg%2F11clvx6mkl?entry=ttu&g_ep=EgoyMDI1MDgwNi4wIKXMDSoASAFQAw%3D%3D"
+	const contactLink = "mailto:info@daydreampenang.com"
+	
+	const signupLink = "https://forms.hackclub.com/daydream-rsvp"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const sponsorsEnabled = true; 
+	const sponsors = [
+		{ image: "https://storage.jukeboxprint.com/s/images/jukebox-logo.svg", name: "Jukebox", url: "https://www.jukeboxprint.com/custom-stickers" }
+	];
+	
+	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
+		{
+			title: "Saturday, September 27th",
+			items: [
+				{ event: "Doors open", time: "9:00 AM" },
+				{ event: "Opening ceremony", time: "9:15 AM" },
+				{ event: "Workshop 1", time: "10:30 AM" },
+				{ event: "Lunch", time: "1:00 PM" },
+				{ event: "Start working on the project", time: "2:00 PM" },
+				{ event: "Workshop 2", time: "4:00 PM" },
+				{ event: "Workshop 3", time: "4:00 PM" },
+				{ event: "Dinner", time: "6:00 PM" },
+				{ event: "Ship the project", time: "8:00 PM" },
+				{ event: "Closing ceremony", time: "9:00 PM" }
+			]
+		}
+	];
+
+	
 	import { onMount } from "svelte";
 	import { gsap } from "gsap";
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
-	import Ticker from "$lib/components/Ticker.svelte";
-	import Footer from "$lib/components/Footer.svelte";
+	import ParticipantSignUp from "$lib/components/ParticipantSignUp.svelte";
+	import { page } from '$app/stores';
+	
 	
 	/** @type {import('./$types').PageData} */
 	export let data;
+	
+	$: currentUrl = `https://daydream.hackclub.com${$page.url.pathname}`;
+	$: pageTitle = `${eventName} - Game Jam in ${eventLocation}`;
+	$: pageDescription = `Join Daydream ${eventName} in ${eventLocation}! A teen-led game jam where you'll build amazing games with other high schoolers. Food, workshops, and prizes included!`;
+	$: pageKeywords = `game jam, hackathon, teen coding, Hack Club, game development, ${eventLocation}, ${eventName}`;
 
-	// Cities where the game jam is happening
 	const cities = `Columbus
 Lisbon 
 Boston
@@ -33,6 +69,7 @@ San Francisco
 Minneapolis
 Seattle
 Singapore
+Kuala Lumpur
 Sydney
 Mumbai`.split("\n")
 
@@ -263,19 +300,16 @@ Mumbai`.split("\n")
 
 	let showVideoPopup = false;
 	
-	// Generate ticker text from cities array with user's city inserted
-	let tickerText = "";
-	$: {
-		const result: string[] = [];
-		cities.forEach((city, index) => {
-			result.push(city);
-			// Insert user's city after every 12 cities
-			if ((index + 1) % 12 === 0 && data.userCity) {
-				result.push(`<a href="https://forms.hackclub.com/daydream"><tspan fill="#f49cc8" style="text-shadow: 0 0 8px #f7d4e6">${data.userCity}?</tspan></a>`);
-			}
-		});
-		tickerText = result.join(" • ");
-	}
+	// Dice functionality state
+	let showDice = false;
+	let diceNumbers = [1, 1, 1]; // Default dice values
+	let showDone = false;
+	let isRolling = false;
+	let ideaText = "";
+	let isTyping = false;
+	
+	// Generate ticker text from cities array (constant)
+	const tickerText = cities.join(" • ");
 
 	// Particle system
 	let particles: Array<{ id: number; x: number; y: number; opacity: number; rotation: number; velocityY: number; velocityX: number; scale: number }> = [];
@@ -300,25 +334,109 @@ Mumbai`.split("\n")
 		showVideoPopup = false;
 	}
 
-	function handleFormSubmit(event: Event) {
-		event.preventDefault();
-		const form = event.target as HTMLFormElement;
-		const emailInput = form.querySelector('input[name="email"]') as HTMLInputElement;
-		const email = emailInput.value;
+
+
+	async function typeText(text: string) {
+		isTyping = true;
+		ideaText = "";
 		
-		fetch('/api/submit-email', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({ email })
-		}).catch(error => {
-			console.warn('Failed to save email:', error);
+		for (let i = 0; i <= text.length; i++) {
+			ideaText = text.slice(0, i);
+			await new Promise(resolve => setTimeout(resolve, 20));
+		}
+		
+		isTyping = false;
+	}
+
+	async function fetchIdea(): Promise<string> {
+		let attempt = 0;
+		const maxAttempts = 5;
+		
+		while (attempt < maxAttempts) {
+			try {
+				const response = await fetch('/api/idea', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					}
+				});
+				
+				if (!response.ok) {
+					if (response.status === 500) {
+						throw new Error(`Server error: ${response.status}`);
+					} else {
+						// Don't retry on non-500 errors
+						return "How about a game where you collect magical crystals to save a mysterious floating world?";
+					}
+				}
+				
+				const data = await response.json();
+				return data.idea;
+			} catch (error) {
+				attempt++;
+				console.warn(`Attempt ${attempt} failed:`, error);
+				
+				if (attempt >= maxAttempts) {
+					return "How about a game where you collect magical crystals to save a mysterious floating world?";
+				}
+				
+				// Wait before retrying
+				await new Promise(resolve => setTimeout(resolve, 1000));
+			}
+		}
+		
+		return "How about a game where you collect magical crystals to save a mysterious floating world?";
+	}
+
+	async function dreamIdea() {
+		if (isRolling) return;
+		
+		isRolling = true;
+		showDone = false;
+		showDice = true;
+		ideaText = "";
+		
+		const startTime = Date.now();
+		const minDuration = 1000;
+		let fetchComplete = false;
+		let fetchResult: string = "";
+		
+		// Start fetch and dice animation concurrently
+		const fetchPromise = fetchIdea().then(result => {
+			fetchResult = result;
+			fetchComplete = true;
+			return result;
 		});
 		
-		window.open(`https://forms.hackclub.com/daydream?email=${encodeURIComponent(email)}`, '_blank');
+		// Dice animation loop
+		const dicePromise = (async () => {
+			while (true) {
+				const elapsed = Date.now() - startTime;
+				
+				// Stop if both minimum time has passed AND fetch is complete
+				if (elapsed >= minDuration && fetchComplete) {
+					break;
+				}
+				
+				diceNumbers = [
+					Math.floor(Math.random() * 6) + 1,
+					Math.floor(Math.random() * 6) + 1,
+					Math.floor(Math.random() * 6) + 1
+				];
+				
+				await new Promise(resolve => setTimeout(resolve, 100));
+			}
+		})();
 		
-		emailInput.value = '';
+		// Wait for both to complete
+		await Promise.all([fetchPromise, dicePromise]);
+		
+		showDone = false;
+		showDice = false;
+		isRolling = false;
+		
+		// Start typing animation with the fetched idea
+		await typeText(fetchResult);
 	}
 
 	function setupPlaneAnimation() {
@@ -581,29 +699,58 @@ Mumbai`.split("\n")
 	:global(html) {
 		overflow-x: hidden;
 	}
+	
+	/* Minimal scrollbar styling */
+	.idea-output-box::-webkit-scrollbar {
+		width: 8px;
+	}
+	
+	.idea-output-box::-webkit-scrollbar-track {
+		background: transparent;
+	}
+	
+	.idea-output-box::-webkit-scrollbar-thumb {
+		background-color: #d1e3ee;
+		border-radius: 0;
+		border: none;
+	}
+	
+	.idea-output-box::-webkit-scrollbar-thumb:hover {
+		background-color: #d1e3ee;
+	}
+	
+	.idea-output-box::-webkit-scrollbar-corner {
+		background: transparent;
+	}
+	
+	/* Firefox scrollbar styling */
+	.idea-output-box {
+		scrollbar-width: auto;
+		scrollbar-color: #d1e3ee transparent;
+	}
 </style>
 
 
 <svelte:head>
-	<title>Daydream - Teen Game Jam by Hack Club</title>
-	<meta name="description" content="Join Daydream, the worldwide teen-led game jam by Hack Club! 4,000+ hackers building games in 100+ cities. Sign up to organize or participate in your city." />
-	<meta name="keywords" content="game jam, hackathon, teen coding, Hack Club, game development, teen programming, high school coding" />
+	<title>{pageTitle}</title>
+	<meta name="description" content={pageDescription} />
+	<meta name="keywords" content={pageKeywords} />
 	
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://daydream.hackclub.com" />
-	<meta property="og:title" content="Daydream - Teen Game Jam by Hack Club" />
-	<meta property="og:description" content="Join Daydream, the worldwide teen-led game jam by Hack Club! 4,000+ hackers building games in 100+ cities. Sign up to organize or participate in your city." />
-	<meta property="og:image" content="https://daydream.hackclub.com/og-image.png" />
+	<meta property="og:url" content={currentUrl} />
+	<meta property="og:title" content={pageTitle} />
+	<meta property="og:description" content={pageDescription} />
+	<meta property="og:image" content="https://daydream.hackclub.com/og.png" />
 	<meta property="og:image:width" content="1200" />
 	<meta property="og:image:height" content="630" />
 	<meta property="og:site_name" content="Daydream" />
 	
 	<!-- Twitter -->
 	<meta property="twitter:card" content="summary_large_image" />
-	<meta property="twitter:url" content="https://daydream.hackclub.com" />
-	<meta property="twitter:title" content="Daydream - Teen Game Jam by Hack Club" />
-	<meta property="twitter:description" content="Join Daydream, the worldwide teen-led game jam by Hack Club! 4,000+ hackers building games in 100+ cities. Sign up to organize or participate in your city." />
+	<meta property="twitter:url" content={currentUrl} />
+	<meta property="twitter:title" content={pageTitle} />
+	<meta property="twitter:description" content={pageDescription} />
 	<meta property="twitter:image" content="https://daydream.hackclub.com/og-image.png" />
 	<meta property="twitter:creator" content="@hackclub" />
 	<meta property="twitter:site" content="@hackclub" />
@@ -611,7 +758,7 @@ Mumbai`.split("\n")
 	<!-- Additional SEO -->
 	<meta name="robots" content="index, follow" />
 	<meta name="author" content="Hack Club" />
-	<link rel="canonical" href="https://daydream.hackclub.com" />
+	<link rel="canonical" href={currentUrl} />
 	
 	<!-- Analytics -->
 	<script defer data-domain="daydream.hackclub.com" src="https://plausible.io/js/script.js"></script>
@@ -628,7 +775,30 @@ Mumbai`.split("\n")
 
 	<div class="buildings-back-parallax absolute top-0 left-0 w-full h-full bg-[url(/buildings-back.png)] bg-no-repeat bg-contain pointer-events-none lg:-translate-y-15"></div>
 	
-	<Ticker {tickerText} />
+	<!-- Animated text ticker along curvy line -->
+	<div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none lg:-translate-y-35 -translate-y-20 overflow-hidden max-md:w-200 max-lg:w-[125%]">
+		<svg width="1280" height="464" viewBox="0 0 1280 464" class="w-full h-max pt-32 object-contain" xmlns="http://www.w3.org/2000/svg">
+			<defs>
+				<path id="curvy-path" d="M-41 274.995C91.5 229.995 203.5 64.4946 483.5 39.9946C763.5 15.4946 892.5 151.495 1165 196.495C1383 232.495 1462.5 263.828 1475 274.995"/>
+				<mask id="reveal-mask">
+					<rect x="0" y="0" width="0" height="464" fill="white">
+						<animate attributeName="width" values="0;1280" dur="2s" calcMode="spline" keySplines="0.05,0.7,0.3,1" keyTimes="0;1" begin="0.75s" fill="freeze"/>
+					</rect>
+				</mask>
+			</defs>
+			<g mask="url(#reveal-mask)">
+				<!-- Background path stroke -->
+				<path d="M-41 268.495C91.5 223.495 203.5 57.9946 483.5 33.4946C763.5 8.9946 892.5 144.995 1165 189.995C1383 225.995 1462.5 257.328 1475 268.495" 
+					  stroke="#9EE4F2" stroke-width="28" fill="none" stroke-linecap="round"/>
+				<text font-family="sans-serif" fill="#EDFCFF" font-weight="bold" font-size="18">
+					<textPath href="#curvy-path" startOffset="-100%">
+						{@html Array(2).fill(tickerText).join(" • ")} • 
+						<animate id="ticker-animation" attributeName="startOffset" values="-100%;0%" dur="30s" repeatCount="indefinite"/>
+					</textPath>
+				</text>
+			</g>
+		</svg>
+	</div>
 	
 	<!-- brush texture clipped to back buildings -->
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat pointer-events-none opacity-100 lg:-translate-y-15 bg-center mix-blend-overlay" style="mask-image: url('/buildings-back.png'); mask-size: contain; mask-repeat: no-repeat; mask-position: center top; -webkit-mask-image: url('/buildings-back.png'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center top;"></div>
@@ -643,9 +813,9 @@ Mumbai`.split("\n")
 			<h2
 			class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
 			>
-				September 27th & 28th, 2025
+				September 27th 2025
 			</h2>
-			<img src="daydream.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
+			<img src="./penang/daydream.svg" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
 			<a href="https://hackclub.com" class="absolute top-0 -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
 				<img src="flag-plane.png" alt="Hack Club" class="h-28">
 			</a>
@@ -664,43 +834,11 @@ Mumbai`.split("\n")
 			<h4
 				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
 			>
-				Organized by high schoolers in 100 cities worldwide
+				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
 			</h4>
 		</div>
 		
-		<div class="mt-8 flex flex-col items-center gap-3 z-5 max-md:scale-90">
-			<form on:submit={handleFormSubmit} class="rounded-full bg-white border-2 border-dark font-sans p-2 flex flex-row items-center gap-2 shadow-[0_3px_0_0_theme(colors.dark)] focus-within:border-pink focus-within:shadow-[0_3px_0_0_#E472AB] has-[button:active]:border-dark has-[button:active]:shadow-[0_3px_0_0_theme(colors.dark)] has-[button:focus]:border-dark has-[button:focus]:shadow-[0_3px_0_0_theme(colors.dark)]">
-				<input
-					type="email"
-					name="email"
-					placeholder="Enter email to organize Daydream"
-					class="w-80 px-3 py-1 text-dark focus:outline-none"
-					required
-				/>
-				<input type="hidden" name="mailingLists" value="cmd3c94kz0hvz0iwt7ps28cyd" />
-				<button type="submit" class="bg-light h-full px-5 rounded-full border-b-2 border-[#B3866A] cursor-pointer hover:border-b-4 hover:transform active:border-b-0 active:transform active:translate-y-0.5 focus:outline-none transition-all duration-100">
-					<img src="submit.svg" alt="Go">
-				</button>
-			</form>
-			<a
-				href="https://forms.hackclub.com/daydream-stickers"
-				target="_blank"
-				class="w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer mx-auto relative overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none active: mt-4 md:hidden"
-			>
-				Get free stickers
-				<img
-					src="button-clouds.svg" 
-					alt="" 
-					class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
-				>
-				<img
-					src="rock-sticker.png"
-					alt=""
-					class="absolute bottom-2 right-3 translate-2/3 w-18 h-18 object-contain pointer-events-none"
-					style="transform: rotate(-15deg);"
-				>
-			</a>
-		</div>
+		<ParticipantSignUp {eventName} />
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
@@ -734,29 +872,6 @@ Mumbai`.split("\n")
 	<img src="/clouds-top-left.png" alt="" class="absolute left-0 w-3/12 -bottom-12  translate-y-1/2 z-20 pointer-events-none">
 	
 
-	
-	<!-- Video Thumbnail Button Container -->
-	<div class="absolute bottom-8 right-8 max-sm:top-[calc(50%+22rem)] max-sm:left-1/2 max-sm:-translate-x-1/2 max-sm:bottom-auto max-sm:right-auto max-sm:scale-150 z-11000 [1750px]:scale-150 2xl:origin-bottom-right">
-		<!-- Click Me Text -->
-		<div class="absolute -top-8 -left-4 text-base font-sans text-[#8B4513] transform -rotate-12 pointer-events-none z-10 max-sm:top-full max-sm:left-1/2 max-sm:-translate-x-1/2 max-sm:rotate-0 max-sm:mt-1 max-sm:text-center max-sm:text-xs animate-hover max-sm:![--hover:-0.2rem]">
-			click me!
-		</div>
-		
-		<!-- Video Thumbnail Button -->
-		<button
-			on:click={openVideoPopup}
-			class="w-40 h-24 rounded overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer group lg:w-72 lg:h-40 sm:w-40 sm:h-24 animate-hover max-sm:![--hover:-0.2rem]"
-			style="box-shadow: 0 0 20px #905429"
-		>
-			<img src="thumbnail.png" alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-			<div class="absolute inset-0 bg-[rgba(0,0,0,0.1)] bg-opacity-30 group-hover:bg-opacity-20 transition-colors duration-300 flex items-center justify-center">
-				<div class="scale-150 w-8 h-8 bg-[rgba(255,255,255,0.5)] bg-opacity-20 rounded-full flex items-center justify-center md:w-6 md:h-6 sm:w-4 sm:h-4">
-					<div class="w-0 h-0 border-l-[8px] border-l-[rgba(255,255,255,1)] border-t-[5px] border-t-transparent border-b-[5px] border-b-transparent ml-1 md:border-l-[6px] md:border-t-[4px] md:border-b-[4px] sm:border-l-[4px] sm:border-t-[3px] sm:border-b-[3px]"></div>
-				</div>
-			</div>
-		</button>
-	</div>
-
 	<!-- Desktop stickers button (bottom left) -->
 	<a
 		href="https://forms.hackclub.com/daydream-stickers"
@@ -784,60 +899,224 @@ Mumbai`.split("\n")
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-30 pointer-events-none -z-40"></div>
 	
 	<div class="relative max-w-4xl mx-auto h-full flex items-start pt-24 max-sm:pt-40 px-8 max-sm:px-2">
-		<div class="relative z-20 px-20 pt-20 pb-32 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
+		<div class="relative z-20 px-20 pt-20 pb-52 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
 			<div class="absolute bottom-0 left-0 w-full h-24 z-10 pointer-events-none bg-[url('/clouds-loop.png')] bg-repeat-x bg-bottom bg-contain"></div>
 			<h2 class="text-5xl font-serif italic text-[#8B4513] mb-10 relative">
-				Dear Hacker,
+				Dear Hackers, Musicians, and Artist,
 				<img src="/underline.svg" alt="" class="absolute left-0 -bottom-3 w-64 h-auto opacity-70">
 			</h2>
 			
 			<div class="text-[#8B4513] font-serif text-xl leading-relaxed space-y-8">
-				<p>
-					Hackathons are <em class="italic font-bold">magical</em>. You've probably felt it before: staying up all night 
-					with your friends, building something that actually works, finally meeting 
-					everyone whose code you've admired. That rush when your code compiles at 3:00 am 
-					and suddenly your wild idea becomes real.
-				</p>
-				
-				<p class="font-bold text-2xl">
-					Hack Club wants you to organize a hackathon.
-				</p>
-				
-				<p>
-					We want more hackers than ever from all over the world to have this life 
-					changing experience, and we want your help in making that happen.
-				</p>
-				
-				<p>
-					Sign up to organize a Daydream event in your city! All of our hackathons are 
-					teen-led. You do not need to have any previous experience, and Hack Club 
-					will provide you with funding and coaching.
-				</p>
-				
-				<p>
-					Our goal is to get <span class="font-bold">4,000 Hack Clubbers</span> to make projects they're proud of 
-					through Daydream, and we're giving out over <span class="font-bold">$120k in funding</span> to organizers 
-					like you!
-				</p>
-				
-				<p class="text-center font-bold text-2xl mt-10 text-[#2C3E50]">
-					Check out our <a class="underline hover:text-pink" href="https://www.youtube.com/watch?v=hNYsNSY7Vz0">video!</a>
-				</p>
+				<p>Welcome to Hack Club's newest adventure. This fall we invite you to join us for Daydream, the world's biggest Game Jam happening simultaneously in 100 cities.</p>
+
+				<p class="font-bold text-2xl">Hack Club wants you to make a game this fall.</p>
+
+				<p>Don't consider yourself a game dev? No problem - we have tons of online and in-person workshops for you to make your first game! </p>
+
+				<p>This fall, we invite you to learn something new, make something you're really proud of, meet new friends, and go on an incredible adventure together.</p>
+
+				<p class="mb-2">With love,</p>
+
+				<p class="italic text-2xl opacity-85">Augie and Renran from Hack Club HQ</p>
 			</div>
 		</div>
 	</div>
 
 	<div class="w-full absolute z-30 max-h-64 bottom-0 max-2xl:translate-y-1/4 max-lg:translate-y-1/2 pointer-events-none">	
 		<img src="/cloud-cover-1.png" alt="" class="w-full h-full object-contain min-[2048px]:hidden">
-		<div class="absolute top-1/2 left-1/2 w-1 h-1 -translate-x-1/2 -translate-y-1/2" data-point="0"></div>
+	</div>
+
+</div>
+
+<!-- Schedule Container -->
+<div class="w-full bg-[#FCEFC5] py-16 px-8 flex justify-center">
+	<div class="relative max-w-4xl w-full">
+		<!-- Billboard Container -->
+		<div class="relative bg-[#f0f9ff] border-[10px] border-b-[16px] border-[#888896] rounded-lg rounded-b-xl mx-auto z-40">
+			<!-- Billboard Lights (top) -->
+			<img 
+				src="/billboard-lights.png" 
+				alt="" 
+				class="absolute top-0 left-0 w-full h-auto object-contain pointer-events-none z-10 -translate-y-[calc(100%+9px)]"
+			>
+			
+			<!-- Header Section -->
+			<div class="w-full bg-[url('/billboard-bg-texture.png')] bg-contain bg-repeat py-6 relative" style="border-bottom: 8px solid #B4B4C5;">
+				<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">
+					Schedule
+				</h2>
+				<!-- Brush texture overlay for header -->
+				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
+			</div>
+			
+			<!-- Main Content Area -->
+			<div class="relative bg-gradient-to-b from-[#CCF4FD] to-[#AECDF6] px-8 pt-8 pb-16">
+				<!-- Brush texture overlay for content -->
+				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
+				
+				<!-- Schedule Content -->
+				<div class="relative z-10">
+					{#each scheduleData as day, dayIndex}
+						<div class="bg-white/50 py-6 -mx-8 {dayIndex < scheduleData.length - 1 ? 'mb-8' : ''}">
+							<h3 class="text-2xl font-sans font-bold text-[#335969] mb-6 text-center px-8 max-sm:text-xl max-sm:px-4">
+								{day.title}
+							</h3>
+							
+							<div class="max-w-xl mx-auto px-4">
+								{#each day.items as item, index}
+									<div class="flex items-center justify-between py-2">
+										<span class="text-lg font-sans text-[#477783]">{item.event}</span>
+										<span class="text-lg font-sans text-[#477783]">{item.time}</span>
+									</div>
+									{#if index < day.items.length - 1}
+										<div class="h-[2px] bg-white/30"></div>
+									{/if}
+								{/each}
+							</div>
+						</div>
+					{/each}
+				</div>
+			</div>
+			
+			<!-- Billboard Bars (bottom) -->
+			<div 
+				class="absolute bottom-0 -left-[5px] w-[calc(100%+10px)] h-6 bg-[url('/billboard-bars.png')] bg-repeat-x bg-contain bg-center pointer-events-none z-10 border-[#9898a7] border-x-[6px]"
+			></div>
+		</div>
+		
+		<!-- Billboard Pillars -->
+		<div 
+			class="absolute top-1/2 left-[15%] w-[10vw] max-w-12 -bottom-12 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain"
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
+		>
+			<div class="absolute bottom-0 left-0 w-full h-auto bg-[url('/clouds-loop.png')] bg-no-repeat bg-contain bg-bottom pointer-events-none aspect-[2/1]"></div>
+		</div>
+		<div 
+			class="absolute top-1/2 right-[15%] w-[10vw] max-w-12 -bottom-12 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain"
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
+		>
+			<div class="absolute bottom-0 left-0 w-full h-auto bg-[url('/clouds-loop.png')] bg-no-repeat bg-contain bg-bottom pointer-events-none aspect-[2/1]"></div>
+		</div>
+	</div>
+</div>
+
+{#if sponsorsEnabled}
+<!-- Second Billboard Section -->
+<div class="w-full bg-[#FCEFC5] pb-16 pt-6 px-8 flex justify-center">
+	<div class="relative max-w-4xl w-full">
+		<!-- Billboard Container -->
+		<div class="relative bg-[#f0f9ff] border-[10px] border-b-[16px] border-[#888896] rounded-lg rounded-b-xl mx-auto z-40">
+			<!-- Header Section -->
+			<div class="w-full bg-[url('/billboard-bg-texture.png')] bg-contain bg-repeat py-6 relative" style="border-bottom: 8px solid #B4B4C5;">
+				<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">
+					Sponsors
+				</h2>
+				<!-- Brush texture overlay for header -->
+				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
+			</div>
+			
+			<!-- Main Content Area -->
+			<div class="relative bg-gradient-to-b from-[#CCF4FD] to-[#AECDF6] px-8 pt-8 pb-16">
+				<!-- Brush texture overlay for content -->
+				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
+				
+				<!-- Sponsors Grid -->
+				<div class="relative z-10 min-h-40">
+					{#if sponsors.length > 0}
+						<!-- First row (up to 4 sponsors) -->
+						{#if sponsors.length > 4}
+							<div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center mb-8">
+								{#each sponsors.slice(0, 4) as sponsor}
+									<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
+										<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
+									</a>
+								{/each}
+							</div>
+							
+							<!-- Second row (remaining sponsors, centered) -->
+							{#if sponsors.length > 4}
+								<div class="flex justify-center">
+									<div class="grid grid-cols-2 md:grid-cols-3 gap-8 items-center justify-items-center max-w-2xl">
+										{#each sponsors.slice(4) as sponsor, index}
+											<a href={sponsor.url} 
+												class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors {sponsors.slice(4).length === 3 && index === 2 ? 'md:col-span-1 col-span-2 max-w-xs mx-auto' : ''}" 
+												target="_blank" rel="noopener noreferrer">
+												<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
+											</a>
+										{/each}
+									</div>
+								</div>
+							{/if}
+						{:else}
+							<!-- Single row for 4 or fewer sponsors -->
+							<div class="flex justify-center">
+								<div class="grid gap-8 w-full items-center justify-items-center max-w-4xl {sponsors.length === 1 ? 'grid-cols-1' : sponsors.length === 2 ? 'grid-cols-1 md:grid-cols-2' : sponsors.length === 3 ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-2 md:grid-cols-4'}">
+									{#each sponsors as sponsor}
+										<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
+											<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
+										</a>
+									{/each}
+								</div>
+							</div>
+						{/if}
+					{/if}
+					
+					{#if contactLink}
+						<!-- Call to action for sponsors -->
+						<div class="mt-8 text-center">
+							<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
+						</div>
+					{/if}
+				</div>
+			</div>
+			
+			<!-- Billboard Bars (bottom) -->
+			<div 
+				class="absolute bottom-0 -left-[5px] w-[calc(100%+10px)] h-6 bg-[url('/billboard-bars.png')] bg-repeat-x bg-contain bg-center pointer-events-none z-10 border-[#9898a7] border-x-[6px]"
+			></div>
+		</div>
+		
+		<!-- Connecting Pillars to First Billboard -->
+		<div 
+			class="absolute top-0 left-[15%] w-[10vw] max-w-12 h-32 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain -translate-y-32"
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
+		></div>
+		<div 
+			class="absolute top-0 right-[15%] w-[10vw] max-w-12 h-32 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain -translate-y-32"
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
+		></div>
+		
+		<!-- Billboard Pillars (extending down from bottom) -->
+		<div 
+			class="absolute bottom-0 left-[15%] w-[10vw] max-w-12 h-24 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain translate-y-24"
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
+		>
+			<div class="absolute bottom-0 left-0 w-full h-auto bg-[url('/clouds-loop.png')] bg-no-repeat bg-contain bg-bottom pointer-events-none aspect-[2/1]"></div>
+		</div>
+		<div 
+			class="absolute bottom-0 right-[15%] w-[10vw] max-w-12 h-24 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain translate-y-24"
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
+		>
+			<div class="absolute bottom-0 left-0 w-full h-auto bg-[url('/clouds-loop.png')] bg-no-repeat bg-contain bg-bottom pointer-events-none aspect-[2/1]"></div>
+		</div>
+	</div>
+</div>
+{/if}
+
+<!-- Gamejam Text Section -->
+<div class="w-full bg-[#FCEFC5] flex justify-center py-16 relative overflow-hidden max-h-[400px]">
+	<!-- Cloud backdrop for gamejam text -->
+	<div class="absolute inset-0 w-full h-full pointer-events-none z-1">	
+		<img src="/cloud-cover-1.png" alt="" class="w-full h-full object-cover">
+				<div class="absolute top-1/2 left-1/2 w-1 h-1 -translate-x-1/2 -translate-y-1/2" data-point="0"></div>
 		<div class="absolute top-1/2 left-1/4 w-1 h-1 -translate-x-1/2 -translate-y-1/2" data-point="0.5"></div>
 	</div>
-	<div class="absolute -bottom-44 left-1/2 -translate-x-1/2 w-10/12 h-auto object-contain z-100 cursor-text flex flex-row max-lg:flex-wrap md:translate-y-0 max-lg:translate-y-1/5 items-center justify-center align-middle max-w-5xl">
-		<img src="gamejam-1.png" alt="Here's How You Organize a" class="flex-shrink min-w-0 object-contain">
+	
+	<div class="relative w-10/12 h-auto object-contain cursor-text flex flex-row max-lg:flex-wrap md:translate-y-0 max-lg:translate-y-1/5 items-center justify-center align-middle max-w-5xl z-50">
+		<img src="gamejam-1-alt.png" alt="Here's How You Win a" class="flex-shrink min-w-0 object-contain">
 		<img src="gamejam-2.png" alt="Game Jam" class="flex-shrink min-w-0 object-contain">
 	</div>
 </div>
-<div class="w-full h-64 bg-[#FCEFC5]"></div>
 
 <div class="flex flex-row flex-wrap w-full h-auto bg-gradient-to-b from-[#FCEFC5] to-[#FEC1CF] px-36 max-md:px-8 pb-50 max-sm:pb-24 relative" id="islands-container">
 
@@ -850,7 +1129,7 @@ Mumbai`.split("\n")
 		<path id="dotted-path" stroke="rgba(255,255,255,0.5)" stroke-width="3" fill="none" stroke-dasharray="8,8" opacity="0.7"></path>
 	</svg>
 
-	<img src="paper-airplane.png" alt="Paper airplane" class="h-16 absolute z-10" id="paper-airplane">
+	<img src="paper-airplane.png" alt="Paper airplane" class="h-16 absolute" id="paper-airplane">
 
 	<div class="flex flex-col items-center w-max basis-1/2 max-md:basis-full max-md:w-full z-10">
 		<div class="relative translate-y-8 max-md:translate-y-4 z-30">
@@ -859,7 +1138,7 @@ Mumbai`.split("\n")
 			<div class="relative w-72 h-40 max-md:w-80 animate-hover ![--hover:-0.15rem] ![animation-delay:1.7s] z-20" data-point="1">
 				<img src="paper1.png" alt="" class="w-full h-full object-contain">
 				<div class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center">
-					<span class="font-sans text-[#E472AB] font-bold text-[1.3rem] mr-1">#1:</span> Find a team of co-organizers
+					<span class="font-sans text-[#E472AB] font-bold text-[1.3rem] mr-1">#1:</span> <a href={signupLink} class="underline">Sign up</a> for Daydream {eventName}
 				</div>
 			</div>
 		</div>
@@ -873,7 +1152,7 @@ Mumbai`.split("\n")
 			<div class="relative w-72 h-40 max-md:w-80 animate-hover ![--hover:-0.15rem] ![animation-delay:0.3s] z-20" data-point="2">
 				<img src="paper2.png" alt="" class="w-full h-full object-contain">
 				<div class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center">
-					<span class="font-sans text-[#639DEB] font-bold text-[1.3rem] mr-1">#2:</span> Find a venue to host your hackathon
+					<span class="font-sans text-[#639DEB] font-bold text-[1.3rem] mr-1">#2:</span> Attend a workshop and learn about game development
 				</div>
 			</div>
 		</div>
@@ -886,7 +1165,7 @@ Mumbai`.split("\n")
 			<div class="relative w-72 h-40 max-md:w-80 animate-hover ![--hover:-0.15rem] ![animation-delay:1.4s] z-20" data-point="3">
 				<img src="paper3.png" alt="" class="w-full h-full object-contain">
 				<div class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center">
-					<span class="font-sans text-[#AB68E2] font-bold text-[1.3rem] mr-1">#3:</span> Find sponsors to buy merch and prizes
+					<span class="font-sans text-[#AB68E2] font-bold text-[1.3rem] mr-1">#3:</span> Find a team of other teenagers at the event
 				</div>
 			</div>
 		</div>
@@ -899,7 +1178,7 @@ Mumbai`.split("\n")
 			<div class="relative w-72 h-40 max-md:w-80 animate-hover ![--hover:-0.15rem] ![animation-delay:2.3s] z-20" data-point="4">
 				<img src="paper4.png" alt="" class="w-full h-full object-contain">
 				<div class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center">
-					<span class="font-sans text-[#F2993E] font-bold text-[1.3rem] mr-1">#4:</span> Buy supplies, order food, and prepare workshops
+					<span class="font-sans text-[#F2993E] font-bold text-[1.3rem] mr-1">#4:</span> Start building your game - <em>no experience needed</em>
 				</div>
 			</div>
 		</div>
@@ -910,7 +1189,7 @@ Mumbai`.split("\n")
 	<div class="flex flex-col items-center w-full basis-full translate-y-40 max-md:translate-y-12 z-20">
 		<div class="relative">
 			<div class="bg-[url('/card-final.png')] bg-contain bg-no-repeat bg-center text-2xl font-serif pt-24 px-8 w-128 h-96 text-center max-md:w-80 max-md:h-80 max-md:text-xl max-md:pt-16 animate-hover ![--hover:-0.15rem] ![animation-delay:1.9s]" data-point="5">
-				<span class="font-sans text-[#F2CC32] font-bold text-[1.5rem] mr-1">#5:</span> Run the game jam!
+				<span class="font-sans text-[#F2CC32] font-bold text-[1.5rem] mr-1">#5:</span> Share what you made with the world!
 			</div>
 		</div>
 	</div>
@@ -924,12 +1203,12 @@ Mumbai`.split("\n")
 <div class="w-full bg-gradient-to-b from-[#FDC5D1] to-[#FAE3C9] items-center justify-center px-0 md:px-8 relative pt-36">
 	<div class="w-full max-w-5xl lg:max-w-6xl mx-auto px-2 md:px-8">
 		<div class="relative w-full min-w-72">
-			<img src="banner.png" alt="100 Cities Worldwide" class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 md:-translate-y-[40%] h-48 w-auto z-100 scale-[1.15] md:scale-[1.65] saturate-70 brightness-110 object-contain px-4 pointer-events-none">
+			<img src="banner-city.png" alt="Find a Daydream Near You" class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 md:-translate-y-[40%] h-48 w-auto z-100 scale-[1.15] md:scale-[1.65] saturate-70 brightness-110 object-contain px-4 pointer-events-none">
 			
 			<!-- Map container with cloudy edges -->
 			<div class="relative w-full h-156 overflow-hidden bg-transparent">
 				<iframe 
-					src="/map"
+					src={eventAddress ? "/event-map?location=" + encodeURIComponent(eventAddress) : "/map"}
 					class="w-full h-full border-0 bg-[#acd4e0]"
 					style="
 						mask-image: 
@@ -1020,12 +1299,151 @@ Mumbai`.split("\n")
 				</iframe>
 			</div>
 			
-			<p class="text-center font-sans text-2xl pt-12 max-sm:text-xl text-[#60574b] z-10000">All daydream events are organized by high school students like yourself! <br> <span class="font-bold"><a class="underline hover:text-pink" href="https://forms.hackclub.com/daydream">Sign up</a> to organize now!</span></p>
+			{#if eventAddress}
+				<p class="text-center font-sans text-2xl pt-12 max-sm:text-xl text-[#60574b] z-10000">
+					{#if directionsURL}
+						Daydream {eventName} is taking place at <a class="underline text-pink" href={directionsURL}>{eventAddress}</a>!
+					{:else}
+						Daydream {eventName} is taking place at <span class="underline">{eventAddress}</span>!
+					{/if}
+				</p>
+			{/if}
 		</div>
 	</div>
 
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
+	
+	<!-- Macintosh Section -->
+	<div class="w-full flex justify-center py-16 px-8 mt-48 pb-[clamp(232px,29vw,464px)] max-sm:w-[120vw] max-sm:-translate-x-[10vw]">
+		<div class="bg-[#c5c2b1] p-4 relative max-w-4xl" style="border-radius: calc(1.5rem + 1rem);">
+			<div class="bg-[#061E2D] text-[#D1E3EE] rounded-3xl py-18 md:py-16 px-10 md:px-18 relative overflow-visible" style="
+			border-image: url('/macintosh.png') 128 91 464 91; 
+			border-image-slice: 128 91 464 91; 
+			border-image-width: clamp(64px, 8vw, 128px) clamp(45px, 6vw, 91px) clamp(232px, 29vw, 464px) clamp(45px, 6vw, 91px); 
+			border-image-outset: clamp(64px, 8vw, 128px) clamp(45px, 6vw, 91px) clamp(232px, 29vw, 464px) clamp(45px, 6vw, 91px); 
+			border-image-repeat: stretch; 
+			border-style: solid;
+		">
+			<!-- frame around content -->
+			<div class="absolute inset-0 bg-[url(/macintosh-frame.png)] bg-size-[100%_100%]"></div>
+
+			<!-- Hack Club logo on border -->
+			<img 
+				src="/macintosh-hc-logo.png" 
+				alt="Hack Club logo" 
+				class="absolute w-12 h-12 pointer-events-none z-20" 
+				style="
+					bottom: calc(-1 * clamp(232px, 29vw, 464px) + 8rem);
+					left: 5%;
+				"
+			>
+			
+			<!-- Brushstroke overlay on border -->
+			<div 
+				class="absolute pointer-events-none z-25" 
+				style="
+					top: calc(-1 * clamp(64px, 8vw, 128px));
+					left: calc(-1 * clamp(45px, 6vw, 91px));
+					right: calc(-1 * clamp(45px, 6vw, 91px));
+					bottom: calc(-1 * clamp(232px, 29vw, 464px));
+					background-image: url('/brushstroking.png');
+					background-size: 100vw 100vh;
+					background-repeat: repeat;
+					mix-blend-mode: overlay;
+					opacity: 0.4;
+				"
+			></div>
+			
+			<!-- Keyboard image -->
+			<img 
+				src="/macintosh-keyboard.png" 
+				alt="Macintosh keyboard" 
+				class="absolute pointer-events-none z-30 max-sm:!w-[250%]" 
+				style="
+					bottom: calc(-1 * clamp(232px, 29vw, 464px) - 10px - clamp(0px, 14vw, 180px));
+					left: 50%;
+					transform: translateX(-50%);
+					width: 175%;
+					max-width: none;
+				"
+			>
+			
+			<!-- Scanlines effect -->
+			<div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent bg-[length:100%_6px] bg-repeat-y pointer-events-none opacity-30"></div>
+			
+			<!-- Rounded container -->
+				<!-- Scanlines inside container -->
+				<div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent bg-[length:100%_8px] bg-repeat-y pointer-events-none opacity-20"></div>
+				
+				<div class="space-y-8 max-sm:space-y-4 relative z-10">
+					<h2 class="text-5xl md:text-6xl lg:text-7xl font-pixel leading-tight">
+						What will you <img src="/dream-pixel.png" alt="Dream?" class="h-[0.75em] font-serif italic [image-rendering:pixelated] inline align-middle -translate-y-1.5">
+					</h2>
+					
+					<p class="text-xl md:text-2xl opacity-90 font-pixel">
+						You can make any game you want as long as it can be deployed on itch.io! All games made must be deployed and available online for other participants to play and experience. We will only accept itch.io submission links.
+						<br>
+						<br>
+						Here are some cool projects from past hackathons to get you inspired:
+					</p>
+					
+					<ul class="space-y-2 font-pixel text-xl md:text-2xl">
+						<li class="flex items-start">
+							<span class="mr-4">•</span>
+							<a href="https://bucketfish.itch.io/remedy-renemy" target="_blank" class="underline mr-2">Remedy Renemy</a>by Tongyu and Kai Ling
+						</li>
+						<li class="flex items-start">
+							<span class="mr-4">•</span>
+							<a href="https://nanomars.itch.io/not-an-idle" target="_blank" class="underline mr-2">Not an Idle</a> by Armand
+						</li>
+						<li class="flex items-start">
+							<span class="mr-4">•</span>
+							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> by Agustin
+						</li>
+					</ul>
+					
+					<p class="text-xl md:text-2xl opacity-90 font-pixel leading-relaxed">
+						We'll have workshops and activities before Daydream to help you learn game development using Godot! 
+					</p>
+					
+					<!-- Bottom section with input -->
+					<div class="flex flex-col md:flex-row md:items-end gap-10 pt-8">
+						<div>
+							<h3 class="text-3xl md:text-4xl font-pixel mb-4">Stuck?</h3>
+							<button 
+								class="bg-[#D1E3EE] text-[#061E2D] px-8 py-4 font-pixel text-xl md:text-2xl hover:bg-[#B8D3E0] cursor-pointer max-sm:w-full"
+								on:click={dreamIdea}
+							>
+								Dream an idea for me
+							</button>
+						</div>
+						
+						<div class="flex-1">
+							<div class="border-2 border-[#D1E3EE] p-6 min-h-40 max-h-40 w-full flex items-start overflow-y-auto idea-output-box">
+								{#if ideaText}
+									<p class="font-pixel text-xl md:text-2xl text-[#D1E3EE] w-full">
+										{ideaText}{#if isTyping}<span class="animate-pulse">|</span>{/if}
+									</p>
+								{:else if showDice}
+									<div class="flex items-center justify-around w-full h-full">
+										{#each diceNumbers as diceNumber}
+											<img 
+												src="/dice/dice-{diceNumber}.png" 
+												alt="Dice showing {diceNumber}"
+												class="h-24 w-24 object-contain flex-shrink-0 max-w-[30%] [image-rendering:pixelated]"
+											/>
+										{/each}
+									</div>
+								{/if}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
+
 
 <div class="w-full pb-24 max-md:pt-16 bg-gradient-to-b from-[#FAE3C9] to-[#e99cce] relative flex flex-col items-center justify-center">
 	<img src="faq-clouds.png" alt="" class="w-full">
@@ -1109,7 +1527,28 @@ Mumbai`.split("\n")
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
 </div>
 
-<Footer />
+<div class="w-full bg-[#FFFFF8] relative min-h-80">
+	<div class="absolute top-0 left-0 w-full h-full bg-[url('/noise.png')] bg-repeat opacity-10 pointer-events-none z-0"></div>
+	<div class="opacity-60 absolute w-full h-32 bg-[url('brushstroking.png')] bg-repeat-x z-10 bg-size-[100vw_100vh] mix-blend-overlay" style="mask-image: url(/footer-clouds.png); mask-size: contain; mask-repeat: repeat-x; -webkit-mask-image: url(/footer-clouds.png); -webkit-mask-size: contain; -webkit-mask-repeat: repeat-x;"></div>
+	<div class="w-full h-32 bg-[#e99cce] z-5" style="mask-image: url(/footer-clouds.png); mask-size: contain; mask-repeat: repeat-x; -webkit-mask-image: url(/footer-clouds.png); -webkit-mask-size: contain; -webkit-mask-repeat: repeat-x;"></div>
+
+	<!-- Footer Text -->
+	<div class="absolute bottom-20 left-32 text-center z-20 max-md:bottom-12 max-md:left-8 max-md:right-4 max-md:text-left">
+		<p class="text-gray-700 mb-2">Made with ♡ by teenagers, for teenagers at Hack Club</p>
+		<div class="flex space-x-4 max-md:flex-col max-md:space-x-0 max-md:space-y-2">
+			<a href="https://hackclub.com" class="underline text-gray-700 hover:text-gray-900 transition-colors ">Hack Club</a>
+			<span class="text-gray-700 max-md:hidden">・</span>
+			<a href="https://hackclub.com/slack" class="underline text-gray-700 hover:text-gray-900 transition-colors ">Slack</a>
+			<span class="text-gray-700 max-md:hidden">・</span>
+			<a href="https://hackclub.com/clubs" class="underline text-gray-700 hover:text-gray-900 transition-colors ">Clubs</a>
+			<span class="text-gray-700 max-md:hidden">・</span>
+			<a href="https://hackclub.com/hackathons" class="underline text-gray-700 hover:text-gray-900 transition-colors ">Hackathons</a>
+		</div>
+	</div>
+
+	<div class="max-sm:hidden absolute bottom-2 right-16 h-2/3 aspect-square bg-[url('brushstroking.png')] bg-repeat z-10 bg-size-[100vw_100vh] mix-blend-overlay" style="mask-image: url(/thought-bubbles.png); mask-size: contain; mask-repeat: no-repeat; -webkit-mask-image: url(/thought-bubbles.png); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat;"></div>
+	<div class="max-sm:hidden absolute bottom-2 right-16 h-2/3 aspect-square bg-[#e99cce]" style="mask-image: url(/thought-bubbles.png); mask-size: contain; mask-repeat: no-repeat; -webkit-mask-image: url(/thought-bubbles.png); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat;"></div>
+</div>
 
 <!-- Video Popup Modal -->
 {#if showVideoPopup}
