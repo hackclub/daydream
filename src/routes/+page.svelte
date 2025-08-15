@@ -271,7 +271,7 @@ Mumbai`.split("\n")
 			result.push(city);
 			// Insert user's city after every 12 cities
 			if ((index + 1) % 12 === 0 && data.userCity) {
-				result.push(`<a href="https://example.com"><tspan fill="#f49cc8" style="text-shadow: 0 0 8px #f7d4e6">${data.userCity}?</tspan></a>`);
+				result.push(`<a href="https://forms.hackclub.com/daydream"><tspan fill="#f49cc8" style="text-shadow: 0 0 8px #f7d4e6">${data.userCity}?</tspan></a>`);
 			}
 		});
 		tickerText = result.join(" • ");

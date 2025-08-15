@@ -7,49 +7,54 @@
 	 */
 
 	// Configuration - Put your information here!
-	const eventName = "Novi";
-	const eventLocation = "Novi";
-	const eventAddress = null;
+	const eventName = "St. Augustine";
+	const eventLocation = "Saint Augustine, FL";
+	const eventAddress = ""; // Leave this empty if you don't want an address
 	// These two are optional
-	const directionsURL = "https://www.google.com/maps/search/1600+pennsylvania+avenue+washington+dc/"
-	const contactLink = "mailto:example@daydream.hackclub.com"
+	const directionsURL = ""
+	const contactLink = "mailto:joshuatw423@gmail.com" // will replace with daydream emails once we get them
 	
 	// Sponsors Configuration
 	const signupLink = "https://forms.hackclub.com/daydream-rsvp"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" },
-		{ image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
-		{ image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
-		{ image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
-		{ image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
-		{ image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
-		{ image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
+		{ image: "/st-aug/code-ninjas.png", name: "Code Ninjas World Golf", url: "https://www.codeninjas.com/fl-world-golf-village" },
+		{ image: "/st-aug/jukebox.png", name: "Juxebox", url: "https://www.jukeboxprint.com/custom-stickers" },
+		{ image: "/st-aug/barracoders.png", name: "Barracoders", url: "https://barracoders.com" },
 	];
 	
-	// Schedule Configuration - You don't need to use this schedule, this is just an example!
+	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Doors open", time: "7:00 AM" },
-				{ event: "Breakfast", time: "7:15 AM" },
-				{ event: "Opening ceremony", time: "8:00 PM" },
-				{ event: "Start working on your project!", time: "10:00 PM" },
+				{ event: "Doors open", time: "11:00 AM" },
+				{ event: "Opening ceremony", time: "12:00 PM" },
 				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Workshop 1", time: "2:00 PM" },
-				{ event: "Activity 1", time: "4:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
-				{ event: "Closing ceremony", time: "5:00 PM" },
-				{ event: "Voting", time: "6:00 PM" },
+				{ event: "Start working on your project!", time: "1:00 PM" },
+				{ event: "Activity 1 - TBD", time: "2:00 PM" },
+				{ event: "Godot Workshop", time: "4:00 PM" },
+				{ event: "Activity 2 - TBD", time: "4:00 PM" },
+				{ event: "Dinner", time: "6:00 PM" },
+				{ event: "Midnight Surprise", time: "12:00 AM" }
 			]
 		},
+		{
+			title: "Sunday, September 28th",
+			items: [
+				{ event: "Breakfast", time: "8:00 AM" },
+				{ event: "Game Demos!", time: "10:30 AM" },
+				{ event: "Awards and Closing ceremony", time: "12:00 PM" }
+			]
+		}
 	];
 
 	
 	import { onMount } from "svelte";
 	import { gsap } from "gsap";
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
+	import Ticker from "$lib/components/Ticker.svelte";
+	import Footer from "$lib/components/Footer.svelte";
 	import ParticipantSignUp from "$lib/components/ParticipantSignUp.svelte";
 	import { page } from '$app/stores';
 	
@@ -793,30 +798,7 @@ Mumbai`.split("\n")
 
 	<div class="buildings-back-parallax absolute top-0 left-0 w-full h-full bg-[url(/buildings-back.png)] bg-no-repeat bg-contain pointer-events-none lg:-translate-y-15"></div>
 	
-	<!-- Animated text ticker along curvy line -->
-	<div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none lg:-translate-y-35 -translate-y-20 overflow-hidden max-md:w-200 max-lg:w-[125%]">
-		<svg width="1280" height="464" viewBox="0 0 1280 464" class="w-full h-max pt-32 object-contain" xmlns="http://www.w3.org/2000/svg">
-			<defs>
-				<path id="curvy-path" d="M-41 274.995C91.5 229.995 203.5 64.4946 483.5 39.9946C763.5 15.4946 892.5 151.495 1165 196.495C1383 232.495 1462.5 263.828 1475 274.995"/>
-				<mask id="reveal-mask">
-					<rect x="0" y="0" width="0" height="464" fill="white">
-						<animate attributeName="width" values="0;1280" dur="2s" calcMode="spline" keySplines="0.05,0.7,0.3,1" keyTimes="0;1" begin="0.75s" fill="freeze"/>
-					</rect>
-				</mask>
-			</defs>
-			<g mask="url(#reveal-mask)">
-				<!-- Background path stroke -->
-				<path d="M-41 268.495C91.5 223.495 203.5 57.9946 483.5 33.4946C763.5 8.9946 892.5 144.995 1165 189.995C1383 225.995 1462.5 257.328 1475 268.495" 
-					  stroke="#9EE4F2" stroke-width="28" fill="none" stroke-linecap="round"/>
-				<text font-family="sans-serif" fill="#EDFCFF" font-weight="bold" font-size="18">
-					<textPath href="#curvy-path" startOffset="-100%">
-						{@html Array(2).fill(tickerText).join(" • ")} • 
-						<animate id="ticker-animation" attributeName="startOffset" values="-100%;0%" dur="30s" repeatCount="indefinite"/>
-					</textPath>
-				</text>
-			</g>
-		</svg>
-	</div>
+	<Ticker {tickerText} />
 	
 	<!-- brush texture clipped to back buildings -->
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat pointer-events-none opacity-100 lg:-translate-y-15 bg-center mix-blend-overlay" style="mask-image: url('/buildings-back.png'); mask-size: contain; mask-repeat: no-repeat; mask-position: center top; -webkit-mask-image: url('/buildings-back.png'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center top;"></div>
@@ -1082,7 +1064,7 @@ Mumbai`.split("\n")
 					{#if contactLink}
 						<!-- Call to action for sponsors -->
 						<div class="mt-8 text-center">
-							<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
+							<p class="text-lg text-[#335969]">Big shoutout to Jukebox for our <a href="https://www.jukeboxprint.com/custom-stickers">custom stickers</a>! <br> Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
 						</div>
 					{/if}
 				</div>
@@ -1545,28 +1527,7 @@ Mumbai`.split("\n")
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
 </div>
 
-<div class="w-full bg-[#FFFFF8] relative min-h-80">
-	<div class="absolute top-0 left-0 w-full h-full bg-[url('/noise.png')] bg-repeat opacity-10 pointer-events-none z-0"></div>
-	<div class="opacity-60 absolute w-full h-32 bg-[url('brushstroking.png')] bg-repeat-x z-10 bg-size-[100vw_100vh] mix-blend-overlay" style="mask-image: url(/footer-clouds.png); mask-size: contain; mask-repeat: repeat-x; -webkit-mask-image: url(/footer-clouds.png); -webkit-mask-size: contain; -webkit-mask-repeat: repeat-x;"></div>
-	<div class="w-full h-32 bg-[#e99cce] z-5" style="mask-image: url(/footer-clouds.png); mask-size: contain; mask-repeat: repeat-x; -webkit-mask-image: url(/footer-clouds.png); -webkit-mask-size: contain; -webkit-mask-repeat: repeat-x;"></div>
-
-	<!-- Footer Text -->
-	<div class="absolute bottom-20 left-32 text-center z-20 max-md:bottom-12 max-md:left-8 max-md:right-4 max-md:text-left">
-		<p class="text-gray-700 mb-2">Made with ♡ by teenagers, for teenagers at Hack Club</p>
-		<div class="flex space-x-4 max-md:flex-col max-md:space-x-0 max-md:space-y-2">
-			<a href="https://hackclub.com" class="underline text-gray-700 hover:text-gray-900 transition-colors ">Hack Club</a>
-			<span class="text-gray-700 max-md:hidden">・</span>
-			<a href="https://hackclub.com/slack" class="underline text-gray-700 hover:text-gray-900 transition-colors ">Slack</a>
-			<span class="text-gray-700 max-md:hidden">・</span>
-			<a href="https://hackclub.com/clubs" class="underline text-gray-700 hover:text-gray-900 transition-colors ">Clubs</a>
-			<span class="text-gray-700 max-md:hidden">・</span>
-			<a href="https://hackclub.com/hackathons" class="underline text-gray-700 hover:text-gray-900 transition-colors ">Hackathons</a>
-		</div>
-	</div>
-
-	<div class="max-sm:hidden absolute bottom-2 right-16 h-2/3 aspect-square bg-[url('brushstroking.png')] bg-repeat z-10 bg-size-[100vw_100vh] mix-blend-overlay" style="mask-image: url(/thought-bubbles.png); mask-size: contain; mask-repeat: no-repeat; -webkit-mask-image: url(/thought-bubbles.png); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat;"></div>
-	<div class="max-sm:hidden absolute bottom-2 right-16 h-2/3 aspect-square bg-[#e99cce]" style="mask-image: url(/thought-bubbles.png); mask-size: contain; mask-repeat: no-repeat; -webkit-mask-image: url(/thought-bubbles.png); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat;"></div>
-</div>
+<Footer />
 
 <!-- Video Popup Modal -->
 {#if showVideoPopup}

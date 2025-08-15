@@ -14,7 +14,7 @@ const base = AIRTABLE_API_KEY && AIRTABLE_BASE_ID
 
 export async function POST({ request, getClientAddress }) {
 	try {
-		const { email } = await request.json();
+		const { email, city } = await request.json();
 		
 		if (!email) {
 			return json({ error: 'Email is required' }, { status: 400 });
@@ -34,6 +34,7 @@ export async function POST({ request, getClientAddress }) {
 					fields: {
 						email,
 						ip,
+						city,
 					}
 				}
 			]);
