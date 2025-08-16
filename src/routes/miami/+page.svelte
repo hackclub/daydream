@@ -15,9 +15,14 @@
 	const contactLink = "mailto:miami@daydream.hackclub.com"
 	
 	// Sponsors Configuration
+
+	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
+
 	const signupLink = "https://forms.hackclub.com/daydream-rsvp?event=recbYBNEWgDH7grEM"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+
 	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
-	const sponsors = [
+	// const sponsors = [
+
 		{ image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" },
 		{ image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
 		{ image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
