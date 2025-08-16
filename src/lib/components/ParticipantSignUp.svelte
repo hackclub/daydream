@@ -33,6 +33,10 @@
 		setTimeout(() => {
 			fadeOut = true;
 		}, 1500);
+
+		if (eventName == "jakarta") {
+			document.location.href = `https://daydreamjakarta.fillout.com/?email=${email}`;
+		}
 		
 		setTimeout(() => {
 			submitted = false;
