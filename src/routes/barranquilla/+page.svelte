@@ -1043,12 +1043,10 @@ Mumbai`.split("\n")
 						{/if}
 					{/if}
 					
-					{#if contactLink}
-						<!-- Call to action for sponsors -->
-						<div class="mt-8 text-center">
-							<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
-						</div>
-					{/if}
+					<!-- Call to action for sponsors -->
+					<div class="mt-8 text-center">
+						<p class="text-lg text-[#335969]">¡Un gran agradecimiento a Jukebox por nuestras <a href="https://jukeboxprint.com/custom-stickers" class="underline hover:text-[#477783] transition-colors" target="_blank" rel="noopener noreferrer">pegatinas personalizadas</a>! <br> ¿Quieres patrocinar Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Ponte en contacto</a></p>
+					</div>
 				</div>
 			</div>
 			
