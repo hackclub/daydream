@@ -1,4 +1,95 @@
 <script lang="ts">
+// Add these imports at the top of your <script> in +page.svelte
+import { browser } from '$app/environment';
+import { onMount } from 'svelte';
+import { afterNavigate } from '$app/navigation';
+
+// Drop-in, SSR-safe Jukebox credit injector
+function injectJukeboxCredit() {
+  if (!browser) return; // SSR guard
+
+  // Avoid duplicates (e.g., HMR or route changes)
+  if (document.getElementById('jukebox-credit')) return;
+
+  const buildInlineCredit = () => {
+    const wrapper = document.createElement('div');
+    wrapper.id = 'jukebox-credit';
+    wrapper.style.fontFamily = 'system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif';
+    wrapper.style.color = '#335969';
+    wrapper.style.fontSize = '14px';
+    wrapper.style.lineHeight = '1.4';
+    wrapper.style.marginTop = '10px';
+    wrapper.style.display = 'flex';
+    wrapper.style.justifyContent = 'center';
+    wrapper.innerHTML = `
+      <p style="margin:0;text-align:center;">
+        Big shoutout to Jukebox for our
+        <a href="https://www.jukeboxprint.com/custom-stickers"
+           target="_blank"
+           rel="noopener sponsored nofollow"
+           style="text-decoration:underline;color:#E472AB;"
+        >custom stickers</a>!
+      </p>
+    `;
+    return wrapper;
+  };
+
+  const tryPlace = () => {
+    // 1) Prefer under the “Get free stickers” CTA (desktop)
+    const ctas = document.querySelectorAll('a[href="https://forms.hackclub.com/daydream-stickers"]');
+    for (const btn of ctas) {
+      const styles = window.getComputedStyle(btn);
+      if (styles.display !== 'none' && btn.parentElement) {
+        const credit = buildInlineCredit();
+        btn.parentElement.insertBefore(credit, btn.nextSibling);
+        return true;
+      }
+    }
+
+    // 2) Else, right above the footer
+    const footerEl = document.querySelector('footer') || document.querySelector('[data-footer]');
+    if (footerEl && footerEl.parentElement) {
+      const credit = buildInlineCredit();
+      footerEl.parentElement.insertBefore(credit, footerEl);
+      return true;
+    }
+
+    // 3) Fallback: fixed pill bottom-left
+    const pill = buildInlineCredit();
+    // Reuse the same id container to keep duplicate check working
+    pill.style.position = 'fixed';
+    pill.style.left = '16px';
+    pill.style.bottom = '16px';
+    pill.style.zIndex = '9999';
+    pill.style.background = 'rgba(255,255,255,0.9)';
+    pill.style.backdropFilter = 'saturate(140%) blur(2px)';
+    pill.style.borderRadius = '999px';
+    pill.style.boxShadow = '0 2px 10px rgba(0,0,0,0.08)';
+    pill.style.padding = '8px 12px';
+    pill.style.display = 'inline-block';
+    document.body.appendChild(pill);
+    return true;
+  };
+
+  // Defer until DOM is painted (some elements appear after hydration)
+  // Try a few times within ~2s in case the CTA/footer render late
+  const start = performance.now();
+  const attempt = () => {
+    if (tryPlace()) return;
+    if (performance.now() - start > 2000) return; // give up quietly
+    requestAnimationFrame(attempt);
+  };
+  requestAnimationFrame(attempt);
+}
+
+// Call only on the client
+onMount(() => {
+  injectJukeboxCredit();
+  // If your app uses client-side navigation, re-run after route changes:
+  afterNavigate(() => {
+    injectJukeboxCredit();
+  });
+});
 	/**
 	 * This is the template site! Create a copy of this folder (src/routes/example)
 	 * and rename it to whatever you want your URL to be.
@@ -51,7 +142,6 @@
 	];
 
 	
-	import { onMount } from "svelte";
 	import { gsap } from "gsap";
 	import { ScrollTrigger } from "gsap/all";
 	import Ticker from "$lib/components/Ticker.svelte";
@@ -1013,8 +1103,12 @@ Mumbai`.split("\n")
 				<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">
 					Sponsors
 				</h2>
+
 				<!-- Brush texture overlay for header -->
-				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
+				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none">
+					
+				</div>
+
 			</div>
 			
 			<!-- Main Content Area -->
