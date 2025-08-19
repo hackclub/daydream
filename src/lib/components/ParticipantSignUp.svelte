@@ -35,7 +35,7 @@
 		}, 1500);
 
 		if (eventName.toLowerCase() == "jakarta") {
-			document.location.href = `https://daydreamjakarta.fillout.com/?email=${email}`;
+			document.location.href = `https://daydreamjakarta.fillout.com/rsvp?email=${email}`;
 		}
 		
 		setTimeout(() => {
