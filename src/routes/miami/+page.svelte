@@ -1075,7 +1075,7 @@ Mumbai`.split("\n")
 					{#if contactLink}
 						<!-- Call to action for sponsors -->
 						<div class="mt-8 text-center">
-							<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
+							<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a> or <a href="https://hcb.hackclub.com/donations/start/daydream-miami" class="underline hover:text-[#477783] transition-colors">Make a Donation</a></p>
 						</div>
 					{/if}
 				</div>
