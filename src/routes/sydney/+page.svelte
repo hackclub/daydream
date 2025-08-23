@@ -15,10 +15,13 @@
 	const contactLink = "mailto:sydney@daydream.hackclub.com"
 	
 	// Sponsors Configuration
-	const signupLink = "https://forms.hackclub.com/daydream-rsvp"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
 		{ image: "/sydney/xyz.png", name: ".xyz", url: "https://gen.xyz" },
+		{ image: "/sydney/jlcpcb.png", name: "jlcpcb", url: "https://jlcpcb.com/" },
+		{ image: "/sydney/oshw.png", name: "oshw", url: "https://oshwlab.com/" },
+		{ image: "/sydney/easyeda.png", name: "easyeda", url: "https://easyeda.com/" },
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -92,7 +95,7 @@ Dubai
 San Francisco
 Minneapolis
 Seattle
-Signapore
+Singapore
 Mumbai`.split("\n")
 
 	function createSmoothPath(points: Array<{ x: number; y: number }>) {
@@ -906,13 +909,13 @@ Mumbai`.split("\n")
 			</h2>
 			
 			<div class="text-[#8B4513] font-serif text-xl leading-relaxed space-y-8">
-				<p>Welcome to Hack Club's newest adventure. This fall we invite you to join us for Daydream, the world's biggest Game Jam happening simultaneously in 100 cities.</p>
+				<p>Welcome to Hack Club's newest adventure. This spring we invite you to join us for Daydream, the world's biggest Game Jam happening simultaneously in 100 cities.</p>
 
-				<p class="font-bold text-2xl">Hack Club wants you to make a game this fall.</p>
+				<p class="font-bold text-2xl">Hack Club wants you to make a game this spring.</p>
 
 				<p>Don't consider yourself a game dev? No problem - we have tons of online and in-person workshops for you to make your first game! </p>
 
-				<p>This fall, we invite you to learn something new, make something you're really proud of, meet new friends, and go on an incredible adventure together.</p>
+				<p>This spring, we invite you to learn something new, make something you're really proud of, meet new friends, and go on an incredible adventure together.</p>
 
 				<p class="mb-2">With love,</p>
 
