@@ -60,18 +60,12 @@
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
 	import Ticker from "$lib/components/Ticker.svelte";
 	import Footer from "$lib/components/Footer.svelte";
-	import ParticipantSignUp from "$lib/components/ParticipantSignUp.svelte";
-	import { page } from '$app/stores';
-	
-	
-	/** @type {import('./$types').PageData} */
-	export let data;
 	
 	// Get current URL for dynamic metadata
-	$: currentUrl = `https://daydream.hackclub.com${$page.url.pathname}`;
-	$: pageTitle = `Daydream ${eventName} - ${eventLocation} Game Jam`;
-	$: pageDescription = `Join Daydream ${eventName} in ${eventLocation}! A teen-led game jam where you'll build amazing games with other high schoolers. Food, workshops, and prizes included!`;
-	$: pageKeywords = `game jam, hackathon, teen coding, Hack Club, game development, ${eventLocation}, ${eventName}`;
+	const currentUrl = `https://daydream.hackclub.com/vienna`;
+	const pageTitle = `Daydream ${eventName} - ${eventLocation} Game Jam`;
+	const pageDescription = `Join Daydream ${eventName} in ${eventLocation}! A teen-led game jam where you'll build amazing games with other high schoolers. Food, workshops, and prizes included!`;
+	const pageKeywords = `game jam, hackathon, teen coding, Hack Club, game development, ${eventLocation}, ${eventName}`;
 
 	// Cities where the game jam is happening
 	const cities = `Columbus
@@ -323,9 +317,6 @@ Mumbai`.split("\n")
 		return { x, y, angle };
 	}
 
-
-
-
 	let showVideoPopup = false;
 	
 	// Dice functionality state
@@ -362,8 +353,6 @@ Mumbai`.split("\n")
 		showVideoPopup = false;
 	}
 
-
-
 	async function typeText(text: string) {
 		isTyping = true;
 		ideaText = "";
@@ -376,45 +365,21 @@ Mumbai`.split("\n")
 		isTyping = false;
 	}
 
-	async function fetchIdea(): Promise<string> {
-		let attempt = 0;
-		const maxAttempts = 5;
-		
-		while (attempt < maxAttempts) {
-			try {
-				const response = await fetch('/api/idea', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					}
-				});
-				
-				if (!response.ok) {
-					if (response.status === 500) {
-						throw new Error(`Server error: ${response.status}`);
-					} else {
-						// Don't retry on non-500 errors
-						return "How about a game where you collect magical crystals to save a mysterious floating world?";
-					}
-				}
-				
-				const data = await response.json();
-				return data.idea;
-			} catch (error) {
-				attempt++;
-				console.warn(`Attempt ${attempt} failed:`, error);
-				
-				if (attempt >= maxAttempts) {
-					return "How about a game where you collect magical crystals to save a mysterious floating world?";
-				}
-				
-				// Wait before retrying
-				await new Promise(resolve => setTimeout(resolve, 1000));
-			}
-		}
-		
-		return "How about a game where you collect magical crystals to save a mysterious floating world?";
-	}
+	// Predefined game ideas to cycle through
+	const gameIdeas = [
+		"How about a game where you collect magical crystals to save a mysterious floating world?",
+		"Try building a platformer where you play as a tiny robot exploring a giant garden.",
+		"What about a puzzle game where you rearrange constellations to unlock cosmic doors?",
+		"Create an adventure game where you're a librarian battling paper monsters with enchanted books.",
+		"Build a racing game where you pilot origami airplanes through stormy weather.",
+		"Make a survival game where you're a chef collecting ingredients in a haunted kitchen.",
+		"Design a rhythm game where you conduct an orchestra of friendly forest creatures.",
+		"Create a strategy game where you manage a village of time-traveling merchants.",
+		"Build a stealth game where you're a shadow helping lost children find their way home.",
+		"Make a puzzle-platformer where gravity changes based on the colors you touch."
+	];
+	
+	let currentIdeaIndex = 0;
 
 	async function dreamIdea() {
 		if (isRolling) return;
@@ -424,47 +389,30 @@ Mumbai`.split("\n")
 		showDice = true;
 		ideaText = "";
 		
+		const animationDuration = 1500; // 1.5 seconds of dice rolling
 		const startTime = Date.now();
-		const minDuration = 1000;
-		let fetchComplete = false;
-		let fetchResult: string = "";
-		
-		// Start fetch and dice animation concurrently
-		const fetchPromise = fetchIdea().then(result => {
-			fetchResult = result;
-			fetchComplete = true;
-			return result;
-		});
 		
 		// Dice animation loop
-		const dicePromise = (async () => {
-			while (true) {
-				const elapsed = Date.now() - startTime;
-				
-				// Stop if both minimum time has passed AND fetch is complete
-				if (elapsed >= minDuration && fetchComplete) {
-					break;
-				}
-				
-				diceNumbers = [
-					Math.floor(Math.random() * 6) + 1,
-					Math.floor(Math.random() * 6) + 1,
-					Math.floor(Math.random() * 6) + 1
-				];
-				
-				await new Promise(resolve => setTimeout(resolve, 100));
-			}
-		})();
-		
-		// Wait for both to complete
-		await Promise.all([fetchPromise, dicePromise]);
+		while (Date.now() - startTime < animationDuration) {
+			diceNumbers = [
+				Math.floor(Math.random() * 6) + 1,
+				Math.floor(Math.random() * 6) + 1,
+				Math.floor(Math.random() * 6) + 1
+			];
+			
+			await new Promise(resolve => setTimeout(resolve, 100));
+		}
 		
 		showDone = false;
 		showDice = false;
 		isRolling = false;
 		
-		// Start typing animation with the fetched idea
-		await typeText(fetchResult);
+		// Get the next idea from our predefined list
+		const selectedIdea = gameIdeas[currentIdeaIndex];
+		currentIdeaIndex = (currentIdeaIndex + 1) % gameIdeas.length;
+		
+		// Start typing animation with the selected idea
+		await typeText(selectedIdea);
 	}
 
 	function setupPlaneAnimation() {
@@ -621,8 +569,6 @@ Mumbai`.split("\n")
 	}
 
 	onMount(() => {
-		console.log('User city:', data.userCity);
-		
 		// Register GSAP plugins
 		gsap.registerPlugin(ScrollTrigger);
 		
@@ -843,7 +789,38 @@ Mumbai`.split("\n")
 			</h4>
 		</div>
 		
-		<ParticipantSignUp {eventName} />
+		<!-- Sign Up Section -->
+		<div class="w-full max-w-lg text-center relative z-10 mt-8 px-4">
+			<a 
+				href={signupLink}
+				target="_blank"
+				class="inline-block bg-pink border-b-4 border-b-pink-dark text-white px-8 py-4 text-xl font-bold rounded-full hover:shadow-[0_4px_0_0_theme(colors.pink.dark)] hover:-translate-y-1 active:transform active:translate-y-0.5 active:border-b-2 transition-all duration-100 font-sans mb-6"
+			>
+				Sign up for Daydream {eventName}
+			</a>
+			
+			<!-- Mobile stickers button (below sign up) -->
+			<div class="md:hidden">
+				<a
+					href="https://forms.hackclub.com/daydream-stickers"
+					target="_blank"
+					class="inline-block relative px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none"
+				>
+					Get free stickers
+					<img
+						src="button-clouds.svg" 
+						alt="" 
+						class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
+					>
+					<img
+						src="rock-sticker.png"
+						alt=""
+						class="absolute bottom-2 right-3 translate-2/3 w-14 h-14 object-contain pointer-events-none"
+						style="transform: rotate(-15deg);"
+					>
+				</a>
+			</div>
+		</div>
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
@@ -860,8 +837,6 @@ Mumbai`.split("\n")
 			/>
 		{/each}
 	</div>
-
-
 
 	<img src="/clouds-top-middle-bg.svg" alt="" class="absolute left-5/12 -translate-x-1/2 w-7/12 -bottom-24">
 	<div class="absolute left-5/12 -translate-x-1/2 w-7/12 -bottom-24 bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none h-full" style="mask-image: url('/clouds-top-middle-bg.svg'); mask-size: contain; mask-repeat: no-repeat; mask-position: center; -webkit-mask-image: url('/clouds-top-middle-bg.svg'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center;"></div>
@@ -1210,11 +1185,9 @@ Mumbai`.split("\n")
 		<div class="relative w-full min-w-72">
 			<img src="banner-city.png" alt="Find a Daydream Near You" class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 md:-translate-y-[40%] h-48 w-auto z-100 scale-[1.15] md:scale-[1.65] saturate-70 brightness-110 object-contain px-4 pointer-events-none">
 			
-			<!-- Map container with cloudy edges -->
+			<!-- Static map placeholder -->
 			<div class="relative w-full h-156 overflow-hidden bg-transparent">
-				<iframe 
-					src={eventAddress ? "/event-map?location=" + encodeURIComponent(eventAddress) : "/map"}
-					class="w-full h-full border-0 bg-[#acd4e0]"
+				<div class="w-full h-full border-0 bg-[#acd4e0] flex items-center justify-center text-[#477783] text-xl font-sans"
 					style="
 						mask-image: 
 							linear-gradient(white, white),
@@ -1300,8 +1273,13 @@ Mumbai`.split("\n")
 						mask-mode: luminance;
 						mask-composite: exclude, add, add, add, add, add, add, add, add;
 					"
-					title="Daydream Events Map">
-				</iframe>
+				>
+					<div class="text-center">
+						<div class="text-3xl font-bold mb-4">📍</div>
+						<div>Interactive map will be here</div>
+						<div class="text-sm mt-2 opacity-75">Find all Daydream locations worldwide</div>
+					</div>
+				</div>
 			</div>
 			
 			{#if eventAddress}
