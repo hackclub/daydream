@@ -9,13 +9,13 @@
 	// Configuration - Put your information here!
 	const eventName = "Ottawa"; // The name of your event
 	const eventLocation = "Ottawa";
-	const eventAddress = "4000 Innovation DrKanata, ON K2K 3K1"; // Leave this empty if you don't want an address
+	const eventAddress = "TBD"; // Leave this empty if you don't want an address
 	// These two are optional
-	const directionsURL = "https://www.google.com/maps/search/4000+Innovation+DrKanata,+ON+K2K+3K1"
-	const contactLink = "mailto:ottawa@daydream.hackclub.com"
+	const directionsURL = "https://daydream.hackclub.com/ottawa"
+	const contactLink = "TBD"
 
 	// Sponsors Configuration
-	const signupLink = "https://forms.hackclub.com/daydream-rsvp"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recO8NdZFYsBeENua"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
 	const sponsors = [
 		{ image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" },
@@ -32,24 +32,13 @@
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Doors open", time: "11:00 AM" },
-				{ event: "Opening ceremony", time: "12:00 PM" },
-				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Start working on your project!", time: "1:00 PM" },
-				{ event: "Workshop 1", time: "2:00 PM" },
-				{ event: "Activity 1", time: "4:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
-				{ event: "Dinner", time: "6:00 PM" },
-				{ event: "Lightning talks", time: "8:00 PM" },
-				{ event: "Midnight surprise", time: "12:00 AM" }
+				{event: "TBD"}
 			]
 		},
 		{
 			title: "Sunday, September 28th",
 			items: [
-				{ event: "Breakfast", time: "8:00 AM" },
-				{ event: "Demos!", time: "10:30 AM" },
-				{ event: "Closing ceremony", time: "12:00 PM" }
+				{event: "TBD"}
 			]
 		}
 	];
@@ -97,7 +86,7 @@ Dubai
 San Francisco
 Minneapolis
 Seattle
-Signapore
+Singapore
 Sydney
 Mumbai`.split("\n")
 

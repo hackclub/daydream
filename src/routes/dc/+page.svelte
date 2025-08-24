@@ -15,7 +15,7 @@
 	const contactLink = "mailto:katec@hackclub.com" //stand-in until official emails are rele
 	
 	// Sponsors Configuration
-	const signupLink = "https://forms.hackclub.com/daydream-rsvp"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	let sponsors: Array<{tier: string, sponsors: Array<{name: string, logo: string, link: string}>}> = [];
 	let sponsorsLoading = true;
@@ -91,7 +91,7 @@ Dubai
 San Francisco
 Minneapolis
 Seattle
-Signapore
+Singapore
 Sydney
 Mumbai`.split("\n")
 

@@ -5,7 +5,7 @@
 	const directionsURL = "https://www.google.com/maps/place/PSC@Heritage+(Penang+Science+Cluster)/@5.4153623,100.3397381,17z/data=!3m1!4b1!4m6!3m5!1s0x304ac38e9e1ad7e9:0xdb5c3a2cdee5013c!8m2!3d5.415357!4d100.342313!16s%2Fg%2F11clvx6mkl?entry=ttu&g_ep=EgoyMDI1MDgwNi4wIKXMDSoASAFQAw%3D%3D"
 	const contactLink = "mailto:info@daydreampenang.com"
 	
-	const signupLink = "https://forms.hackclub.com/daydream-rsvp"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recv7MKnWKwmBZC48";
 	const sponsorsEnabled = true; 
 	const sponsors = [
 		{ image: "https://storage.jukeboxprint.com/s/images/jukebox-logo.svg", name: "Jukebox", url: "https://www.jukeboxprint.com/custom-stickers" }
@@ -1064,7 +1064,7 @@ Mumbai`.split("\n")
 					{#if contactLink}
 						<!-- Call to action for sponsors -->
 						<div class="mt-8 text-center">
-							<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
+							<p class="text-lg text-[#335969]"><a href="https://www.jukeboxprint.com/custom-stickers">Custom stickers</a> provided by Jukebox <br> Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
 						</div>
 					{/if}
 				</div>
