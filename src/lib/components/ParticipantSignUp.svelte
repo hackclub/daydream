@@ -10,38 +10,18 @@
 		eventName = slug.charAt(0).toUpperCase() + slug.slice(1).replace("-", " ");
 	}
 
-	function handleFormSubmit(event: Event) {
+	function handleFormSubmit(event:  Event) {
 		event.preventDefault();
 		const form = event.target as HTMLFormElement;
 		const emailInput = form.querySelector('input[name="email"]') as HTMLInputElement;
 		const email = emailInput.value;
-		
-		fetch('/api/rsvp', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({ email, city: "Daydream " + eventName })
-		}).catch(error => {
-			console.warn('Failed to save email:', error);
-		});
-
-		submitted = true;
-		
-		emailInput.value = '';
-		
-		setTimeout(() => {
-			fadeOut = true;
-		}, 1500);
 
 		if (eventName.toLowerCase() == "jakarta") {
-			document.location.href = `https://daydreamjakarta.fillout.com/rsvp?email=${email}`;
+			window.location.href = `https://daydreamjakarta.fillout.com/rsvp?email=${encodeURIComponent(email)}`;
 		}
-		
-		setTimeout(() => {
-			submitted = false;
-			fadeOut = false;
-		}, 1500 + 500);
+		else if (email) {
+			window.location.href = `https://forms.hackclub.com/daydream-sign-up?email=${encodeURIComponent(email)}`;
+		}
 	}
 </script>
 
