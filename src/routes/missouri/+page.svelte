@@ -9,10 +9,10 @@
 	// Configuration - Put your information here!
 	const eventName = "Missouri"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "Springfield, Missouri";
-	const eventAddress = "The Library Center, 4653 S Campbell Ave, Springfield, MO 65810"; // Leave this empty if you don't want an address
+	const eventAddress = "O’Reilly Enterprise Center, Drury University"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recukCDrvwSE2bU26"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = ""
+	const directionsURL = "https://google.com/maps/place/606+E+Central+St,+Springfield,+MO+65802/data=!4m2!3m1!1s0x87cf62e5b2bafdcd:0x4564a2f9a438716c?sa=X&ved=1t:242&ictx=111"
 	const contactLink = "mailto:missouri@daydream.hackclub.com"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
@@ -62,7 +62,7 @@
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
 	import Ticker from "$lib/components/Ticker.svelte";
 	import Footer from "$lib/components/Footer.svelte";
-	import ParticipantSignUp from "$lib/components/ParticipantSignUp.svelte";
+	import MissouriSignUp from "./MissouriSignUp.svelte";
 	import { page } from '$app/stores';
 	
 	
@@ -831,7 +831,7 @@ Mumbai`.split("\n")
 			<h3
 				class="text-3xl italic font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent w-max max-sm:text-2xl mx-auto"
 			>
-				Game jam for high schoolers
+				Coding event for high schoolers
 			</h3>
 			<img
 				src="underline.svg"
@@ -845,7 +845,7 @@ Mumbai`.split("\n")
 			</h4>
 		</div>
 		
-		<ParticipantSignUp {eventName} />
+		<MissouriSignUp {eventName} />
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
@@ -925,9 +925,9 @@ Mumbai`.split("\n")
 
 				<p>This two day coding event invites you and your friends to come and create your own original game for cool prizes! Food and snacks are provided!</p>
 
-				<p>Don't consider yourself a game dev? No problem - we have tons of online and in-person workshops for guiding you to make your first game! </p>
+				<p>Don't consider yourself a game dev? No problem - we have tons of workshops for guiding you to make your first game! </p>
 
-				<p>On September 27th and 28th, come to Location TBD to learn something new, make something you're really proud of, meet new friends, and go on an incredible adventure together.</p>
+				<p>On September 27th and 28th, come to Drury University to learn something new, make something you're really proud of, meet new friends, and go on an incredible adventure together.</p>
 			</div>
 		</div>
 	</div>
@@ -1175,7 +1175,7 @@ Mumbai`.split("\n")
 	
 	<div class="relative max-w-4xl w-full">
 		<!-- Billboard Container -->
-		<div class="relative bg-[#f0f9ff] border-[10px] border-b-[16px] border-[#888896] rounded-lg rounded-b-xl mt-100 mb-20 mx-auto z-40">
+		<div class="relative bg-[#f0f9ff] border-[10px] border-b-[16px] border-[#888896] rounded-lg rounded-b-xl mt-100 mb-10 mx-auto z-40">
 			<!-- Billboard Lights (top) -->
 			<img 
 				src="/billboard-lights.png" 
@@ -1227,8 +1227,18 @@ Mumbai`.split("\n")
 			></div>
 		</div>
 		
+		{#if eventAddress}
+			<p class="text-center font-sans text-2xl pt-2 max-sm:text-xl text-[#60574b] z-10000">
+				{#if directionsURL}
+					Daydream {eventName} is taking place at <a class="underline text-pink" href={directionsURL}>{eventAddress}</a>!
+				{:else}
+					Daydream {eventName} is taking place at <span class="underline">{eventAddress}</span>!
+				{/if}
+			</p>
+		{/if}
 	</div>
 </div>
+
 
 {#if sponsorsEnabled}
 <!-- Second Billboard Section -->
@@ -1352,8 +1362,8 @@ Mumbai`.split("\n")
 		<div class="relative transform rotate-1">
 			<img src="window-4.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
-				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What is Daydream Missouri?</h3>
-				<p class="text-sm">A game coding competition over the course of 2 days taking place at TBD.</p>
+				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What can I make at Daydream?</h3>
+				<p class="text-sm">ANY type of game based on the theme! Platformer, visual novel, clicker game, etc. Be as creative as possible!</p>
 			</div>
 		</div>
 
@@ -1406,8 +1416,8 @@ Mumbai`.split("\n")
 		<div class="relative transform -rotate-1">
 			<img src="window-1.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
-				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What can I make at Daydream?</h3>
-				<p class="text-sm">ANY type of game based on the theme! Platformer, visual novel, clicker game, etc. Be as creative as possible!</p>
+				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What if I have more questions?</h3>
+				<p class="text-sm">Feel free to email us at missouri@daydream.hackclub.com and check out our Instagram <a href="https://www.instagram.com/springfieldhackers">@springfieldhackers</a></p>
 			</div>
 		</div>
 	</div>
