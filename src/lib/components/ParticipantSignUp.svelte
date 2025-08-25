@@ -9,13 +9,16 @@
 		eventName = slug.charAt(0).toUpperCase() + slug.slice(1).replace("-", " ");
 	}
 
-	function handleFormSubmit(event: Event) {
+	function handleFormSubmit(event:  Event) {
 		event.preventDefault();
 		const form = event.target as HTMLFormElement;
 		const emailInput = form.querySelector('input[name="email"]') as HTMLInputElement;
 		const email = emailInput.value;
-		
-		if (email) {
+
+		if (eventName.toLowerCase() == "jakarta") {
+			window.location.href = `https://daydreamjakarta.fillout.com/rsvp?email=${encodeURIComponent(email)}`;
+		}
+		else if (email) {
 			window.location.href = `https://forms.hackclub.com/daydream-sign-up?email=${encodeURIComponent(email)}`;
 		}
 	}
