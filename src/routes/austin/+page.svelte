@@ -10,7 +10,7 @@
 	const eventName = "Austin"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "Austin, Texas";
 	const eventAddress = "2410 San Antonio St Austin, TX 78734"; // Leave this empty if you don't want an address
-	const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recit5nhOKNU5OWsV"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
 	const directionsURL = "https://www.google.com/maps/dir//2410+San+Antonio+St,+Austin,+TX+78734/"
 	const contactLink = "mailto:austin@daydream.hackclub.com"
