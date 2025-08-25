@@ -9,16 +9,17 @@
 	// Configuration - Put your information here!
 	const eventName = "Helsinki";
 	const eventLocation = "Helsinki";
-	const eventAddress = ""; // Leave this empty if you don't want an address
-	const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const eventAddress = "Puumiehenkuja 5A, 02150, Espoo"; // Leave this empty if you don't want an address
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recdfom5UbYh7cp59"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional
-	const directionsURL = "";
+	const directionsURL = "https://maps.app.goo.gl/HLrrBNuKbzZEfUUXA";
 	const contactLink = "mailto:helsinki@daydream.hackclub.com"
 	
 	// Sponsors Configuration
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
 		{ image: "/helsinki/supercell.png", name: "Supercell", url: "https://supercell.com" },
+		{ image: "/helsinki/aaltoes.png", name: "Aaltoes", url: "https://aaltoes.com" }
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -1009,7 +1010,7 @@ Mumbai`.split("\n")
 			<!-- Header Section -->
 			<div class="w-full bg-[url('/billboard-bg-texture.png')] bg-contain bg-repeat py-6 relative" style="border-bottom: 8px solid #B4B4C5;">
 				<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">
-					Sponsors
+					Sponsors / Partners
 				</h2>
 				<!-- Brush texture overlay for header -->
 				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
@@ -1302,11 +1303,12 @@ Mumbai`.split("\n")
 			{#if eventAddress}
 				<p class="text-center font-sans text-2xl pt-12 max-sm:text-xl text-[#60574b] z-10000">
 					{#if directionsURL}
-						Daydream {eventName} is taking place at <a class="underline text-pink" href={directionsURL}>{eventAddress}</a>!
+						Daydream {eventName} is taking place at <a class="underline text-pink" href={directionsURL}>Startup Sauna</a>!
 					{:else}
 						Daydream {eventName} is taking place at <span class="underline">{eventAddress}</span>!
 					{/if}
 				</p>
+				<p class="text-center text-[#60574b]">Thanks to Aaltoes for the venue!</p>
 			{/if}
 		</div>
 	</div>
