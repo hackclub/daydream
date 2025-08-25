@@ -15,7 +15,7 @@
 		const contactLink = "mailto:barranquilla@daydream.hackclub.com"
 	
 	// Sponsors Configuration
-	const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recA7vMEOH9sYv9Y3"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
 		{ image: "https://storage.jukeboxprint.com/s/images/jukebox-meta-im.png", name: "Jukebox Print", url: "https://jukeboxprint.com/custom-stickers" },
@@ -820,7 +820,7 @@ Mumbai`.split("\n")
 			</h4>
 		</div>
 		
-		<ParticipantSignUp {eventName} />
+		<ParticipantSignUp {eventName} eventLink={signupLink} customText="Ingresa tu correo para inscribirte" />
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
