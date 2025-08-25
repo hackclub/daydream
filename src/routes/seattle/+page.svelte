@@ -810,18 +810,18 @@ Mumbai`.split('\n');
 	></div>
 
 	<div
-		class="buildings-front-parallax absolute top-0 left-0 w-full h-full bg-[url(/buildings-front.png)] bg-no-repeat bg-contain pointer-events-none lg:-translate-y-15"
+		class="buildings-front-parallax absolute top-0 left-0 w-full h-full bg-[url(seattle/banner.svg)] bg-no-repeat bg-contain pointer-events-none lg:-translate-y-28"
 	></div>
 	<!-- brush texture clipped to front buildings -->
 	<div
 		class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat pointer-events-none opacity-100 lg:-translate-y-15 bg-center mix-blend-overlay"
-		style="mask-image: url('/buildings-front.png'); mask-size: contain; mask-repeat: no-repeat; mask-position: center top; -webkit-mask-image: url('/buildings-front.png'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center top;"
+		style="mask-image: url('seattle/banner.svg'); mask-size: contain; mask-repeat: no-repeat; mask-position: center top; -webkit-mask-image: url('seattle/banner.svg'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center top;"
 	></div>
 	<div
-		class="hero-ui-parallax flex flex-col items-center justify-center text-center relative z-5 -translate-y-20"
+		class="hero-ui-parallax flex flex-col items-center justify-center text-center relative z-5 -translate-y-20 min-w-full"
 	>
 		<div class="inline-block relative">
-			<div class="h-24"></div>
+			<div class="h-36"></div>
 			<!-- space for the ship -->
 			<h2
 				class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
@@ -831,13 +831,13 @@ Mumbai`.split('\n');
 			<img
 				src="seattle/daydream.svg"
 				alt="Daydream"
-				class="mb-9 w-auto h-auto object-contain max-w-full px-4"
+				class="mb-9 w-auto h-48 object-contain max-w-full py-4"
 			/>
 			<a
 				href="https://hackclub.com"
-				class="absolute top-0 -right-3 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem] p-4"
+				class="absolute top-8 -right-30 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem] p-4"
 			>
-				<img src="flag-plane.png" alt="Hack Club" class="h-28" />
+				<img src="flag-plane.png" alt="Hack Club" class="h-32" />
 			</a>
 		</div>
 		<div class="relative inline-block px-4">
@@ -1421,7 +1421,7 @@ Mumbai`.split('\n');
 				<div
 					class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center"
 				>
-					<span class="font-sans text-[#F2993E] font-bold text-[1.3rem] mr-1">#4:</span> Start
+					<span class="font-sans text-[#F2993E] font-bold text-[1.5rem] mr-1">#4:</span> Start
 					building your game - <em>no experience needed</em>
 				</div>
 			</div>
