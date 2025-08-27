@@ -3,6 +3,8 @@
 	
 
 	export let eventName = "";
+	export let eventLink = ""; 
+	export let customText = "";
 	
 	$: if (!eventName) {
 		let slug = $page.url.pathname.split('/')[1] || '';
@@ -16,7 +18,10 @@
 		const email = emailInput.value;
 		
 		if (email) {
-			window.location.href = `https://forms.hackclub.com/daydream-sign-up?email=${encodeURIComponent(email)}`;
+			// Use custom event link if provided, otherwise use default
+			const baseUrl = eventLink || "https://forms.hackclub.com/daydream-sign-up";
+			const separator = baseUrl.includes('?') ? '&' : '?';
+			window.location.href = `${baseUrl}${separator}email=${encodeURIComponent(email)}`;
 		}
 	}
 </script>
@@ -29,7 +34,7 @@
 			<input
 				type="email"
 				name="email"
-				placeholder="Enter email to sign up"
+				placeholder={customText || "Enter email to sign up"}
 				class="w-80 px-3 py-1 text-dark focus:outline-none flex-1"
 				required
 			/>
