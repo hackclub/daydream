@@ -1023,7 +1023,7 @@ Mumbai`.split("\n")
 			</h4>
 		</div>
 		
-		<ParticipantSignUp {eventName} />
+		<ParticipantSignUp {signupLink} {eventName} />
 		<div class="mt-4">
 			<a
 				href="https://go.hackit.tw/daydream-taiwan-guild"

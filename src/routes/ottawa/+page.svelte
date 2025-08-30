@@ -9,25 +9,18 @@
 	// Configuration - Put your information here!
 	const eventName = "Ottawa"; // The name of your event
 	const eventLocation = "Ottawa";
-	const eventAddress = "TBD"; // Leave this empty if you don't want an address
+	const eventAddress = ""; // Leave this empty if you don't want an address
 	// These two are optional
-	const directionsURL = "https://daydream.hackclub.com/ottawa"
-	const contactLink = "TBD"
+	const directionsURL = ""
+	const contactLink = "mailto:ottawa@daydream.hackclub.com"
 
 	// Sponsors Configuration
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recO8NdZFYsBeENua"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
-	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
+	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" },
-		{ image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
-		{ image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
-		{ image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
-		{ image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
-		{ image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
-		{ image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
+		{ image: "/ottawa/fociLogo.png", name: "FOCI Solutions", url: "https://www.focisolutions.com/" },
 	];
-	
-	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
+		// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
 		{
 			title: "Saturday, September 27th",
@@ -781,6 +774,15 @@ Mumbai`.split("\n")
 	<script defer data-domain="daydream.hackclub.com" src="https://plausible.io/js/script.js"></script>
 </svelte:head>
 
+<!-- Jukebox Partnership Banner -->
+<div class="w-full bg-[#8B4513] text-[#FCEFC5] py-3 px-4 text-center relative z-50">
+	<div class="flex items-center justify-center space-x-2 text-sm md:text-base font-serif">
+		<img src="rock-sticker.png" alt="Sticker" class="h-6 w-auto transform rotate-12">
+		<span>🎉 Big shoutout to Jukebox for our <a href="https://www.jukeboxprint.com/custom-stickers" class="underline hover:no-underline transition-all">custom stickers</a> at Daydream Ottawa!</span>
+		<img src="rock-sticker.png" alt="Sticker" class="h-6 w-auto transform -rotate-12">
+	</div>
+</div>
+
 
 <div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
 
@@ -832,7 +834,7 @@ Mumbai`.split("\n")
 			</h4>
 		</div>
 		
-		<ParticipantSignUp {eventName} />
+		<ParticipantSignUp {signupLink} {eventName} />
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->

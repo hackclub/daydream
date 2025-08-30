@@ -3,6 +3,7 @@
 	
 
 	export let eventName = "";
+	export let signupLink = "https://forms.hackclub.com/daydream-sign-up"; 
 	
 	$: if (!eventName) {
 		let slug = $page.url.pathname.split('/')[1] || '';
@@ -16,7 +17,11 @@
 		const email = emailInput.value;
 		
 		if (email) {
-			window.location.href = `https://forms.hackclub.com/daydream-sign-up?email=${encodeURIComponent(email)}`;
+			if (signupLink.includes("?")) {
+				window.location.href = `${signupLink}&email=${encodeURIComponent(email)}`;
+			} else {
+				window.location.href = `${signupLink}?email=${encodeURIComponent(email)}`;
+			}
 		}
 	}
 </script>

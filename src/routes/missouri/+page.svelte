@@ -9,10 +9,10 @@
 	// Configuration - Put your information here!
 	const eventName = "Missouri"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "Springfield, Missouri";
-	const eventAddress = "The Library Center, 4653 S Campbell Ave, Springfield, MO 65810"; // Leave this empty if you don't want an address
+	const eventAddress = "O’Reilly Enterprise Center, Drury University"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recukCDrvwSE2bU26"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = ""
+	const directionsURL = "https://google.com/maps/place/606+E+Central+St,+Springfield,+MO+65802/data=!4m2!3m1!1s0x87cf62e5b2bafdcd:0x4564a2f9a438716c?sa=X&ved=1t:242&ictx=111"
 	const contactLink = "mailto:missouri@daydream.hackclub.com"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
@@ -45,8 +45,8 @@
 		{
 			title: "Sunday, September 28th",
 			items: [
-				{ event: "Doors open", time: "8:00 AM" },
-				{ event: "Breakfast", time: "8:30 AM" },
+				{ event: "Doors open", time: "9:00 AM" },
+				{ event: "Breakfast", time: "9:30 AM" },
 				{ event: "Workshop 3", time: "11:00 AM" },
 				{ event: "Lunch", time: "12:30 AM" },
 				{ event: "Submissions close!", time: "4:00 PM" },
@@ -62,7 +62,7 @@
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
 	import Ticker from "$lib/components/Ticker.svelte";
 	import Footer from "$lib/components/Footer.svelte";
-	import ParticipantSignUp from "$lib/components/ParticipantSignUp.svelte";
+	import MissouriSignUp from "./MissouriSignUp.svelte";
 	import { page } from '$app/stores';
 	
 	
@@ -813,7 +813,7 @@ Mumbai`.split("\n")
 	<div class="buildings-front-parallax absolute top-0 left-0 w-full h-full bg-[url(/buildings-front.png)] bg-no-repeat bg-contain pointer-events-none lg:-translate-y-15"></div>
 	<!-- brush texture clipped to front buildings -->
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat pointer-events-none opacity-100 lg:-translate-y-15 bg-center mix-blend-overlay" style="mask-image: url('/buildings-front.png'); mask-size: contain; mask-repeat: no-repeat; mask-position: center top; -webkit-mask-image: url('/buildings-front.png'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center top;"></div>
-	<div class="hero-ui-parallax flex flex-col items-center justify-center text-center relative z-5 -translate-y-2">
+	<div class="hero-ui-parallax flex flex-col items-center justify-center text-center relative z-5 -translate-y-2 mb-30">
 		<div class="inline-block relative">
 			<div class="h-12"></div> 
 			<!-- space for the ship -->
@@ -822,7 +822,7 @@ Mumbai`.split("\n")
 			>
 				September 27th & 28th, 2025
 			</h2> -->
-			<img src="missouri/daydreammo.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
+			<img src="missouri/logo.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
 			<a href="https://hackclub.com" class="absolute top-0 -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
 				<img src="flag-plane.png" alt="Hack Club" class="h-28">
 			</a>
@@ -831,21 +831,21 @@ Mumbai`.split("\n")
 			<h3
 				class="text-3xl italic font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent w-max max-sm:text-2xl mx-auto"
 			>
-				Game jam for high schoolers
+				Coding event for high schoolers
 			</h3>
-			<img
-				src="underline.svg"
-				alt=""
-				class="absolute left-1/2 -translate-x-1/2 -mt-1 h-auto scale-115"
-			/>
 			<h4
 				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
 			>
 				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
 			</h4>
+			<h4
+				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
+			>
+				Taking place at <a class="underline text-pink" href={directionsURL}>{eventAddress}</a>!
+			</h4>
 		</div>
 		
-		<ParticipantSignUp {eventName} />
+		<MissouriSignUp {eventName} />
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
@@ -913,7 +913,7 @@ Mumbai`.split("\n")
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-30 pointer-events-none -z-40"></div>
 	
 	<div class="relative max-w-4xl mx-auto h-full flex items-start pt-14 max-sm:pt-40 px-8 max-sm:px-2">
-		<div class="relative z-20 px-20 pt-20 pb-52 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
+		<div class="relative z-20 px-20 pt-20 pb-28 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
 			<div class="absolute bottom-0 left-0 w-full h-24 z-10 pointer-events-none bg-[url('/clouds-loop.png')] bg-repeat-x bg-bottom bg-contain"></div>
 			<h2 class="text-5xl font-serif italic text-[#8B4513] mb-10 relative">
 				What is Daydream Missouri?
@@ -923,11 +923,11 @@ Mumbai`.split("\n")
 			<div class="text-[#8B4513] font-serif text-xl leading-relaxed space-y-8">
 				<p>This fall we invite you to join us for Daydream, the world's biggest game jam happening simultaneously in 100 cities, hosted by Hack Club. And there's one being hosted right in Springfield Missouri, welcoming everyone around the area.</p>
 
-				<p>This two day coding event invites you and your friends to come and create your own original game for cool prizes! Food and snacks are provided!</p>
+				<p>This two day coding event invites you and your friends to come, compete, and create your own original game for cool prizes! Food and snacks are provided!</p>
 
-				<p>Don't consider yourself a game dev? No problem - we have tons of online and in-person workshops for guiding you to make your first game! </p>
+				<p>Don't consider yourself a game dev? No problem - we have tons of workshops for guiding you to make your first game! </p>
 
-				<p>On September 27th and 28th, come to Location TBD to learn something new, make something you're really proud of, meet new friends, and go on an incredible adventure together.</p>
+				<p>On September 27th and 28th, come to Drury University to learn something new, make something you're really proud of, meet new friends, and go on an incredible adventure together.</p>
 			</div>
 		</div>
 	</div>
@@ -1000,7 +1000,7 @@ Mumbai`.split("\n")
 			<div class="relative w-72 h-40 max-md:w-80 animate-hover ![--hover:-0.15rem] ![animation-delay:1.4s] z-20" data-point="3">
 				<img src="paper3.png" alt="" class="w-full h-full object-contain">
 				<div class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center">
-					<span class="font-sans text-[#AB68E2] font-bold text-[1.3rem] mr-1">#3:</span> Find a team of other teenagers at the event
+					<span class="font-sans text-[#AB68E2] font-bold text-[1.3rem] mr-1">#3:</span> Find a team of up to 3 teenagers to work together
 				</div>
 			</div>
 		</div>
@@ -1175,7 +1175,7 @@ Mumbai`.split("\n")
 	
 	<div class="relative max-w-4xl w-full">
 		<!-- Billboard Container -->
-		<div class="relative bg-[#f0f9ff] border-[10px] border-b-[16px] border-[#888896] rounded-lg rounded-b-xl mt-100 mb-20 mx-auto z-40">
+		<div class="relative bg-[#f0f9ff] border-[10px] border-b-[16px] border-[#888896] rounded-lg rounded-b-xl mt-100 mb-10 mx-auto z-40">
 			<!-- Billboard Lights (top) -->
 			<img 
 				src="/billboard-lights.png" 
@@ -1188,6 +1188,9 @@ Mumbai`.split("\n")
 				<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">
 					Schedule
 				</h2>
+				<h3 class="text-l font-sans text-[#F0F0FF] text-center px-8 max-sm:text-xl max-sm:px-4">
+					* Participants are not required (but are recommended) to be present for the entirety of the event *
+				</h3>
 				<!-- Brush texture overlay for header -->
 				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
 			</div>
@@ -1226,9 +1229,9 @@ Mumbai`.split("\n")
 				class="absolute bottom-0 -left-[5px] w-[calc(100%+10px)] h-6 bg-[url('/billboard-bars.png')] bg-repeat-x bg-contain bg-center pointer-events-none z-10 border-[#9898a7] border-x-[6px]"
 			></div>
 		</div>
-		
 	</div>
 </div>
+
 
 {#if sponsorsEnabled}
 <!-- Second Billboard Section -->
@@ -1333,7 +1336,7 @@ Mumbai`.split("\n")
 </div>
 {/if}
 
-<div class="w-full pb-24 max-md:pt-16 bg-gradient-to-b from-[#FAE3C9] to-[#e99cce] relative flex flex-col items-center justify-center">
+<div class="w-full pb-24 max-md:pt-6 bg-gradient-to-b from-[#FAE3C9] to-[#e99cce] relative flex flex-col items-center justify-center">
 	<img src="faq-clouds.png" alt="" class="w-full">
 	<img src="faq.png" alt="FAQ" class="mb-12 h-24 scale-175 max-md:scale-120">
 
@@ -1352,8 +1355,8 @@ Mumbai`.split("\n")
 		<div class="relative transform rotate-1">
 			<img src="window-4.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
-				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What is Daydream Missouri?</h3>
-				<p class="text-sm">A game coding competition over the course of 2 days taking place at TBD.</p>
+				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What can I make at Daydream?</h3>
+				<p class="text-sm">ANY type of game based on the theme! Platformer, visual novel, clicker game, etc. Be as creative as possible!</p>
 			</div>
 		</div>
 
@@ -1371,7 +1374,7 @@ Mumbai`.split("\n")
 			<img src="window-1.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24  opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What do I need?</h3>
-				<p class="text-sm">Your laptop, chargers, and an open mind!</p>
+				<p class="text-sm">Your laptop, chargers, and an open mind! School-issued Chromebooks are not recommended.</p>
 			</div>
 		</div>
 
@@ -1406,8 +1409,8 @@ Mumbai`.split("\n")
 		<div class="relative transform -rotate-1">
 			<img src="window-1.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
-				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What can I make at Daydream?</h3>
-				<p class="text-sm">ANY type of game based on the theme! Platformer, visual novel, clicker game, etc. Be as creative as possible!</p>
+				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What if I have more questions?</h3>
+				<p class="text-sm">Feel free to email us at missouri@daydream.hackclub.com and check out our Instagram <a href="https://www.instagram.com/springfieldhackers">@springfieldhackers</a></p>
 			</div>
 		</div>
 	</div>

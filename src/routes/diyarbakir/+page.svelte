@@ -9,10 +9,10 @@
 	// Configuration - Put your information here!
 	const eventName = "Diyarbakır"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "Diyarbakır, Turkey";
-	const eventAddress = "Diyarbakır, Turkey"; // Leave this empty if you don't want an address
-	const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const eventAddress = "Sezai Karakoç Kültür ve Kongre Merkezi, Diyarbakır, Turkey"; // Leave this empty if you don't want an address
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recL4Af3iSDhpGjjO"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = "" // Leave empty for now
+	const directionsURL = "https://www.google.com/maps/place/Diyarbak%C4%B1r+Sezai+Karako%C3%A7+K%C3%BClt%C3%BCr+ve+Kongre+Merkezi/@37.9120599,40.221391,17z/data=!3m1!4b1!4m6!3m5!1s0x4075203170ae3cf5:0x21de09b4a477e3de!8m2!3d37.9120599!4d40.2239659!16s%2Fg%2F11c5896nfk?entry=ttu&g_ep=EgoyMDI1MDgyNS4wIKXMDSoASAFQAw%3D%3D" // Google Maps link
 	const contactLink = "mailto:diyarbakir@daydream.hackclub.com"
 	
 	// Language support
@@ -83,15 +83,11 @@
 	$: t = languages[currentLanguage];
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
-	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
+	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" },
-		{ image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
-		{ image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
-		{ image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
-		{ image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
-		{ image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
-		{ image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
+		{ image: "https://yt3.googleusercontent.com/ytc/AIdro_kzEvXwNcqCsQ_mdTLXzi22k4-7buXfhnNgyVTr6tTdy-4=s900-c-k-c0x00ffffff-no-rj", name: "Diyarbakır Büyükşehir Belediyesi", url: "https://www.diyarbakir.bel.tr/" },
+		{ image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpXYApFppV9KT67es-Ncj5aLtH5KqO1nWNdQ&s", name: "Kayapınar Belediyesi", url: "https://kayapinar.bel.tr/" },
+		{ image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa6SblZVpsU5im1SPzNW9dqDSNeciWwr8sBQ&s", name: "Yenişehir Belediyesi", url: "https://www.diyarbakiryenisehir.bel.tr/" }
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -164,7 +160,7 @@ Dubai
 San Francisco
 Minneapolis
 Seattle
-Singapore
+Signapore
 Sydney
 Mumbai`.split("\n")
 
@@ -461,18 +457,133 @@ Mumbai`.split("\n")
 						throw new Error(`Server error: ${response.status}`);
 					} else {
 						// Don't retry on non-500 errors
-						return "How about a game where you collect magical crystals to save a mysterious floating world?";
+						return currentLanguage === 'tr' ? "Nasıl bir oyun yapmak istersin? Gizemli bir dünyada sihirli kristalleri toplayarak dünyayı kurtarmaya ne dersin?" : "How about a game where you collect magical crystals to save a mysterious floating world?";
 					}
 				}
 				
 				const data = await response.json();
+				// If API returns English and user wants Turkish, translate it
+				if (currentLanguage === 'tr' && data.idea) {
+					console.log('API returned idea:', data.idea); // Debug için
+					// Simple translation for common game ideas
+					const englishIdea = data.idea.toLowerCase();
+					
+					// Platform & Movement Games
+					if (englishIdea.includes('platformer') || englishIdea.includes('jump') || englishIdea.includes('climb')) {
+						return "Bir platform oyunu yapmaya ne dersin? Karakterin zıplayarak engelleri aşsın ve yükseklere çıksın!";
+					} 
+					// Puzzle & Brain Games
+					else if (englishIdea.includes('puzzle') || englishIdea.includes('brain') || englishIdea.includes('logic')) {
+						return "Bir bulmaca oyunu yapmaya ne dersin? Oyuncuları düşündüren zorluklar ve mantık oyunları!";
+					} 
+					// Adventure & Exploration Games
+					else if (englishIdea.includes('adventure') || englishIdea.includes('explore') || englishIdea.includes('discover')) {
+						return "Bir macera oyunu yapmaya ne dersin? Gizemli dünyalarda keşif yap ve sırları çöz!";
+					} 
+					// Racing & Speed Games
+					else if (englishIdea.includes('racing') || englishIdea.includes('speed') || englishIdea.includes('fast')) {
+						return "Bir yarış oyunu yapmaya ne dersin? Hızlı arabalar, heyecanlı yarışlar ve rekor kırma!";
+					} 
+					// Collection & Resource Games
+					else if (englishIdea.includes('collect') || englishIdea.includes('gather') || englishIdea.includes('resource')) {
+						return "Bir toplama oyunu yapmaya ne dersin? Oyuncular nesneleri toplasın, puan kazansın ve koleksiyon yapsın!";
+					} 
+					// Rescue & Hero Games
+					else if (englishIdea.includes('save') || englishIdea.includes('rescue') || englishIdea.includes('hero')) {
+						return "Bir kurtarma oyunu yapmaya ne dersin? Karakterin dünyayı, canlıları veya değerli şeyleri kurtarsın!";
+					} 
+					// World & Planet Games
+					else if (englishIdea.includes('world') || englishIdea.includes('planet') || englishIdea.includes('universe')) {
+						return "Bir dünya keşif oyunu yapmaya ne dersin? Oyuncular yeni yerler keşfetsin ve farklı gezegenlerde macera yaşasın!";
+					} 
+					// Magic & Fantasy Games
+					else if (englishIdea.includes('magic') || englishIdea.includes('spell') || englishIdea.includes('fantasy')) {
+						return "Bir sihir oyunu yapmaya ne dersin? Karakterin büyüler yapsın, düşmanları yenmeye çalışsın ve sihirli güçler kazansın!";
+					}
+					// Fighting & Combat Games
+					else if (englishIdea.includes('fight') || englishIdea.includes('battle') || englishIdea.includes('combat')) {
+						return "Bir dövüş oyunu yapmaya ne dersin? Karakterin güçlü düşmanlarla savaşsın ve zafer kazansın!";
+					}
+					// Stealth & Sneak Games
+					else if (englishIdea.includes('stealth') || englishIdea.includes('sneak') || englishIdea.includes('hide')) {
+						return "Bir gizlenme oyunu yapmaya ne dersin? Karakterin düşmanlardan saklansın ve gizlice görevleri tamamlasın!";
+					}
+					// Building & Construction Games
+					else if (englishIdea.includes('build') || englishIdea.includes('construct') || englishIdea.includes('create')) {
+						return "Bir inşa oyunu yapmaya ne dersin? Oyuncular kendi dünyalarını inşa etsin ve yaratıcılıklarını göstersin!";
+					}
+					// Music & Rhythm Games
+					else if (englishIdea.includes('music') || englishIdea.includes('rhythm') || englishIdea.includes('beat')) {
+						return "Bir müzik oyunu yapmaya ne dersin? Oyuncular ritim tutsun, müzik yapsın ve dans etsin!";
+					}
+					// Survival & Horror Games
+					else if (englishIdea.includes('survival') || englishIdea.includes('horror') || englishIdea.includes('scary')) {
+						return "Bir hayatta kalma oyunu yapmaya ne dersin? Karakterin tehlikeli durumlarda hayatta kalmaya çalışsın!";
+					}
+					// Simulation & Life Games
+					else if (englishIdea.includes('simulation') || englishIdea.includes('life') || englishIdea.includes('sim')) {
+						return "Bir simülasyon oyunu yapmaya ne dersin? Gerçek hayatı simüle et ve farklı deneyimler yaşa!";
+					}
+					// Strategy & Tactics Games
+					else if (englishIdea.includes('strategy') || englishIdea.includes('tactics') || englishIdea.includes('plan')) {
+						return "Bir strateji oyunu yapmaya ne dersin? Akıllı planlar yap ve düşmanları yenmek için taktikler geliştir!";
+					}
+					// Sports & Athletic Games
+					else if (englishIdea.includes('sport') || englishIdea.includes('athletic') || englishIdea.includes('ball')) {
+						return "Bir spor oyunu yapmaya ne dersin? Takım oyunları, yarışlar ve atletik beceriler!";
+					}
+					// Time & Clock Games
+					else if (englishIdea.includes('time') || englishIdea.includes('clock') || englishIdea.includes('timer')) {
+						return "Bir zaman oyunu yapmaya ne dersin? Oyuncular zamanla yarışsın ve hızlı kararlar versin!";
+					}
+					// Color & Pattern Games
+					else if (englishIdea.includes('color') || englishIdea.includes('pattern') || englishIdea.includes('match')) {
+						return "Bir renk oyunu yapmaya ne dersin? Oyuncular renkleri eşleştirsin ve güzel desenler oluştursun!";
+					}
+					// Number & Math Games
+					else if (englishIdea.includes('number') || englishIdea.includes('math') || englishIdea.includes('calculate')) {
+						return "Bir matematik oyunu yapmaya ne dersin? Sayıları kullanarak eğlenceli bulmacalar çöz!";
+					}
+					// Word & Language Games
+					else if (englishIdea.includes('word') || englishIdea.includes('language') || englishIdea.includes('letter')) {
+						return "Bir kelime oyunu yapmaya ne dersin? Harflerle oyna ve anlamlı kelimeler oluştur!";
+					}
+					// Arcade & Flying Games
+					else if (englishIdea.includes('arcade') || englishIdea.includes('plane') || englishIdea.includes('fly') || englishIdea.includes('sky') || englishIdea.includes('rooftop') || englishIdea.includes('antenna') || englishIdea.includes('crane')) {
+						return "Bir arcade oyunu yapmaya ne dersin? Küçük bir uçağı yönlendir ve çatılardan kaçınarak gökyüzüne ulaş!";
+					}
+					// Insect & Collection Games
+					else if (englishIdea.includes('insect') || englishIdea.includes('bug') || englishIdea.includes('circus') || englishIdea.includes('beetle') || englishIdea.includes('firefly') || englishIdea.includes('grasshopper') || englishIdea.includes('jar') || englishIdea.includes('tent') || englishIdea.includes('stall')) {
+						return "Bir böcek toplama oyunu yapmaya ne dersin? Sirkte böcekleri yakala, ateş böcekleri ve çekirgeleri topla!";
+					}
+					// Shooting & Defense Games
+					else if (englishIdea.includes('shooting') || englishIdea.includes('shoot') || englishIdea.includes('defend') || englishIdea.includes('workshop') || englishIdea.includes('invading') || englishIdea.includes('kitchen')) {
+						return "Bir savunma oyunu yapmaya ne dersin? Mutfağını koru ve istilacı yiyecekleri vur!";
+					}
+					// Shrinking & Escape Games
+					else if (englishIdea.includes('shrinking') || englishIdea.includes('shrink') || englishIdea.includes('escape') || englishIdea.includes('carnival') || englishIdea.includes('monster') || englishIdea.includes('disappear') || englishIdea.includes('trap') || englishIdea.includes('caught')) {
+						return "Bir kaçış oyunu yapmaya ne dersin? Canavarlardan kaç ve yavaşça küçülen alandan kurtul!";
+					}
+					// Food & Kitchen Games
+					else if (englishIdea.includes('food') || englishIdea.includes('kitchen') || englishIdea.includes('cook') || englishIdea.includes('workshop') || englishIdea.includes('stall') || englishIdea.includes('performance')) {
+						return "Bir mutfak oyunu yapmaya ne dersin? Yiyeceklerle oyna ve lezzetli tarifler yap!";
+					}
+					// Monster & Horror Games
+					else if (englishIdea.includes('monster') || englishIdea.includes('scary') || englishIdea.includes('fear') || englishIdea.includes('dark') || englishIdea.includes('run') || englishIdea.includes('caught')) {
+						return "Bir korku oyunu yapmaya ne dersin? Canavarlardan kaç ve karanlık yerlerde hayatta kalmaya çalış!";
+					}
+					// Default response for any other ideas
+					else {
+						return "Harika bir oyun fikri! Bu fikri geliştirerek kendi oyununu yapabilirsin. Yaratıcı ol ve eğlenceli hale getir!";
+					}
+				}
 				return data.idea;
 			} catch (error) {
 				attempt++;
 				console.warn(`Attempt ${attempt} failed:`, error);
 				
 				if (attempt >= maxAttempts) {
-					return "How about a game where you collect magical crystals to save a mysterious floating world?";
+					return currentLanguage === 'tr' ? "Nasıl bir oyun yapmak istersin? Gizemli bir dünyada sihirli kristalleri toplayarak dünyayı kurtarmaya ne dersin?" : "How about a game where you collect magical crystals to save a mysterious floating world?";
 				}
 				
 				// Wait before retrying
@@ -480,7 +591,7 @@ Mumbai`.split("\n")
 			}
 		}
 		
-		return "How about a game where you collect magical crystals to save a mysterious floating world?";
+		return currentLanguage === 'tr' ? "Nasıl bir oyun yapmak istersin? Gizemli bir dünyada sihirli kristalleri toplayarak dünyayı kurtarmaya ne dersin?" : "How about a game where you collect magical crystals to save a mysterious floating world?";
 	}
 
 	async function dreamIdea() {
@@ -921,7 +1032,16 @@ Mumbai`.split("\n")
 			</h4>
 		</div>
 		
-		<ParticipantSignUp {eventName} />
+		<!-- Custom RSVP Button for Diyarbakır -->
+		<div class="mt-8 flex flex-col items-center gap-3 z-5 max-md:scale-90">
+			<a 
+				href={signupLink}
+				target="_blank"
+				class="relative rounded-full overflow-hidden bg-white border-2 border-dark font-sans p-4 px-8 text-dark hover:bg-pink hover:text-white transition-all duration-200 shadow-[0_3px_0_0_theme(colors.dark)] hover:shadow-[0_3px_0_0_#E472AB] hover:-translate-y-1"
+			>
+				{currentLanguage === 'tr' ? 'Kayıt Olun!' : 'Register Now!'}
+			</a>
+		</div>
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
@@ -985,7 +1105,7 @@ Mumbai`.split("\n")
 		<div class="relative z-20 px-20 pt-20 pb-52 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
 			<div class="absolute bottom-0 left-0 w-full h-24 z-10 pointer-events-none bg-[url('/clouds-loop.png')] bg-repeat-x bg-bottom bg-contain"></div>
 			<h2 class="text-5xl font-serif italic text-[#8B4513] mb-10 relative">
-				{currentLanguage === 'tr' ? 'Sevgili Hacker\'lar, Müzisyenler ve Sanatçılar,' : 'Dear Hackers, Musicians, and Artists,'}
+				{currentLanguage === 'tr' ? 'Sevgili Hacker\'lar, Müzisyenler ve Sanatçılar,' : 'Dear Hackers, Musicians, and Artist,'}
 				<img src="/underline.svg" alt="" class="absolute left-0 -bottom-3 w-64 h-auto opacity-70">
 			</h2>
 			
@@ -1110,8 +1230,8 @@ Mumbai`.split("\n")
 						{#if sponsors.length > 4}
 							<div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center mb-8">
 								{#each sponsors.slice(0, 4) as sponsor}
-									<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
-										<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
+									<a href={sponsor.url} class="bg-white/20 rounded-full p-6 w-32 h-32 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
+										<img src={sponsor.image} alt={sponsor.name} class="w-20 h-20 object-contain rounded-full">
 									</a>
 								{/each}
 							</div>
@@ -1122,9 +1242,9 @@ Mumbai`.split("\n")
 									<div class="grid grid-cols-2 md:grid-cols-3 gap-8 items-center justify-items-center max-w-2xl">
 										{#each sponsors.slice(4) as sponsor, index}
 											<a href={sponsor.url} 
-												class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors {sponsors.slice(4).length === 3 && index === 2 ? 'md:col-span-1 col-span-2 max-w-xs mx-auto' : ''}" 
+												class="bg-white/20 rounded-full p-6 w-32 h-32 flex items-center justify-center hover:bg-white/40 transition-colors {sponsors.slice(4).length === 3 && index === 2 ? 'md:col-span-1 col-span-2 max-w-xs mx-auto' : ''}" 
 												target="_blank" rel="noopener noreferrer">
-												<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
+												<img src={sponsor.image} alt={sponsor.name} class="w-20 h-20 object-contain rounded-full">
 											</a>
 										{/each}
 									</div>
@@ -1135,8 +1255,8 @@ Mumbai`.split("\n")
 							<div class="flex justify-center">
 								<div class="grid gap-8 items-center justify-items-center max-w-4xl {sponsors.length === 1 ? 'grid-cols-1' : sponsors.length === 2 ? 'grid-cols-1 md:grid-cols-2' : sponsors.length === 3 ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-2 md:grid-cols-4'}">
 									{#each sponsors as sponsor}
-										<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
-											<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
+									<a href={sponsor.url} class="bg-white/20 rounded-full p-6 w-32 h-32 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
+										<img src={sponsor.image} alt={sponsor.name} class="w-20 h-20 object-contain rounded-full">
 										</a>
 									{/each}
 								</div>
@@ -1291,7 +1411,7 @@ Mumbai`.split("\n")
 			<!-- Map container with cloudy edges -->
 			<div class="relative w-full h-156 overflow-hidden bg-transparent">
 				<iframe 
-					src={eventAddress ? "/event-map?location=" + encodeURIComponent(eventAddress) : "/map"}
+					src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Sezai+Karakoç+Kültür+ve+Kongre+Merkezi,Diyarbakır,Turkey&zoom=14"
 					class="w-full h-full border-0 bg-[#acd4e0]"
 					style="
 						mask-image: 
@@ -1543,21 +1663,14 @@ Mumbai`.split("\n")
 		</div>
 		</div>
 
-		<!-- FAQ Item 2 -->
-		<div class="relative transform rotate-1">
-			<img src="window-4.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
-			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
-				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">{currentLanguage === 'tr' ? 'Şehrimde bir Daydream düzenleyebilir miyim?' : 'Can I organize a Daydream in my city?'}</h3>
-				<p class="text-sm">{currentLanguage === 'tr' ? 'Kesinlikle! daydream@hackclub.com üzerinden bizimle iletişime geçin veya slack\'te #daydream kanalına katılın.' : 'Definitely! Contact us via daydream@hackclub.com or join #daydream on slack.'}</p>
-			</div>
-		</div>
+
 
 		<!-- FAQ Item 3 -->
 		<div class="relative transform rotate-2">
 			<img src="window-2.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24  opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">{currentLanguage === 'tr' ? 'Bunların hepsi ücretsiz mi?' : 'All this, for free?'}</h3>
-				<p class="text-sm">{currentLanguage === 'tr' ? 'Evet! Yemek, hediyeler ve güzel atmosfer dahil. Ayrıca, uzaktan katılıyorsanız, benzin veya otobüs / tren bileti maliyetini karşılayacağız.' : 'Yep! Food, swag and good vibes are all included. Plus, if you\'re joining us from afar, we\'ll cover the cost of gas or a bus / train ticket.'}</p>
+				<p class="text-sm">{currentLanguage === 'tr' ? 'Evet! Yemek, hediyeler ve güzel atmosfer dahil.' : 'Yep! Food, swag and good vibes are all included.'}</p>
 			</div>
 		</div>
 

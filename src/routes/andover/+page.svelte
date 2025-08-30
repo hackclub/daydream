@@ -39,23 +39,20 @@
 				{ event: "Continue working", time: "1:00 PM" },
                 { event: "Spikeball Competition", time: "2:00 PM" },
 				{ event: "Dinner", time: "6:00 PM" },
-				{ event: "Closing ceremony", time: "7:30 PM" },
-                { event: "Day 1 ends", time: "8:00 PM" }
+				{ event: "Closing ceremony", time: "6:30 PM" },
+                { event: "Day 1 ends", time: "7:00 PM" }
 			]
 		},
 		{
 			title: "Sunday, September 28th",
 			items: [
 				{ event: "Check in", time: "10:00 AM" },
-				{ event: "Opening ceremony 2", time: "9:30 AM" },
-				{ event: "Start working!", time: "9:45 AM" },
+				{ event: "Opening ceremony 2", time: "10:30 AM" },
+				{ event: "Start working!", time: "10:45 AM" },
 				{ event: "Lunch", time: "12:00 PM" },
 				{ event: "Continue working", time: "1:00 PM" },
-                { event: "Competition", time: "2:00 PM" },
-				{ event: "Special Dinner", time: "6:00 PM" },
-                { event: "Hacking ends", time: "6:45 PM" },
-				{ event: "Presentations and awards", time: "7:00 PM" },
-                { event: "Day 2 ends", time: "7:30 PM" }
+                { event: "Hacking ends", time: "3:30 PM" },
+                { event: "Day 2 ends", time: "4:30 PM" }
 			]
 		}
 	];
@@ -849,7 +846,7 @@ Mumbai`.split("\n")
 			</h4>
 		</div>
 		
-		<ParticipantSignUp {eventName} />
+		<ParticipantSignUp {signupLink} {eventName} />
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
