@@ -1,9 +1,43 @@
 <script lang="ts">
-	import Tooltip from './../lib/components/Tooltip.svelte';
-	const signupLink = "https://forms.hackclub.com/daydream-sign-up";
+	/**
+	 * This is the template site! Create a copy of this folder (src/routes/example)
+	 * and rename it to whatever you want your URL to be.
+	 * 
+	 * Then, configure the event name, location, and schedule below:
+	 */
+
+	// Configuration - Put your information here!
+	const eventName = "Lahore"; // This should be the name of your event WITHOUT "Daydream" at the start
+	const eventLocation = "Lahore";
+	const eventAddress = "Imperial International School & College, Gulberg, Lahore"; // Leave this empty if you don't want an address
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=rec9k7Pg1vLu1Bx9G"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	// These two are optional-- leave them empty if you don't have anything!
+	const directionsURL = "https://maps.app.goo.gl/FtogZ8hFT6F5U1727"
+	const contactLink = "mailto:daydream@alimad.co"
 	
-	// unused
-	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [];
+	// Sponsors Configuration - disable this if you don't have any sponsors to display!
+	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
+	const sponsors = [
+		{ image: "/lahore/imperial.jpg", name: "Imperial International School and College", url: "https://www.facebook.com/iisclhr" },
+		{ image: "/lahore/alimad.png", name: "Alimad Corporations", url: "https://alimad.co" },
+	];
+	
+	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
+	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
+		{
+			title: "Saturday, September 27th",
+			items: [
+				{ event: "Doors open", time: "8:00 AM" },
+				{ event: "Opening ceremony", time: "10:00 AM" },
+				{ event: "Start working on your project!", time: "11:00 AM" },
+				{ event: "Lunch", time: "12:00 PM" },
+				{ event: "Godot Workshop by Muhammad Ali", time: "1:00 PM" },
+				{ event: "Activity", time: "4:00 PM" },
+				{ event: "Closing Ceremony", time: "7:00 PM" },
+				{ event: "Day end", time: "8:00 PM" }
+			]
+		}
+	];
 
 	
 	import { onMount } from "svelte";
@@ -12,16 +46,17 @@
 	import Ticker from "$lib/components/Ticker.svelte";
 	import Footer from "$lib/components/Footer.svelte";
 	import ParticipantSignUp from "$lib/components/ParticipantSignUp.svelte";
+	import { page } from '$app/stores';
 	
 	
 	/** @type {import('./$types').PageData} */
 	export let data;
 	
 	// Get current URL for dynamic metadata
-	$: currentUrl = `https://daydream.hackclub.com`;
-	$: pageTitle = `Daydream - Teen Game Jam by Hack Club`;
-	$: pageDescription = `Join Daydream, the worldwide teen-led game jam by Hack Club! 4,000+ hackers building games in 100+ cities. Food, workshops, and prizes included!`;
-	$: pageKeywords = `game jam, hackathon, coding, teen coding, Hack Club, game development`;
+	$: currentUrl = `https://daydream.hackclub.com${$page.url.pathname}`;
+	$: pageTitle = `Daydream ${eventName} - ${eventLocation} Game Jam`;
+	$: pageDescription = `Join Daydream ${eventName} in ${eventLocation}! A teen-led game jam where you'll build amazing games with other high schoolers. Food, workshops, and prizes included!`;
+	$: pageKeywords = `game jam, hackathon, teen coding, Hack Club, game development, ${eventLocation}, ${eventName}`;
 
 	// Cities where the game jam is happening
 	const cities = `Columbus
@@ -29,6 +64,8 @@ Lisbon
 Boston
 Giza
 Vancouver
+Islamabad
+Karachi
 Houston
 New York City
 Bengaluru
@@ -40,7 +77,6 @@ Madrid
 Boise
 Ottawa
 Hangzhou
-Islamabad
 Lahore
 London
 Visakhapatnam
@@ -572,13 +608,7 @@ Mumbai`.split("\n")
 	}
 
 	onMount(() => {
-		
-		// Listen for navigation messages from iframe
-		window.addEventListener('message', (event) => {
-			if (event.data && event.data.type === 'navigate' && event.data.slug) {
-				window.location.href = `/${event.data.slug}`;
-			}
-		});
+		console.log('User city:', data.userCity);
 		
 		// Register GSAP plugins
 		gsap.registerPlugin(ScrollTrigger);
@@ -717,7 +747,7 @@ Mumbai`.split("\n")
 
 
 <svelte:head>
-	<title>Daydream</title>
+	<title>{pageTitle}</title>
 	<meta name="description" content={pageDescription} />
 	<meta name="keywords" content={pageKeywords} />
 	
@@ -775,7 +805,7 @@ Mumbai`.split("\n")
 			<h2
 			class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
 			>
-				September 27th & 28th, 2025
+				September 27th, 2025
 			</h2>
 			<img src="daydream.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
 			<a href="https://hackclub.com" class="absolute top-0 -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
@@ -796,11 +826,10 @@ Mumbai`.split("\n")
 			<h4
 				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
 			>
-				Organized by high schoolers in 100 cities worldwide
+				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
 			</h4>
 		</div>
-		
-		<ParticipantSignUp {signupLink} />
+		<ParticipantSignUp {signupLink} {eventName} />
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
@@ -864,7 +893,7 @@ Mumbai`.split("\n")
 		<div class="relative z-20 px-20 pt-20 pb-52 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
 			<div class="absolute bottom-0 left-0 w-full h-24 z-10 pointer-events-none bg-[url('/clouds-loop.png')] bg-repeat-x bg-bottom bg-contain"></div>
 			<h2 class="text-5xl font-serif italic text-[#8B4513] mb-10 relative">
-				Dear Hackers, Musicians, and Artists,
+				Dear Hackers, Students, and Artists,
 				<img src="/underline.svg" alt="" class="absolute left-0 -bottom-3 w-64 h-auto opacity-70">
 			</h2>
 			
@@ -891,7 +920,6 @@ Mumbai`.split("\n")
 </div>
 
 <!-- Schedule Container -->
- {#if false}
 <div class="w-full bg-[#FCEFC5] py-16 px-8 flex justify-center">
 	<div class="relative max-w-4xl w-full">
 		<!-- Billboard Container -->
@@ -962,6 +990,108 @@ Mumbai`.split("\n")
 		</div>
 	</div>
 </div>
+
+{#if sponsorsEnabled}
+<!-- Second Billboard Section -->
+<div class="w-full bg-[#FCEFC5] pb-16 pt-6 px-8 flex justify-center">
+	<div class="relative max-w-4xl w-full">
+		<!-- Billboard Container -->
+		<div class="relative bg-[#f0f9ff] border-[10px] border-b-[16px] border-[#888896] rounded-lg rounded-b-xl mx-auto z-40">
+			<!-- Header Section -->
+			<div class="w-full bg-[url('/billboard-bg-texture.png')] bg-contain bg-repeat py-6 relative" style="border-bottom: 8px solid #B4B4C5;">
+				<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">
+					Sponsors
+				</h2>
+				<!-- Brush texture overlay for header -->
+				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
+			</div>
+			
+			<!-- Main Content Area -->
+			<div class="relative bg-gradient-to-b from-[#CCF4FD] to-[#AECDF6] px-8 pt-8 pb-16">
+				<!-- Brush texture overlay for content -->
+				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
+				
+				<!-- Sponsors Grid -->
+				<div class="relative z-10 min-h-40">
+					{#if sponsors.length > 0}
+						<!-- First row (up to 4 sponsors) -->
+						{#if sponsors.length > 4}
+							<div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center mb-8">
+								{#each sponsors.slice(0, 4) as sponsor}
+									<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
+										<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
+									</a>
+								{/each}
+							</div>
+							
+							<!-- Second row (remaining sponsors, centered) -->
+							{#if sponsors.length > 4}
+								<div class="flex justify-center">
+									<div class="grid grid-cols-2 md:grid-cols-3 gap-8 items-center justify-items-center max-w-2xl">
+										{#each sponsors.slice(4) as sponsor, index}
+											<a href={sponsor.url} 
+												class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors {sponsors.slice(4).length === 3 && index === 2 ? 'md:col-span-1 col-span-2 max-w-xs mx-auto' : ''}" 
+												target="_blank" rel="noopener noreferrer">
+												<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
+											</a>
+										{/each}
+									</div>
+								</div>
+							{/if}
+						{:else}
+							<!-- Single row for 4 or fewer sponsors -->
+							<div class="flex justify-center">
+								<div class="grid gap-8 items-center justify-items-center max-w-4xl {sponsors.length === 1 ? 'grid-cols-1' : sponsors.length === 2 ? 'grid-cols-1 md:grid-cols-2' : sponsors.length === 3 ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-2 md:grid-cols-4'}">
+									{#each sponsors as sponsor}
+										<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
+											<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
+										</a>
+									{/each}
+								</div>
+							</div>
+						{/if}
+					{/if}
+					
+					{#if contactLink}
+						<!-- Call to action for sponsors -->
+						<div class="mt-8 text-center">
+							<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
+						</div>
+					{/if}
+				</div>
+			</div>
+			
+			<!-- Billboard Bars (bottom) -->
+			<div 
+				class="absolute bottom-0 -left-[5px] w-[calc(100%+10px)] h-6 bg-[url('/billboard-bars.png')] bg-repeat-x bg-contain bg-center pointer-events-none z-10 border-[#9898a7] border-x-[6px]"
+			></div>
+		</div>
+		
+		<!-- Connecting Pillars to First Billboard -->
+		<div 
+			class="absolute top-0 left-[15%] w-[10vw] max-w-12 h-32 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain -translate-y-32"
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
+		></div>
+		<div 
+			class="absolute top-0 right-[15%] w-[10vw] max-w-12 h-32 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain -translate-y-32"
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
+		></div>
+		
+		<!-- Billboard Pillars (extending down from bottom) -->
+		<div 
+			class="absolute bottom-0 left-[15%] w-[10vw] max-w-12 h-24 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain translate-y-24"
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
+		>
+			<div class="absolute bottom-0 left-0 w-full h-auto bg-[url('/clouds-loop.png')] bg-no-repeat bg-contain bg-bottom pointer-events-none aspect-[2/1]"></div>
+		</div>
+		<div 
+			class="absolute bottom-0 right-[15%] w-[10vw] max-w-12 h-24 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain translate-y-24"
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
+		>
+			<div class="absolute bottom-0 left-0 w-full h-auto bg-[url('/clouds-loop.png')] bg-no-repeat bg-contain bg-bottom pointer-events-none aspect-[2/1]"></div>
+		</div>
+	</div>
+</div>
 {/if}
 
 <!-- Gamejam Text Section -->
@@ -999,7 +1129,7 @@ Mumbai`.split("\n")
 			<div class="relative w-72 h-40 max-md:w-80 animate-hover ![--hover:-0.15rem] ![animation-delay:1.7s] z-20" data-point="1">
 				<img src="paper1.png" alt="" class="w-full h-full object-contain">
 				<div class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center">
-					<span class="font-sans text-[#E472AB] font-bold text-[1.3rem] mr-1">#1:</span> <a href={signupLink} class="underline">Sign up</a> for a Daydream event near you
+					<span class="font-sans text-[#E472AB] font-bold text-[1.3rem] mr-1">#1:</span> <a href={signupLink} class="underline">Sign up</a> for Daydream {eventName}
 				</div>
 			</div>
 		</div>
@@ -1069,7 +1199,7 @@ Mumbai`.split("\n")
 			<!-- Map container with cloudy edges -->
 			<div class="relative w-full h-156 overflow-hidden bg-transparent">
 				<iframe 
-					src="/map"
+					src={eventAddress ? "/event-map?location=" + encodeURIComponent(eventAddress) : "/map"}
 					class="w-full h-full border-0 bg-[#acd4e0]"
 					style="
 						mask-image: 
@@ -1160,9 +1290,13 @@ Mumbai`.split("\n")
 				</iframe>
 			</div>
 			
-			{#if data.nearestEvent}
+			{#if eventAddress}
 				<p class="text-center font-sans text-2xl pt-12 max-sm:text-xl text-[#60574b] z-10000">
-					It looks like you're only {data.nearestEvent.distance.toFixed(1)} miles away from {#if data.nearestEvent.hasPage}<a href="/{data.nearestEvent.slug}" class="underline">{data.nearestEvent.event_name}</a>{:else}<span class="underline">{data.nearestEvent.event_name}</span>{/if}! 
+					{#if directionsURL}
+						Daydream {eventName} is taking place at <a class="underline text-pink" href={directionsURL}>{eventAddress}</a>!
+					{:else}
+						Daydream {eventName} is taking place at <span class="underline">{eventAddress}</span>!
+					{/if}
 				</p>
 			{/if}
 		</div>
@@ -1245,16 +1379,16 @@ Mumbai`.split("\n")
 					</p>
 					
 					<ul class="space-y-2 font-pixel text-xl md:text-2xl">
-						<li>
-							<span class="mr-2">•</span>
-							<a href="https://bucketfish.itch.io/remedy-renemy" target="_blank" class="underline mr-2">Remedy&nbsp;Renemy</a>by Tongyu and Kai Ling
+						<li class="flex items-start">
+							<span class="mr-4">•</span>
+							<a href="https://bucketfish.itch.io/remedy-renemy" target="_blank" class="underline mr-2">Remedy Renemy</a>by Tongyu and Kai Ling
 						</li>
-						<li>
-							<span class="mr-2">•</span>
+						<li class="flex items-start">
+							<span class="mr-4">•</span>
 							<a href="https://nanomars.itch.io/not-an-idle" target="_blank" class="underline mr-2">Not an Idle</a> by Armand
 						</li>
-						<li>
-							<span class="mr-2">•</span>
+						<li class="flex items-start">
+							<span class="mr-4">•</span>
 							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> by Agustin
 						</li>
 					</ul>
@@ -1322,7 +1456,7 @@ Mumbai`.split("\n")
 			<img src="window-4.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Can I organize a Daydream in my city?</h3>
-				<span class="text-sm">Definitely! Contact us via daydream@hackclub.com or join #daydream on the <Tooltip content="You'll get an invite in your email after you sign up!">Hack Club slack.</Tooltip></span>
+				<p class="text-sm">Definitely! Contact us via daydream@hackclub.com or join #daydream on slack.</p>
 			</div>
 		</div>
 
