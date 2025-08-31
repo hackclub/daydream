@@ -12,7 +12,7 @@
 	const eventAddress = ""; // Leave this empty if you don't want an address
 	// These two are optional
 	const directionsURL = ""
-	const contactLink = "dave.turmawan@gmail.com" // "mailto:jakarta@daydream.hackclub.com"
+	//const contactLink = "dave.turmawan@gmail.com" // "mailto:jakarta@daydream.hackclub.com"
 	
 	// Sponsors Configuration
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
@@ -1061,13 +1061,10 @@ Mumbai`.split("\n")
 						{/if}
 					{/if}
 					
-					{#if contactLink}
-						<!-- Call to action for sponsors -->
-						<div class="mt-8 text-center">
-							<p class="text-lg text-[#335969]">Big thanks to Jukebox for the awesome <a href={`https://www.jukeboxprint.com/custom-stickers`} class="underline hover:text-[#477783] transition-colors">custom stickers</a></p>
-							<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={`mailto:${contactLink}`} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
-						</div>
-					{/if}
+					<div class="mt-8 text-center">
+						<p class="text-lg text-[#335969]">Big thanks to Jukebox for the awesome <a href={`https://www.jukeboxprint.com/custom-stickers`} class="underline hover:text-[#477783] transition-colors">custom stickers</a></p>
+						<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? Contact <a href={`mailto:dave.turmawan@gmail.com`} class="underline hover:text-[#477783] transition-colors">dave.turmawan@gmail.com</a> (Dave) or <a href={`mailto:hexaash@gmail.com`} class="underline hover:text-[#477783] transition-colors">hexaash@gmail.com</a> (Bagas)</p>
+					</div>
 				</div>
 			</div>
 			
