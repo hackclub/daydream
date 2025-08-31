@@ -12,13 +12,14 @@
 	const eventAddress = ""; // Leave this empty if you don't want an address
 	// These two are optional
 	const directionsURL = ""
-	const contactLink = "dave@dave9123.me" // "mailto:jakarta@daydream.hackclub.com"
+	const contactLink = "dave.turmawan@gmail.com" // "mailto:jakarta@daydream.hackclub.com"
 	
 	// Sponsors Configuration
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/jakarta/twbn-logo-turquoise-transparent.png", name: "Twibbonize", url: "https://twibbonize.com" }
+		{ image: "/jakarta/twbn-logo-turquoise-transparent.png", name: "Twibbonize", url: "https://twibbonize.com" },
+		{ image: "/jakarta/jukebox-logo.svg", name: "Jukebox", url: "https://www.jukeboxprint.com" }
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -30,9 +31,9 @@
 				{ event: "Opening ceremony", time: "12:00 PM" },
 				{ event: "Lunch", time: "12:30 PM" },
 				{ event: "Start working on your project!", time: "1:00 PM" },
-				{ event: "Workshop 1", time: "2:00 PM" },
-				{ event: "Activity 1", time: "4:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
+				{ event: "Workshop 1", time: "TBA" },
+				{ event: "Activity 1", time: "TBA" },
+				{ event: "Workshop 2", time: "TBA" },
 				{ event: "Dinner", time: "6:00 PM" },
 				{ event: "Lightning talks", time: "8:00 PM" },
 				{ event: "Midnight surprise", time: "12:00 AM" }
@@ -1063,6 +1064,7 @@ Mumbai`.split("\n")
 					{#if contactLink}
 						<!-- Call to action for sponsors -->
 						<div class="mt-8 text-center">
+							<p class="text-lg text-[#335969]">Big thanks to Jukebox for the awesome <a href={`https://www.jukeboxprint.com/custom-stickers`} class="underline hover:text-[#477783] transition-colors">custom stickers</a></p>
 							<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={`mailto:${contactLink}`} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
 						</div>
 					{/if}
