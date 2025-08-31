@@ -1199,11 +1199,10 @@ Mumbai`.split("\n")
 </div>
 
 <div class="w-full bg-gradient-to-b from-[#FDC5D1] to-[#FAE3C9] items-center justify-center px-0 md:px-8 relative pt-36">
-	<div class="w-full max-w-5xl lg:max-w-6xl mx-auto px-2 md:px-8">
+	<!--<div class="w-full max-w-5xl lg:max-w-6xl mx-auto px-2 md:px-8">
 		<div class="relative w-full min-w-72">
 			<img src="banner-city.png" alt="Find a Daydream Near You" class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 md:-translate-y-[40%] h-48 w-auto z-100 scale-[1.15] md:scale-[1.65] saturate-70 brightness-110 object-contain px-4 pointer-events-none">
 			
-			<!-- Map container with cloudy edges -->
 			<div class="relative w-full h-156 overflow-hidden bg-transparent">
 				<iframe 
 					src={eventAddress ? "/event-map?location=" + encodeURIComponent(eventAddress) : "/map"}
@@ -1309,8 +1308,7 @@ Mumbai`.split("\n")
 		</div>
 	</div>
 
-	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
-	
+	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>-->
 	<!-- Macintosh Section -->
 	<div class="w-full flex justify-center py-16 px-8 mt-48 pb-[clamp(232px,29vw,464px)] max-sm:w-[120vw] max-sm:-translate-x-[10vw]">
 		<div class="bg-[#c5c2b1] p-4 relative max-w-4xl" style="border-radius: calc(1.5rem + 1rem);">
