@@ -9,7 +9,7 @@
 	// Configuration - Put your information here!
 	const eventName = "Lagos"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "Lagos";
-	const eventAddress = "Zone Tech Park, Gbagada, Lagos"; // Leave this empty if you don't want an address
+	const eventAddress = "University of Lagos(UNILAG)"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
 	const directionsURL = ""
@@ -30,26 +30,30 @@
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
 		{
-			title: "Saturday, September 27th",
+			title: "Friday, September 26th",
 			items: [
+
 				{ event: "Doors open", time: "11:00 AM" },
-				{ event: "Opening ceremony", time: "12:00 PM" },
-				{ event: "Lunch", time: "12:30 PM" },
+				{ event: "Welcome Speech (Organizer)", time: "11:30 AM" },
+				{ event: "Theme/Problem Statement Reveal + Rules", time: "11:45 AM" },
+				{ event: "Kickoff Speech (Guest/Judge/Partner) ", time: "12:15 PM" },
+				{ event: "Final Reg(Teams registered, get seated)", time: "12:30 PM" },
 				{ event: "Start working on your project!", time: "1:00 PM" },
-				{ event: "Workshop 1", time: "2:00 PM" },
+				{ event: "Lunch", time: "2:00 PM" },
 				{ event: "Activity 1", time: "4:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
+				{ event: "Workshop 1", time: "4:00 PM" },
 				{ event: "Dinner", time: "6:00 PM" },
 				{ event: "Lightning talks", time: "8:00 PM" },
 				{ event: "Midnight surprise", time: "12:00 AM" }
 			]
 		},
 		{
-			title: "Sunday, September 28th",
+			title: "Saturday, September 27th",
 			items: [
 				{ event: "Breakfast", time: "8:00 AM" },
-				{ event: "Demos!", time: "10:30 AM" },
-				{ event: "Closing ceremony", time: "12:00 PM" }
+				{ event: "Demos!(5-7 mins)", time: "10:30 AM" },
+				{ event: "Judging and Deliberation", time: "12:30 PM" },
+				{ event: "Awards & Closing Ceremony", time: "1:30 PM" }
 			]
 		}
 	];
@@ -819,7 +823,7 @@ Lagos`.split("\n")
 			<h2
 			class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
 			>
-				September 27th & 28th, 2025
+				September 26th & 27th, 2025
 			</h2>
 			<img src="daydream.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
 			<a href="https://hackclub.com" class="absolute top-0 -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">

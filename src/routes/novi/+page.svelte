@@ -18,24 +18,26 @@
 	// Sponsors Configuration
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		// { image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" }
+		{ image: "/novi/chick.jpeg", name: "Chick-Fil-A", url: "https://www.chick-fil-a.com" },
+		{ image: "/novi/zf.png", name: "ZF", url: "hhttps://www.zf.com/mobile/en/homepage/homepage.html" },
+		{ image: "/novi/pass.svg", name: "1Password", url: "https://1password.com/" },
 	];
 	
 	// Schedule Configuration - You don't need to use this schedule, this is just an example!
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
 		{
-			title: "Saturday, September 27th",
+			title: "Sunday, September 28th",
 			items: [
-				{ event: "Doors open", time: "7:00 AM" },
-				{ event: "Breakfast", time: "7:05 AM" },
-				{ event: "Opening ceremony", time: "7:30 AM" },
-				{ event: "Start working on your project!", time: "8:00 AM" },
-				{ event: "Workshop 1", time: "8:30 AM" },
-				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Workshop 2", time: "1:00 PM" },
-				{ event: "Activity 1", time: "3:00 PM" },
-				{ event: "Closing ceremony", time: "4:00 PM" },
-				{ event: "Voting", time: "5:00 PM" },
+				{ event: "Doors open / Breakfast", time: "8:00 AM" },
+				{ event: "Opening ceremony", time: "8:15 AM" },
+				{ event: "Workshop 1 & 2", time: "9:00 AM" },
+				{ event: "Activity 1", time: "12:30 PM" },
+				{ event: "Lunch", time: "1:00 PM" },
+				{ event: "Workshop 3 & 4", time: "2:00 PM" },
+				{ event: "Activity 2", time: "3:30 PM" },
+				{ event: "Publishing Your Game!", time: "4:00 PM" },
+				{ event: "Voting", time: "5:30 PM" },
+				{ event: "Closing ceremony", time: "7:00 PM" },
 			]
 		},
 	];
@@ -804,7 +806,7 @@ Mumbai`.split("\n")
 			<h2
 			class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
 			>
-				September 27th, 2025
+				September 28th, 2025
 			</h2>
 			<img src="daydream.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
 			<a href="https://hackclub.com" class="absolute top-0 -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
@@ -815,7 +817,7 @@ Mumbai`.split("\n")
 			<h3
 				class="text-3xl italic font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent w-max max-sm:text-2xl mx-auto"
 			>
-				Game jam for high & middle schoolers
+				Game jam for high schoolers
 			</h3>
 			<img
 				src="underline.svg"
@@ -825,7 +827,7 @@ Mumbai`.split("\n")
 			<h4
 				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
 			>
-				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
+				ZF Electronics HQ Farmington Hills | 8:00 AM – 8:00 PM
 			</h4>
 		</div>
 		
@@ -1068,7 +1070,7 @@ Mumbai`.split("\n")
 								Want to sponsor Daydream {eventName}? 
 								<a href={contactLink} class="underline hover:text-[#477783] transition-colors">anahitamayekar03@gmail.com</a>
 								<br />
-								Check out the <a href="https://drive.google.com/file/d/1yxHtyJjwG5ospCClwJ_3-712z3gyDztn/view?usp=sharing" class="underline hover:text-[#477783] transition-colors">Prospectus</a> for Daydream Novi.
+								Check out the <a href="https://drive.google.com/file/d/1-ad1yVqJnCwBrvz6Df0EvR80nto5Hpa4/view?usp=sharing" class="underline hover:text-[#477783] transition-colors">Prospectus</a> for Daydream Novi.
 							</p>
 						</div>
 					{/if}
@@ -1461,7 +1463,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school aged students are welcome to come!</p>
 		</div>
 		</div>
 

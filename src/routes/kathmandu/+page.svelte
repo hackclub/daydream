@@ -28,6 +28,11 @@
 			image: '/kathmandu/ggsrc.jpg',
 			name: 'GoldenGate Science & Robotics Club',
 			url: 'https://www.ggsrclub.com/'
+		},
+		{
+			image: '/kathmandu/jukebox-logo.svg',
+			name: 'JukeBox',
+			url: 'https://www.jukeboxprint.com/custom-stickers'
 		}
 	];
 

@@ -7,24 +7,18 @@
 	 */
 
 	// Configuration - Put your information here!
-	const eventName = "NYC"; // This should be the name of your event WITHOUT "Daydream" at the start
-	const eventLocation = "New York City";
-	const eventAddress = ""; // Leave this empty if you don't want an address
-	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recScab6KjhWs1rGe"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const eventName = "Kerala"; // This should be the name of your event WITHOUT "Daydream" at the start
+	const eventLocation = "Kerala";
+	const eventAddress = "Tinkerspace, Seaport - Airport Rd, Vidya Nagar Colony, Thrikkakara, Kalamassery, Kochi, Kerala, 682022"; // Leave this empty if you don't want an address
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=rec6IfODojIRsagDa"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = ""
-	const contactLink = "mailto:nyc@daydream.hackclub.com"
+	const directionsURL = "https://www.google.com/maps/place/TinkerSpace/@10.0469797,76.3351998,17z/data=!3m1!4b1!4m6!3m5!1s0x3b080d6f3a60778b:0x810be95c9816e984!8m2!3d10.0469797!4d76.3351998!16s%2Fg%2F11tcfbjyyn?entry=tts&g_ep=EgoyMDI1MDMxMS4wIPu8ASoASAFQAw%3D%3D"
+	const contactLink = "mailto:kerala@daydream.hackclub.com"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
-	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
+	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" },
-		{ image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
-		{ image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
-		{ image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
-		{ image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
-		{ image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
-		{ image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
+		{ image: "/kerala/tinkerhub_logo.png", name: "TinkerHub", url: "https://tinkerhub.org" }
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -33,23 +27,24 @@
 			title: "Saturday, September 27th",
 			items: [
 				{ event: "Doors open", time: "11:00 AM" },
-				{ event: "Opening ceremony", time: "12:00 PM" },
-				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Start working on your project!", time: "1:00 PM" },
-				{ event: "Workshop 1", time: "2:00 PM" },
-				{ event: "Activity 1", time: "4:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
-				{ event: "Dinner", time: "6:00 PM" },
-				{ event: "Lightning talks", time: "8:00 PM" },
-				{ event: "Midnight surprise", time: "12:00 AM" }
+				{ event: "Introduction To Game Development", time: "12:10 PM" },
+        { event: "Lunch", time: "2:00 PM" },
+        { event: "Game Development Begins!", time: "2:45 PM" },
+				{ event: "2D Art/3D Modelling Workshops", time: "3:00 PM" },
+				{ event: "Godot Workshop", time: "4:30 PM" },
+        { event: "Dinner", time: "7:30 PM" },
+        { event: "SFX Workshop", time: "8:30 PM" },
+        { event: "Theme And Game Music Workshop", time: "9:30 PM" },
+        { event: "Late Night Grind", time: "12:30 AM" }
 			]
 		},
 		{
 			title: "Sunday, September 28th",
 			items: [
-				{ event: "Breakfast", time: "8:00 AM" },
-				{ event: "Demos!", time: "10:30 AM" },
-				{ event: "Closing ceremony", time: "12:00 PM" }
+				{ event: "Breakfast", time: "7:00 AM" },
+				{ event: "Game Review Session", time: "9:00 AM" },
+				{ event: "Hour of Export", time: "11:00 AM" },
+        { event: "Ending Ceremony", time: "12:00 PM" }
 			]
 		}
 	];
@@ -756,13 +751,6 @@ Mumbai`.split("\n")
 		scrollbar-width: auto;
 		scrollbar-color: #d1e3ee transparent;
 	}
-
-	@media screen and (max-width: 766px) {
-		#nycLogo {
-			width: 10%;
-
-		}
-	}
 </style>
 
 
@@ -852,8 +840,6 @@ Mumbai`.split("\n")
 		
 		<ParticipantSignUp {signupLink} {eventName} />
 	</div>
-	<br><br><br>
-	<img src="nyc/logo.png" id="nycLogo" style="position: absolute; height: 20%; width: auto; bottom: 0; z-index: 100; margin-bottom: 0;" alt="Daydream NYC Logo"/>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/12 left-36 bottom-81 z-20"> -->
@@ -869,6 +855,7 @@ Mumbai`.split("\n")
 			/>
 		{/each}
 	</div>
+
 
 
 	<img src="/clouds-top-middle-bg.svg" alt="" class="absolute left-5/12 -translate-x-1/2 w-7/12 -bottom-24">
@@ -905,10 +892,12 @@ Mumbai`.split("\n")
 		>
 	</a>
 </div>
+
 <div class="w-full relative flex items-start justify-center">
 	<!-- background -->
 	<div class="absolute top-0 left-0 w-full h-full -z-50 bg-[#FCEFC5]"></div>
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-30 pointer-events-none -z-40"></div>
+	
 	<div class="relative max-w-4xl mx-auto h-full flex items-start pt-24 max-sm:pt-40 px-8 max-sm:px-2">
 		<div class="relative z-20 px-20 pt-20 pb-52 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
 			<div class="absolute bottom-0 left-0 w-full h-24 z-10 pointer-events-none bg-[url('/clouds-loop.png')] bg-repeat-x bg-bottom bg-contain"></div>
@@ -1199,7 +1188,7 @@ Mumbai`.split("\n")
 	<!-- Final Card -->
 	<div class="flex flex-col items-center w-full basis-full translate-y-40 max-md:translate-y-12 z-20">
 		<div class="relative">
-			<div class="bg-[url('/nyc/card-final.png')] bg-contain bg-no-repeat bg-center text-2xl font-serif pt-24 px-8 w-128 h-96 text-center max-md:w-80 max-md:h-80 max-md:text-xl max-md:pt-16 animate-hover ![--hover:-0.15rem] ![animation-delay:1.9s]" data-point="5">
+			<div class="bg-[url('/card-final.png')] bg-contain bg-no-repeat bg-center text-2xl font-serif pt-24 px-8 w-128 h-96 text-center max-md:w-80 max-md:h-80 max-md:text-xl max-md:pt-16 animate-hover ![--hover:-0.15rem] ![animation-delay:1.9s]" data-point="5">
 				<span class="font-sans text-[#F2CC32] font-bold text-[1.5rem] mr-1">#5:</span> Share what you made with the world!
 			</div>
 		</div>
@@ -1214,10 +1203,9 @@ Mumbai`.split("\n")
 <div class="w-full bg-gradient-to-b from-[#FDC5D1] to-[#FAE3C9] items-center justify-center px-0 md:px-8 relative pt-36">
 	<div class="w-full max-w-5xl lg:max-w-6xl mx-auto px-2 md:px-8">
 		<div class="relative w-full min-w-72">
-			<!--<img src="banner-city.png" alt="Find a Daydream Near You" class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 md:-translate-y-[40%] h-48 w-auto z-100 scale-[1.15] md:scale-[1.65] saturate-70 brightness-110 object-contain px-4 pointer-events-none">-->
+			<img src="banner-city.png" alt="Find a Daydream Near You" class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 md:-translate-y-[40%] h-48 w-auto z-100 scale-[1.15] md:scale-[1.65] saturate-70 brightness-110 object-contain px-4 pointer-events-none">
 			
 			<!-- Map container with cloudy edges -->
-			<!--
 			<div class="relative w-full h-156 overflow-hidden bg-transparent">
 				<iframe 
 					src={eventAddress ? "/event-map?location=" + encodeURIComponent(eventAddress) : "/map"}
@@ -1310,7 +1298,6 @@ Mumbai`.split("\n")
 					title="Daydream Events Map">
 				</iframe>
 			</div>
-		-->
 			
 			{#if eventAddress}
 				<p class="text-center font-sans text-2xl pt-12 max-sm:text-xl text-[#60574b] z-10000">
@@ -1324,20 +1311,19 @@ Mumbai`.split("\n")
 		</div>
 	</div>
 
-	<!--<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>-->
+	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
 	
-
 	<!-- Macintosh Section -->
 	<div class="w-full flex justify-center py-16 px-8 mt-48 pb-[clamp(232px,29vw,464px)] max-sm:w-[120vw] max-sm:-translate-x-[10vw]">
 		<div class="bg-[#c5c2b1] p-4 relative max-w-4xl" style="border-radius: calc(1.5rem + 1rem);">
 			<div class="bg-[#061E2D] text-[#D1E3EE] rounded-3xl py-18 md:py-16 px-10 md:px-18 relative overflow-visible" style="
-			border-image: url('macintosh.png') 128 91 464 91; 
+			border-image: url('/macintosh.png') 128 91 464 91; 
 			border-image-slice: 128 91 464 91; 
 			border-image-width: clamp(64px, 8vw, 128px) clamp(45px, 6vw, 91px) clamp(232px, 29vw, 464px) clamp(45px, 6vw, 91px); 
 			border-image-outset: clamp(64px, 8vw, 128px) clamp(45px, 6vw, 91px) clamp(232px, 29vw, 464px) clamp(45px, 6vw, 91px); 
 			border-image-repeat: stretch; 
 			border-style: solid;
-		">	
+		">
 			<!-- frame around content -->
 			<div class="absolute inset-0 bg-[url(/macintosh-frame.png)] bg-size-[100%_100%]"></div>
 
@@ -1578,3 +1564,4 @@ Mumbai`.split("\n")
 		</div>
 	</div>
 {/if}
+
