@@ -12,13 +12,13 @@
 	const eventAddress = ""; // Leave this empty if you don't want an address
 	// These two are optional
 	const directionsURL = ""
-	const contactLink = "loganpeterson@hackclub.app"
+	const contactLink = "atlanta@daydream.hackclub.com" // official email
 	
 	// Sponsors Configuration
 	const signupLink = "https://forms.hackclub.com/daydream-rsvp"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
-	const sponsorsEnabled = false; // false for now...
+	const sponsorsEnabled = true; 
 	const sponsors = [
-		{ image: "jukebox.png", name: "Jukebox Prints!", url: "https://www.jukeboxprint.com/custom-stickers" },
+		{ image: "jukebox.png", name: ""Big shoutout to Jukebox for our <a href= "https://www.jukeboxprint.com/custom-stickers" >custom stickers</a>!"", url: "https://www.jukeboxprint.com/custom-stickers"  },
 		{ image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
 		{ image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
 		{ image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
@@ -98,7 +98,8 @@ Minneapolis
 Seattle
 Signapore
 Sydney
-Mumbai`.split("\n")
+Mumbai
+Atlanta`.split("\n")
 
 	function createSmoothPath(points: Array<{ x: number; y: number }>) {
 		if (points.length < 2) return "";
