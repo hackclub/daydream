@@ -25,14 +25,15 @@ Next, you need to configure your event. Open `src/routes/yourcity/+page.svelte` 
 
 ```js
 // Configuration - Put your information here!
-const eventName = "Example";
+const eventName = "Example"; // This should be the name of your event WITHOUT "Daydream" at the start
 const eventLocation = "Example City";
-const eventAddress = "1600 Pennsylvania Avenue, Washington, DC 20500";
-// These two are optional
+const eventAddress = "1600 Pennsylvania Avenue, Washington, DC 20500"; // Leave this empty if you don't want an address
+const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+// These two are optional-- leave them empty if you don't have anything!
 const directionsURL = "https://www.google.com/maps/search/1600+pennsylvania+avenue+washington+dc/"
 const contactLink = "mailto:example@daydream.hackclub.com"
 
-// Sponsors Configuration
+// Sponsors Configuration - disable this if you don't have any sponsors to display!
 const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 const sponsors = [
     { image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" },
@@ -44,9 +45,9 @@ const sponsors = [
     { image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
 ];
 
-// Schedule Configuration - You don't need to use this schedule, this is just an example!
-const scheduleData = {
-    saturday: {
+// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
+const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
+    {
         title: "Saturday, September 27th",
         items: [
             { event: "Doors open", time: "11:00 AM" },
@@ -61,7 +62,7 @@ const scheduleData = {
             { event: "Midnight surprise", time: "12:00 AM" }
         ]
     },
-    sunday: {
+    {
         title: "Sunday, September 28th",
         items: [
             { event: "Breakfast", time: "8:00 AM" },
@@ -69,7 +70,7 @@ const scheduleData = {
             { event: "Closing ceremony", time: "12:00 PM" }
         ]
     }
-};
+];
 ```
 
 Lastly, submit your site\! Use Git to push your changes:

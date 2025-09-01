@@ -18,7 +18,7 @@ There's no “perfect, by-the-book” way of organizing a hackathon. But there a
 
 This guide is, and will always be, a work-in-progress. Despite popular belief, I, Deven Jadhav, am not an omnipotent Hackathon Deity™. I'm drawing from caffeinated hours spent staring at screens, lessons learned from organizing “great” hackathons (Scrapyard, Counterspell, etc), and my countless mistakes. 
 
-DM the <Tooltip content="<a target='_blank' href='https://hackclub.slack.com/archives/D07QJ7DLQA1'>Deven</a>, <a target='_blank' href='https://hackclub.slack.com/archives/D0945GN8QAC'>Augie</a>, <a target='_blank' href='https://hackclub.slack.com/archives/U07FCRNHS1J'>Renran</a>, & <a target='_blank' href='https://hackclub.slack.com/archives/D08HZQ4KL8H'>Meghana</a>!">Daydream Team</Tooltip> if you have any ideas to improve this guide\! 
+<span>DM the <Tooltip content="<a target='_blank' href='https://hackclub.slack.com/archives/D07QJ7DLQA1'>Deven</a>, <a target='_blank' href='https://hackclub.slack.com/archives/D0945GN8QAC'>Augie</a>, <a target='_blank' href='https://hackclub.slack.com/archives/U07FCRNHS1J'>Renran</a>, & <a target='_blank' href='https://hackclub.slack.com/archives/D08HZQ4KL8H'>Meghana</a>!">Daydream Team</Tooltip> if you have any ideas to improve this guide\!</span> 
 
 ### **QUICKSTART GUIDE (very important\!\!)** 
 

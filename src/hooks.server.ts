@@ -1,6 +1,14 @@
 import type { Handle } from '@sveltejs/kit';
+import { redirect } from '@sveltejs/kit';
+import { redirects } from '$lib/redirects.js';
 
 export const handle: Handle = async ({ event, resolve }) => {
+	// Check for redirects
+	const pathname = event.url.pathname.slice(1); // Remove leading slash
+	if (pathname in redirects) {
+		throw redirect(301, `/${redirects[pathname as keyof typeof redirects]}`);  
+	}
+
 	const response = await resolve(event);
 
 	// Add CORS headers for all requests

@@ -10,7 +10,7 @@
 	const eventName = "Visakhapatnam"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "Visakhapatnam";
 	const eventAddress = "Nakkavanipalem, Satyam Junction, Kranthi Nagar, Visakhapatnam, Andhra Pradesh, PINCODE - 530018"; // Leave this empty if you don't want an address
-	const signupLink = "https://forms.hackclub.com/daydream-rsvp?event=recjpsL9BukMsKYdj"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recjpsL9BukMsKYdj"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
 	const directionsURL = "https://www.google.com/maps/place/Sri+Sarada+Vidya+Nilayam/@17.7356181,83.3112517,17z/data=!3m1!4b1!4m6!3m5!1s0x3a394352705cab4f:0x2382a9f5ea33a411!8m2!3d17.7356181!4d83.3138266!16s%2Fg%2F11j0k036y0?entry=ttu&g_ep=EgoyMDI1MDgxMS4wIKXMDSoASAFQAw%3D%3D"
 	const contactLink = "mailto:visakhapatnam@daydream.hackclub.com"
@@ -87,7 +87,7 @@ Dubai
 San Francisco
 Minneapolis
 Seattle
-Signapore
+Singapore
 Sydney
 Mumbai`.split("\n")
 
@@ -833,7 +833,7 @@ Mumbai`.split("\n")
 			</h4>
 		</div>
 		
-		<ParticipantSignUp {eventName} />
+		<ParticipantSignUp {signupLink} {eventName} />
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
@@ -897,7 +897,7 @@ Mumbai`.split("\n")
 		<div class="relative z-20 px-20 pt-20 pb-52 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
 			<div class="absolute bottom-0 left-0 w-full h-24 z-10 pointer-events-none bg-[url('/clouds-loop.png')] bg-repeat-x bg-bottom bg-contain"></div>
 			<h2 class="text-5xl font-serif italic text-[#8B4513] mb-10 relative">
-				Dear Hackers, Musicians, and Artist,
+				Dear Hackers, Musicians, and Artists,
 				<img src="/underline.svg" alt="" class="absolute left-0 -bottom-3 w-64 h-auto opacity-70">
 			</h2>
 			

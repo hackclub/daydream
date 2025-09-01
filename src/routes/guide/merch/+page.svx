@@ -13,10 +13,10 @@ Imagine 100 different billboards walking about in your city after the event.
 Be creative: maybe you do stick-on patches, or bandanas, or custom bucket hats. The t-shirts are nice, but it’s always a good idea to come up with something unique to your event.
 
 ID Badges for Counterspell Ottawa (Printed paper in lanyard):   
-![][image1]![][image2]![][image3]![][image4]
+![Badge 1][image1]![Badge 2][image2]![Badge 3][image3]![Badge 4][image4]
 
 These were the badges for Scrapyard Columbus:  
-![][image5]![][image6]
+![Badge 5][image5]![Badge 6][image6]
 
 I made these in 30 minutes using the assets given by the Scrapyard team, so I’m confident anyone can do it.
 

@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	
-	let submitted = false;
-	let fadeOut = false;
+
 	export let eventName = "";
+	export let signupLink = "https://forms.hackclub.com/daydream-sign-up"; 
 	
 	$: if (!eventName) {
 		let slug = $page.url.pathname.split('/')[1] || '';
@@ -16,58 +16,17 @@
 		const emailInput = form.querySelector('input[name="email"]') as HTMLInputElement;
 		const email = emailInput.value;
 		
-		fetch('/api/rsvp', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({ email, city: "Daydream " + eventName })
-		}).catch(error => {
-			console.warn('Failed to save email:', error);
-		});
-
-		submitted = true;
-		
-		emailInput.value = '';
-		
-		setTimeout(() => {
-			fadeOut = true;
-		}, 1500);
-		
-		setTimeout(() => {
-			submitted = false;
-			fadeOut = false;
-		}, 1500 + 500);
+		if (email) {
+			if (signupLink.includes("?")) {
+				window.location.href = `${signupLink}&email=${encodeURIComponent(email)}`;
+			} else {
+				window.location.href = `${signupLink}?email=${encodeURIComponent(email)}`;
+			}
+		}
 	}
 </script>
 
-<style>
-	@keyframes slide-in {
-		from {
-			transform: translateX(-100%);
-		}
-		to {
-			transform: translateX(0);
-		}
-	}
-	
-	.animate-slide-in {
-		animation: slide-in 0.3s cubic-bezier(0, 0.55, 0.45, 1);
-	}
-	
-	.animate-fade-out {
-		animation: fade-out 0.5s ease-out forwards;
-	}
-	
-	@keyframes fade-out {
-		from {
-			opacity: 1;
-		}
-		to {
-			opacity: 0;
-		}
-	}
-</style>
+
 
 <div class="mt-8 flex flex-col items-center gap-3 z-5 max-md:scale-90">
 	<div class="relative rounded-full overflow-hidden" style="padding: 2px 2px 5px 2px;">
@@ -75,7 +34,7 @@
 			<input
 				type="email"
 				name="email"
-				placeholder="Enter email to RSVP"
+				placeholder="Enter email to sign up"
 				class="w-80 px-3 py-1 text-dark focus:outline-none flex-1"
 				required
 			/>
@@ -85,12 +44,7 @@
 			</button>
 		</form>
 		
-		<!-- Success overlay that slides in from left -->
-		{#if submitted}
-			<div class="absolute inset-0 -top-4 -bottom-4 bg-[#44DBC8] rounded-full flex items-center justify-center z-20 animate-slide-in {fadeOut ? 'animate-fade-out' : ''}">
-				<span class="text-white font-sans text-lg">RSVPed!</span>
-			</div>
-		{/if}
+
 	</div>
 	<a
 		href="https://forms.hackclub.com/daydream-stickers"
