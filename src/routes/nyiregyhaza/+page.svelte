@@ -16,15 +16,9 @@
 	const contactLink = ""
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
-	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
+	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" },
-		{ image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
-		{ image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
-		{ image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
-		{ image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
-		{ image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
-		{ image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
+		{ image: "/nyiregyhaza/jukebox.webp", name: "Jukebox Print", url: "https://www.jukeboxprint.com/custom-stickers" }
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -32,13 +26,17 @@
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "To be announced", time: "0:00 AM" },
+				{ event: "Start", time: "08:00 AM" },
+				{ event: "End of day one", time: "08:00 PM" },
 			]
 		},
 		{
 			title: "Sunday, September 28th",
 			items: [
-				{ event: "To be announced", time: "0:00 AM" },
+				{ event: "Start", time: "08:00 AM" },
+				{ event: "Playtests", time: "06:00 PM" },
+				{ event: "Giving out rewards", time: "07:30 PM" },
+				{ event: "End of event", time: "08:00 PM" },
 			]
 		}
 	];
@@ -1051,6 +1049,7 @@ Mumbai`.split("\n")
 										</a>
 									{/each}
 								</div>
+								<p class="text-lg font-sans text-[#477783] s-cn9vZYSQMWjl text-xl" style="margin:auto 0;">Big shoutout to Jukebox for our <a href="https://www.jukeboxprint.com/custom-stickers" target="_blank"	>custom stickers</a>!</p>
 							</div>
 						{/if}
 					{/if}

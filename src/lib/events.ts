@@ -1,4 +1,5 @@
-import { AIRTABLE_API_KEY, AIRTABLE_BASE_ID, GEOCODER_API_KEY } from '$env/static/private';
+// import { AIRTABLE_API_KEY, AIRTABLE_BASE_ID, GEOCODER_API_KEY } from '$env/static/private';
+const { AIRTABLE_API_KEY, AIRTABLE_BASE_ID, GEOCODER_API_KEY } = process.env;
 import { readdir } from 'fs/promises';
 import { join } from 'path';
 

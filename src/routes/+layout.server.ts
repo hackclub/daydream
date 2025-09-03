@@ -1,2 +1,1 @@
-import { STATIC_PREVIEW } from "$env/static/private";
-export const prerender = STATIC_PREVIEW === "true";
+export const prerender = process.env.STATIC_PREVIEW === "true";

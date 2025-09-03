@@ -41,7 +41,7 @@
 				{ event: "Start working on your project!", time: "1:00 PM" },
 				{ event: "Lunch", time: "2:00 PM" },
 				{ event: "Activity 1", time: "4:00 PM" },
-				{ event: "Workshop 1", time: "4:00 PM" },
+				{ event: "Workshop 1", time: "4:30 PM" },
 				{ event: "Dinner", time: "6:00 PM" },
 				{ event: "Lightning talks", time: "8:00 PM" },
 				{ event: "Midnight surprise", time: "12:00 AM" }
@@ -53,7 +53,8 @@
 				{ event: "Breakfast", time: "8:00 AM" },
 				{ event: "Demos!(5-7 mins)", time: "10:30 AM" },
 				{ event: "Judging and Deliberation", time: "12:30 PM" },
-				{ event: "Awards & Closing Ceremony", time: "1:30 PM" }
+				{ event: "Lunch", time: "12:30 PM" },
+				{ event: "Awards & Closing Ceremony", time: "2:00 PM" },
 			]
 		}
 	];
@@ -802,6 +803,20 @@ Lagos`.split("\n")
 
 <div class="flex flex-col items-center justify-center h-screen text-center bg-gradient-to-b from-[#CCF4FD] to-[#B8D9F8] bg-blend-overlay relative">
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-30 pointer-events-none"></div>
+
+	<!-- WhatsApp Floating Button -->
+	<div class="fixed top-6 right-23 z-50">
+		<a 
+			href="https://chat.whatsapp.com/F0CI8IME3EjHluM120hZ0S"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="bg-green-600 hover:bg-green-700 text-white p-5 rounded-full shadow-lg transition-all duration-200 hover:scale-110 flex items-center justify-center"
+			aria-label="Join our WhatsApp group"
+		>
+		
+		</a>
+		<div class="absolute -bottom-8 left-1/2 -translate-x-1/2 text-white text-xs font-medium bg-black/70 px-2 py-1 rounded whitespace-nowrap">Join Daydream Lagos WhatsApp group</div>
+	</div>
 
 	<!-- Cloudy Background -->
 	<div class="cloudy-bg-parallax absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[80vh] bg-[url(/cloudy-bg.png)] opacity-30 bg-cover bg-no-repeat bg-top pointer-events-none"></div>

@@ -7,18 +7,24 @@
 	 */
 
 	// Configuration - Put your information here!
-	const eventName = "Kerala"; // This should be the name of your event WITHOUT "Daydream" at the start
-	const eventLocation = "Kerala";
-	const eventAddress = "Tinkerspace, Seaport - Airport Rd, Vidya Nagar Colony, Thrikkakara, Kalamassery, Kochi, Kerala, 682022"; // Leave this empty if you don't want an address
-	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=rec6IfODojIRsagDa"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const eventName = "Inland Empire"; // This should be the name of your event WITHOUT "Daydream" at the start
+	const eventLocation = "Eastvale";
+	const eventAddress = ""; // Leave this empty if you don't want an address
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recPckxtHXsk4b5vc"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = "https://www.google.com/maps/place/TinkerSpace/@10.0469797,76.3351998,17z/data=!3m1!4b1!4m6!3m5!1s0x3b080d6f3a60778b:0x810be95c9816e984!8m2!3d10.0469797!4d76.3351998!16s%2Fg%2F11tcfbjyyn?entry=tts&g_ep=EgoyMDI1MDMxMS4wIPu8ASoASAFQAw%3D%3D"
-	const contactLink = "mailto:kerala@daydream.hackclub.com"
+	const directionsURL = ""
+	const contactLink =  ""
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
-	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
+	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/kerala/tinkerhub_logo.png", name: "TinkerHub", url: "https://tinkerhub.org" }
+		{ image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" },
+		{ image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
+		{ image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
+		{ image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
+		{ image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
+		{ image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
+		{ image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -26,27 +32,24 @@
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Doors open", time: "9:00 AM" },
-				{ event: "Introduction, Rules, Do's and Dont's", time: "10:00 AM" },
-				{ event: "Random Team Selection", time: "11:15 AM" },
-        { event: "Game Development Begins!", time: "12:00 PM" },
-				{ event: "Introduction To Game Development", time: "12:10 PM" },
-        { event: "Lunch", time: "2:00 PM" },
-				{ event: "2D Art/3D Modelling Workshops", time: "3:00 PM" },
-        { event: "Dinner", time: "7:30 PM" },
-        { event: "SFX Workshop", time: "8:30 PM" },
-        { event: "Theme And Game Music Workshop", time: "9:30 PM" },
-        { event: "Late Night Grind", time: "12:30 AM" }
+				{ event: "Doors open", time: "11:00 AM" },
+				{ event: "Opening ceremony", time: "12:00 PM" },
+				{ event: "Lunch", time: "12:30 PM" },
+				{ event: "Start working on your project!", time: "1:00 PM" },
+				{ event: "Workshop 1", time: "2:00 PM" },
+				{ event: "Activity 1", time: "4:00 PM" },
+				{ event: "Workshop 2", time: "4:00 PM" },
+				{ event: "Dinner", time: "6:00 PM" },
+				{ event: "Lightning talks", time: "8:00 PM" },
+				{ event: "Midnight surprise", time: "12:00 AM" }
 			]
 		},
 		{
 			title: "Sunday, September 28th",
 			items: [
-				{ event: "Breakfast", time: "7:00 AM" },
-				{ event: "Game Review Session", time: "9:00 AM" },
-				{ event: "Hour of Export", time: "11:00 AM" },
-        { event: "Lunch", time: "12:15 PM" },
-        { event: "Prize Distribution, Closing Ceremony", time: "1:45 PM" }
+				{ event: "Breakfast", time: "8:00 AM" },
+				{ event: "Demos!", time: "10:30 AM" },
+				{ event: "Closing ceremony", time: "12:00 PM" }
 			]
 		}
 	];
@@ -840,7 +843,7 @@ Mumbai`.split("\n")
 			</h4>
 		</div>
 		
-		<ParticipantSignUp {signupLink} {eventName} />
+		<ParticipantSignUp {eventName} />
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
@@ -904,7 +907,7 @@ Mumbai`.split("\n")
 		<div class="relative z-20 px-20 pt-20 pb-52 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
 			<div class="absolute bottom-0 left-0 w-full h-24 z-10 pointer-events-none bg-[url('/clouds-loop.png')] bg-repeat-x bg-bottom bg-contain"></div>
 			<h2 class="text-5xl font-serif italic text-[#8B4513] mb-10 relative">
-				Dear Hackers, Musicians, and Artists,
+				Dear Hackers, Musicians, and Artist,
 				<img src="/underline.svg" alt="" class="absolute left-0 -bottom-3 w-64 h-auto opacity-70">
 			</h2>
 			

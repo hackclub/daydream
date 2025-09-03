@@ -8,7 +8,8 @@
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recv7MKnWKwmBZC48";
 	const sponsorsEnabled = true; 
 	const sponsors = [
-		{ image: "https://storage.jukeboxprint.com/s/images/jukebox-logo.svg", name: "Jukebox", url: "https://www.jukeboxprint.com/custom-stickers" }
+		{ image: "https://storage.jukeboxprint.com/s/images/jukebox-logo.svg", name: "Jukebox", url: "https://www.jukeboxprint.com/custom-stickers" },
+		{ image: "/penang/cytron.png", name: "Cytron Technologies", url: "https://cytron.io" }
 	];
 	
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [

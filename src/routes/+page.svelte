@@ -41,6 +41,7 @@ Boise
 Ottawa
 Hangzhou
 Islamabad
+Lahore
 London
 Visakhapatnam
 Dubai

@@ -1,4 +1,5 @@
-import { GEOCODER_API_KEY, STATIC_PREVIEW } from '$env/static/private';
+// import { GEOCODER_API_KEY, STATIC_PREVIEW } from '$env/static/private';
+const { GEOCODER_API_KEY, STATIC_PREVIEW } = process.env;
 import { loadAndGeocodeEvents, calculateDistance } from '$lib/events';
 
 /** @type {import('./$types').PageServerLoad} */

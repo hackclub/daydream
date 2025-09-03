@@ -1,8 +1,8 @@
 <script lang="ts">
 	// Configuration - Put your information here!
 	const eventName = "Taiwan";
-	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recbXuFkkf752iPIq";
-	const eventLocation = "TBD";
+	const signupLink = "https://forms.hackclub.com/daydream-rsvp?event=recbXuFkkf752iPIq";
+	const eventLocation = " TCS（臺師大林口校區） ";
 	const eventAddress = "";
 
 	// These two are optional
@@ -12,6 +12,7 @@
 	// External links for org intros
 	const hackItMoreLink = "https://www.hackit.tw";
 	const hackClubMoreLink = "https://hackclub.com";
+	const discordInviteLink = "https://go.hackit.tw/discord";
 	
 	// Sponsors Configuration
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
@@ -22,7 +23,8 @@
 	// Partners Configuration
 	const partnersEnabled = true; // Set to false to hide the entire partners section
 	const partners: Array<{ name: string; url: string; image: string }> = [
-		// { name: "Partner Name", url: "https://partner.example", image: "/taiwan/partner-logo.png" }
+		{ name: "TCS 探索未來國際實驗教育機構", url: "https://www.tcs-experimental.tw/", image: "/taiwan/logos/New TCS Logo.png" },
+		{ name: "台灣微課程發展協會", url: "https://tmla.at.tw/", image: "/taiwan/logos/微課程logo.(外框).180.png" }
 	];
 
 	// Derived UI state for partners section
@@ -62,7 +64,6 @@
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
 	import Ticker from "$lib/components/Ticker.svelte";
 	import Footer from "$lib/components/Footer.svelte";
-	import ParticipantSignUp from "$lib/components/ParticipantSignUp.svelte";
 	import { page } from '$app/stores';
 	
 	// derived selection for HackIt modal
@@ -419,6 +420,17 @@ Mumbai`.split("\n")
 
 	function closeHackItPopup() {
 		showHackItPopup = false;
+	}
+
+	// RSVP submit: open external signup with email param in a new tab
+	function handleRSVPSubmit(event: Event) {
+		event.preventDefault();
+		const form = event.target as HTMLFormElement;
+		const emailInput = form.querySelector('input[name="email"]') as HTMLInputElement | null;
+		const email = emailInput?.value.trim() ?? "";
+		if (!email) return;
+		const url = `http://signup.hackit.tw/events/daydream-taiwan?email=${encodeURIComponent(email)}`;
+		window.open(url, '_blank', 'noopener');
 	}
 
 
@@ -1023,8 +1035,41 @@ Mumbai`.split("\n")
 			</h4>
 		</div>
 		
-		<ParticipantSignUp {signupLink} {eventName} />
-		<div class="mt-4">
+		<div class="mt-8 flex flex-col items-center gap-3 z-5 max-md:scale-90">
+			<div class="relative rounded-full overflow-hidden" style="padding: 2px 2px 5px 2px;">
+				<form on:submit={handleRSVPSubmit} class="rounded-full bg-white border-2 border-dark font-sans p-2 flex flex-row items-center gap-2 shadow-[0_3px_0_0_theme(colors.dark)] focus-within:border-pink focus-within:shadow-[0_3px_0_0_#E472AB] has-[button:active]:border-dark has-[button:active]:shadow-[0_3px_0_0_theme(colors.dark)] has-[button:focus]:border-dark has-[button:focus]:shadow-[0_3px_0_0_theme(colors.dark)]">
+					<input
+						type="email"
+						name="email"
+						placeholder="輸入 Email 來報名活動！"
+						class="w-80 px-3 py-1 text-dark focus:outline-none flex-1"
+						required
+					/>
+					<button type="submit" class="bg-light h-full px-5 py-[0.45rem] rounded-full border-b-2 border-[#B3866A] cursor-pointer hover:border-b-4 hover:transform active:border-b-0 active:transform active:translate-y-0.5 focus:outline-none transition-all duration-100 flex-shrink-0">
+						<img src="submit.svg" alt="Go">
+					</button>
+				</form>
+			</div>
+			<a
+				href="https://forms.hackclub.com/daydream-stickers"
+				target="_blank"
+				class="w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer mx-auto relative overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none active: mt-4 md:hidden"
+			>
+				Get free stickers
+				<img
+					src="button-clouds.svg" 
+					alt="" 
+					class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
+				>
+				<img
+					src="rock-sticker.png"
+					alt=""
+					class="absolute bottom-2 right-3 translate-2/3 w-18 h-18 object-contain pointer-events-none"
+					style="transform: rotate(-15deg);"
+				>
+			</a>
+		</div>
+		<div class="mt-4 flex items-center justify-center gap-3 flex-wrap">
 			<a
 				href="https://go.hackit.tw/daydream-taiwan-guild"
 				target="_blank"
@@ -1034,6 +1079,16 @@ Mumbai`.split("\n")
 					active:translate-y-0 active:border-b-2 transition-all duration-150"
 			>
 				了解更多
+			</a>
+			<a
+				href={discordInviteLink}
+				target="_blank"
+				rel="noopener noreferrer"
+				class="inline-block px-6 py-3 max-sm:px-4 max-sm:py-2 max-sm:text-sm bg-[#D1E3EE] border-b-4 border-[#B8D3E0] text-[#061E2D] rounded-full 
+					font-sans font-medium tracking-wide max-sm:tracking-normal transform hover:-translate-y-1 hover:shadow-lg 
+					active:translate-y-0 active:border-b-2 transition-all duration-150"
+			>
+				加入 Discord 社群
 			</a>
 		</div>
 	</div>
@@ -1314,7 +1369,7 @@ Mumbai`.split("\n")
         <!-- Section Header -->
         <div class="text-center {hasPartners ? 'mb-8 md:mb-10' : 'mb-4'}">
             <div class="relative inline-block px-2">
-                <h2 class="text-[2rem] md:text-4xl font-serif font-semibold bg-gradient-to-b from-[#8B4513] to-[#6E3D15] bg-clip-text text-transparent tracking-wide">
+                <h2 class="text-[2.25rem] md:text-5xl font-serif font-semibold bg-gradient-to-b from-[#8B4513] to-[#6E3D15] bg-clip-text text-transparent tracking-wide">
                     合作夥伴
                 </h2>
                 <img src="/underline.svg" alt="" class="absolute left-1/2 -translate-x-1/2 -bottom-2 w-44 md:w-56 h-auto opacity-80" />
@@ -1326,11 +1381,12 @@ Mumbai`.split("\n")
 
         {#if hasPartners}
             <!-- Partners Grid -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6 justify-items-center">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10 justify-items-center">
                 {#each partners as partner}
                     <a href={partner.url} target="_blank" rel="noopener noreferrer"
-                       class="group w-full h-16 sm:h-20 md:h-24 bg-white/70 hover:bg-white transition-colors rounded-xl border border-[#E8E1D0] flex items-center justify-center p-3 shadow-[0_1px_0_rgba(0,0,0,0.05)] hover:shadow-md">
-                        <img src={partner.image} alt={partner.name} class="max-h-full max-w-full object-contain opacity-80 group-hover:opacity-100 transition-opacity duration-200 grayscale group-hover:grayscale-0" />
+                       class="group w-[min(22rem,90vw)] md:w-80 lg:w-96 h-56 md:h-64 lg:h-72 bg-white rounded-xl border border-[#E8E1D0] flex flex-col items-center justify-center p-6 shadow-sm hover:shadow-md transition-all duration-150 hover:-translate-y-0.5 text-center">
+                        <img src={partner.image} alt={partner.name} class="h-[72%] w-auto object-contain" />
+                        <span class="mt-3 text-sm md:text-base font-serif text-[#335969] opacity-90">{partner.name}</span>
                     </a>
                 {/each}
             </div>

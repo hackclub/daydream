@@ -7,18 +7,19 @@
 	 */
 
 	// Configuration - Put your information here!
-	const eventName = "Kerala"; // This should be the name of your event WITHOUT "Daydream" at the start
-	const eventLocation = "Kerala";
-	const eventAddress = "Tinkerspace, Seaport - Airport Rd, Vidya Nagar Colony, Thrikkakara, Kalamassery, Kochi, Kerala, 682022"; // Leave this empty if you don't want an address
-	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=rec6IfODojIRsagDa"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const eventName = "Lahore"; // This should be the name of your event WITHOUT "Daydream" at the start
+	const eventLocation = "Lahore";
+	const eventAddress = "Imperial International School & College, Gulberg, Lahore"; // Leave this empty if you don't want an address
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=rec9k7Pg1vLu1Bx9G"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = "https://www.google.com/maps/place/TinkerSpace/@10.0469797,76.3351998,17z/data=!3m1!4b1!4m6!3m5!1s0x3b080d6f3a60778b:0x810be95c9816e984!8m2!3d10.0469797!4d76.3351998!16s%2Fg%2F11tcfbjyyn?entry=tts&g_ep=EgoyMDI1MDMxMS4wIPu8ASoASAFQAw%3D%3D"
-	const contactLink = "mailto:kerala@daydream.hackclub.com"
+	const directionsURL = "https://maps.app.goo.gl/FtogZ8hFT6F5U1727"
+	const contactLink = "mailto:daydream@alimad.co"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/kerala/tinkerhub_logo.png", name: "TinkerHub", url: "https://tinkerhub.org" }
+		{ image: "/lahore/imperial.jpg", name: "Imperial International School and College", url: "https://www.facebook.com/iisclhr" },
+		{ image: "/lahore/alimad.png", name: "Alimad Corporations", url: "https://alimad.co" },
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -26,27 +27,14 @@
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Doors open", time: "9:00 AM" },
-				{ event: "Introduction, Rules, Do's and Dont's", time: "10:00 AM" },
-				{ event: "Random Team Selection", time: "11:15 AM" },
-        { event: "Game Development Begins!", time: "12:00 PM" },
-				{ event: "Introduction To Game Development", time: "12:10 PM" },
-        { event: "Lunch", time: "2:00 PM" },
-				{ event: "2D Art/3D Modelling Workshops", time: "3:00 PM" },
-        { event: "Dinner", time: "7:30 PM" },
-        { event: "SFX Workshop", time: "8:30 PM" },
-        { event: "Theme And Game Music Workshop", time: "9:30 PM" },
-        { event: "Late Night Grind", time: "12:30 AM" }
-			]
-		},
-		{
-			title: "Sunday, September 28th",
-			items: [
-				{ event: "Breakfast", time: "7:00 AM" },
-				{ event: "Game Review Session", time: "9:00 AM" },
-				{ event: "Hour of Export", time: "11:00 AM" },
-        { event: "Lunch", time: "12:15 PM" },
-        { event: "Prize Distribution, Closing Ceremony", time: "1:45 PM" }
+				{ event: "Doors open", time: "8:00 AM" },
+				{ event: "Opening ceremony", time: "10:00 AM" },
+				{ event: "Start working on your project!", time: "11:00 AM" },
+				{ event: "Lunch", time: "12:00 PM" },
+				{ event: "Godot Workshop by Muhammad Ali", time: "1:00 PM" },
+				{ event: "Activity", time: "4:00 PM" },
+				{ event: "Closing Ceremony", time: "7:00 PM" },
+				{ event: "Day end", time: "8:00 PM" }
 			]
 		}
 	];
@@ -76,6 +64,8 @@ Lisbon
 Boston
 Giza
 Vancouver
+Islamabad
+Karachi
 Houston
 New York City
 Bengaluru
@@ -87,7 +77,7 @@ Madrid
 Boise
 Ottawa
 Hangzhou
-Islamabad
+Lahore
 London
 Visakhapatnam
 Dubai
@@ -815,7 +805,7 @@ Mumbai`.split("\n")
 			<h2
 			class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
 			>
-				September 27th & 28th, 2025
+				September 27th, 2025
 			</h2>
 			<img src="daydream.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
 			<a href="https://hackclub.com" class="absolute top-0 -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
@@ -839,7 +829,6 @@ Mumbai`.split("\n")
 				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
 			</h4>
 		</div>
-		
 		<ParticipantSignUp {signupLink} {eventName} />
 	</div>
 
@@ -904,7 +893,7 @@ Mumbai`.split("\n")
 		<div class="relative z-20 px-20 pt-20 pb-52 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
 			<div class="absolute bottom-0 left-0 w-full h-24 z-10 pointer-events-none bg-[url('/clouds-loop.png')] bg-repeat-x bg-bottom bg-contain"></div>
 			<h2 class="text-5xl font-serif italic text-[#8B4513] mb-10 relative">
-				Dear Hackers, Musicians, and Artists,
+				Dear Hackers, Students, and Artists,
 				<img src="/underline.svg" alt="" class="absolute left-0 -bottom-3 w-64 h-auto opacity-70">
 			</h2>
 			
