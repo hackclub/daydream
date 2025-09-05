@@ -141,6 +141,9 @@ a {
 .text-sm > span.px-2 {
   background-color: #FFFBDF !important;
 }
+.fillout-field-divider span {
+  background-color: #FFFBDF;
+}
 
 /* make the 'Thank You' text use the header font */
 .fillout-field-thank-you > div > div > div:not(.mt-\[3px\]) p {

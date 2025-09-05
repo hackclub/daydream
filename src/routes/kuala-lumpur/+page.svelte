@@ -12,20 +12,14 @@
 	const eventLocation = "Kuala Lumpur";
 	const eventAddress = ""; // Leave this empty if you don't want an address
 	// These two are optional
-	const contactLink = "Coming Soon!"
+	const contactLink = ""
 	const directionsURL = "";
-	const signupLink = "https://forms.hackclub.com/daydream-rsvp"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recbJ3NcnXWY89RAe"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	
 	// Sponsors Configuration
-	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
+	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" },
-		{ image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
-		{ image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
-		{ image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
-		{ image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
-		{ image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
-		{ image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
+		{ image: "/kuala-lumpur/jukebox.png", name: "Jukebox", url: "ttps://www.jukeboxprint.com/custom-stickers" },
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -37,11 +31,11 @@
 				{ event: "Opening ceremony", time: "8:30 AM" },
 				{ event: "Start working on your project!", time: "9:00 AM" },
 				{ event: "Workshop 1", time: "TBA" },
-				{ event: "Lunch", time: "12:00 PM" },
+				{ event: "Lunch,", time: "12:00 PM" },
 				{ event: "Workshop 2", time: "TBA" },
 				{ event: "Dinner", time: "6:00 PM" },
-				{ event: "Lightning talks and packing up", time: "7:45 PM" },
-				{ event: "Doors close", time: "8:00 PM" },
+				{ event: "Lightning talks and packing up", time: "6:45 PM" },
+				{ event: "Doors close", time: "7:00 PM" },
 			]
 		},
 		{
@@ -53,12 +47,12 @@
 				{ event: "Workshop 1", time: "TBA" },
 				{ event: "Lunch", time: "12:00 PM" },
 				{ event: "Workshop 2", time: "TBA" },
-				{ event: "Dinner", time: "6:00 PM" },
-				{ event: "Voting starts", time: "6:30 PM" },
-				{ event: "Voting ends", time: "7:00 PM" },
-				{ event: "Winners announced & SWAG distribution", time: "7:15 PM" },
-				{ event: "Closing statements", time: "7:15 PM" },
-				{ event: "Doors close", time: "8:00 PM" },
+				{ event: "Voting starts", time: "5:00 PM" },
+				{ event: "Voting ends", time: "5:30 PM" },
+				{ event: "Dinner", time: "5:45 PM" },
+				{ event: "Winners announced & SWAG distribution", time: "6:15 PM" },
+				{ event: "Closing statements", time: "6:30 PM" },
+				{ event: "Doors close", time: "7:00 PM" },
 			]
 		}
 	];
@@ -108,6 +102,8 @@ Minneapolis
 Seattle
 Singapore
 Sydney
+Toronto
+Penang
 Mumbai`.split("\n")
 
 	function createSmoothPath(points: Array<{ x: number; y: number }>) {
@@ -829,7 +825,7 @@ Mumbai`.split("\n")
 			>
 				September 27th & 28th, 2025
 			</h2>
-			<img src="daydreamkl.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
+			<img src="kuala-lumpur/daydreamkl.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
 			<a href="https://hackclub.com" class="absolute top-0 -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
 				<img src="flag-plane.png" alt="Hack Club" class="h-28">
 			</a>
@@ -852,7 +848,7 @@ Mumbai`.split("\n")
 			</h4>
 		</div>
 		
-		<ParticipantSignUp {eventName} />
+		<ParticipantSignUp {signupLink} {eventName} />
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
@@ -916,7 +912,7 @@ Mumbai`.split("\n")
 		<div class="relative z-20 px-20 pt-20 pb-52 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
 			<div class="absolute bottom-0 left-0 w-full h-24 z-10 pointer-events-none bg-[url('/clouds-loop.png')] bg-repeat-x bg-bottom bg-contain"></div>
 			<h2 class="text-5xl font-serif italic text-[#8B4513] mb-10 relative">
-				Dear Hackers, Musicians, and Artist,
+				Dear Hackers, Musicians, and Artists,
 				<img src="/underline.svg" alt="" class="absolute left-0 -bottom-3 w-64 h-auto opacity-70">
 			</h2>
 			
@@ -1066,9 +1062,18 @@ Mumbai`.split("\n")
 							<div class="flex justify-center">
 								<div class="grid gap-8 items-center justify-items-center max-w-4xl {sponsors.length === 1 ? 'grid-cols-1' : sponsors.length === 2 ? 'grid-cols-1 md:grid-cols-2' : sponsors.length === 3 ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-2 md:grid-cols-4'}">
 									{#each sponsors as sponsor}
-										<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
-											<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
-										</a>
+										{#if sponsor.name === "Jukebox"}
+											<div class="bg-white/20 rounded-lg p-1 w-full flex-col items-center justify-center hover:bg-white/40 transition-colors text-center">
+												<p class="mb-4 text-black text-base">
+													Hey! So you want to know where we're getting our amazing <a href="https://www.jukeboxprint.com/custom-stickers">custom stickers</a> from? Jukebox, of course!
+												</p>
+												<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-20 object-contain">
+											</div>
+										{:else}
+											<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener norefferer">
+												<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
+											</a>
+										{/if}												
 									{/each}
 								</div>
 							</div>

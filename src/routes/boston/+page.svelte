@@ -15,43 +15,41 @@
 	const contactLink = "mailto:boston@daydream.hackclub.com"
 	
 	// Sponsors Configuration
-	const signupLink = "https://forms.hackclub.com/daydream-rsvp"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
-	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recFq8OHZBogqb5Ym"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" },
-		{ image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
-		{ image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
-		{ image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
-		{ image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
-		{ image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
-		{ image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
+		{ image: "/boston/jukebox-logo.svg", name: "Jukebox", url: "https://www.jukeboxprint.com/custom-stickers",
+			text: `<p class="text-lg text-[#335969] text-center">
+             Big shoutout to Jukebox for our
+             <a href="https://www.jukeboxprint.com/custom-stickers"
+                class="underline hover:text-[#477783] transition-colors">
+               custom stickers</a>!
+           </p>`		},
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
 		{
-			title: "Saturday, September 27th",
+			title: "Saturday, September 27th (Subject to Change)",
 			items: [
-				{ event: "Doors open", time: "11:00 AM" },
-				{ event: "Opening ceremony", time: "12:00 PM" },
-				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Start working on your project!", time: "1:00 PM" },
-				{ event: "Workshop 1", time: "2:00 PM" },
-				{ event: "Activity 1", time: "4:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
-				{ event: "Dinner", time: "6:00 PM" },
-				{ event: "Lightning talks", time: "8:00 PM" },
-				{ event: "Midnight surprise", time: "12:00 AM" }
+				{ event: "Doors open", time: "8:00 AM" },
+				{ event: "Opening ceremony", time: "8:30 AM" },
+				{ event: "Workshop 1 (TBD)", time: "9:15 AM" },
+				{ event: "Workshop 2 (TBD)", time: "10:30 AM" },
+				{ event: "Workshop 3 (TBD)", time: "11:45 AM" },
+				{ event: "Lunch + Lightning Talks", time: "1:00 PM" },
+				{ event: "Demos", time: "4:30 PM" },
+				{ event: "Closing Ceremony", time: "5:30 PM" }
 			]
 		},
-		{
-			title: "Sunday, September 28th",
-			items: [
-				{ event: "Breakfast", time: "8:00 AM" },
-				{ event: "Demos!", time: "10:30 AM" },
-				{ event: "Closing ceremony", time: "12:00 PM" }
-			]
-		}
+		// {
+		// 	title: "Sunday, September 28th",
+		// 	items: [
+		// 		{ event: "Breakfast", time: "8:00 AM" },
+		// 		{ event: "Demos!", time: "10:30 AM" },
+		// 		{ event: "Closing ceremony", time: "12:00 PM" }
+		// 	]
+		// }
 	];
 
 	
@@ -97,7 +95,7 @@ Dubai
 San Francisco
 Minneapolis
 Seattle
-Signapore
+Singapore
 Sydney
 Mumbai`.split("\n")
 
@@ -818,7 +816,7 @@ Mumbai`.split("\n")
 			<h2
 			class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
 			>
-				September 27th & 28th, 2025
+				September 27th, 2025
 			</h2>
 			<img src="daydream.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
 			<a href="https://hackclub.com" class="absolute top-0 -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
@@ -843,7 +841,7 @@ Mumbai`.split("\n")
 			</h4>
 		</div>
 		
-		<ParticipantSignUp {eventName} />
+		<ParticipantSignUp {signupLink} {eventName} />
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
@@ -907,7 +905,7 @@ Mumbai`.split("\n")
 		<div class="relative z-20 px-20 pt-20 pb-52 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
 			<div class="absolute bottom-0 left-0 w-full h-24 z-10 pointer-events-none bg-[url('/clouds-loop.png')] bg-repeat-x bg-bottom bg-contain"></div>
 			<h2 class="text-5xl font-serif italic text-[#8B4513] mb-10 relative">
-				Dear Hackers, Musicians, and Artist,
+				Dear Hackers, Musicians, and Artists,
 				<img src="/underline.svg" alt="" class="absolute left-0 -bottom-3 w-64 h-auto opacity-70">
 			</h2>
 			
@@ -1035,6 +1033,9 @@ Mumbai`.split("\n")
 									<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
 										<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
 									</a>
+									<div class="mt-2 text-center text-sm">
+										{@html sponsor.text}
+									</div>
 								{/each}
 							</div>
 							
@@ -1048,6 +1049,9 @@ Mumbai`.split("\n")
 												target="_blank" rel="noopener noreferrer">
 												<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
 											</a>
+											<div class="mt-2 text-center text-sm">
+												{@html sponsor.text}
+											</div>
 										{/each}
 									</div>
 								</div>
@@ -1060,6 +1064,9 @@ Mumbai`.split("\n")
 										<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
 											<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
 										</a>
+										<div class="mt-2 text-center text-sm">
+											{@html sponsor.text}
+										</div>
 									{/each}
 								</div>
 							</div>

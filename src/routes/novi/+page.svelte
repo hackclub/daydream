@@ -10,38 +10,34 @@
 	const eventName = "Novi";
 	const eventLocation = "Novi";
 	const eventAddress = null;
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recbxmG5BhyG1fVc5"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional
 	const directionsURL = "https://www.google.com/maps/search/1600+pennsylvania+avenue+washington+dc/"
-	const contactLink = "mailto:example@daydream.hackclub.com"
+	const contactLink = "mailto:anahitamayekar03@gmail.com"
 	
 	// Sponsors Configuration
-	const signupLink = "https://forms.hackclub.com/daydream-rsvp"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" },
-		{ image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
-		{ image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
-		{ image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
-		{ image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
-		{ image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
-		{ image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
+		{ image: "/novi/chick.jpeg", name: "Chick-Fil-A", url: "https://www.chick-fil-a.com" },
+		{ image: "/novi/zf.png", name: "ZF", url: "hhttps://www.zf.com/mobile/en/homepage/homepage.html" },
+		{ image: "/novi/pass.svg", name: "1Password", url: "https://1password.com/" },
 	];
 	
 	// Schedule Configuration - You don't need to use this schedule, this is just an example!
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
 		{
-			title: "Saturday, September 27th",
+			title: "Sunday, September 28th",
 			items: [
-				{ event: "Doors open", time: "7:00 AM" },
-				{ event: "Breakfast", time: "7:15 AM" },
-				{ event: "Opening ceremony", time: "8:00 PM" },
-				{ event: "Start working on your project!", time: "10:00 PM" },
-				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Workshop 1", time: "2:00 PM" },
-				{ event: "Activity 1", time: "4:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
-				{ event: "Closing ceremony", time: "5:00 PM" },
-				{ event: "Voting", time: "6:00 PM" },
+				{ event: "Doors open / Breakfast", time: "8:00 AM" },
+				{ event: "Opening ceremony", time: "8:15 AM" },
+				{ event: "Workshop 1 & 2", time: "9:00 AM" },
+				{ event: "Activity 1", time: "12:30 PM" },
+				{ event: "Lunch", time: "1:00 PM" },
+				{ event: "Workshop 3 & 4", time: "2:00 PM" },
+				{ event: "Activity 2", time: "3:30 PM" },
+				{ event: "Publishing Your Game!", time: "4:00 PM" },
+				{ event: "Voting", time: "5:30 PM" },
+				{ event: "Closing ceremony", time: "7:00 PM" },
 			]
 		},
 	];
@@ -50,6 +46,8 @@
 	import { onMount } from "svelte";
 	import { gsap } from "gsap";
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
+	import Ticker from "$lib/components/Ticker.svelte";
+	import Footer from "$lib/components/Footer.svelte";
 	import ParticipantSignUp from "$lib/components/ParticipantSignUp.svelte";
 	import { page } from '$app/stores';
 	
@@ -87,7 +85,7 @@ Dubai
 San Francisco
 Minneapolis
 Seattle
-Signapore
+Singapore
 Sydney
 Mumbai`.split("\n")
 
@@ -793,30 +791,7 @@ Mumbai`.split("\n")
 
 	<div class="buildings-back-parallax absolute top-0 left-0 w-full h-full bg-[url(/buildings-back.png)] bg-no-repeat bg-contain pointer-events-none lg:-translate-y-15"></div>
 	
-	<!-- Animated text ticker along curvy line -->
-	<div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none lg:-translate-y-35 -translate-y-20 overflow-hidden max-md:w-200 max-lg:w-[125%]">
-		<svg width="1280" height="464" viewBox="0 0 1280 464" class="w-full h-max pt-32 object-contain" xmlns="http://www.w3.org/2000/svg">
-			<defs>
-				<path id="curvy-path" d="M-41 274.995C91.5 229.995 203.5 64.4946 483.5 39.9946C763.5 15.4946 892.5 151.495 1165 196.495C1383 232.495 1462.5 263.828 1475 274.995"/>
-				<mask id="reveal-mask">
-					<rect x="0" y="0" width="0" height="464" fill="white">
-						<animate attributeName="width" values="0;1280" dur="2s" calcMode="spline" keySplines="0.05,0.7,0.3,1" keyTimes="0;1" begin="0.75s" fill="freeze"/>
-					</rect>
-				</mask>
-			</defs>
-			<g mask="url(#reveal-mask)">
-				<!-- Background path stroke -->
-				<path d="M-41 268.495C91.5 223.495 203.5 57.9946 483.5 33.4946C763.5 8.9946 892.5 144.995 1165 189.995C1383 225.995 1462.5 257.328 1475 268.495" 
-					  stroke="#9EE4F2" stroke-width="28" fill="none" stroke-linecap="round"/>
-				<text font-family="sans-serif" fill="#EDFCFF" font-weight="bold" font-size="18">
-					<textPath href="#curvy-path" startOffset="-100%">
-						{@html Array(2).fill(tickerText).join(" • ")} • 
-						<animate id="ticker-animation" attributeName="startOffset" values="-100%;0%" dur="30s" repeatCount="indefinite"/>
-					</textPath>
-				</text>
-			</g>
-		</svg>
-	</div>
+	<Ticker {tickerText} />
 	
 	<!-- brush texture clipped to back buildings -->
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat pointer-events-none opacity-100 lg:-translate-y-15 bg-center mix-blend-overlay" style="mask-image: url('/buildings-back.png'); mask-size: contain; mask-repeat: no-repeat; mask-position: center top; -webkit-mask-image: url('/buildings-back.png'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center top;"></div>
@@ -831,7 +806,7 @@ Mumbai`.split("\n")
 			<h2
 			class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
 			>
-				September 27th & 28th, 2025
+				September 28th, 2025
 			</h2>
 			<img src="daydream.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
 			<a href="https://hackclub.com" class="absolute top-0 -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
@@ -852,11 +827,11 @@ Mumbai`.split("\n")
 			<h4
 				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
 			>
-				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
+				ZF Electronics HQ Farmington Hills | 8:00 AM – 8:00 PM
 			</h4>
 		</div>
 		
-		<ParticipantSignUp {eventName} />
+		<ParticipantSignUp {signupLink} {eventName} />
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
@@ -920,7 +895,7 @@ Mumbai`.split("\n")
 		<div class="relative z-20 px-20 pt-20 pb-52 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
 			<div class="absolute bottom-0 left-0 w-full h-24 z-10 pointer-events-none bg-[url('/clouds-loop.png')] bg-repeat-x bg-bottom bg-contain"></div>
 			<h2 class="text-5xl font-serif italic text-[#8B4513] mb-10 relative">
-				Dear Hackers, Musicians, and Artist,
+				Dear Hackers, Musicians, and Artists,
 				<img src="/underline.svg" alt="" class="absolute left-0 -bottom-3 w-64 h-auto opacity-70">
 			</h2>
 			
@@ -1079,10 +1054,24 @@ Mumbai`.split("\n")
 						{/if}
 					{/if}
 					
+					<!-- Jukebox requirement -->
+    				<div class="mt-6 text-center">
+        				<img src="/novi/jukebox.png" alt="Jukebox Logo" class="mx-auto mb-2 max-w-[200px]" />
+        				<p class="text-lg text-[#335969]">
+            				Big shoutout to Jukebox for our
+            				<a href="https://www.jukeboxprint.com/custom-stickers" class="underline">custom stickers</a>!
+        				</p>
+    				</div>
+
 					{#if contactLink}
 						<!-- Call to action for sponsors -->
 						<div class="mt-8 text-center">
-							<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
+							<p class="text-lg text-[#335969]">
+								Want to sponsor Daydream {eventName}? 
+								<a href={contactLink} class="underline hover:text-[#477783] transition-colors">anahitamayekar03@gmail.com</a>
+								<br />
+								Check out the <a href="https://drive.google.com/file/d/1-ad1yVqJnCwBrvz6Df0EvR80nto5Hpa4/view?usp=sharing" class="underline hover:text-[#477783] transition-colors">Prospectus</a> for Daydream Novi.
+							</p>
 						</div>
 					{/if}
 				</div>
@@ -1474,7 +1463,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school aged students are welcome to come!</p>
 		</div>
 		</div>
 
@@ -1501,7 +1490,7 @@ Mumbai`.split("\n")
 			<img src="window-1.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24  opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What do I need?</h3>
-				<p class="text-sm">Your laptop, chargers, toiletries, sleeping bags, and an open mind!</p>
+				<p class="text-sm">Your laptop, charger, and an open mind!</p>
 			</div>
 		</div>
 
@@ -1528,7 +1517,7 @@ Mumbai`.split("\n")
 			<img src="window-2.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What if my parents are concerned?</h3>
-				<p class="text-sm">We're here to help! You can see our parent guide here, or they can reach out to us at daydream@hackclub.com for questions.</p>
+				<p class="text-sm">We're here to help! You can see our parent guide here, or they can reach out to us at anahitamayekar03@gmail.com or daydream@hackclub.com for questions.</p>
 			</div>
 		</div>
 
@@ -1545,28 +1534,7 @@ Mumbai`.split("\n")
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
 </div>
 
-<div class="w-full bg-[#FFFFF8] relative min-h-80">
-	<div class="absolute top-0 left-0 w-full h-full bg-[url('/noise.png')] bg-repeat opacity-10 pointer-events-none z-0"></div>
-	<div class="opacity-60 absolute w-full h-32 bg-[url('brushstroking.png')] bg-repeat-x z-10 bg-size-[100vw_100vh] mix-blend-overlay" style="mask-image: url(/footer-clouds.png); mask-size: contain; mask-repeat: repeat-x; -webkit-mask-image: url(/footer-clouds.png); -webkit-mask-size: contain; -webkit-mask-repeat: repeat-x;"></div>
-	<div class="w-full h-32 bg-[#e99cce] z-5" style="mask-image: url(/footer-clouds.png); mask-size: contain; mask-repeat: repeat-x; -webkit-mask-image: url(/footer-clouds.png); -webkit-mask-size: contain; -webkit-mask-repeat: repeat-x;"></div>
-
-	<!-- Footer Text -->
-	<div class="absolute bottom-20 left-32 text-center z-20 max-md:bottom-12 max-md:left-8 max-md:right-4 max-md:text-left">
-		<p class="text-gray-700 mb-2">Made with ♡ by teenagers, for teenagers at Hack Club</p>
-		<div class="flex space-x-4 max-md:flex-col max-md:space-x-0 max-md:space-y-2">
-			<a href="https://hackclub.com" class="underline text-gray-700 hover:text-gray-900 transition-colors ">Hack Club</a>
-			<span class="text-gray-700 max-md:hidden">・</span>
-			<a href="https://hackclub.com/slack" class="underline text-gray-700 hover:text-gray-900 transition-colors ">Slack</a>
-			<span class="text-gray-700 max-md:hidden">・</span>
-			<a href="https://hackclub.com/clubs" class="underline text-gray-700 hover:text-gray-900 transition-colors ">Clubs</a>
-			<span class="text-gray-700 max-md:hidden">・</span>
-			<a href="https://hackclub.com/hackathons" class="underline text-gray-700 hover:text-gray-900 transition-colors ">Hackathons</a>
-		</div>
-	</div>
-
-	<div class="max-sm:hidden absolute bottom-2 right-16 h-2/3 aspect-square bg-[url('brushstroking.png')] bg-repeat z-10 bg-size-[100vw_100vh] mix-blend-overlay" style="mask-image: url(/thought-bubbles.png); mask-size: contain; mask-repeat: no-repeat; -webkit-mask-image: url(/thought-bubbles.png); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat;"></div>
-	<div class="max-sm:hidden absolute bottom-2 right-16 h-2/3 aspect-square bg-[#e99cce]" style="mask-image: url(/thought-bubbles.png); mask-size: contain; mask-repeat: no-repeat; -webkit-mask-image: url(/thought-bubbles.png); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat;"></div>
-</div>
+<Footer />
 
 <!-- Video Popup Modal -->
 {#if showVideoPopup}

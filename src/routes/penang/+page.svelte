@@ -3,12 +3,13 @@
 	const eventLocation = "Penang";
 	const eventAddress = "Wisma Yeap Chor Ee, 37, Gat Lebuh China, Georgetown, 10200 George Town, Penang";
 	const directionsURL = "https://www.google.com/maps/place/PSC@Heritage+(Penang+Science+Cluster)/@5.4153623,100.3397381,17z/data=!3m1!4b1!4m6!3m5!1s0x304ac38e9e1ad7e9:0xdb5c3a2cdee5013c!8m2!3d5.415357!4d100.342313!16s%2Fg%2F11clvx6mkl?entry=ttu&g_ep=EgoyMDI1MDgwNi4wIKXMDSoASAFQAw%3D%3D"
-	const contactLink = "mailto:info@daydreampenang.com"
+	const contactLink = "mailto:penang@daydream.hackclub.com"
 	
-	const signupLink = "https://forms.hackclub.com/daydream-rsvp"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recv7MKnWKwmBZC48";
 	const sponsorsEnabled = true; 
 	const sponsors = [
-		{ image: "https://storage.jukeboxprint.com/s/images/jukebox-logo.svg", name: "Jukebox", url: "https://www.jukeboxprint.com/custom-stickers" }
+		{ image: "https://storage.jukeboxprint.com/s/images/jukebox-logo.svg", name: "Jukebox", url: "https://www.jukeboxprint.com/custom-stickers" },
+		{ image: "/penang/cytron.png", name: "Cytron Technologies", url: "https://cytron.io" }
 	];
 	
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
@@ -16,15 +17,15 @@
 			title: "Saturday, September 27th",
 			items: [
 				{ event: "Doors open", time: "9:00 AM" },
-				{ event: "Opening ceremony", time: "9:15 AM" },
+				{ event: "Opening ceremony", time: "10:00 AM" },
 				{ event: "Workshop 1", time: "10:30 AM" },
+				{ event: "Project kickoff", time: "11:30 AM" },
+				{ event: "Workshop 2", time: "12:00 PM" },
 				{ event: "Lunch", time: "1:00 PM" },
-				{ event: "Start working on the project", time: "2:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
-				{ event: "Workshop 3", time: "4:00 PM" },
-				{ event: "Dinner", time: "6:00 PM" },
-				{ event: "Ship the project", time: "8:00 PM" },
-				{ event: "Closing ceremony", time: "9:00 PM" }
+				{ event: "Workshop 3", time: "2:00 PM" },
+				{ event: "Final project push", time: "3:00 PM" },
+				{ event: "Ship the project", time: "4:30 PM" },
+				{ event: "Project demo & closing ceremony", time: "5:00 PM" }
 			]
 		}
 	];
@@ -838,7 +839,7 @@ Mumbai`.split("\n")
 			</h4>
 		</div>
 		
-		<ParticipantSignUp {eventName} />
+		<ParticipantSignUp {signupLink} {eventName} />
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
@@ -902,7 +903,7 @@ Mumbai`.split("\n")
 		<div class="relative z-20 px-20 pt-20 pb-52 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
 			<div class="absolute bottom-0 left-0 w-full h-24 z-10 pointer-events-none bg-[url('/clouds-loop.png')] bg-repeat-x bg-bottom bg-contain"></div>
 			<h2 class="text-5xl font-serif italic text-[#8B4513] mb-10 relative">
-				Dear Hackers, Musicians, and Artist,
+				Dear Hackers, Musicians, and Artists,
 				<img src="/underline.svg" alt="" class="absolute left-0 -bottom-3 w-64 h-auto opacity-70">
 			</h2>
 			
@@ -1064,7 +1065,7 @@ Mumbai`.split("\n")
 					{#if contactLink}
 						<!-- Call to action for sponsors -->
 						<div class="mt-8 text-center">
-							<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
+							<p class="text-lg text-[#335969]"><a href="https://www.jukeboxprint.com/custom-stickers">Custom stickers</a> provided by Jukebox <br> Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
 						</div>
 					{/if}
 				</div>
@@ -1483,7 +1484,7 @@ Mumbai`.split("\n")
 			<img src="window-1.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24  opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What do I need?</h3>
-				<p class="text-sm">Your laptop, chargers, toiletries, sleeping bags, and an open mind!</p>
+				<p class="text-sm">Your laptop, chargers, and an open mind!</p>
 			</div>
 		</div>
 
@@ -1543,6 +1544,8 @@ Mumbai`.split("\n")
 			<a href="https://hackclub.com/clubs" class="underline text-gray-700 hover:text-gray-900 transition-colors ">Clubs</a>
 			<span class="text-gray-700 max-md:hidden">・</span>
 			<a href="https://hackclub.com/hackathons" class="underline text-gray-700 hover:text-gray-900 transition-colors ">Hackathons</a>
+			<span class="text-gray-700 max-md:hidden">・</span>
+			<a href="https://instagram.com/daydreampenang" class="underline text-gray-700 hover:text-gray-900 transition-colors ">Instagram</a>
 		</div>
 	</div>
 
