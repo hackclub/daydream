@@ -9,10 +9,10 @@
 	// Configuration - Put your information here!
 	const eventName = "Daydream Atfih"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "Atfih";
-	const eventAddress = "1600 Pennsylvania Avenue, Washington, DC 20500"; // Leave this empty if you don't want an address
+	const eventAddress = "Al Helf Al Gharbi, El Wahat El Bahariya, Giza Governorate 3420530"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recqcvQzUqzUTdf8y"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = "https://www.google.com/maps/search/1600+pennsylvania+avenue+washington+dc/"
+	const directionsURL = "https://maps.app.goo.gl/ALYTsKJ82ZuNtLQG8"
 	const contactLink = "mailto:atfih@daydream.hackclub.com"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
