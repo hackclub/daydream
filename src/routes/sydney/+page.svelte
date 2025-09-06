@@ -22,6 +22,8 @@
 		{ image: "/sydney/jlcpcb.png", name: "jlcpcb", url: "https://jlcpcb.com/" },
 		{ image: "/sydney/oshw.png", name: "oshw", url: "https://oshwlab.com/" },
 		{ image: "/sydney/easyeda.png", name: "easyeda", url: "https://easyeda.com/" },
+		{ image: "/sydney/logo_horizontal_black_registered.png", name: "janestreet", url: "https://www.janestreet.com/" },
+
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
