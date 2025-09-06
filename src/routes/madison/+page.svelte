@@ -7,24 +7,24 @@
 	 */
 
 	// Configuration - Put your information here!
-	const eventName = "Austin"; // This should be the name of your event WITHOUT "Daydream" at the start
-	const eventLocation = "Austin, Texas";
-	const eventAddress = "2410 San Antonio St Austin, TX 78734"; // Leave this empty if you don't want an address
-	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recit5nhOKNU5OWsV"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const eventName = "Madison"; // This should be the name of your event WITHOUT "Daydream" at the start
+	const eventLocation = "Madison";
+	const eventAddress = ""; // Leave this empty if you don't want an address
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recF5mtASJqnKWNTC"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = "https://www.google.com/maps/dir//2410+San+Antonio+St,+Austin,+TX+78734/"
-	const contactLink = "/austin/sponsors"
+	const directionsURL = ""
+	const contactLink = "mailto:madison@daydream.hackclub.com"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
-	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
+	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		//{ image: "/austin/hack-club.svg", name: "Hack Club", url: "https://hackclub.com" },
-		{ image: "/austin/futo.svg", name: "FUTO", url: "https://futo.org/" },
-		// { image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
-		// { image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
-		// { image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
-		// { image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
-		// { image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
+		{ image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" },
+		{ image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
+		{ image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
+		{ image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
+		{ image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
+		{ image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
+		{ image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -32,23 +32,33 @@
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Doors open", time: "11:00 AM" },
-				{ event: "Opening ceremony", time: "12:00 PM" },
-				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Workshop 1", time: "1:30 PM" },
-				{ event: "Workshop 2", time: "2:00 PM" },
-				// { event: "Workshop 3", time: "4:00 PM" },
-				{ event: "Dinner and Lightning Talks", time: "6:00 PM" },
-				// { event: "Midnight surprise (ice cream?)", time: "12:00 AM" }
+				{ event: "Soft Landing + Checkin", time: "8:30 AM" },
+				{ event: "Opening Words", time: "9:00 AM"},
+				{ event: "Start working on your project!", time: "9:30 AM" },
+				{ event: "Lunch and Social Time", time: "12:30 PM" },
+				{ event: "Dedicated Work Time", time: "1:00 PM" },
+				{ event: "Workshop? - TBD", time: "2:00 PM" },
+				{ event: "Workshop? - TBD", time: "4:00 PM" },
+				{ event: "Dinner", time: "7:30 PM" },
+				{ event: "Organizer Yap Session", time: "8:00 PM" },
+				{ event: "More Work Time", time: "8:15 PM" },
+				{ event: "GO TO SLEEP", time: "11:00 PM" }
 			]
 		},
 		{
 			title: "Sunday, September 28th",
 			items: [
+				{ event: "Wakeup Calls", time: "8:00 AM" },
 				{ event: "Breakfast", time: "8:30 AM" },
-				{ event: "Submissions Open", time: "11:00 AM" },
-				{ event: "Submissions Close and Judging Starts", time: "11:30 AM" },
-				{ event: "Closing ceremony", time: "12:30 PM" }
+				{ event: "Work Time", time: "9:00 AM" },
+				{ event: "Lunch", time: "12:30 PM" },
+				{ event: "Work Time!", time: "1 PM" },
+				{ event: "Workshop? - TBD", time: "2:00 PM" },
+				{ event: "Dinner", time: "7:00 PM" },
+				{ event: "Finishing Touches", time: "7:30 PM" },
+				{ event: "Demos", time: "8:00 PM" },
+				{ event: "Closing", time: "9:30 pm"},
+				{ event: "Pack up and go home!", time: "10:00 PM" }
 			]
 		}
 	];
@@ -69,8 +79,8 @@
 	// Get current URL for dynamic metadata
 	$: currentUrl = `https://daydream.hackclub.com${$page.url.pathname}`;
 	$: pageTitle = `Daydream ${eventName} - ${eventLocation} Game Jam`;
-	$: pageDescription = `Join Daydream ${eventName} in ${eventLocation}! A teen-led game jam where you'll build amazing games with other high schoolers. Food, workshops, and prizes included!`;
-	$: pageKeywords = `game jam, hackathon, teen coding, Hack Club, game development, ${eventLocation}, ${eventName}`;
+	$: pageDescription = `Join Daydream ${eventName} in ${eventLocation}! A student-led game jam where you'll build amazing games with other high schoolers. Food, workshops, and prizes included!`;
+	$: pageKeywords = `game jam, hackathon, student coding, teen coding, Hack Club, game development, ${eventLocation}, ${eventName}`;
 
 	// Cities where the game jam is happening
 	const cities = `Columbus
@@ -96,7 +106,7 @@ Dubai
 San Francisco
 Minneapolis
 Seattle
-Singapore
+Signapore
 Sydney
 Mumbai`.split("\n")
 
@@ -838,7 +848,7 @@ Mumbai`.split("\n")
 			<h4
 				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
 			>
-				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
+				Organized by Students in {@html eventLocation.replaceAll(" ", "&nbsp;")}
 			</h4>
 		</div>
 		
@@ -1568,3 +1578,4 @@ Mumbai`.split("\n")
 		</div>
 	</div>
 {/if}
+

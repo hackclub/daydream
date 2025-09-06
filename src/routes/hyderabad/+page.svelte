@@ -7,13 +7,13 @@
 	 */
 
 	// Configuration - Put your information here!
-	const eventName = "Milwaukee"; // This should be the name of your event WITHOUT "Daydream" at the start
-	const eventLocation = "Milwaukee";
+	const eventName = "Hyderabad"; // This should be the name of your event WITHOUT "Daydream" at the start
+	const eventLocation = "Hyderabad, Telangana";
 	const eventAddress = ""; // Leave this empty if you don't want an address
-	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recL3BvxoCPzbRIYR"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=reccBt5x14OKtud8m"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
 	const directionsURL = ""
-	const contactLink = "mailto:daydreammilwaukee@gmail.com"
+	const contactLink = ""
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
 	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
@@ -32,33 +32,27 @@
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Soft Landing + Checkin", time: "8:30 AM" },
-				{ event: "Opening Words", time: "9:00 AM"},
-				{ event: "Start working on your project!", time: "9:30 AM" },
-				{ event: "Lunch and Social Time", time: "12:30 PM" },
-				{ event: "Dedicated Work Time", time: "1:00 PM" },
-				{ event: "Workshop? - TBD", time: "2:00 PM" },
-				{ event: "Workshop? - TBD", time: "4:00 PM" },
-				{ event: "Dinner", time: "7:30 PM" },
-				{ event: "Organizer Yap Session", time: "8:00 PM" },
-				{ event: "More Work Time", time: "8:15 PM" },
-				{ event: "GO TO SLEEP", time: "11:00 PM" }
+				{ event: "Registration & Breakfast", time: "8:00-9:00" },
+				{ event: "Opening Ceremony", time: "9:00-9:45" },
+				{ event: "Hacking Begins", time: "10:00-01:00" },
+				{ event: "Lunch", time: "01:00-02:00"},
+				{ event: "Workshop 1", time: "02:00-03:00" },
+				{ event: "Hacking Session", time: "03:00-06:00" },
+				{ event: "Workshop 2", time: "06:00-07:00" },
+				{ event: "Dinner", time: "07:00-08:00" },	
 			]
 		},
 		{
 			title: "Sunday, September 28th",
 			items: [
-				{ event: "Wakeup Calls", time: "8:00 AM" },
-				{ event: "Breakfast", time: "8:30 AM" },
-				{ event: "Work Time", time: "9:00 AM" },
-				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Work Time!", time: "1 PM" },
-				{ event: "Workshop? - TBD", time: "2:00 PM" },
-				{ event: "Dinner", time: "7:00 PM" },
-				{ event: "Finishing Touches", time: "7:30 PM" },
-				{ event: "Demos", time: "8:00 PM" },
-				{ event: "Closing", time: "9:30 pm"},
-				{ event: "Pack up and go home!", time: "10:00 PM" }
+				{ event: "Breakfast", time: "8:00-9:00" },
+				{ event: "Hacking Begins", time: "09:00-12:00" },
+				{ event: "Lunch", time: "12:00-01:00" },
+				{ event: "Workshop 3", time: "01:00:02:00" },
+				{ event: "Project Submission", time: "04:00-05:00" },
+				{ event: "Judging & Networking", time: "05:00-06:30" },
+				{ event: "Closing Ceremony + Prizes", time: "06:30-07:30" },
+				{ event: "Dinner & Farewell", time: "07:30-08:00" },
 			]
 		}
 	];
@@ -79,8 +73,8 @@
 	// Get current URL for dynamic metadata
 	$: currentUrl = `https://daydream.hackclub.com${$page.url.pathname}`;
 	$: pageTitle = `Daydream ${eventName} - ${eventLocation} Game Jam`;
-	$: pageDescription = `Join Daydream ${eventName} in ${eventLocation}! A student-led game jam where you'll build amazing games with other high schoolers. Food, workshops, and prizes included!`;
-	$: pageKeywords = `game jam, hackathon, student coding, teen coding, Hack Club, game development, ${eventLocation}, ${eventName}`;
+	$: pageDescription = `Join Daydream ${eventName} in ${eventLocation}! A teen-led game jam where you'll build amazing games with other high schoolers. Food, workshops, and prizes included!`;
+	$: pageKeywords = `game jam, hackathon, teen coding, Hack Club, game development, ${eventLocation}, ${eventName}`;
 
 	// Cities where the game jam is happening
 	const cities = `Columbus
@@ -848,11 +842,11 @@ Mumbai`.split("\n")
 			<h4
 				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
 			>
-				Organized by Students in {@html eventLocation.replaceAll(" ", "&nbsp;")}
+				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
 			</h4>
 		</div>
 		
-		<ParticipantSignUp {signupLink} {eventName} />
+		<ParticipantSignUp {eventName} />
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
@@ -916,7 +910,7 @@ Mumbai`.split("\n")
 		<div class="relative z-20 px-20 pt-20 pb-52 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
 			<div class="absolute bottom-0 left-0 w-full h-24 z-10 pointer-events-none bg-[url('/clouds-loop.png')] bg-repeat-x bg-bottom bg-contain"></div>
 			<h2 class="text-5xl font-serif italic text-[#8B4513] mb-10 relative">
-				Dear Hackers, Musicians, and Artists,
+				Dear Hackers, Musicians, and Artist,
 				<img src="/underline.svg" alt="" class="absolute left-0 -bottom-3 w-64 h-auto opacity-70">
 			</h2>
 			
@@ -1578,4 +1572,5 @@ Mumbai`.split("\n")
 		</div>
 	</div>
 {/if}
+
 
