@@ -9,10 +9,10 @@
 	// Configuration - Put your information here!
 	const eventName = "Charlotte"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "Charlotte";
-	const eventAddress = "153 S Oakland Ave, Rock Hill, SC 29730"; // Leave this empty if you don't want an address
+	const eventAddress = "The Gravity Center at 153 S Oakland Ave, Rock Hill, SC 29730"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=rec1SyZV1FrigMBfG"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = "https://www.google.com/maps?sca_esv=518de7ca735d1bf8&rlz=1C5CHFA_enBE748BE749&biw=1440&bih=695&output=search&q=gravity+center&source=lnms&fbs=AIIjpHxU7SXXniUZfeShr2fp4giZ1Y6MJ25_tmWITc7uy4KIehZSPZtq-ywdxHK81a_1UWlQN69SKmEwbxp_WUDdFSSo4dRGlkCKyVKThVBb0xH2hqJLFRFmhb7Vq9WqcC-SB4v31ZLjujxomD82BSf9JKPSCcHId-GGiIqFqMxEhYyR0adOVzkm7lmCaTFTDJ9Tu6FuTffCMw_Xn970Wp68jeLYYjInog&entry=mc&ved=1t:200715&ictx=111"
+	const directionsURL = "https://www.google.com/maps/place/153+S+Oakland+Ave,+Rock+Hill,+SC"
 	const contactLink = "mailto:charlotte@daydream.hackclub.com"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
