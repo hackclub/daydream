@@ -16,15 +16,12 @@
 	const contactLink = "mailto:karachi@daydream.hackclub.com"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
-	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
+	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" },
-		{ image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
-		{ image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
-		{ image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
-		{ image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
-		{ image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
-		{ image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
+		{ image: "/karachi/dd.png", name: "Cedar College", url: "https://college.cedar.edu.pk/pechs/" },
+		{ image: "/karachi/codes.png", name: "Cedar Codes", url: "http://Cedar-codes.vercel.app" },
+
+		
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -815,11 +812,11 @@ Mumbai`.split("\n")
 			<div class="h-12"></div> 
 			<!-- space for the ship -->
 			<h2
-			class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
+			class="text-xl font-serif bg-gradient-to-b from-[#234460] to-[#234460] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
 			>
 				September 27th & 28th, 2025
 			</h2>
-			<img src="daydream.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
+			<img src="/karachi/Karachi.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
 			<a href="https://hackclub.com" class="absolute top-0 -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
 				<img src="flag-plane.png" alt="Hack Club" class="h-28">
 			</a>
@@ -1064,6 +1061,27 @@ Mumbai`.split("\n")
 							</div>
 						{/if}
 					{/if}
+
+					<!-- Jukebox Sponsor -->
+					<div class="flex flex-col items-center justify-center mt-12">
+						<img 
+							src="/karachi/Jukebox.png" 
+							alt="Jukebox Logo" 
+							class="h-16 w-auto mb-4"
+						/>
+						<p class="text-center text-lg text-black">
+							Thanks to Jukebox for the amazing
+							<a 
+								href="https://www.jukeboxprint.com/custom-stickers" 
+								target="_blank" 
+								rel="noopener noreferrer" 
+								class="underline text-pink hover:text-pink-dark transition-colors"
+							>
+								custom stickers!
+							</a>
+							
+						</p>
+					</div>
 					
 					{#if contactLink}
 						<!-- Call to action for sponsors -->
@@ -1073,39 +1091,38 @@ Mumbai`.split("\n")
 					{/if}
 				</div>
 			</div>
-			
+
 			<!-- Billboard Bars (bottom) -->
 			<div 
-				class="absolute bottom-0 -left-[5px] w-[calc(100%+10px)] h-6 bg-[url('/billboard-bars.png')] bg-repeat-x bg-contain bg-center pointer-events-none z-10 border-[#9898a7] border-x-[6px]"
-			></div>
+				class="absolute bottom-0 -left-[5px] w-[calc(100%+10px)] h-6 bg-[url('/billboard-bars.png')] bg-repeat-x bg-contain bg-center pointer-events-none z-10 border-[#9898a7] border-x-[6px]">
+			</div>
 		</div>
 		
 		<!-- Connecting Pillars to First Billboard -->
 		<div 
 			class="absolute top-0 left-[15%] w-[10vw] max-w-12 h-32 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain -translate-y-32"
-			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
-		></div>
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);">
+		</div>
 		<div 
 			class="absolute top-0 right-[15%] w-[10vw] max-w-12 h-32 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain -translate-y-32"
-			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
-		></div>
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);">
+		</div>
 		
 		<!-- Billboard Pillars (extending down from bottom) -->
 		<div 
 			class="absolute bottom-0 left-[15%] w-[10vw] max-w-12 h-24 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain translate-y-24"
-			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
-		>
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);">
 			<div class="absolute bottom-0 left-0 w-full h-auto bg-[url('/clouds-loop.png')] bg-no-repeat bg-contain bg-bottom pointer-events-none aspect-[2/1]"></div>
 		</div>
 		<div 
 			class="absolute bottom-0 right-[15%] w-[10vw] max-w-12 h-24 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain translate-y-24"
-			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
-		>
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);">
 			<div class="absolute bottom-0 left-0 w-full h-auto bg-[url('/clouds-loop.png')] bg-no-repeat bg-contain bg-bottom pointer-events-none aspect-[2/1]"></div>
 		</div>
 	</div>
 </div>
 {/if}
+
 
 <!-- Gamejam Text Section -->
 <div class="w-full bg-[#FCEFC5] flex justify-center py-16 relative overflow-hidden max-h-[400px]">
