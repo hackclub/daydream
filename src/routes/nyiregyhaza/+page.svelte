@@ -825,7 +825,7 @@ Mumbai`.split("\n")
 			<h4
 				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
 			>
-				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}<br>Daydream Nyíregyháza is taking place at <a class="text-pink" href="https://maps.app.goo.gl/Ws2S4MYtHm2npJuZ7" target="_blank">4400 Nyíregyháza, Városmajor utca 4.</a>!
+				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}<br><p>Daydream Nyíregyháza is taking place at <a class="text-pink" href="https://maps.app.goo.gl/Ws2S4MYtHm2npJuZ7" target="_blank">4400 Nyíregyháza, Városmajor utca 4.</a>!</p>
 			</h4>
 		</div>
 		
@@ -1307,7 +1307,7 @@ Mumbai`.split("\n")
 			{/if}
 		</div>
 	</div>
-
+	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
 	<!-- Macintosh Section -->
 	<div class="w-full flex justify-center py-16 px-8 mt-48 pb-[clamp(232px,29vw,464px)] max-sm:w-[120vw] max-sm:-translate-x-[10vw]">
 		<div class="bg-[#c5c2b1] p-4 relative max-w-4xl" style="border-radius: calc(1.5rem + 1rem);">
@@ -1437,10 +1437,6 @@ Mumbai`.split("\n")
 			</div>
 		</div>
 	</div>
-
-	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
-	
-	
 </div>
 
 
