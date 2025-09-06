@@ -1119,7 +1119,9 @@ Mumbai`.split('\n');
 								class="max-w-full max-h-full object-contain"
 							/>
 							<p class="text-lg text-[#335969]">
-								<a href="https://www.jukebox.com" class="text-pink-600">Custom Stickers</a>
+								<a href="https://www.jukeboxprint.com/custom-stickers" class="text-pink-600"
+									>Custom Stickers</a
+								>
 								with love from Jukebox
 							</p>
 						</div>
