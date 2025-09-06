@@ -18,7 +18,7 @@
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/nyiregyhaza/jukebox.webp", name: "Jukebox Print", url: "https://www.jukeboxprint.com/custom-stickers" }
+		{ image: "/nyiregyhaza/L-SOFT_logo.png", name: "L-SOFT", url: "https://www.lsoft.hu/", text:"Many thanks to L-SOFT for helping us out with Graphic designs."}
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -454,6 +454,7 @@ Mumbai`.split("\n")
 		await typeText(fetchResult);
 	}
 
+
 	function setupPlaneAnimation() {
 		const container = document.getElementById("islands-container");
 		const airplane = document.getElementById("paper-airplane");
@@ -714,7 +715,7 @@ Mumbai`.split("\n")
 	:global(html) {
 		overflow-x: hidden;
 	}
-	
+
 	/* Minimal scrollbar styling */
 	.idea-output-box::-webkit-scrollbar {
 		width: 8px;
@@ -826,7 +827,7 @@ Mumbai`.split("\n")
 			<h4
 				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
 			>
-				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
+				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}<br>Daydream Nyíregyháza is taking place at <a class="text-pink" href="https://maps.app.goo.gl/Ws2S4MYtHm2npJuZ7" target="_blank">4400 Nyíregyháza, Városmajor utca 4.</a>!
 			</h4>
 		</div>
 		
@@ -894,22 +895,24 @@ Mumbai`.split("\n")
 		<div class="relative z-20 px-20 pt-20 pb-52 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
 			<div class="absolute bottom-0 left-0 w-full h-24 z-10 pointer-events-none bg-[url('/clouds-loop.png')] bg-repeat-x bg-bottom bg-contain"></div>
 			<h2 class="text-5xl font-serif italic text-[#8B4513] mb-10 relative">
-				Dear Hackers, Musicians, and Artists,
+				Daydream Nyíregyháza
 				<img src="/underline.svg" alt="" class="absolute left-0 -bottom-3 w-64 h-auto opacity-70">
 			</h2>
 			
 			<div class="text-[#8B4513] font-serif text-xl leading-relaxed space-y-8">
-				<p>Welcome to Hack Club's newest adventure. This fall we invite you to join us for Daydream, the world's biggest Game Jam happening simultaneously in 100 cities.</p>
+				<p>We are organizing a Game making Hackathon in Nyíregyháza, it's taking place on the 27th and 28th of September.</p>
 
 				<p class="font-bold text-2xl">Hack Club wants you to make a game this fall.</p>
 
-				<p>Don't consider yourself a game dev? No problem - we have tons of online and in-person workshops for you to make your first game! </p>
+				<p>Don't consider yourself a game dev? No problem - we will support you during and before the hackathon by making tutorials and giving ideas and tips for your game.</p>
 
 				<p>This fall, we invite you to learn something new, make something you're really proud of, meet new friends, and go on an incredible adventure together.</p>
 
+				<p>Not only that, but you can win cool merch like sticker sheets, button pins and T-shirts by shipping your game!</p>
+
 				<p class="mb-2">With love,</p>
 
-				<p class="italic text-2xl opacity-85">Augie and Renran from Hack Club HQ</p>
+				<p class="italic text-2xl opacity-85">Marcell and Csaba</p>
 			</div>
 		</div>
 	</div>
@@ -1006,21 +1009,24 @@ Mumbai`.split("\n")
 				<!-- Brush texture overlay for header -->
 				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
 			</div>
-			
 			<!-- Main Content Area -->
 			<div class="relative bg-gradient-to-b from-[#CCF4FD] to-[#AECDF6] px-8 pt-8 pb-16">
 				<!-- Brush texture overlay for content -->
 				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
-				
+					<a href="https://www.jukeboxprint.com/custom-stickers" class="bg-white/20 rounded-lg p-4 m-1 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
+						<img src="/nyiregyhaza/jukebox.webp" alt="Jukebox Print" class="max-w-full max-h-full object-contain">
+						<p class="text-xl m-2">Big shoutout to Jukebox for our custom stickers!</p>
+					</a>
 				<!-- Sponsors Grid -->
 				<div class="relative z-10 min-h-40">
 					{#if sponsors.length > 0}
 						<!-- First row (up to 4 sponsors) -->
 						{#if sponsors.length > 4}
-							<div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center mb-8">
+							<div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center mb-8">	
 								{#each sponsors.slice(0, 4) as sponsor}
-									<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
+									<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 m-1 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
 										<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
+										<p class="text-xl m-2">{sponsor.text}</p>
 									</a>
 								{/each}
 							</div>
@@ -1045,11 +1051,10 @@ Mumbai`.split("\n")
 								<div class="grid gap-8 items-center justify-items-center max-w-4xl {sponsors.length === 1 ? 'grid-cols-1' : sponsors.length === 2 ? 'grid-cols-1 md:grid-cols-2' : sponsors.length === 3 ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-2 md:grid-cols-4'}">
 									{#each sponsors as sponsor}
 										<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
-											<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
+											<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain"> <p class="text-xl m-2">{sponsor.text}</p>
 										</a>
 									{/each}
 								</div>
-								<p class="text-lg font-sans text-[#477783] s-cn9vZYSQMWjl text-xl" style="margin:auto 0;">Big shoutout to Jukebox for our <a href="https://www.jukeboxprint.com/custom-stickers" target="_blank"	>custom stickers</a>!</p>
 							</div>
 						{/if}
 					{/if}
@@ -1305,7 +1310,7 @@ Mumbai`.split("\n")
 	</div>
 
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
-	
+
 	<!-- Macintosh Section -->
 	<div class="w-full flex justify-center py-16 px-8 mt-48 pb-[clamp(232px,29vw,464px)] max-sm:w-[120vw] max-sm:-translate-x-[10vw]">
 		<div class="bg-[#c5c2b1] p-4 relative max-w-4xl" style="border-radius: calc(1.5rem + 1rem);">
@@ -1330,7 +1335,6 @@ Mumbai`.split("\n")
 					left: 5%;
 				"
 			>
-			
 			<!-- Brushstroke overlay on border -->
 			<div 
 				class="absolute pointer-events-none z-25" 
@@ -1346,7 +1350,7 @@ Mumbai`.split("\n")
 					opacity: 0.4;
 				"
 			></div>
-			
+
 			<!-- Keyboard image -->
 			<img 
 				src="/macintosh-keyboard.png" 
@@ -1360,26 +1364,26 @@ Mumbai`.split("\n")
 					max-width: none;
 				"
 			>
-			
+
 			<!-- Scanlines effect -->
 			<div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent bg-[length:100%_6px] bg-repeat-y pointer-events-none opacity-30"></div>
-			
+
 			<!-- Rounded container -->
 				<!-- Scanlines inside container -->
 				<div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent bg-[length:100%_8px] bg-repeat-y pointer-events-none opacity-20"></div>
-				
+
 				<div class="space-y-8 max-sm:space-y-4 relative z-10">
 					<h2 class="text-5xl md:text-6xl lg:text-7xl font-pixel leading-tight">
 						What will you <img src="/dream-pixel.png" alt="Dream?" class="h-[0.75em] font-serif italic [image-rendering:pixelated] inline align-middle -translate-y-1.5">
 					</h2>
-					
+
 					<p class="text-xl md:text-2xl opacity-90 font-pixel">
 						You can make any game you want as long as it can be deployed on itch.io! All games made must be deployed and available online for other participants to play and experience. We will only accept itch.io submission links.
 						<br>
 						<br>
 						Here are some cool projects from past hackathons to get you inspired:
 					</p>
-					
+
 					<ul class="space-y-2 font-pixel text-xl md:text-2xl">
 						<li class="flex items-start">
 							<span class="mr-4">•</span>
@@ -1394,11 +1398,11 @@ Mumbai`.split("\n")
 							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> by Agustin
 						</li>
 					</ul>
-					
+
 					<p class="text-xl md:text-2xl opacity-90 font-pixel leading-relaxed">
 						We'll have workshops and activities before Daydream to help you learn game development using Godot! 
 					</p>
-					
+
 					<!-- Bottom section with input -->
 					<div class="flex flex-col md:flex-row md:items-end gap-10 pt-8">
 						<div>
@@ -1410,7 +1414,7 @@ Mumbai`.split("\n")
 								Dream an idea for me
 							</button>
 						</div>
-						
+
 						<div class="flex-1">
 							<div class="border-2 border-[#D1E3EE] p-6 min-h-40 max-h-40 w-full flex items-start overflow-y-auto idea-output-box">
 								{#if ideaText}
