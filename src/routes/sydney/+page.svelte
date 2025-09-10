@@ -7,9 +7,9 @@
 	 */
 
 	// Configuration - Put your information here!
-	const eventName = "Tyree Energy Technologies Building";
+	const eventName = "Daydream Sydney";
 	const eventLocation = "Sydney";
-	const eventAddress = "Kensington NSW 2033";
+	const eventAddress = "Tyree Energy Technologies Building, Kensington NSW 2033";
 	// These two are optional
 	const directionsURL = "https://maps.app.goo.gl/92axMdj2mN527YA88"
 	const contactLink = "mailto:sydney@daydream.hackclub.com"
