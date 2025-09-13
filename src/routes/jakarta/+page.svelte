@@ -47,7 +47,7 @@
 			fromHq: 'Augie dan Renran dari Hack Club HQ',
 			schedule: 'Jadwal',
 			sponsors: 'Sponsors',
-			communityPartners: 'Community Partners',
+			communityPartners: 'Media Partners',
 			wantToSponsor: 'Ingin mensponsori Daydream Jakarta?',
 			getInTouch: 'Hubungi kami',
 			howToWin: 'Begini Cara Anda Menang',
@@ -131,7 +131,7 @@
 			fromHq: 'Augie and Renran from Hack Club HQ',
 			schedule: 'Schedule',
 			sponsors: 'Sponsors',
-			communityPartners: 'Community Partners',
+			communityPartners: 'Media Partners',
 			wantToSponsor: 'Want to sponsor Daydream Jakarta?',
 			getInTouch: 'Get in touch',
 			howToWin: "Here's How You Win a",
@@ -199,11 +199,6 @@
 			image: '/jakarta/sponsors/twibbonize.png',
 			name: 'Twibbonize',
 			url: 'https://twibbonize.com/'
-		},
-		{
-			image: 'https://storage.jukeboxprint.com/s/images/jukebox-meta-im.png',
-			name: 'Jukebox Print',
-			url: 'https://jukeboxprint.com/custom-stickers'
 		}
 	];
 	const communityPartners = [
@@ -211,6 +206,11 @@
 			image: '/jakarta/partners/intergalactic-science-kingdom.png',
 			name: 'Intergalactic Science Kingdom',
 			url: 'https://discord.gg/fajrulfx'
+		},
+		{
+			image: '/jakarta/partners/web-programming-unpas.png',
+			name: 'Web Programming Unpas',
+			url: 'https://discord.gg/wpu'
 		}
 	];
 
@@ -1483,13 +1483,6 @@ Mumbai`.split('\n');
 					{#if contactLink}
 						<!-- Call to action for sponsors -->
 						<div class="mt-8 text-center">
-							<p class="text-lg text-[#335969]">
-								Thanks to Jukebox for the coolest
-								<a
-									href={`https://www.jukeboxprint.com/custom-stickers`}
-									class="underline hover:text-[#477783] transition-colors">custom stickers</a
-								>
-							</p>
 							<p class="text-lg text-[#335969]">
 								{t.wantToSponsor}
 								<a
