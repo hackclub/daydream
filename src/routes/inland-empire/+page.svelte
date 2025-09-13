@@ -8,7 +8,7 @@
 
 	// Configuration - Put your information here!
 	const eventName = "Inland Empire"; // This should be the name of your event WITHOUT "Daydream" at the start
-	const eventLocation = "Eastvale";
+	const eventLocation = "Norco";
 	const eventAddress = ""; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recPckxtHXsk4b5vc"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
@@ -16,15 +16,9 @@
 	const contactLink =  ""
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
-	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
+	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" },
-		{ image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
-		{ image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
-		{ image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
-		{ image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
-		{ image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
-		{ image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
+		{ image: "/inland-empire/jukebox-logo.svg", name: "Jukebox", url: "https://www.jukeboxprint.com/custom-stickers" },
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -1015,7 +1009,7 @@ Mumbai`.split("\n")
 							<div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center mb-8">
 								{#each sponsors.slice(0, 4) as sponsor}
 									<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
-										<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
+										<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain min-w-40">
 									</a>
 								{/each}
 							</div>
@@ -1028,7 +1022,7 @@ Mumbai`.split("\n")
 											<a href={sponsor.url} 
 												class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors {sponsors.slice(4).length === 3 && index === 2 ? 'md:col-span-1 col-span-2 max-w-xs mx-auto' : ''}" 
 												target="_blank" rel="noopener noreferrer">
-												<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
+												<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain min-w-40">
 											</a>
 										{/each}
 									</div>
@@ -1040,7 +1034,7 @@ Mumbai`.split("\n")
 								<div class="grid gap-8 items-center justify-items-center max-w-4xl {sponsors.length === 1 ? 'grid-cols-1' : sponsors.length === 2 ? 'grid-cols-1 md:grid-cols-2' : sponsors.length === 3 ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-2 md:grid-cols-4'}">
 									{#each sponsors as sponsor}
 										<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
-											<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
+											<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain min-w-40">
 										</a>
 									{/each}
 								</div>
@@ -1512,6 +1506,9 @@ Mumbai`.split("\n")
 	</div>
 
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
+	<p class="text-center font-sans text-2xl pt-12 max-sm:text-xl text-[#60574b] z-10000">
+		Big shoutout to Jukebox for our <a class="underline text-pink" href="https://www.jukeboxprint.com/custom-stickers">custom stickers</a>!
+	</p>
 </div>
 
 <Footer />
