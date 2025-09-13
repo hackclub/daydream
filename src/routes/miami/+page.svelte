@@ -11,7 +11,7 @@
 	const eventLocation = "Miami";
 	const eventAddress = "11200 SW 8th St, Miami, FL 33199"; // Leave this empty if you don't want an address
 	// These two are optional
-	const directionsURL = ""
+	const directionsURL = "https://www.google.com/maps/dir//11200+SW+8th+St,+Miami,+FL+33199/@25.7562233,-80.4579416,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x88d9bf2e414fde0f:0xae469ac7fb6b92f0!2m2!1d-80.3755401!2d25.7562465?entry=ttu&g_ep=EgoyMDI1MDkwNy4wIKXMDSoASAFQAw%3D%3D"
 	const contactLink = "mailto:miami@daydream.hackclub.com"
 	
 	// Sponsors Configuration
@@ -25,7 +25,12 @@
 		{ image: "/miami/CodeCrunch.png", name: "Code Crunch", url: "https://codecrunchglobal.vercel.app/home.html" },
 		{ image: "/miami/ColorStack.png", name: "ColorStack", url: "https://ba-00001.github.io/colorstackatfiu/" },
 		{ image: "/miami/CAHSI.png", name: "CAHSI @ FIU", url: "https://cahsiatfiu.vercel.app/" },
-		// { image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
+		{ image: "/miami/Jukebox.png", name: "Jukebox", url: "https://www.jukeboxprint.com/custom-stickers", text: `<p class="text-lg text-[#335969] text-center">
+             Big shoutout to Jukebox for our
+             <a href="https://www.jukeboxprint.com/custom-stickers"
+                class="underline hover:text-[#477783] transition-colors">
+               custom stickers</a>!
+           </p>` },
 		// { image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
 		// { image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
 	];
@@ -848,8 +853,43 @@ Mumbai`.split("\n")
 				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
 			</h4>
 		</div>
+		<div class="mb-70">
+
+			<div class="mt-10 mb-15 relative z-30">
+				<ParticipantSignUp {signupLink} {eventName} />
+			</div>
+	
+			{#if eventAddress}
+				<!-- Address Box - Prominent display -->
+				<div
+					class="mt-8 bg-white/80 backdrop-blur-sm border-4 border-[#487DAB] rounded-2xl px-8 py-6 max-w-2xl mx-4 shadow-lg relative z-30"
+				>
+					<div class="text-center">
+						<h3 class="text-2xl font-serif font-bold text-[#487DAB] mb-3 max-sm:text-xl">
+							Venue
+						</h3>
+						{#if directionsURL}
+							<a
+								href={directionsURL}
+								class="block text-xl font-sans text-[#60574b] hover:text-[#487DAB] transition-colors underline decoration-2 underline-offset-4 max-sm:text-lg"
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								{eventAddress}
+							</a>
+						{:else}
+							<p class="text-xl font-sans text-[#60574b] max-sm:text-lg">
+								{eventAddress}
+							</p>
+						{/if}
+						{#if directionsURL}
+							<p class="text-sm text-[#60574b]/70 mt-2 font-sans">Click for directions⤴︎</p>
+						{/if}
+					</div>
+				</div>
+			{/if}
+		</div>
 		
-		<ParticipantSignUp {signupLink} {eventName} />
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
