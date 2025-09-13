@@ -9,7 +9,7 @@
 	// Configuration - Put your information here!
 	const eventName = "Lagos"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "Lagos";
-	const eventAddress = "Zone Tech Park, Gbagada, Lagos"; // Leave this empty if you don't want an address
+	const eventAddress = "University of Lagos(UNILAG)"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
 	const directionsURL = ""
@@ -30,26 +30,31 @@
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
 		{
-			title: "Saturday, September 27th",
+			title: "Friday, September 26th",
 			items: [
+
 				{ event: "Doors open", time: "11:00 AM" },
-				{ event: "Opening ceremony", time: "12:00 PM" },
-				{ event: "Lunch", time: "12:30 PM" },
+				{ event: "Welcome Speech (Organizer)", time: "11:30 AM" },
+				{ event: "Theme/Problem Statement Reveal + Rules", time: "11:45 AM" },
+				{ event: "Kickoff Speech (Guest/Judge/Partner) ", time: "12:15 PM" },
+				{ event: "Final Reg(Teams registered, get seated)", time: "12:30 PM" },
 				{ event: "Start working on your project!", time: "1:00 PM" },
-				{ event: "Workshop 1", time: "2:00 PM" },
+				{ event: "Lunch", time: "2:00 PM" },
 				{ event: "Activity 1", time: "4:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
+				{ event: "Workshop 1", time: "4:30 PM" },
 				{ event: "Dinner", time: "6:00 PM" },
 				{ event: "Lightning talks", time: "8:00 PM" },
 				{ event: "Midnight surprise", time: "12:00 AM" }
 			]
 		},
 		{
-			title: "Sunday, September 28th",
+			title: "Saturday, September 27th",
 			items: [
 				{ event: "Breakfast", time: "8:00 AM" },
-				{ event: "Demos!", time: "10:30 AM" },
-				{ event: "Closing ceremony", time: "12:00 PM" }
+				{ event: "Demos!(5-7 mins)", time: "10:30 AM" },
+				{ event: "Judging and Deliberation", time: "12:30 PM" },
+				{ event: "Lunch", time: "12:30 PM" },
+				{ event: "Awards & Closing Ceremony", time: "2:00 PM" },
 			]
 		}
 	];
@@ -799,6 +804,20 @@ Lagos`.split("\n")
 <div class="flex flex-col items-center justify-center h-screen text-center bg-gradient-to-b from-[#CCF4FD] to-[#B8D9F8] bg-blend-overlay relative">
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-30 pointer-events-none"></div>
 
+	<!-- WhatsApp Floating Button -->
+	<div class="fixed top-6 right-23 z-50">
+		<a 
+			href="https://chat.whatsapp.com/F0CI8IME3EjHluM120hZ0S"
+			target="_blank"
+			rel="noopener noreferrer"
+			class="bg-green-600 hover:bg-green-700 text-white p-5 rounded-full shadow-lg transition-all duration-200 hover:scale-110 flex items-center justify-center"
+			aria-label="Join our WhatsApp group"
+		>
+		
+		</a>
+		<div class="absolute -bottom-8 left-1/2 -translate-x-1/2 text-white text-xs font-medium bg-black/70 px-2 py-1 rounded whitespace-nowrap">Join Daydream Lagos WhatsApp group</div>
+	</div>
+
 	<!-- Cloudy Background -->
 	<div class="cloudy-bg-parallax absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[80vh] bg-[url(/cloudy-bg.png)] opacity-30 bg-cover bg-no-repeat bg-top pointer-events-none"></div>
 
@@ -819,7 +838,7 @@ Lagos`.split("\n")
 			<h2
 			class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
 			>
-				September 27th & 28th, 2025
+				September 26th & 27th, 2025
 			</h2>
 			<img src="daydream.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
 			<a href="https://hackclub.com" class="absolute top-0 -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
@@ -844,7 +863,7 @@ Lagos`.split("\n")
 			</h4>
 		</div>
 		
-		<ParticipantSignUp {eventName} />
+		<ParticipantSignUp {signupLink} {eventName} />
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
@@ -878,25 +897,7 @@ Lagos`.split("\n")
 	<img src="/clouds-top-left.png" alt="" class="absolute left-0 w-3/12 -bottom-12  translate-y-1/2 z-20 pointer-events-none">
 	
 
-	<!-- Desktop stickers button (bottom left) -->
-	<a
-		href="https://forms.hackclub.com/daydream-stickers"
-		target="_blank"
-		class="hidden md:block absolute bottom-16 left-16 z-50 w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none"
-	>
-		Get free stickers
-		<img
-			src="button-clouds.svg" 
-			alt="" 
-			class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
-		>
-		<img
-			src="rock-sticker.png"
-			alt=""
-			class="absolute bottom-2 right-3 translate-2/3 w-18 h-18 object-contain pointer-events-none"
-			style="transform: rotate(-15deg);"
-		>
-	</a>
+	
 </div>
 
 <div class="w-full relative flex items-start justify-center">
@@ -908,7 +909,7 @@ Lagos`.split("\n")
 		<div class="relative z-20 px-20 pt-20 pb-52 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
 			<div class="absolute bottom-0 left-0 w-full h-24 z-10 pointer-events-none bg-[url('/clouds-loop.png')] bg-repeat-x bg-bottom bg-contain"></div>
 			<h2 class="text-5xl font-serif italic text-[#8B4513] mb-10 relative">
-				Dear Hackers, Musicians, and Artist,
+				Dear Hackers, Musicians, and Artists,
 				<img src="/underline.svg" alt="" class="absolute left-0 -bottom-3 w-64 h-auto opacity-70">
 			</h2>
 			
@@ -1404,7 +1405,7 @@ Lagos`.split("\n")
 						</li>
 						<li class="flex items-start">
 							<span class="mr-4">•</span>
-							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> by Agustin
+							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> by Agustin & Juan
 						</li>
 					</ul>
 					

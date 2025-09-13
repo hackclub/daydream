@@ -9,22 +9,17 @@
 	// Configuration - Put your information here!
 	const eventName = "Sri Lanka";
 	const eventLocation = "Anuradhapura, Sri Lanka";
-	const eventAddress = ""; // Leave this empty if you don't want an address
-	const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const eventAddress = "Auditorium of the Mathematics Building, Resource Center, Anuradhapura"; // Leave this empty if you don't want an address
 	// These two are optional
-	const directionsURL = ""
-	const contactLink = "mailto:srilanka@daydream.hackclub.com"
+	const directionsURL = "https://maps.app.goo.gl/kDoxaC6mCqxmPKNC9"
+	const contactLink = "https://wa.me/+94703172687"
 	
 	// Sponsors Configuration
-	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
+	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" },
-		{ image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
-		{ image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
-		{ image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
-		{ image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
-		{ image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
-		{ image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
+		{ image: "/sri-lanka/jukebox-logo.svg", name: "Printed Media Partner", url: "https://www.jukeboxprint.com/custom-stickers" },
+		{ image: "/sri-lanka/nchs-logo.png", name: "Education Partner", url: "https://www.nchs.edu.lk/" },
+		{ image: "/sri-lanka/hackspark-logo.png", name: "Event Partner", url: "http://hacksparkhackathons.com/" },
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -42,14 +37,20 @@
 				{ event: "Activity 2", time: "6:00 PM" },
 				{ event: "Dinner", time: "7:00 PM" },
 				{ event: "Lightning talks", time: "8:00 PM" },
+				{ event: "Workshop 3", time: "9:00 PM" },
+				{ event: "Activity 3", time: "10:00 PM" },
 				{ event: "Midnight surprise", time: "12:00 AM" }
 			]
 		},
 		{
 			title: "Sunday, September 28th",
 			items: [
+				{ event: "Workshop 4", time: "2:00 PM" },
+				{ event: "Activity 4", time: "3:00 PM" },
+				{ event: "Morning Refreshments", time: "5:00 PM" },
 				{ event: "Breakfast", time: "8:00 AM" },
 				{ event: "Demos!", time: "10:30 AM" },
+				{ event: "Refreshments", time: "11:30 AM" },
 				{ event: "Closing ceremony", time: "12:00 PM" }
 			]
 		}
@@ -98,7 +99,7 @@ Dubai
 San Francisco
 Minneapolis
 Seattle
-Singapore
+Signapore
 Sydney
 Mumbai
 Sri Lanka`.split("\n")
@@ -845,7 +846,20 @@ Sri Lanka`.split("\n")
 			</h4>
 		</div>
 		
-		<ParticipantSignUp {eventName} />
+	<a
+		href="https://forms.hackclub.com/daydream-sign-up?event=reco5SMvKqK8yAcxk"
+		target="_blank"
+		class="hidden md:block absolute top-80 z-50 w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none"
+	>
+		Register Now!
+		<img
+			src="button-clouds.svg" 
+			alt="" 
+			class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
+		>
+	</a>
+
+	<a 		href="https://forms.hackclub.com/daydream-sign-up?event=reco5SMvKqK8yAcxk" class="block md:hidden fixed top-85 left-1/2 -translate-x-1/2 z-50 px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none">Register Now!</a>
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
@@ -1071,6 +1085,7 @@ Sri Lanka`.split("\n")
 					{#if contactLink}
 						<!-- Call to action for sponsors -->
 						<div class="mt-8 text-center">
+							<p class="text-lg text-[#335969]">Big shoutout to Jukebox for our <a href="https://www.jukeboxprint.com/custom-stickers">custom stickers</a>!</p>
 							<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
 						</div>
 					{/if}
@@ -1145,7 +1160,7 @@ Sri Lanka`.split("\n")
 			<div class="relative w-72 h-40 max-md:w-80 animate-hover ![--hover:-0.15rem] ![animation-delay:1.7s] z-20" data-point="1">
 				<img src="paper1.png" alt="" class="w-full h-full object-contain">
 				<div class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center">
-					<span class="font-sans text-[#E472AB] font-bold text-[1.3rem] mr-1">#1:</span> <a href={signupLink} class="underline">Sign up</a> for Daydream {eventName}
+					<span class="font-sans text-[#E472AB] font-bold text-[1.3rem] mr-1">#1:</span> <a href="https://example.com" class="underline">Sign up</a> for Daydream {eventName}
 				</div>
 			</div>
 		</div>
