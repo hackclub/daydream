@@ -1,5 +1,5 @@
 <script lang="ts">
-	const eventName = 'Daydream Rwanda';
+	const eventName = 'Daydream Kigali';
 	const eventLocation = 'Rwanda';
 	const eventAddress = 'Kigali';
 
@@ -57,7 +57,7 @@
 
 	$: currentUrl = `https://daydream.hackclub.com${$page.url.pathname}`;
 	$: pageTitle = `${eventName} - Game Jam in ${eventLocation}`;
-	$: pageDescription = `Join the Daydream Rwanda Gamejam — a global event for game developers of all levels to create, collaborate, and compete in Rwanda on September 27th, 2025. The event features a hackathon-style game jam, where participants can work on their games, get feedback, and compete against each other. Food, workshops, and prizes are included!`;
+	$: pageDescription = `Join the Daydream Kigali Gamejam — a global event for game developers of all levels to create, collaborate, and compete in Rwanda on September 27th, 2025. The event features a hackathon-style game jam, where participants can work on their games, get feedback, and compete against each other. Food, workshops, and prizes are included!`;
 	$: pageKeywords = `gamejam Rwanda, rwanda game development, game jam 2025, game developers, daydream gamejam, global game jam, game events africa, game jam, hackathon, teen coding, Hack Club, game development, ${eventLocation}, ${eventName}`;
 
 	const cities = `Kigali City
@@ -1368,7 +1368,7 @@ Mumbai`.split('\n');
 				>
 					<span class="font-sans text-[#E472AB] font-bold text-[1.3rem] mr-1">#1:</span>
 					<a href={signupLink} class="underline">Sign up</a>
-					for Daydream {eventName}
+					for {eventName}
 				</div>
 			</div>
 		</div>
@@ -1620,7 +1620,8 @@ Mumbai`.split('\n');
 				<p class="text-center font-sans text-2xl pt-12 max-sm:text-xl text-[#60574b] z-10000">
 					{#if directionsURL}
 						{eventName} is taking place at
-						<a class="underline text-pink" href={directionsURL}>{eventAddress}</a>!
+						<a class="underline text-pink" href={directionsURL}>Fablab Rwanda</a>!
+						<!-- <a class="underline text-pink" href={directionsURL}>{eventAddress}</a>! -->
 					{:else}
 						Daydream {eventName} is taking place at <span class="underline">{eventAddress}</span>!
 					{/if}
