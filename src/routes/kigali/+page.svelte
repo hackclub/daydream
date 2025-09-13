@@ -1,5 +1,5 @@
 <script lang="ts">
-	const eventName = 'Daydream Rwanda';
+	const eventName = 'Daydream Kigali';
 	const eventLocation = 'Rwanda';
 	const eventAddress = 'Kigali';
 
@@ -57,7 +57,7 @@
 
 	$: currentUrl = `https://daydream.hackclub.com${$page.url.pathname}`;
 	$: pageTitle = `${eventName} - Game Jam in ${eventLocation}`;
-	$: pageDescription = `Join the Daydream Rwanda Gamejam — a global event for game developers of all levels to create, collaborate, and compete in Rwanda on September 27th, 2025. The event features a hackathon-style game jam, where participants can work on their games, get feedback, and compete against each other. Food, workshops, and prizes are included!`;
+	$: pageDescription = `Join the Daydream Kigali Gamejam — a global event for game developers of all levels to create, collaborate, and compete in Rwanda on September 27th, 2025. The event features a hackathon-style game jam, where participants can work on their games, get feedback, and compete against each other. Food, workshops, and prizes are included!`;
 	$: pageKeywords = `gamejam Rwanda, rwanda game development, game jam 2025, game developers, daydream gamejam, global game jam, game events africa, game jam, hackathon, teen coding, Hack Club, game development, ${eventLocation}, ${eventName}`;
 
 	const cities = `Kigali City
@@ -902,7 +902,7 @@ Mumbai`.split('\n');
 			</h4>
 		</div>
 
-		<ParticipantSignUp {eventName} />
+		<ParticipantSignUp {signupLink} {eventName} />
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
@@ -966,25 +966,7 @@ Mumbai`.split('\n');
 		class="absolute left-0 w-3/12 -bottom-12 translate-y-1/2 z-20 pointer-events-none"
 	/>
 
-	<!-- Desktop stickers button (bottom left) -->
-	<a
-		href="https://forms.hackclub.com/daydream-stickers"
-		target="_blank"
-		class="hidden md:block absolute bottom-16 left-16 z-50 w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none"
-	>
-		Get free stickers
-		<img
-			src="button-clouds.svg"
-			alt=""
-			class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
-		/>
-		<img
-			src="rock-sticker.png"
-			alt=""
-			class="absolute bottom-2 right-3 translate-2/3 w-18 h-18 object-contain pointer-events-none"
-			style="transform: rotate(-15deg);"
-		/>
-	</a>
+	
 </div>
 
 <div class="w-full relative flex items-start justify-center">
@@ -1368,7 +1350,7 @@ Mumbai`.split('\n');
 				>
 					<span class="font-sans text-[#E472AB] font-bold text-[1.3rem] mr-1">#1:</span>
 					<a href={signupLink} class="underline">Sign up</a>
-					for Daydream {eventName}
+					for {eventName}
 				</div>
 			</div>
 		</div>
@@ -1620,7 +1602,8 @@ Mumbai`.split('\n');
 				<p class="text-center font-sans text-2xl pt-12 max-sm:text-xl text-[#60574b] z-10000">
 					{#if directionsURL}
 						{eventName} is taking place at
-						<a class="underline text-pink" href={directionsURL}>{eventAddress}</a>!
+						<a class="underline text-pink" href={directionsURL}>Fablab Rwanda</a>!
+						<!-- <a class="underline text-pink" href={directionsURL}>{eventAddress}</a>! -->
 					{:else}
 						Daydream {eventName} is taking place at <span class="underline">{eventAddress}</span>!
 					{/if}
@@ -1743,7 +1726,7 @@ Mumbai`.split('\n');
 								href="https://juanes10201.itch.io/speedtickers"
 								target="_blank"
 								class="underline mr-2">SPEEDTICKERS</a
-							> by Agustin
+							> by Agustin & Juan
 						</li>
 					</ul>
 
