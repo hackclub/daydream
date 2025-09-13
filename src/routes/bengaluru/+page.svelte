@@ -815,7 +815,7 @@ Mumbai`.split("\n")
 			<h2
 			class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
 			>
-				September 27th & 28th, 2025
+				September 27th 2025
 			</h2>
 			<img src="/Bengaluru/daydreamblr.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4 pl-[150px]" />
 			<a href="https://hackclub.com" class="absolute top-[-30px] -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
@@ -826,6 +826,8 @@ Mumbai`.split("\n")
 			<h3
 				class="text-3xl italic font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent w-max max-sm:text-2xl mx-auto"
 			>
+				Big shoutout to Jukebox for our <a href="https://www.jukeboxprint.com/custom-stickers">custom stickers</a>
+
 				Game jam for high schoolers
 			</h3>
 			<img
