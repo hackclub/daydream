@@ -9,16 +9,17 @@
 	// Configuration - Put your information here!
 	const eventName = "Adelaide"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "Adelaide";
-	const eventAddress = ""; // Leave this empty if you don't want an address
+	const eventAddress = "Administration Building, Ground Floor, 1 Tonsley Boulevard"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recbLB0A4YzxQPu1i"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = ""
+	const directionsURL = "https://www.google.com/maps/dir//Secure%20State,%20Administration%20Building,%20Ground%20Floor,%201%20Tonsley%20Boulevard,%20Clovelly%20Park%20SA%205042"
 	const contactLink = "mailto:benjamin@daydreamadl.dev"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
 		{ image: "/adelaide/janestreet.png", name: "Jane Street Capital", url: "https://www.janestreet.com/" },
+		{ image: "/adelaide/jukebox-logo.svg", name: "Jukebox", url: "https://www.jukeboxprint.com/" },
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -66,7 +67,7 @@
 	$: pageKeywords = `game jam, hackathon, teen coding, Hack Club, game development, ${eventLocation}, ${eventName}`;
 
 	// Cities where the game jam is happening
-	const cities = `Columbus
+	const cities = `Adelaide
 Lisbon 
 Boston
 Giza
@@ -1453,7 +1454,7 @@ Mumbai`.split("\n")
 			<img src="window-2.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24  opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">All this, for free?</h3>
-				<p class="text-sm">Yep! Food, swag and good vibes are all included. Plus, if you're joining us from afar, we'll cover the cost of gas or a bus / train ticket.</p>
+				<p class="text-sm">Yep! Food, swag and cool <a href="https://www.jukeboxprint.com/custom-stickers">custom stickers</a> from Jukebox are all included.</p>
 			</div>
 		</div>
 
