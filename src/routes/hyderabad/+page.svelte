@@ -37,9 +37,8 @@
 				{ event: "Hacking Begins", time: "10:00-01:00" },
 				{ event: "Lunch", time: "01:00-02:00"},
 				{ event: "Workshop 1", time: "02:00-03:00" },
-				{ event: "Hacking Session", time: "03:00-06:00" },
-				{ event: "Workshop 2", time: "06:00-07:00" },
-				{ event: "Dinner", time: "07:00-08:00" },	
+				{ event: "Hacking Session", time: "03:00-07:00" },
+				{ event: "Workshop 2", time: "07:00-08:00" },
 			]
 		},
 		{
@@ -52,7 +51,7 @@
 				{ event: "Project Submission", time: "04:00-05:00" },
 				{ event: "Judging & Networking", time: "05:00-06:30" },
 				{ event: "Closing Ceremony + Prizes", time: "06:30-07:30" },
-				{ event: "Dinner & Farewell", time: "07:30-08:00" },
+				{ event: "Farewell", time: "07:30-08:00" },
 			]
 		}
 	];
