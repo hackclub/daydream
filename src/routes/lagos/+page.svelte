@@ -18,9 +18,9 @@
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/da7248dae7a294719b33caf12c532988c3864d96_untitled233.png", name: "Sponsor 1", url: "https://www.jukeboxprint.com/custom-stickers" },
-		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/1fd3e99bb9270714992fb4ebb69b69006fc267c7_profile_photo1_3x.png", name: "Sponsor 2", url: "https://www.webuildx.com" },
-		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/223e41e2373711572ccbe420469f82e96ead08e4_img-20250914-wa0063.jpg", name: "Sponsor 3", url: "https://africacomicade.org" }
+		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/9b94b04b365387aa2458cf2b929b8b82834b2a2d_screenshot_2025-09-14_221823-removebg-preview.png", name: "Sponsor 1", url: "https://www.jukeboxprint.com/custom-stickers" },
+		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/c9cb975bd943abc8d3308de1909ba6acfcddad95_profile_photo1_3x-removebg-preview_2.png", name: "Sponsor 2", url: "https://www.webuildx.com" },
+		{ image: "https://hackclub.slack.com/archives/C016DEDUL87/p1757893555122529?thread_ts=1757893551.659169&cid=C016DEDUL87", name: "Sponsor 3", url: "https://africacomicade.org" }
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
