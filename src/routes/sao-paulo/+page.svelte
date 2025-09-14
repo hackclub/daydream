@@ -13,9 +13,10 @@
 	const sponsors = [
 		{ image: "/sao-paulo/codelab.png", name: "USP CodeLab", url: "https://codelab.ime.usp.br/#/" },
         { image: "/sao-paulo/hacksp.png", name: "Hack SP", url: "https://hacksp.org" },
-		{ image: "/sao-paulo/imeusp.svg", name: "IME USP", url: "https://ime.usp.br" },
+		{ image: "/sao-paulo/imeusp.png", name: "IME USP", url: "https://ime.usp.br" },
 		{ image: "/sao-paulo/gdgsp.png", name: "Google Developers Group Sao Paulo", url: "https://gdg.community.dev/gdg-sao-paulo/" },
 		{ image: "/sao-paulo/noic.webp", name: "NOIC", url: "https://noic.com.br/" },
+		{ image: "/sao-paulo/flg.png", name: "First Lego Girls", url: "https://www.instagram.com/firstlegogirls/" },
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!

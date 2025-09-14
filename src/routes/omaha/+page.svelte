@@ -16,42 +16,43 @@
 	const contactLink = "mailto:omaha@daydream.hackclub.com"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
-	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
+	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/example/logo1.png", name: "JukeBox", url: "https://www.jukeboxprint.com/custom-stickers" },
-		{ image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
-		{ image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
-		{ image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
-		{ image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
-		{ image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
-		{ image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
+		{ image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjEVW37gVNR8AlpjmLu7fYlSRlEnmCeZk0pA&s", name: "JukeBox", url: "https://www.jukeboxprint.com/custom-stickers" },
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
 		{
-			title: "Saturday, September 27th",
+			title: "Sunday, September 27th",
 			items: [
 				{ event: "Doors open", time: "8:30 AM" },
 				{ event: "Opening ceremony", time: "9:00 AM" },
-				{ event: "Start working on your project!", time: "9:30 PM" },
-				{ event: "Workshop #1", time: "10:30 PM" },
+				{ event: "Start working on your project!", time: "9:30 AM" },
+				{ event: "Workshop #1", time: "10:30 AM" },
 				{ event: "Lunch", time: "12:30 PM" },
 				{ event: "Submission starts", time: "7:30 PM" },
 				{ event: "Voting", time: "8:00 PM" },
 				{ event: "Dinner & Awards", time: "8:30 PM" },
 				{ event: "The End", time: "9:00 PM" },
 			]
-		},
-		{
-			title: "Sunday, September 28th",
-			items: [
-				{ event: "Breakfast", time: "8:00 AM" },
-				{ event: "Demos!", time: "10:30 AM" },
-				{ event: "Closing ceremony", time: "12:00 PM" }
-			]
 		}
 	];
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
 
 	
 	import { onMount } from "svelte";
