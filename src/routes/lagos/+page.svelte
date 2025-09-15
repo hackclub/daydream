@@ -20,7 +20,7 @@
 	const sponsors = [
 		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/9b94b04b365387aa2458cf2b929b8b82834b2a2d_screenshot_2025-09-14_221823-removebg-preview.png", name: "Sponsor 1", url: "https://www.jukeboxprint.com/custom-stickers" },
 		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/c9cb975bd943abc8d3308de1909ba6acfcddad95_profile_photo1_3x-removebg-preview_2.png", name: "Sponsor 2", url: "https://www.webuildx.com" },
-		{ image: "https://hackclub.slack.com/archives/C016DEDUL87/p1757893555122529?thread_ts=1757893551.659169&cid=C016DEDUL87", name: "Sponsor 3", url: "https://africacomicade.org" }
+		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/fb5da75247f8e7b757f94f7f20ad52c22bbd3f6d_img-20250914-wa0063-removebg-preview__1_.png", name: "Sponsor 3", url: "https://africacomicade.org" }
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
