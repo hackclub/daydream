@@ -18,9 +18,9 @@
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/9b94b04b365387aa2458cf2b929b8b82834b2a2d_screenshot_2025-09-14_221823-removebg-preview.png", name: "Sponsor 1", url: "https://www.jukeboxprint.com/custom-stickers" },
-		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/c9cb975bd943abc8d3308de1909ba6acfcddad95_profile_photo1_3x-removebg-preview_2.png", name: "Sponsor 2", url: "https://www.webuildx.com" },
-		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/fb5da75247f8e7b757f94f7f20ad52c22bbd3f6d_img-20250914-wa0063-removebg-preview__1_.png", name: "Sponsor 3", url: "https://africacomicade.org" }
+		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/9b94b04b365387aa2458cf2b929b8b82834b2a2d_screenshot_2025-09-14_221823-removebg-preview.png", name: "Jukebox", url: "https://www.jukeboxprint.com/custom-stickers" },
+		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/af6ee2ad9e57c3af5dc0179c7b742f2166dfe4b7_profile_photo1_3x-removebg-preview_2-removebg-preview.png", name: "WebuildX", url: "https://www.webuildx.com" },
+		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/fb5da75247f8e7b757f94f7f20ad52c22bbd3f6d_img-20250914-wa0063-removebg-preview__1_.png", name: "Africa Comicade", url: "https://africacomicade.org" }
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -1064,6 +1064,7 @@ Lagos`.split("\n")
 					{#if contactLink}
 						<!-- Call to action for sponsors -->
 						<div class="mt-8 text-center">
+							<h3>Big shoutout to Jukebox for our <a href="https://www.jukeboxprint.com/custom-stickers">custom stickers</a></h3>
 							<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
 						</div>
 					{/if}
