@@ -1344,7 +1344,7 @@ Mumbai`.split("\n")
 
 			<!-- Hack Club logo on border -->
 			<img 
-				src="/macintosh-hc-logo.png" 
+				src="/stem-qena/macintosh-hc-logo.png" 
 				alt="Hack Club logo" 
 				class="absolute w-12 h-12 pointer-events-none z-20" 
 				style="
