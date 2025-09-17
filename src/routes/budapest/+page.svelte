@@ -44,7 +44,7 @@
 	const orderedCategoryKeys: CategoryKey[] = ['gold', 'silver', 'bronze', 'supporters'];
 
 	// Countdown Configuration
-	const scheduleRevealTime = 1758204000 * 1000; // Convert to milliseconds
+	const scheduleRevealTime = 1758290400 * 1000; // Convert to milliseconds
 	let timeUntilReveal = { days: 0, hours: 0, minutes: 0, seconds: 0 };
 	let countdownInterval: NodeJS.Timeout;
 
