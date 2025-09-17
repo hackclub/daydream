@@ -43,32 +43,27 @@
 	// Render order from lowest to highest tier
 	const orderedCategoryKeys: CategoryKey[] = ['gold', 'silver', 'bronze', 'supporters'];
 
-	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
-	const scheduleData: { title: string; items: { event: string; time: string }[] }[] = [
-		{
-			title: 'To be announced',
-			items: [
-				// { event: "Doors open", time: "11:00 AM" },
-				// { event: "Opening ceremony", time: "12:00 PM" },
-				// { event: "Lunch", time: "12:30 PM" },
-				// { event: "Start working on your project!", time: "1:00 PM" },
-				// { event: "Workshop 1", time: "2:00 PM" },
-				// { event: "Activity 1", time: "4:00 PM" },
-				// { event: "Workshop 2", time: "4:00 PM" },
-				// { event: "Dinner", time: "6:00 PM" },
-				// { event: "Lightning talks", time: "8:00 PM" },
-				// { event: "Midnight surprise", time: "12:00 AM" }
-			]
+	// Countdown Configuration
+	const scheduleRevealTime = 1758204000 * 1000; // Convert to milliseconds
+	let timeUntilReveal = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+	let countdownInterval: NodeJS.Timeout;
+
+	function updateCountdown() {
+		const now = Date.now();
+		const diff = scheduleRevealTime - now;
+
+		if (diff <= 0) {
+			timeUntilReveal = { days: 0, hours: 0, minutes: 0, seconds: 0 };
+			return;
 		}
-		// {
-		// 	title: "Sunday, September 28th",
-		// 	items: [
-		// 		{ event: "Breakfast", time: "8:00 AM" },
-		// 		{ event: "Demos!", time: "10:30 AM" },
-		// 		{ event: "Closing ceremony", time: "12:00 PM" }
-		// 	]
-		// }
-	];
+
+		const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+		const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+		const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+		timeUntilReveal = { days, hours, minutes, seconds };
+	}
 
 	import { onMount } from 'svelte';
 	import { gsap } from 'gsap';
@@ -93,8 +88,13 @@
 			'hero.date': 'September 27th & 28th, 2025',
 			'hero.tagline': 'Game jam for high schoolers',
 			'hero.organizedBy': 'Organized by Teenagers in {eventLocationNbsp}',
-			'sections.schedule.title': 'Schedule',
-			'schedule.tba': 'To be announced',
+			'schedule.title': 'Schedule Reveal',
+			'schedule.subtitle': 'Schedule will be revealed in:',
+			'countdown.days': 'days',
+			'countdown.hours': 'hours',
+			'countdown.minutes': 'minutes',
+			'countdown.seconds': 'seconds',
+			'countdown.revealed': 'Schedule has been revealed!',
 			'sections.sponsors.title': 'Sponsors & Supporters',
 			'sponsors.supporters.title': 'Supporters',
 			'sponsors.bronze.title': 'Bronze Sponsors',
@@ -139,8 +139,13 @@
 			'hero.date': '2025. szeptember 27-28.',
 			'hero.tagline': 'Game jam diákoknak,',
 			'hero.organizedBy': 'Diákok szervezésével',
-			'sections.schedule.title': 'Program',
-			'schedule.tba': 'Hamarosan bejelentjük',
+			'schedule.title': 'Program',
+			'schedule.subtitle': 'Hamarosan bejelentjük',
+			'countdown.days': 'nap',
+			'countdown.hours': 'óra',
+			'countdown.minutes': 'perc',
+			'countdown.seconds': 'másodperc',
+			'countdown.revealed': 'A program bejelentve!',
 			'sections.sponsors.title': 'Szponzorok és Támogatók',
 			'sponsors.supporters.title': 'Támogatók',
 			'sponsors.bronze.title': 'Bronz szponzorok',
@@ -803,6 +808,10 @@ Mumbai`.split('\n');
 	onMount(() => {
 		console.log('User city:', data.userCity);
 
+		// Start countdown
+		updateCountdown();
+		countdownInterval = setInterval(updateCountdown, 1000);
+
 		// Register GSAP plugins
 		gsap.registerPlugin(ScrollTrigger);
 
@@ -893,6 +902,7 @@ Mumbai`.split('\n');
 			window.removeEventListener('resize', handleResize);
 			document.removeEventListener('visibilitychange', handleVisibilityChange);
 			clearInterval(particleInterval);
+			clearInterval(countdownInterval);
 			ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 		};
 	});
@@ -1115,7 +1125,7 @@ Mumbai`.split('\n');
 				style="border-bottom: 8px solid #B4B4C5;"
 			>
 				<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">
-					{t('sections.schedule.title', {}, lang)}
+					{t('schedule.title', {}, lang)}
 				</h2>
 				<!-- Brush texture overlay for header -->
 				<div
@@ -1132,27 +1142,54 @@ Mumbai`.split('\n');
 
 				<!-- Schedule Content -->
 				<div class="relative z-10">
-					{#each scheduleData as day, dayIndex}
-						<div class="bg-white/50 py-6 -mx-8 {dayIndex < scheduleData.length - 1 ? 'mb-8' : ''}">
-							<h3
-								class="text-2xl font-sans font-bold text-[#335969] mb-6 text-center px-8 max-sm:text-xl max-sm:px-4"
-							>
-								{day.title}
+					<div class="text-center px-8 py-8">
+						{#if timeUntilReveal.days === 0 && timeUntilReveal.hours === 0 && timeUntilReveal.minutes === 0 && timeUntilReveal.seconds === 0}
+							<h3 class="text-3xl font-serif font-bold text-[#335969] mb-4">
+								{t('schedule.revealed', {}, lang)}
 							</h3>
-
-							<div class="max-w-xl mx-auto px-4">
-								{#each day.items as item, index}
-									<div class="flex items-center justify-between py-2">
-										<span class="text-lg font-sans text-[#477783]">{item.event}</span>
-										<span class="text-lg font-sans text-[#477783]">{item.time}</span>
+						{:else}
+							<h3 class="text-2xl font-sans font-bold text-[#335969] mb-8">
+								{t('schedule.subtitle', {}, lang)}
+							</h3>
+							<div class="flex justify-center items-center gap-6 max-sm:gap-3 flex-wrap">
+								<div class="text-center">
+									<div class="text-4xl font-bold text-[#E472AB] font-mono max-sm:text-3xl">
+										{timeUntilReveal.days.toString().padStart(2, '0')}
 									</div>
-									{#if index < day.items.length - 1}
-										<div class="h-[2px] bg-white/30"></div>
-									{/if}
-								{/each}
+									<div class="text-sm text-[#335969] font-medium mt-1">
+										{t('countdown.days', {}, lang)}
+									</div>
+								</div>
+								<div class="text-3xl text-[#335969] max-sm:text-2xl">:</div>
+								<div class="text-center">
+									<div class="text-4xl font-bold text-[#639DEB] font-mono max-sm:text-3xl">
+										{timeUntilReveal.hours.toString().padStart(2, '0')}
+									</div>
+									<div class="text-sm text-[#335969] font-medium mt-1">
+										{t('countdown.hours', {}, lang)}
+									</div>
+								</div>
+								<div class="text-3xl text-[#335969] max-sm:text-2xl">:</div>
+								<div class="text-center">
+									<div class="text-4xl font-bold text-[#AB68E2] font-mono max-sm:text-3xl">
+										{timeUntilReveal.minutes.toString().padStart(2, '0')}
+									</div>
+									<div class="text-sm text-[#335969] font-medium mt-1">
+										{t('countdown.minutes', {}, lang)}
+									</div>
+								</div>
+								<div class="text-3xl text-[#335969] max-sm:text-2xl">:</div>
+								<div class="text-center">
+									<div class="text-4xl font-bold text-[#F2993E] font-mono max-sm:text-3xl">
+										{timeUntilReveal.seconds.toString().padStart(2, '0')}
+									</div>
+									<div class="text-sm text-[#335969] font-medium mt-1">
+										{t('countdown.seconds', {}, lang)}
+									</div>
+								</div>
 							</div>
-						</div>
-					{/each}
+						{/if}
+					</div>
 				</div>
 			</div>
 
