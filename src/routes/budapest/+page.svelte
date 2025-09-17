@@ -22,33 +22,22 @@
 	// Sponsor categories from lowest to highest tier
 	type Sponsor = { image: string; name: string; url: string };
 	type CategoryKey = 'supporters' | 'bronze' | 'silver' | 'gold';
-	type SponsorCategory = { title: string; sponsors: Sponsor[] };
-	const sponsorCategories: Record<CategoryKey, SponsorCategory> = {
-		supporters: {
-			title: 'Supporters',
-			sponsors: [{ image: '/budapest/aseprite.png', name: 'Aseprite', url: 'https://aseprite.org' }]
-		},
-		bronze: {
-			title: 'Bronze Sponsors',
-			sponsors: [
-				// { image: "/example/logo3.png", name: "Silver Innovations", url: "#" },
-				// { image: "/example/logo4.png", name: "Tech Silver Ltd", url: "#" },
-				// { image: "/example/logo5.png", name: "Silver Systems", url: "#" },
-			]
-		},
-		silver: {
-			title: 'Silver Sponsors',
-			sponsors: [
-				// { image: "/example/logo6.png", name: "Gold Enterprise", url: "#" },
-				// { image: "/example/logo7.png", name: "Premium Gold Tech", url: "#" },
-			]
-		},
-		gold: {
-			title: 'Gold Sponsors',
-			sponsors: [
-				// { image: "/example/logo1.png", name: "Platinum Global Corp", url: "#" },
-			]
-		}
+	const sponsorCategories: Record<CategoryKey, Sponsor[]> = {
+		supporters: [
+			{ image: '/budapest/aseprite.png', name: 'Aseprite', url: 'https://aseprite.org' }
+		],
+		bronze: [
+			// { image: "/example/logo3.png", name: "Silver Innovations", url: "#" },
+			// { image: "/example/logo4.png", name: "Tech Silver Ltd", url: "#" },
+			// { image: "/example/logo5.png", name: "Silver Systems", url: "#" },
+		],
+		silver: [
+			// { image: "/example/logo6.png", name: "Gold Enterprise", url: "#" },
+			// { image: "/example/logo7.png", name: "Premium Gold Tech", url: "#" },
+		],
+		gold: [
+			// { image: "/example/logo1.png", name: "Platinum Global Corp", url: "#" },
+		]
 	};
 
 	// Render order from lowest to highest tier
@@ -86,17 +75,155 @@
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 	import Ticker from '$lib/components/Ticker.svelte';
 	import Footer from '$lib/components/Footer.svelte';
-	import ParticipantSignUp from '$lib/components/ParticipantSignUp.svelte';
+	import ParticipantSignUpBudapest from '$lib/components/budapest/ParticipantSignUpBudapest.svelte';
 	import { page } from '$app/stores';
 
 	/** @type {import('./$types').PageData} */
 	export let data;
 
+	type Lang = 'en' | 'hu';
+	const LANG_STORAGE_KEY = 'dd-budapest-lang';
+	let lang: Lang = 'en';
+
+	const translations: Record<Lang, Record<string, string>> = {
+		en: {
+			'page.title': 'Daydream {eventName} - {eventLocation} Game Jam',
+			'page.description':
+				"Join Daydream {eventName} in {eventLocation}! A teen-led game jam where you'll build amazing games with other high schoolers. Food, workshops, and prizes included!",
+			'hero.date': 'September 27th & 28th, 2025',
+			'hero.tagline': 'Game jam for high schoolers',
+			'hero.organizedBy': 'Organized by Teenagers in {eventLocationNbsp}',
+			'sections.schedule.title': 'Schedule',
+			'schedule.tba': 'To be announced',
+			'sections.sponsors.title': 'Sponsors & Supporters',
+			'sponsors.supporters.title': 'Supporters',
+			'sponsors.bronze.title': 'Bronze Sponsors',
+			'sponsors.silver.title': 'Silver Sponsors',
+			'sponsors.gold.title': 'Gold Sponsors',
+			'sponsors.wantToSponsor': 'Want to sponsor Daydream {eventName}?',
+			'sponsors.cta': 'Get in touch',
+			'steps.step1.signUp': 'Sign up',
+			'steps.step2':
+				"Find a team of other teenagers at the event (we can help if you don't have one yet)",
+			'steps.step3': 'Attend a workshop and learn about game development',
+			'steps.step4': 'Start building your game - no experience needed',
+			'steps.step5': 'Share what you made with the world!',
+			'steps.step1.forDaydream': 'for Daydream {eventName}',
+			'location.text': 'Daydream {eventName} is taking place at',
+			'faq.q1.title': 'Who can participate in Daydream?',
+			'faq.q1.answer': 'All high-school & upper-middle-school aged students are welcome to come!',
+			'faq.q2.title': 'All this, for free?',
+			'faq.q2.answer': 'Yep! Food, swag and good vibes are all included.',
+			'faq.q3.title': 'What do I need?',
+			'faq.q3.answer':
+				'Your laptop (we can provide one if needed), chargers, toiletries, sleeping bags, and an open mind!',
+			'faq.q4.title': 'Do I need a team before I sign up?',
+			'faq.q4.answer':
+				"Not at all! We'll have dedicated time at the beginning of the event for you to meet other participants, and form teams on the spot. We'll help you if you don't have a team.",
+			'faq.q5.title': 'What has Hack Club done before?',
+			'faq.q5.answer':
+				'Hack Club has run a hackathon in the GitHub HQ, a Game Jam in 50 cities, a hackathon on a train from Vermont to Los Angeles, and more!',
+			'faq.q6.title': "I'm not good at coding. Can I still participate?",
+			'faq.q6.answer':
+				"This game jam is for all skill levels! We'll have workshops and other events so join us and let's learn together.",
+			'faq.q7.title': 'What if my parents are concerned?',
+			'faq.q7.answer':
+				"We're here to help! Your parents can reach out to us at budapest@daydream.hackclub.com (or to daydream@hackclub.com for general questions).",
+			'faq.q8.title': 'What can I make at Daydream?',
+			'faq.q8.answer':
+				'ANY type of game based on the theme! Platformer, visual novel, clicker game, etc. Be as creative as possible!'
+		},
+		hu: {
+			'page.description':
+				'Jelentkezz a Daydream {eventName}re! Egy diákok által tartott game jam, ahol szuper játékokat fogsz készíteni más diákokkal. És természetesen ingyen étel, workshopok és díjak!',
+			'hero.date': '2025. szeptember 27-28.',
+			'hero.tagline': 'Game jam diákoknak,',
+			'hero.organizedBy': 'Diákok szervezésével',
+			'sections.schedule.title': 'Program',
+			'schedule.tba': 'Hamarosan bejelentjük',
+			'sections.sponsors.title': 'Szponzorok és Támogatók',
+			'sponsors.supporters.title': 'Támogatók',
+			'sponsors.bronze.title': 'Bronz szponzorok',
+			'sponsors.silver.title': 'Ezüst szponzorok',
+			'sponsors.gold.title': 'Arany szponzorok',
+			'sponsors.wantToSponsor': 'Szeretnéd támogatni a Daydream {eventName}et?',
+			'sponsors.cta': 'Írj nekünk!',
+			'steps.step1.signUp': 'Jelentkezz',
+			'steps.step1.forDaydream': 'a Daydream {eventName}re',
+			'steps.step2': 'Alkoss egy csapatot az eseményen (segítünk, ha még nincs)',
+			'steps.step3': 'Csatlakozz egy workshopra és tanulj meg játékot készíteni',
+			'steps.step4':
+				'Kezdd el a játékodat a csapatoddal - nem kell korábbi játékfejlesztési tapasztalat',
+			'steps.step5': 'Oszd meg a játékot a világgal!',
+			'location.text': 'A Daydream {eventName} helyszíne:',
+			'faq.q1.title': 'Ki vehet részt a Daydreamben?',
+			'faq.q1.answer': 'Minden középiskolás és felső tagozatos diák részt vehet!',
+			'faq.q2.title': 'Ez mind ingyen?',
+			'faq.q2.answer': 'Igen! Étel, ajándékok és jó hangulat mind benne van.',
+			'faq.q3.title': 'Mire van szükségem?',
+			'faq.q3.answer':
+				'Laptopra (ha nincs, tudunk biztosítani), töltőkre, tisztálkodási szerekre, hálózsákra.',
+			'faq.q4.title': 'Szükségem van csapatra a jelentkezéshez?',
+			'faq.q4.answer':
+				'Egyáltalán nem! Lesz idő az esemény elején, hogy megismerkedj más résztvevőkkel, és helyben alakíts csapatot. Segítünk, ha nincs csapatod.',
+			'faq.q5.title': 'Mit csinált már a Hack Club?',
+			'faq.q5.answer':
+				'A Hack Club rendezett már hackathont a GitHub HQban, game jamet 50 városban, hackathont vonaton Vermonttól Los Angelesig, és még sok mást.',
+			'faq.q6.title': 'Nem vagyok jó programozásban. Részt vehetek?',
+			'faq.q6.answer':
+				'Ez a game jam mindenkinek szól! Lesznek workshopok és más események, szóval gyere és tanuljunk együtt.',
+			'faq.q7.title': 'Mi van, ha a szüleim aggódnak?',
+			'faq.q7.answer':
+				'Segítünk! A szüleid írhatnak nekünk a budapest@daydream.hackclub.com címre (vagy a Hack Clubnak a daydream@hackclub.com címre angolul).',
+			'faq.q8.title': 'Mit készíthetek a Daydreamben?',
+			'faq.q8.answer':
+				'BÁRMILYEN típusú játékot a téma alapján! Platformer, visual novel, clicker játék, stb. Legyél annyira kreatív, amennyire csak tudsz!'
+		}
+	};
+
+	function t(
+		key: string,
+		vars: Record<string, string | number> = {},
+		currentLang: Lang = lang
+	): string {
+		const dict = translations[currentLang] ?? {};
+		let template = dict[key] ?? translations.en[key] ?? key;
+		for (const [k, v] of Object.entries(vars)) {
+			template = template.replaceAll(`{${k}}`, String(v));
+		}
+		return template;
+	}
+
+	function handleLanguageChange() {
+		try {
+			localStorage.setItem(LANG_STORAGE_KEY, lang);
+		} catch {}
+	}
+
+	onMount(() => {
+		try {
+			const stored = localStorage.getItem(LANG_STORAGE_KEY) as Lang | null;
+			if (stored === 'en' || stored === 'hu') {
+				lang = stored;
+				return;
+			}
+		} catch {}
+		const navLang = navigator.language || (navigator as any).userLanguage || 'en';
+		if (navLang.toLowerCase().startsWith('hu')) {
+			lang = 'hu';
+		} else {
+			lang = 'en';
+		}
+	});
+
 	// Get current URL for dynamic metadata
 	$: currentUrl = `https://daydream.hackclub.com${$page.url.pathname}`;
-	$: pageTitle = `Daydream ${eventName} - ${eventLocation} Game Jam`;
-	$: pageDescription = `Join Daydream ${eventName} in ${eventLocation}! A teen-led game jam where you'll build amazing games with other high schoolers. Food, workshops, and prizes included!`;
+	$: pageTitle = t('page.title', { eventName, eventLocation }, lang);
+	$: pageDescription = t('page.description', { eventName, eventLocation }, lang);
 	$: pageKeywords = `game jam, hackathon, teen coding, Hack Club, game development, ${eventLocation}, ${eventName}`;
+
+	// Precompute non-breaking-space version for i18n string substitution
+	$: eventLocationNbsp = eventLocation.replaceAll(' ', '&nbsp;');
 
 	// Cities where the game jam is happening
 	const cities = `Columbus
@@ -836,6 +963,24 @@ Mumbai`.split('\n');
 		style="mask-image: url('/buildings-back.png'); mask-size: contain; mask-repeat: no-repeat; mask-position: center top; -webkit-mask-image: url('/buildings-back.png'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center top;"
 	></div>
 
+	<!-- Language selector -->
+	<div class="fixed top-4 right-4 z-50">
+		<button
+			on:click={() => {
+				lang = lang === 'en' ? 'hu' : 'en';
+				handleLanguageChange();
+			}}
+			class="bg-white/90 backdrop-blur-sm px-3 py-2 rounded-lg border border-[#335969]/30 text-[#335969] font-sans text-sm shadow-lg hover:bg-white hover:shadow-xl transition-all duration-200 flex items-center gap-2"
+			title="Switch language / Nyelv váltása"
+		>
+			{#if lang === 'en'}
+				🇭🇺 Magyar
+			{:else}
+				🇺🇸 English
+			{/if}
+		</button>
+	</div>
+
 	<div
 		class="buildings-front-parallax absolute top-0 left-0 w-full h-full bg-[url(/buildings-front.png)] bg-no-repeat bg-contain pointer-events-none lg:-translate-y-15"
 	></div>
@@ -853,7 +998,7 @@ Mumbai`.split('\n');
 			<h2
 				class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
 			>
-				September 27th & 28th, 2025
+				{t('hero.date', {}, lang)}
 			</h2>
 			<img
 				src="daydream.png"
@@ -871,7 +1016,7 @@ Mumbai`.split('\n');
 			<h3
 				class="text-3xl italic font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent w-max max-sm:text-2xl mx-auto"
 			>
-				Game jam for high schoolers
+				{t('hero.tagline', {}, lang)}
 			</h3>
 			<img
 				src="underline.svg"
@@ -881,11 +1026,11 @@ Mumbai`.split('\n');
 			<h4
 				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
 			>
-				Organized by Teenagers in {@html eventLocation.replaceAll(' ', '&nbsp;')}
+				{@html t('hero.organizedBy', { eventLocationNbsp }, lang)}
 			</h4>
 		</div>
 
-		<ParticipantSignUp {signupLink} {eventName} />
+		<ParticipantSignUpBudapest {signupLink} {eventName} {lang} />
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
@@ -969,7 +1114,9 @@ Mumbai`.split('\n');
 				class="w-full bg-[url('/billboard-bg-texture.png')] bg-contain bg-repeat py-6 relative"
 				style="border-bottom: 8px solid #B4B4C5;"
 			>
-				<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">Schedule</h2>
+				<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">
+					{t('sections.schedule.title', {}, lang)}
+				</h2>
 				<!-- Brush texture overlay for header -->
 				<div
 					class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"
@@ -1048,7 +1195,9 @@ Mumbai`.split('\n');
 					class="w-full bg-[url('/billboard-bg-texture.png')] bg-contain bg-repeat py-6 relative"
 					style="border-bottom: 8px solid #B4B4C5;"
 				>
-					<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">Sponsors & Supporters</h2>
+					<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">
+						{t('sections.sponsors.title', {}, lang)}
+					</h2>
 					<!-- Brush texture overlay for header -->
 					<div
 						class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"
@@ -1065,25 +1214,25 @@ Mumbai`.split('\n');
 					<!-- Sponsors Grid -->
 					<div class="relative z-10 min-h-40">
 						{#each orderedCategoryKeys as key}
-							{#if sponsorCategories[key] && sponsorCategories[key].sponsors && sponsorCategories[key].sponsors.length > 0}
+							{#if sponsorCategories[key] && sponsorCategories[key] && sponsorCategories[key].length > 0}
 								<div class="mb-8">
 									<h3 class="text-2xl font-sans font-bold text-[#335969] text-center mb-4">
-										{sponsorCategories[key].title}
+										{t(`sponsors.${key}.title`, {}, lang)}
 									</h3>
 									<div class="flex justify-center">
-										{#key sponsorCategories[key].sponsors.length}
+										{#key sponsorCategories[key].length}
 											<div
 												class="grid gap-8 items-center justify-items-center max-w-4xl {sponsorCategories[
 													key
-												].sponsors.slice(0, 4).length === 1
+												].slice(0, 4).length === 1
 													? 'grid-cols-1'
-													: sponsorCategories[key].sponsors.slice(0, 4).length === 2
+													: sponsorCategories[key].slice(0, 4).length === 2
 														? 'grid-cols-1 md:grid-cols-2'
-														: sponsorCategories[key].sponsors.slice(0, 4).length === 3
+														: sponsorCategories[key].slice(0, 4).length === 3
 															? 'grid-cols-2 md:grid-cols-3'
 															: 'grid-cols-2 md:grid-cols-4'}"
 											>
-												{#each sponsorCategories[key].sponsors.slice(0, 4) as sponsor}
+												{#each sponsorCategories[key].slice(0, 4) as sponsor}
 													<a
 														href={sponsor.url}
 														class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors"
@@ -1107,9 +1256,9 @@ Mumbai`.split('\n');
 							<!-- Call to action for sponsors -->
 							<div class="mt-8 text-center">
 								<p class="text-lg text-[#335969]">
-									Want to sponsor Daydream {eventName}?
+									{t('sponsors.wantToSponsor', { eventName }, lang)}
 									<a href={contactLink} class="underline hover:text-[#477783] transition-colors"
-										>Get in touch</a
+										>{t('sponsors.cta', {}, lang)}</a
 									>
 								</p>
 							</div>
@@ -1232,8 +1381,8 @@ Mumbai`.split('\n');
 					class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center"
 				>
 					<span class="font-sans text-[#E472AB] font-bold text-[1.3rem] mr-1">#1:</span>
-					<a href={signupLink} class="underline">Sign up</a>
-					for Daydream {eventName}
+					<a href={signupLink} class="underline">{t('steps.step1.signUp', {}, lang)}</a>
+					{t('steps.step1.forDaydream', { eventName }, lang)}
 				</div>
 			</div>
 		</div>
@@ -1266,8 +1415,8 @@ Mumbai`.split('\n');
 				<div
 					class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center"
 				>
-					<span class="font-sans text-[#639DEB] font-bold text-[1.3rem] mr-1">#2:</span> Attend a workshop
-					and learn about game development
+					<span class="font-sans text-[#639DEB] font-bold text-[1.3rem] mr-1">#2:</span>
+					{t('steps.step2', {}, lang)}
 				</div>
 			</div>
 		</div>
@@ -1299,8 +1448,8 @@ Mumbai`.split('\n');
 				<div
 					class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center"
 				>
-					<span class="font-sans text-[#AB68E2] font-bold text-[1.3rem] mr-1">#3:</span> Find a team
-					of other teenagers at the event
+					<span class="font-sans text-[#AB68E2] font-bold text-[1.3rem] mr-1">#3:</span>
+					{t('steps.step3', {}, lang)}
 				</div>
 			</div>
 		</div>
@@ -1332,8 +1481,8 @@ Mumbai`.split('\n');
 				<div
 					class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center"
 				>
-					<span class="font-sans text-[#F2993E] font-bold text-[1.3rem] mr-1">#4:</span> Start
-					building your game - <em>no experience needed</em>
+					<span class="font-sans text-[#F2993E] font-bold text-[1.3rem] mr-1">#4:</span>
+					{t('steps.step4', {}, lang)}
 				</div>
 			</div>
 		</div>
@@ -1353,8 +1502,8 @@ Mumbai`.split('\n');
 				class="bg-[url('/card-final.png')] bg-contain bg-no-repeat bg-center text-2xl font-serif pt-24 px-8 w-128 h-96 text-center max-md:w-80 max-md:h-80 max-md:text-xl max-md:pt-16 animate-hover ![--hover:-0.15rem] ![animation-delay:1.9s]"
 				data-point="5"
 			>
-				<span class="font-sans text-[#F2CC32] font-bold text-[1.5rem] mr-1">#5:</span> Share what you
-				made with the world!
+				<span class="font-sans text-[#F2CC32] font-bold text-[1.5rem] mr-1">#5:</span>
+				{t('steps.step5', {}, lang)}
 			</div>
 		</div>
 	</div>
@@ -1476,13 +1625,13 @@ Mumbai`.split('\n');
 						mask-mode: luminance;
 						mask-composite: exclude, add, add, add, add, add, add, add, add;
 					"
-					title="Daydream Events Map"
+					title="Daydream events map"
 				>
 				</iframe>
 			</div>
 
 			<p class="text-center font-sans text-2xl pt-12 max-sm:text-xl text-[#60574b] z-10000">
-				Daydream {eventName} is taking place at
+				{t('location.text', { eventName }, lang)}
 				<a class="underline text-pink" href={directionsURL}>{venue}</a>!
 			</p>
 		</div>
@@ -1670,10 +1819,10 @@ Mumbai`.split('\n');
 				class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18"
 			>
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">
-					Who can participate in Daydream?
+					{t('faq.q1.title', {}, lang)}
 				</h3>
 				<p class="text-sm">
-					All high-school & upper-middle-school aged students are welcome to come!
+					{t('faq.q1.answer', {}, lang)}
 				</p>
 			</div>
 		</div>
@@ -1689,11 +1838,10 @@ Mumbai`.split('\n');
 				class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18"
 			>
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">
-					All this, for free?
+					{t('faq.q2.title', {}, lang)}
 				</h3>
 				<p class="text-sm">
-					Yep! Food, swag and good vibes are all included. Plus, if you're joining us from afar,
-					we'll cover the cost of gas or a bus / train ticket.
+					{t('faq.q2.answer', {}, lang)}
 				</p>
 			</div>
 		</div>
@@ -1709,9 +1857,9 @@ Mumbai`.split('\n');
 				class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18"
 			>
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">
-					What do I need?
+					{t('faq.q3.title', {}, lang)}
 				</h3>
-				<p class="text-sm">Your laptop, chargers, toiletries, sleeping bags, and an open mind!</p>
+				<p class="text-sm">{t('faq.q3.answer', {}, lang)}</p>
 			</div>
 		</div>
 
@@ -1726,12 +1874,10 @@ Mumbai`.split('\n');
 				class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18"
 			>
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-1 max-md:text-base">
-					Do I need a team before I sign up?
+					{t('faq.q4.title', {}, lang)}
 				</h3>
 				<p class="text-sm">
-					Not at all! In fact, most people come alone. We'll have dedicated time at the beginning of
-					the event for you to meet other participants, share ideas, and form teams on the spot.
-					It's a great way to make new friends!
+					{t('faq.q4.answer', {}, lang)}
 				</p>
 			</div>
 		</div>
@@ -1747,11 +1893,10 @@ Mumbai`.split('\n');
 				class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18"
 			>
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-1 max-md:text-base">
-					What has Hack Club done before?
+					{t('faq.q5.title', {}, lang)}
 				</h3>
 				<p class="text-sm">
-					Hack Club has run a hackathon in the GitHub HQ, a Game Jam in 50 cities, a hackathon on a
-					train from Vermont to Los Angeles, and more!
+					{t('faq.q5.answer', {}, lang)}
 				</p>
 			</div>
 		</div>
@@ -1767,11 +1912,10 @@ Mumbai`.split('\n');
 				class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18"
 			>
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">
-					I'm not good at coding. Can I still participate?
+					{t('faq.q6.title', {}, lang)}
 				</h3>
 				<p class="text-sm">
-					This game jam is for all skill levels! We'll have workshops and other events so join us
-					and let's learn together.
+					{t('faq.q6.answer', {}, lang)}
 				</p>
 			</div>
 		</div>
@@ -1787,11 +1931,10 @@ Mumbai`.split('\n');
 				class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18"
 			>
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">
-					What if my parents are concerned?
+					{t('faq.q7.title', {}, lang)}
 				</h3>
 				<p class="text-sm">
-					We're here to help! You can see our parent guide here, or they can reach out to us at
-					daydream@hackclub.com for questions.
+					{t('faq.q7.answer', {}, lang)}
 				</p>
 			</div>
 		</div>
@@ -1807,11 +1950,10 @@ Mumbai`.split('\n');
 				class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18"
 			>
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">
-					What can I make at Daydream?
+					{t('faq.q8.title', {}, lang)}
 				</h3>
 				<p class="text-sm">
-					ANY type of game based on the theme! Platformer, visual novel, clicker game, etc. Be as
-					creative as possible!
+					{t('faq.q8.answer', {}, lang)}
 				</p>
 			</div>
 		</div>
