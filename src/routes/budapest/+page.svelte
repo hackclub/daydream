@@ -9,10 +9,11 @@
 	// Configuration - Put your information here!
 	const eventName = 'Budapest'; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = 'Budapest';
-	const eventAddress = ''; // Leave this empty if you don't want an address
+	const venue = 'Budapest School';
+	const eventAddress = '1081 Budapest, II. János Pál pápa tér 25'; // Leave this empty if you don't want an address
 	const signupLink = 'https://forms.hackclub.com/daydream-sign-up?event=reciz1AG9EayZ8JFr'; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = '';
+	const directionsURL = 'https://maps.app.goo.gl/rqk9TB4nLcrqGPDB6';
 	const contactLink = 'mailto:budapest@daydream.hackclub.com';
 
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
@@ -947,8 +948,6 @@ Mumbai`.split('\n');
 		alt=""
 		class="absolute left-0 w-3/12 -bottom-12 translate-y-1/2 z-20 pointer-events-none"
 	/>
-
-	
 </div>
 
 <!-- Schedule Container -->
@@ -1482,16 +1481,10 @@ Mumbai`.split('\n');
 				</iframe>
 			</div>
 
-			{#if eventAddress}
-				<p class="text-center font-sans text-2xl pt-12 max-sm:text-xl text-[#60574b] z-10000">
-					{#if directionsURL}
-						Daydream {eventName} is taking place at
-						<a class="underline text-pink" href={directionsURL}>{eventAddress}</a>!
-					{:else}
-						Daydream {eventName} is taking place at <span class="underline">{eventAddress}</span>!
-					{/if}
-				</p>
-			{/if}
+			<p class="text-center font-sans text-2xl pt-12 max-sm:text-xl text-[#60574b] z-10000">
+				Daydream {eventName} is taking place at
+				<a class="underline text-pink" href={directionsURL}>{venue}</a>!
+			</p>
 		</div>
 	</div>
 
