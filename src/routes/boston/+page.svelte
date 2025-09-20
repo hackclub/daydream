@@ -30,18 +30,21 @@
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
 		{
-			title: "Saturday, September 27th (Subject to Change)",
+			title: "Saturday, September 27th",
 			items: [
-				{ event: "Doors open", time: "8:00 AM" },
-				{ event: "Opening ceremony", time: "8:30 AM" },
-				{ event: "Workshop 1 (TBD)", time: "9:15 AM" },
-				{ event: "Workshop 2 (TBD)", time: "10:30 AM" },
-				{ event: "Workshop 3 (TBD)", time: "11:45 AM" },
-				{ event: "Lunch + Lightning Talks", time: "1:00 PM" },
-				{ event: "Demos", time: "4:30 PM" },
-				{ event: "Closing Ceremony", time: "5:30 PM" }
+				{ event: "Doors Open and Sign-In", time: "8:00 AM" },
+				{ event: "Opening Ceremony", time: "8:30 AM" },
+				{ event: "Jumpstart Workshop", time: "8:50 AM" },
+				{ event: "Workshop 2 (TBA)", time: "10:00 AM" },
+				{ event: "Workshop 3 (TBA)", time: "11:05 AM" },
+				{ event: "Lunch", time: "12:15 PM" },
+				{ event: "Quick-time Event", time: "2:15 PM" },
+				{ event: "Ship (Submission) Deadline", time: "4:45 PM" },
+				{ event: "Ship Showcase & Voting", time: "4:45 PM" },
+				{ event: "Closing Ceremony!", time: "5:30 PM" },
 			]
 		},
+
 		// {
 		// 	title: "Sunday, September 28th",
 		// 	items: [
@@ -875,25 +878,7 @@ Mumbai`.split("\n")
 	<img src="/clouds-top-left.png" alt="" class="absolute left-0 w-3/12 -bottom-12  translate-y-1/2 z-20 pointer-events-none">
 	
 
-	<!-- Desktop stickers button (bottom left) -->
-	<a
-		href="https://forms.hackclub.com/daydream-stickers"
-		target="_blank"
-		class="hidden md:block absolute bottom-16 left-16 z-50 w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none"
-	>
-		Get free stickers
-		<img
-			src="button-clouds.svg" 
-			alt="" 
-			class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
-		>
-		<img
-			src="rock-sticker.png"
-			alt=""
-			class="absolute bottom-2 right-3 translate-2/3 w-18 h-18 object-contain pointer-events-none"
-			style="transform: rotate(-15deg);"
-		>
-	</a>
+	
 </div>
 
 <div class="w-full relative flex items-start justify-center">
@@ -1410,7 +1395,7 @@ Mumbai`.split("\n")
 						</li>
 						<li class="flex items-start">
 							<span class="mr-4">•</span>
-							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> by Agustin
+							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> by Agustin & Juan
 						</li>
 					</ul>
 					

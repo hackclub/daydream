@@ -27,28 +27,40 @@
 	];
 
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
-	const scheduleData: { title: string; items: { event: string; time: string }[] }[] = [
+	const scheduleData: { title: string; items: { event: string; location : string; time: string }[] }[] = [
 		{
 			title: 'Saturday, September 27th',
 			items: [
-				{ event: 'Doors open', time: '11:00 AM' },
-				{ event: 'Opening ceremony', time: '12:00 PM' },
-				{ event: 'Lunch', time: '12:30 PM' },
-				{ event: 'Start working on your project!', time: '1:00 PM' },
-				{ event: 'Workshop 1', time: '2:00 PM' },
-				{ event: 'Activity 1', time: '4:00 PM' },
-				{ event: 'Workshop 2', time: '4:00 PM' },
-				{ event: 'Dinner', time: '6:00 PM' },
-				{ event: 'Lightning talks', time: '8:00 PM' },
-				{ event: 'Midnight surprise', time: '12:00 AM' }
+				{ event: 'Doors open', location: '', time: '09:00 AM' },
+				{ event: 'Opening ceremony', location: 'Plato', time: '09:30 AM' },
+				{ event: 'Workshop: How to make a Godot Platformer', location: 'Plato', time: '10:30 AM' },
+				{ event: 'Workshop: How to make a Ren\'Py Visual Novel', location: 'Lorde', time: '10:30 AM' },
+				{ event: 'Required: Getting your project on Github!', location: 'Plato', time: '11:30 AM' },
+				{ event: 'Lunch', location: 'Cafe', time: '12:00 PM' },
+				{ event: 'Workshop: Get introduced to hardware! ', location: 'Lorde', time: '03:00 PM' },
+				{ event: 'Dinner', location: 'Cafe', time: '06:00 PM' },
+				{ event: 'Show off your Project!', location: 'Lorde', time: '08:00 PM' },
+				{ event: 'Goodbye!', location: 'Plato', time: '08:50 PM' },
+				{ event: 'Doors Closed', location: '', time: '09:20 PM' },
 			]
 		},
 		{
 			title: 'Sunday, September 28th',
 			items: [
-				{ event: 'Breakfast', time: '8:00 AM' },
-				{ event: 'Demos!', time: '10:30 AM' },
-				{ event: 'Closing ceremony', time: '12:00 PM' }
+				{ event: 'Doors open', location: '', time: '09:00 AM' },
+				{ event: 'Welcome Back! Presentation', location: 'Plato', time: '09:30 AM' },
+				{ event: 'Lunch', location: 'Cafe', time: '12:00 PM' },
+				{ event: 'Workshop: How to ship a Godot Game', location: 'Plato', time: '04:10 PM' },
+				{ event: 'Workshop: How to ship a Ren\'Py Novel', location: 'Lorde', time: '04:10 PM' },
+				{ event: 'Workshop: How to ship a Unity Game', location: 'Lorde', time: '04:40 PM' },
+				{ event: 'Dinner', location: 'Cafe', time: '05:30 PM' },
+				{ event: 'SHIP YOUR GAME!', location: '', time: '06:00 PM' },
+				{ event: 'Required: How to vote on Podium', location: 'Plato', time: '06:30 PM' },
+				{ event: 'Merch Handout and Last Minute Voting', location: 'Plato', time: '07:35 PM' },
+				{ event: 'Voting Closes', location: '', time: '08:00 PM' },
+				{ event: 'Closing ceremony', location: 'Plato', time: '08:20 PM' },
+				{ event: 'Clean-up and Leave', location: '', time: '09:00 PM' },
+				{ event: 'Doors Closed', location: '', time: '09:20 PM' }
 			]
 		}
 	];
@@ -921,25 +933,7 @@ Mumbai`.split('\n');
 		class="absolute left-0 w-3/12 -bottom-12 translate-y-1/2 z-20 pointer-events-none"
 	/>
 
-	<!-- Desktop stickers button (bottom left) -->
-	<a
-		href="https://forms.hackclub.com/daydream-stickers"
-		target="_blank"
-		class="hidden md:block absolute bottom-16 left-16 z-50 w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none"
-	>
-		Get free stickers
-		<img
-			src="button-clouds.svg"
-			alt=""
-			class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
-		/>
-		<img
-			src="rock-sticker.png"
-			alt=""
-			class="absolute bottom-2 right-3 translate-2/3 w-18 h-18 object-contain pointer-events-none"
-			style="transform: rotate(-15deg);"
-		/>
-	</a>
+	
 </div>
 
 <div class="w-full relative flex items-start justify-center">
@@ -1043,7 +1037,8 @@ Mumbai`.split('\n');
 								{#each day.items as item, index}
 									<div class="flex items-center justify-between py-2">
 										<span class="text-lg font-sans text-[#477783]">{item.event}</span>
-										<span class="text-lg font-sans text-[#477783]">{item.time}</span>
+										<span class="text-lg font-sans text-[#477783] ml-auto mr-4">{item.location}</span>
+										<span class="text-lg font-mono text-[#477783]">{item.time}</span>
 									</div>
 									{#if index < day.items.length - 1}
 										<div class="h-[2px] bg-white/30"></div>
@@ -1119,7 +1114,9 @@ Mumbai`.split('\n');
 								class="max-w-full max-h-full object-contain"
 							/>
 							<p class="text-lg text-[#335969]">
-								<a href="https://www.jukebox.com" class="text-pink-600">Custom Stickers</a>
+								<a href="https://www.jukeboxprint.com/custom-stickers" class="text-pink-600"
+									>Custom Stickers</a
+								>
 								with love from Jukebox
 							</p>
 						</div>
@@ -1709,7 +1706,7 @@ Mumbai`.split('\n');
 								href="https://juanes10201.itch.io/speedtickers"
 								target="_blank"
 								class="underline mr-2">SPEEDTICKERS</a
-							> by Agustin
+							> by Agustin & Juan
 						</li>
 					</ul>
 

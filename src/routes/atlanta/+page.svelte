@@ -8,23 +8,25 @@
 
 	// Configuration - Put your information here!
 	const eventName = "Atlanta";
-	const eventLocation = "Atlanta";
+	const eventLocation = "Georgia Tech";
 	const eventAddress = ""; // Leave this empty if you don't want an address
 	// These two are optional
 	const directionsURL = ""
-	const contactLink = "loganpeterson@hackclub.app"
+	const contactLink = "mailto:atlanta@daydream.hackclub.com"
 	
 	// Sponsors Configuration
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
-	const sponsorsEnabled = false; // false for now...
+	const sponsorsEnabled = true;
 	const sponsors = [
-		{ image: "jukebox.png", name: "Jukebox Prints!", url: "https://www.jukeboxprint.com/custom-stickers" },
-		{ image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
-		{ image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
-		{ image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
-		{ image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
-		{ image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
-		{ image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
+		{ image: "/atlanta/jukebox.png", name: "Jukebox" , url: "https://www.jukeboxprint.com/custom-stickers", 
+		text: `<p class="text-lg text-[#335969] text-center">
+             Big shoutout to Jukebox for our
+             <a href="https://www.jukeboxprint.com/custom-stickers"
+                class="underline hover:text-[#477783] transition-colors">
+               custom stickers</a>!
+           </p>`		},
+		{ image: "/atlanta/WCT.png", name: "We Create Tech", url: "https://www.wecreatetech.org/" },
+		{ image: "/atlanta/gtsbe.png", name: "National Society of Black Engineers at Georgia Tech", url: "https://www.gtsbe.org/"}
 	];
 	
 	
@@ -51,24 +53,24 @@
     {
         title: "Saturday, September 27th",
         items: [
-            { event: "Doors open", time: "11:00 AM" },
-            { event: "Opening ceremony", time: "12:00 PM" },
-            { event: "Lunch", time: "12:30 PM" },
-            { event: "Start working on your project!", time: "1:00 PM" },
-            { event: "Workshop 1", time: "2:00 PM" },
-            { event: "Activity 1", time: "4:00 PM" },
-            { event: "Workshop 2", time: "4:00 PM" },
-            { event: "Dinner", time: "6:00 PM" },
-            { event: "Lightning talks", time: "8:00 PM" },
-            { event: "Midnight surprise", time: "12:00 AM" }
+            { event: "Doors open", time: "8:00 AM" },
+            { event: "Opening ceremony", time: "9:00 AM" },
+            { event: "Start Working on Your Project + Breakfast", time: "10:00 AM" },
+            { event: "Workshop 1", time: "10:30 AM" },
+            { event: "Activity 1", time: "12:00 PM" },
+            { event: "Progress Check", time: "4:00 PM" },
+            { event: "Workshop 2", time: "5:00 PM" },			
+            { event: "Start Wrapping Up", time: "7:00 PM" },
+            { event: "End of Day 1", time: "8:00 PM" }
         ]
     },
     {
         title: "Sunday, September 28th",
         items: [
             { event: "Breakfast", time: "8:00 AM" },
+			{ event: "Activity 2", time: "9:00 AM"},
             { event: "Demos!", time: "10:30 AM" },
-            { event: "Closing ceremony", time: "12:00 PM" }
+            { event: "Closing ceremony", time: "1:00 PM" }
         ]
     }
 ];
@@ -876,25 +878,7 @@ Mumbai`.split("\n")
 	<img src="/clouds-top-left.png" alt="" class="absolute left-0 w-3/12 -bottom-12  translate-y-1/2 z-20 pointer-events-none">
 	
 
-	<!-- Desktop stickers button (bottom left) -->
-	<a
-		href="https://forms.hackclub.com/daydream-stickers"
-		target="_blank"
-		class="hidden md:block absolute bottom-16 left-16 z-50 w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none"
-	>
-		Get free stickers
-		<img
-			src="button-clouds.svg" 
-			alt="" 
-			class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
-		>
-		<img
-			src="rock-sticker.png"
-			alt=""
-			class="absolute bottom-2 right-3 translate-2/3 w-18 h-18 object-contain pointer-events-none"
-			style="transform: rotate(-15deg);"
-		>
-	</a>
+	
 </div>
 
 <div class="w-full relative flex items-start justify-center">
@@ -1402,7 +1386,7 @@ Mumbai`.split("\n")
 						</li>
 						<li class="flex items-start">
 							<span class="mr-4">•</span>
-							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> by Agustin
+							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> by Agustin & Juan
 						</li>
 					</ul>
 					

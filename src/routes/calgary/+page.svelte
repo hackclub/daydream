@@ -9,7 +9,7 @@
 	// Configuration - Put your information here!
 	const eventName = 'Calgary'; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = 'Calgary';
-	const eventAddress = ''; // Leave this empty if you don't want an address
+	const eventAddress = '1315 73 Ave SE, Calgary, AB T2H 2X1'; // Leave this empty if you don't want an address
 	const signupLink = 'https://forms.hackclub.com/daydream-sign-up?event=recNehsKm6EH39VzK'; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
 	const directionsURL = '';
@@ -22,7 +22,33 @@
 			image: 'https://www.glassfrog.academy/assets/gfa.png',
 			name: 'Glass Frog Academy',
 			url: 'https://www.glassfrog.academy/'
-		}
+		},
+		{
+			image: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/951577cd977b7e61467292e40f8adab9f9aece81_uofa.png',
+			name: 'University of Alberta',
+			url: 'https://www.ualberta.ca/'
+		},
+		{
+			image: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/fa3106bec6acfd5f23d49defa1807a98afbc1782_era.png',
+			name: 'era',
+			url: 'https://era.ca/'
+		},
+		{
+			image: 'https://hc-cdn.hel1.your-objectstorage.com/s/v3/cf7c5a8f68706e5fed4a25d53b3be0cf26bdc02d_xyz.svg',
+			name: '.xyz',
+			url: 'https://gen.xyz/'
+		},
+		{
+			image: 'https://kumomta.com/hs-fs/hubfs/Horizontal_KumoMTA-TM-299x132.png?width=299&height=132&name=Horizontal_KumoMTA-TM-299x132.png',
+			name: 'KumoMTA',
+			url: 'https://kumomta.com/'
+		},
+		{
+			image: 'https://assets.hackclub.com/icon-rounded.svg',
+			name: 'Hack Club',
+			url: 'https://hackclub.com/'
+		},
+
 	];
 
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -932,25 +958,7 @@ Mumbai`.split('\n');
 		class="absolute left-0 w-3/12 -bottom-12 translate-y-1/2 z-20 pointer-events-none"
 	/>
 
-	<!-- Desktop stickers button (bottom left) -->
-	<a
-		href="https://forms.hackclub.com/daydream-stickers"
-		target="_blank"
-		class="hidden md:block absolute bottom-16 left-16 z-50 w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none"
-	>
-		Get free stickers
-		<img
-			src="button-clouds.svg"
-			alt=""
-			class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
-		/>
-		<img
-			src="rock-sticker.png"
-			alt=""
-			class="absolute bottom-2 right-3 translate-2/3 w-18 h-18 object-contain pointer-events-none"
-			style="transform: rotate(-15deg);"
-		/>
-	</a>
+	
 </div>
 
 <div class="w-full relative flex items-start justify-center">
@@ -978,13 +986,13 @@ Mumbai`.split('\n');
 			<div class="text-[#8B4513] font-serif text-xl leading-relaxed space-y-8">
 				<p>
 					Welcome to Hack Club's newest adventure. This fall we invite you to join us for Daydream,
-					the world's biggest Game Jam happening simultaneously in 100 cities.
+					Calgary's biggest Game Jam happening at ERA (1315 73 Ave SE).
 				</p>
 
-				<p class="font-bold text-2xl">Hack Club wants you to make a game this fall.</p>
+				<p class="font-bold text-2xl">We want you to make a game this fall.</p>
 
 				<p>
-					Don't consider yourself a game dev? No problem - we have tons of online and in-person
+					Don't consider yourself a game dev? No problem - we have tons of in-person
 					workshops for you to make your first game!
 				</p>
 
@@ -992,10 +1000,6 @@ Mumbai`.split('\n');
 					This fall, we invite you to learn something new, make something you're really proud of,
 					meet new friends, and go on an incredible adventure together.
 				</p>
-
-				<p class="mb-2">With love,</p>
-
-				<p class="italic text-2xl opacity-85">Augie and Renran from Hack Club HQ</p>
 			</div>
 		</div>
 	</div>
@@ -1479,13 +1483,12 @@ Mumbai`.split('\n');
 >
 	<div class="w-full max-w-5xl lg:max-w-6xl mx-auto px-2 md:px-8">
 		<div class="relative w-full min-w-72">
-			<img
+			<!-- <img
 				src="banner-city.png"
 				alt="Find a Daydream Near You"
 				class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 md:-translate-y-[40%] h-48 w-auto z-100 scale-[1.15] md:scale-[1.65] saturate-70 brightness-110 object-contain px-4 pointer-events-none"
 			/>
 
-			<!-- Map container with cloudy edges -->
 			<div class="relative w-full h-156 overflow-hidden bg-transparent">
 				<iframe
 					src={eventAddress ? '/event-map?location=' + encodeURIComponent(eventAddress) : '/map'}
@@ -1578,7 +1581,7 @@ Mumbai`.split('\n');
 					title="Daydream Events Map"
 				>
 				</iframe>
-			</div>
+			</div> -->
 
 			{#if eventAddress}
 				<p class="text-center font-sans text-2xl pt-12 max-sm:text-xl text-[#60574b] z-10000">
@@ -1707,7 +1710,7 @@ Mumbai`.split('\n');
 								href="https://juanes10201.itch.io/speedtickers"
 								target="_blank"
 								class="underline mr-2">SPEEDTICKERS</a
-							> by Agustin
+							> by Agustin & Juan
 						</li>
 					</ul>
 
@@ -1794,10 +1797,10 @@ Mumbai`.split('\n');
 				class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18"
 			>
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">
-					Can I organize a Daydream in my city?
+					Where is the event happening?
 				</h3>
 				<p class="text-sm">
-					Definitely! Contact us via daydream@hackclub.com or join #daydream on slack.
+					The event will be held at 1315 73 Ave SE, Calgary, AB T2H 2X1. 
 				</p>
 			</div>
 		</div>
@@ -1817,7 +1820,7 @@ Mumbai`.split('\n');
 				</h3>
 				<p class="text-sm">
 					Yep! Food, swag and good vibes are all included. Plus, if you're joining us from afar,
-					we'll cover the cost of gas or a bus / train ticket.
+					we'll cover the cost of gas or a bus / train ticket. (email daydreamcalgary@gmail.com for more info!)
 				</p>
 			</div>
 		</div>
@@ -1835,7 +1838,7 @@ Mumbai`.split('\n');
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">
 					What do I need?
 				</h3>
-				<p class="text-sm">Your laptop, chargers, toiletries, sleeping bags, and an open mind!</p>
+				<p class="text-sm">All you need is a laptop to code on and an open mind!</p>
 			</div>
 		</div>
 
@@ -1850,11 +1853,12 @@ Mumbai`.split('\n');
 				class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18"
 			>
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-1 max-md:text-base">
-					What has Hack Club done before?
+					What have the organizers done before?
 				</h3>
 				<p class="text-sm">
-					Hack Club has run a hackathon in at GitHub HQ, a Game Jam in 50 cities, a hackathon on a
-					train from Vermont to Los Angeles, and more!
+					Last March, we ran <a href="https://scrapyard.hackclub.com/calgary">Scrapyard YYC</a> - a 24 hour hardware focused hackathon in Calgary with 50+ attendees!
+					<!-- Hack Club has run a hackathon in at GitHub HQ, a Game Jam in 50 cities, a hackathon on a
+					train from Vermont to Los Angeles, and more! -->
 				</p>
 			</div>
 		</div>
@@ -1893,8 +1897,8 @@ Mumbai`.split('\n');
 					What if my parents are concerned?
 				</h3>
 				<p class="text-sm">
-					We're here to help! You can see our parent guide here, or they can reach out to us at
-					daydream@hackclub.com for questions.
+					We're here to help! You can reach out to us at
+					daydreamcalgary@gmail.com for questions.
 				</p>
 			</div>
 		</div>

@@ -29,21 +29,20 @@
 	
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
     {
-        title: "Sera determinado pronto",
+        title: "Se definirá pronto",
         items: [
-            { event: ":)", time: "" }
+            { event: "", time: "" }
         ]
     }
 
 ];
 
-	
 	import { onMount } from "svelte";
 	import { gsap } from "gsap";
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
 	import Ticker from "$lib/components/Ticker.svelte";
-	import Footer from "$lib/components/Footer.svelte";
-	import ParticipantSignUp from "$lib/components/ParticipantSignUp.svelte";
+	import Footer from "$lib/components/valencia/FooterSpanish.svelte";
+	import ParticipantSignUp from "$lib/components/valencia/ParticipantSignUpSpanish.svelte";
 	import { page } from '$app/stores';
 	
 	
@@ -57,7 +56,7 @@
 	$: pageKeywords = `game jam, hackathon, teen coding, Hack Club, game development, ${eventLocation}, ${eventName}`;
 
 	// Cities where the game jam is happening
-	const cities = `Columbus
+	const cities = `Valencia
 Lisbon 
 Boston
 Giza
@@ -68,6 +67,7 @@ Bengaluru
 Tampa
 Auckland
 Omaha
+Valencia
 Phoenix
 Madrid
 Boise
@@ -78,6 +78,7 @@ London
 Visakhapatnam
 Dubai
 San Francisco
+Valencia
 Minneapolis
 Seattle
 Singapore
@@ -365,7 +366,7 @@ Mumbai`.split("\n")
 		
 		while (attempt < maxAttempts) {
 			try {
-				const response = await fetch('/api/idea', {
+				const response = await fetch('/valencia/api/idea-es', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json',
@@ -377,7 +378,7 @@ Mumbai`.split("\n")
 						throw new Error(`Server error: ${response.status}`);
 					} else {
 						// Don't retry on non-500 errors
-						return "How about a game where you collect magical crystals to save a mysterious floating world?";
+						return "Qué tal un juego donde coleccionas cristales mágicos para salvar un mundo flotante misterioso?";
 					}
 				}
 				
@@ -388,15 +389,15 @@ Mumbai`.split("\n")
 				console.warn(`Attempt ${attempt} failed:`, error);
 				
 				if (attempt >= maxAttempts) {
-					return "How about a game where you collect magical crystals to save a mysterious floating world?";
+					return "Qué tal un juego donde coleccionas cristales mágicos para salvar un mundo flotante misterioso?";
 				}
 				
 				// Wait before retrying
 				await new Promise(resolve => setTimeout(resolve, 1000));
 			}
 		}
-		
-		return "How about a game where you collect magical crystals to save a mysterious floating world?";
+
+		return "Qué tal un juego donde coleccionas cristales mágicos para salvar un mundo flotante misterioso?";
 	}
 
 	async function dreamIdea() {
@@ -812,7 +813,7 @@ Mumbai`.split("\n")
 			<h3
 				class="text-3xl italic font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent w-max max-sm:text-2xl mx-auto"
 			>
-				Game jam para estudiantes en bachillerato
+				Game jam para estudiantes de bachillerato
 			</h3>
 			<img
 				src="underline.svg"
@@ -860,25 +861,6 @@ Mumbai`.split("\n")
 	<img src="/clouds-top-left.png" alt="" class="absolute left-0 w-3/12 -bottom-12  translate-y-1/2 z-20 pointer-events-none">
 	
 
-	<!-- Desktop stickers button (bottom left) -->
-	<a
-		href="https://forms.hackclub.com/daydream-stickers"
-		target="_blank"
-		class="hidden md:block absolute bottom-16 left-16 z-50 w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none"
-	>
-		Consigue stickers gratis
-		<img
-			src="button-clouds.svg" 
-			alt="" 
-			class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
-		>
-		<img
-			src="rock-sticker.png"
-			alt=""
-			class="absolute bottom-2 right-3 translate-2/3 w-18 h-18 object-contain pointer-events-none"
-			style="transform: rotate(-15deg);"
-		>
-	</a>
 </div>
 
 <div class="w-full relative flex items-start justify-center">
@@ -897,7 +879,7 @@ Mumbai`.split("\n")
 			<div class="text-[#8B4513] font-serif text-xl leading-relaxed space-y-8">
 				<p>Bienvenid@s a la nueva aventura de Hack Club. Este otoño te invitamos a unirte a nosotros para Daydream, la Game Jam más grande del mundo que se lleva a cabo simultáneamente en 100 ciudades.</p>
 
-				<p class="font-bold text-2xl">Hack Club quiere que desarrolles un video juego este otoño.</p>
+				<p class="font-bold text-2xl">Queremos ayudarte a que hagas un juego este otoño.</p>
 
 				<p>¿No te consideras un desarrollador de juegos? No hay problema, tenemos un montón de talleres para que hagas tu primer juego.</p>
 
@@ -905,7 +887,7 @@ Mumbai`.split("\n")
 
 				<p class="mb-2">Con cariño,</p>
 
-				<p class="italic text-2xl opacity-85">El equipo de Daydream Bogota</p>
+				<p class="italic text-2xl opacity-85">El equipo de Daydream Bogotá</p>
 			</div>
 		</div>
 	</div>
@@ -931,7 +913,7 @@ Mumbai`.split("\n")
 			<!-- Header Section -->
 			<div class="w-full bg-[url('/billboard-bg-texture.png')] bg-contain bg-repeat py-6 relative" style="border-bottom: 8px solid #B4B4C5;">
 				<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">
-					Schedule
+					Horario
 				</h2>
 				<!-- Brush texture overlay for header -->
 				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
@@ -1049,10 +1031,10 @@ Mumbai`.split("\n")
 						{/if}
 					{/if}
 					
-					{#if contactLink}
+					{#if contactLink && sponsorLink}
 						<!-- Call to action for sponsors -->
 						<div class="mt-8 text-center">
-							<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
+							<p class="text-lg text-[#335969]">¿Quieres promocionar Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Contáctanos</a> o <a href={sponsorLink} class="underline hover:text-[#477783] transition-colors">accede a nuestra página de patrocinio directamente</a>.</p>
 						</div>
 					{/if}
 				</div>
@@ -1089,6 +1071,13 @@ Mumbai`.split("\n")
 		</div>
 	</div>
 </div>
+
+<!-- Jukebox Shoutout -->
+<div class="w-full bg-[#FCEFC5] pt-12 pb-8 px-8">
+	<div class="max-w-4xl mx-auto text-center">
+		<p class="text-2xl text-[#335969] font-semibold">¡Un gran agradecimiento a Jukebox por nuestros <a href="https://jukeboxprint.com" class="underline hover:text-[#477783] transition-colors" target="_blank" rel="noopener noreferrer">stickers personalizados</a>!</p>
+	</div>
+</div>
 {/if}
 
 <!-- Gamejam Text Section -->
@@ -1101,8 +1090,8 @@ Mumbai`.split("\n")
 	</div>
 	
 	<div class="relative w-10/12 h-auto object-contain cursor-text flex flex-row max-lg:flex-wrap md:translate-y-0 max-lg:translate-y-1/5 items-center justify-center align-middle max-w-5xl z-50">
-		<img src="gamejam-1-alt.png" alt="Así es como ganas una" class="flex-shrink min-w-0 object-contain">
-		<img src="gamejam-2.png" alt="Game Jam" class="flex-shrink min-w-0 object-contain">
+		<img src="/valencia/gamejam-1-alt-es.png" alt="Así es como ganas una" class="flex-shrink min-w-0 object-contain">
+		<img src="/gamejam-2.png" alt="Game Jam" class="flex-shrink min-w-0 object-contain">
 	</div>
 </div>
 
@@ -1126,7 +1115,7 @@ Mumbai`.split("\n")
 			<div class="relative w-72 h-40 max-md:w-80 animate-hover ![--hover:-0.15rem] ![animation-delay:1.7s] z-20" data-point="1">
 				<img src="paper1.png" alt="" class="w-full h-full object-contain">
 				<div class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center">
-					<span class="font-sans text-[#E472AB] font-bold text-[1.3rem] mr-1">#1:</span> <a href={signupLink} class="underline">Registrate</a> a Daydream Bogota{eventName}
+					<span class="font-sans text-[#E472AB] font-bold text-[1.3rem] mr-1">#1:</span> <a href={signupLink} class="underline">Registra tu participación</a> en Daydream {eventName}
 				</div>
 			</div>
 		</div>
@@ -1140,7 +1129,7 @@ Mumbai`.split("\n")
 			<div class="relative w-72 h-40 max-md:w-80 animate-hover ![--hover:-0.15rem] ![animation-delay:0.3s] z-20" data-point="2">
 				<img src="paper2.png" alt="" class="w-full h-full object-contain">
 				<div class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center">
-					<span class="font-sans text-[#639DEB] font-bold text-[1.3rem] mr-1">#2:</span> Asiste a un taller y aprende sobre desarrollo de videojuegos
+					<span class="font-sans text-[#639DEB] font-bold text-[1.3rem] mr-1">#2:</span> Asiste a un taller y aprende sobre el desarrollo de juegos
 				</div>
 			</div>
 		</div>
@@ -1153,7 +1142,7 @@ Mumbai`.split("\n")
 			<div class="relative w-72 h-40 max-md:w-80 animate-hover ![--hover:-0.15rem] ![animation-delay:1.4s] z-20" data-point="3">
 				<img src="paper3.png" alt="" class="w-full h-full object-contain">
 				<div class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center">
-					<span class="font-sans text-[#AB68E2] font-bold text-[1.3rem] mr-1">#3:</span>  Encuentra un equipo con otres adolescentes en el evento
+					<span class="font-sans text-[#AB68E2] font-bold text-[1.3rem] mr-1">#3:</span> Encuentra un equipo de otros estudiantes en el evento
 				</div>
 			</div>
 		</div>
@@ -1166,7 +1155,7 @@ Mumbai`.split("\n")
 			<div class="relative w-72 h-40 max-md:w-80 animate-hover ![--hover:-0.15rem] ![animation-delay:2.3s] z-20" data-point="4">
 				<img src="paper4.png" alt="" class="w-full h-full object-contain">
 				<div class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center">
-					<span class="font-sans text-[#F2993E] font-bold text-[1.3rem] mr-1">#4:</span> Comienza a crear tu juego - <em>no necesitas experiencia</em>
+					<span class="font-sans text-[#F2993E] font-bold text-[1.3rem] mr-1">#4:</span> Construye tu juego - <em>¡no se necesita experiencia!</em>
 				</div>
 			</div>
 		</div>
@@ -1177,7 +1166,7 @@ Mumbai`.split("\n")
 	<div class="flex flex-col items-center w-full basis-full translate-y-40 max-md:translate-y-12 z-20">
 		<div class="relative">
 			<div class="bg-[url('/card-final.png')] bg-contain bg-no-repeat bg-center text-2xl font-serif pt-24 px-8 w-128 h-96 text-center max-md:w-80 max-md:h-80 max-md:text-xl max-md:pt-16 animate-hover ![--hover:-0.15rem] ![animation-delay:1.9s]" data-point="5">
-				<span class="font-sans text-[#F2CC32] font-bold text-[1.5rem] mr-1">#5:</span>  ¡Comparte lo que hiciste con el mundo!
+				<span class="font-sans text-[#F2CC32] font-bold text-[1.5rem] mr-1">#5:</span> Comparte tu juego con el mundo!
 			</div>
 		</div>
 	</div>
@@ -1191,7 +1180,7 @@ Mumbai`.split("\n")
 <div class="w-full bg-gradient-to-b from-[#FDC5D1] to-[#FAE3C9] items-center justify-center px-0 md:px-8 relative pt-36">
 	<div class="w-full max-w-5xl lg:max-w-6xl mx-auto px-2 md:px-8">
 		<div class="relative w-full min-w-72">
-			<img src="banner-city.png" alt="Find a Daydream Near You" class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 md:-translate-y-[40%] h-48 w-auto z-100 scale-[1.15] md:scale-[1.65] saturate-70 brightness-110 object-contain px-4 pointer-events-none">
+			<img src="/valencia/banner-city-es.png" alt="Encuentra un Daydream cerca" class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 md:-translate-y-[40%] h-48 w-auto z-100 scale-[1.15] md:scale-[1.65] saturate-70 brightness-110 object-contain px-4 pointer-events-none">
 			
 			<!-- Map container with cloudy edges -->
 			<div class="relative w-full h-156 overflow-hidden bg-transparent">
@@ -1290,9 +1279,9 @@ Mumbai`.split("\n")
 			{#if eventAddress}
 				<p class="text-center font-sans text-2xl pt-12 max-sm:text-xl text-[#60574b] z-10000">
 					{#if directionsURL}
-						Daydream {eventName} is taking place at <a class="underline text-pink" href={directionsURL}>{eventAddress}</a>!
+						Daydream {eventName} tendrá lugar en <a class="underline text-pink" href={directionsURL}>{eventAddress}</a>!
 					{:else}
-						Daydream {eventName} is taking place at <span class="underline">{eventAddress}</span>!
+						Daydream {eventName} tendrá lugar en <span class="underline">{eventAddress}</span>!
 					{/if}
 				</p>
 			{/if}
@@ -1365,12 +1354,11 @@ Mumbai`.split("\n")
 				
 				<div class="space-y-8 max-sm:space-y-4 relative z-10">
 					<h2 class="text-5xl md:text-6xl lg:text-7xl font-pixel leading-tight">
-					     ¿Qué vas a <img src="/dream-pixel.png" alt="Soñar?" class="h-[0.75em] font-serif italic [image-rendering:pixelated] inline align-middle -translate-y-1.5">
+						¿Qué Soñarás?
 					</h2>
 					
 					<p class="text-xl md:text-2xl opacity-90 font-pixel">
 						¡Puedes crear cualquier juego que quieras siempre que se pueda subir a itch.io! Todos los juegos creados deben ser de código abierto y disponibles en línea para que otros participantes los jueguen y experimenten. Solo aceptaremos enlaces de envío de itch.io.
-					
 						<br>
 						<br>
 						Aquí hay algunos proyectos geniales de hackatones anteriores para inspirarte:
@@ -1379,7 +1367,7 @@ Mumbai`.split("\n")
 					<ul class="space-y-2 font-pixel text-xl md:text-2xl">
 						<li class="flex items-start">
 							<span class="mr-4">•</span>
-							<a href="https://bucketfish.itch.io/remedy-renemy" target="_blank" class="underline mr-2">Remedy Renemy</a>por Tongyu and Kai Ling
+							<a href="https://bucketfish.itch.io/remedy-renemy" target="_blank" class="underline mr-2">Remedy Renemy</a>por Tongyu y Kai Ling
 						</li>
 						<li class="flex items-start">
 							<span class="mr-4">•</span>
@@ -1387,7 +1375,7 @@ Mumbai`.split("\n")
 						</li>
 						<li class="flex items-start">
 							<span class="mr-4">•</span>
-							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> por Agustin
+							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> por Agustin & Juan
 						</li>
 					</ul>
 					
@@ -1445,7 +1433,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">¿Quién puede participar en Daydream?</h3>
-				<p class="text-sm">¡Cualquier estudiante en bachillerato con 18 años o menos!</p>
+				<p class="text-sm">Cualquier estudiante con 18 años o menos esta bienvenido a participar, mientras que esten en bachillerato</p>
 		</div>
 		</div>
 
@@ -1453,8 +1441,8 @@ Mumbai`.split("\n")
 		<div class="relative transform rotate-1">
 			<img src="window-4.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
-				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">¿Puedo ayudar a organizar Daydream Valencia?</h3>
-				<p class="text-sm">¡Contáctanos a través de whastapp, al numero +57 3194565555, y es posible que trabajemos juntos :)</p>
+				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">¿Puedo ayudar a organizar Daydream Bogotá?</h3>
+				<p class="text-sm">Contáctanos a través del numero +57 3194565555 y tal vez podamos trabajar juntos</p>
 			</div>
 		</div>
 
@@ -1463,7 +1451,7 @@ Mumbai`.split("\n")
 			<img src="window-2.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24  opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">¿Todo esto, gratis?</h3>
-				<p class="text-sm">¡Sí! Nos encargamos de la comida, regalos y buenas vibras. Además, si vienes de lejos, podemos cubrir el costo de la gasolina o un billete de autobús/tren a través del <a target="_blank" href="https://gas.hackclub.com/">gas fund.</a></p>
+				<p class="text-sm">¡Sí! Nos encargamos de la comida, regalos y buenas vibras. Además, si vienes de lejos, podemos cubrir el costo de la gasolina o un billete de autobús/tren a través del <a href="https://gas.hackclub.com/" class="text-blue-500 hover:underline">gas fund</a>.</p>
 			</div>
 		</div>
 
@@ -1481,7 +1469,7 @@ Mumbai`.split("\n")
 			<img src="window-4.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-1 max-md:text-base">¿Qué ha hecho Hack Club antes?</h3>
-				<p class="text-sm">Hack Club ha organizado un hackathon en GitHub HQ, un Game Jam en 50 ciudades, y mucho mas! <a class="text-blue-500 hover:underline" href="https://www.uninorte.edu.co/web/grupo-prensa/w/estudiantes-de-colegios-pusieron-a-prueba-su-talento-en-el-hackathon-scrapyard-barranquilla" target="_blank">¡En Barranquilla,</a> organizaron un hackathon en la universidad del Norte en marzo!</p>
+				<p class="text-sm">Hack Club ha organizado un hackathon en GitHub HQ, un Game Jam en 50 ciudades, un hackathon en un tren de Vermont a Los Ángeles, ¡y más!</p>
 			</div>
 		</div>
 
@@ -1499,7 +1487,7 @@ Mumbai`.split("\n")
 			<img src="window-2.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">¿Qué pasa si mis padres están preocupados?</h3>
-				<p class="text-sm">¡Estamos aquí para ayudar! Puedes ver nuestra guía para padres, o pueden escribir al numero 3194565555</p>
+				<p class="text-sm">¡Estamos aquí para ayudar! Puedes ver nuestra guía para padres, o pueden escribirle al +57 3194565555 con sus preguntas.</p>
 			</div>
 		</div>
 

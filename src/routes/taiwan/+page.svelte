@@ -1,8 +1,8 @@
 <script lang="ts">
 	// Configuration - Put your information here!
 	const eventName = "Taiwan";
-	const signupLink = "https://forms.hackclub.com/daydream-rsvp?event=recbXuFkkf752iPIq";
-	const eventLocation = " TCS（臺師大林口校區） ";
+	const signupLink = "http://signup.hackit.tw/events/daydream-taiwan";
+	const eventLocation = " TCS 探索未來國際教育機構（臺師大林口校區） ";
 	const eventAddress = "";
 
 	// These two are optional
@@ -18,6 +18,7 @@
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
 	    { image: "/taiwan/logos/Jukebox.png", name: "Jukebox", url: "https://www.jukeboxprint.com/" },
+	    { image: "/taiwan/logos/1password.png", name: "1Password", url: "https://1password.com" },
 	];
 
 	// Partners Configuration
@@ -1031,7 +1032,7 @@ Mumbai`.split("\n")
 				class="text-xl md:text-2xl opacity-90 mt-4 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-base tracking-wide leading-relaxed max-sm:leading-normal break-words whitespace-normal text-center"
 			>
 				青少年組織，為青少年舉辦的遊戲黑客松<br>
-				在{@html eventLocation.replaceAll(" ", "&nbsp;")}舉行
+				在{eventLocation}舉行
 			</h4>
 		</div>
 		
@@ -1124,25 +1125,7 @@ Mumbai`.split("\n")
 	<img src="/clouds-top-left.png" alt="" class="absolute left-0 w-3/12 -bottom-12  translate-y-1/2 z-20 pointer-events-none">
 	
 
-	<!-- Desktop stickers button (bottom left) -->
-	<a
-		href="https://forms.hackclub.com/daydream-stickers"
-		target="_blank"
-		class="hidden md:block absolute bottom-16 left-16 z-50 w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none tracking-wide font-medium"
-	>
-		拿免費貼紙
-		<img
-			src="button-clouds.svg" 
-			alt="" 
-			class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
-		>
-		<img
-			src="rock-sticker.png"
-			alt=""
-			class="absolute bottom-2 right-3 translate-2/3 w-18 h-18 object-contain pointer-events-none"
-			style="transform: rotate(-15deg);"
-		>
-	</a>
+	
 </div>
 
 <div class="w-full relative flex items-start justify-center">
@@ -1612,12 +1595,20 @@ Mumbai`.split("\n")
 							<div class="flex justify-center">
 								<div class="grid gap-8 items-center justify-items-center max-w-4xl {sponsors.length === 1 ? 'grid-cols-1' : sponsors.length === 2 ? 'grid-cols-1 md:grid-cols-2' : sponsors.length === 3 ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-2 md:grid-cols-4'}">
 									{#each sponsors as sponsor}
-										<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
-											<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
-										</a>
+										<div class="w-full flex flex-col items-center">
+											<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
+												<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
+											</a>
+										</div>
 									{/each}
 								</div>
 							</div>
+							{#if sponsors.some(s => s.name === 'Jukebox')}
+								<p class="mt-3 text-sm text-[#335969] text-center opacity-90">
+									特別感謝 Jukebox 提供
+									<a href="https://www.jukeboxprint.com/custom-stickers" target="_blank" rel="noopener noreferrer" class="underline">客製貼紙</a>！
+								</p>
+							{/if}
 						{/if}
 					{/if}
 					
@@ -1964,7 +1955,7 @@ Mumbai`.split("\n")
 						</li>
 						<li class="flex items-start leading-loose max-sm:leading-relaxed">
 							<span class="mr-4">•</span>
-							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> 由 Agustin 製作
+							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> 由 Agustin & Juan 製作
 						</li>
 					</ul>
 					
@@ -2031,7 +2022,7 @@ Mumbai`.split("\n")
 			<img src="window-4.png" alt="window" class="w-full h-full object-contain max-md:scale-110 max-xl:scale-110 max-lg:scale-115 max-sm:scale-130">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-4 max-lg:px-14 max-xl:px-18 max-sm:top-[18%] max-sm:bottom-[18%] max-sm:left-[14%] max-sm:right-[14%]">
                 <h3 class="text-lg md:text-xl font-serif font-bold mb-4 max-lg:mb-2 max-md:text-sm max-sm:text-xs max-sm:mb-2 leading-relaxed tracking-wide max-sm:tracking-normal">怎麼報名？</h3>
-                <p class="text-sm md:text-base max-sm:text-xs max-sm:leading-tight leading-relaxed tracking-wide max-sm:tracking-normal">報名尚未開放；先在上方留下 email RSVP，開放時第一時間通知。名額有限，先卡位！</p>
+                <p class="text-sm md:text-base max-sm:text-xs max-sm:leading-tight leading-relaxed tracking-wide max-sm:tracking-normal">在上方輸入 Email 後送出，或直接前往 <a href={signupLink} target="_blank" rel="noopener noreferrer" class="underline">報名表單</a>。</p>
 			</div>
 		</div>
 

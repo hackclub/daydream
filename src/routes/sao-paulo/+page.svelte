@@ -3,7 +3,7 @@
 	const eventName = "Sao Paulo"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "Sao Paulo";
 	const eventAddress = "Instituto de Matemática e Estatística da Universidade de São Paulo (IME-USP) R. do Matão, 1010 - Butantã, São Paulo - SP, 05508-090"; // Leave this empty if you don't want an address
-	const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recdgXXccH7rYhUQT&lang=pt"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
 	const directionsURL = "https://maps.app.goo.gl/hghcZL3B9bdR3PKT6"
 	const contactLink = "mailto:sao-paulo@daydream.hackclub.com"
@@ -18,11 +18,11 @@
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
 		{
-			title: "Sabado, 27 de Setembro",
+			title: "Sábado, 27 de Setembro",
 			items: [
-				{ event: "Portas abertas", time: "8:00 AM" },
-				{ event: "Cerimonia de Abertura", time: "9:00 PM" },
-                { event: "Atividade de Abertura", time: "9:30 PM" },
+				{ event: "Portas abertas", time: "9:00 AM" },
+				{ event: "Cerimonia de Abertura", time: "10:00 PM" },
+                { event: "Atividade de Abertura", time: "10:30 PM" },
                 { event: "Comece a trabalhar nos projetos!", time: "10:00 AM" },
 				{ event: "Almoço", time: "12:30 PM" },
 				{ event: "Encerramento & Apresentação de Projetos", time: "6:00 PM" },
@@ -849,25 +849,7 @@ Mumbai`.split("\n")
 	<img src="/clouds-top-left.png" alt="" class="absolute left-0 w-3/12 -bottom-12  translate-y-1/2 z-20 pointer-events-none">
 	
 
-	<!-- Desktop stickers button (bottom left) -->
-	<a
-		href="https://forms.hackclub.com/daydream-stickers"
-		target="_blank"
-		class="hidden md:block absolute bottom-16 left-16 z-50 w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none"
-	>
-		Consiga adesivos gratuitos
-		<img
-			src="button-clouds.svg" 
-			alt="" 
-			class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
-		>
-		<img
-			src="rock-sticker.png"
-			alt=""
-			class="absolute bottom-2 right-3 translate-2/3 w-18 h-18 object-contain pointer-events-none"
-			style="transform: rotate(-15deg);"
-		>
-	</a>
+	
 </div>
 
 <div class="w-full relative flex items-start justify-center">
@@ -892,7 +874,7 @@ Mumbai`.split("\n")
 
 				<p>Nessa primavera, te convidamos a aprender algo novo, fazer algo que você tem orgulho, fazer novos amigos e ir em uma aventura incrível juntos.</p>
 
-				<p class="mb-2">With love,</p>
+				<p class="mb-2">Com carinho,</p>
 
 				<p class="italic text-2xl opacity-85">Augie e Renran do Hack Club HQ (Sede)</p>
 			</div>
@@ -920,7 +902,7 @@ Mumbai`.split("\n")
 			<!-- Header Section -->
 			<div class="w-full bg-[url('/billboard-bg-texture.png')] bg-contain bg-repeat py-6 relative" style="border-bottom: 8px solid #B4B4C5;">
 				<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">
-					Schedule
+					Programação
 				</h2>
 				<!-- Brush texture overlay for header -->
 				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
@@ -986,7 +968,7 @@ Mumbai`.split("\n")
 			<!-- Header Section -->
 			<div class="w-full bg-[url('/billboard-bg-texture.png')] bg-contain bg-repeat py-6 relative" style="border-bottom: 8px solid #B4B4C5;">
 				<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">
-					Sponsors
+					Patrocinadores
 				</h2>
 				<!-- Brush texture overlay for header -->
 				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
@@ -1041,7 +1023,7 @@ Mumbai`.split("\n")
 					{#if contactLink}
 						<!-- Call to action for sponsors -->
 						<div class="mt-8 text-center">
-							<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
+							<p class="text-lg text-[#335969]">Quer patrocinar Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Entre em contato.</a></p>
 						</div>
 					{/if}
 				</div>
@@ -1166,7 +1148,7 @@ Mumbai`.split("\n")
 	<div class="flex flex-col items-center w-full basis-full translate-y-40 max-md:translate-y-12 z-20">
 		<div class="relative">
 			<div class="bg-[url('/card-final.png')] bg-contain bg-no-repeat bg-center text-2xl font-serif pt-24 px-8 w-128 h-96 text-center max-md:w-80 max-md:h-80 max-md:text-xl max-md:pt-16 animate-hover ![--hover:-0.15rem] ![animation-delay:1.9s]" data-point="5">
-				<span class="font-sans text-[#F2CC32] font-bold text-[1.5rem] mr-1">#5:</span> Compartilhe o que você com o mundo!
+				<span class="font-sans text-[#F2CC32] font-bold text-[1.5rem] mr-1">#5:</span> Compartilhe o que você fez com o mundo!
 			</div>
 		</div>
 	</div>
@@ -1375,7 +1357,7 @@ Mumbai`.split("\n")
 						</li>
 						<li class="flex items-start">
 							<span class="mr-4">•</span>
-							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> por Agustin
+							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> por Agustin & Juan
 						</li>
 					</ul>
 					
