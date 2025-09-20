@@ -846,6 +846,7 @@ Mumbai`.split("\n")
 				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
 			>
 				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
+				<a href="https://www.jukeboxprint.com/custom-stickers" target="_blank">Custom stickers provided by Jukebox!</a>
 			</h4>
 		</div>
 		
