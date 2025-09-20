@@ -18,9 +18,10 @@
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/nyiregyhaza/L-SOFT_logo.png", name: "L-SOFT", url: "https://www.lsoft.hu/", text:"Many thanks to L-SOFT for helping us out with Graphic designs."},
+		{ image: "/nyiregyhaza/L-SOFT_logo.png", name: "L-SOFT", url: "https://www.lsoft.hu/", text:"Many thanks to L-SOFT for financial support and helping us out with Graphic designs."},
 		{ image: "/nyiregyhaza/logo-eissmann.png", name: "Eissmann", url: "https://www.eissmann.com", text:"Thank you to Eissmann for providing tote bags, lanyards and pens for participants"},
-		{ image: "/nyiregyhaza/epam_logo_light.png", name: "EPAM", url: "https://www.epam.com/", text:"Thank you to EPAM for providing promotional gifts for participants"}
+		//{ image: "/nyiregyhaza/epam_logo_light.png", name: "EPAM", url: "https://www.epam.com/", text:"Thank you to EPAM for providing promotional gifts for participants"},
+		{ image: "/nyiregyhaza/g558.png", name: "DamidaSoft", url: "https://www.damidasoft.com/", text:"Thank you to DamidaSoft for financial support"}
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -29,6 +30,7 @@
 			title: "Saturday, September 27th",
 			items: [
 				{ event: "Start", time: "08:00 AM" },
+				{ event: "Preparing for end of day one", time: "07:00 PM" },
 				{ event: "End of day one", time: "08:00 PM" },
 			]
 		},
@@ -37,7 +39,7 @@
 			items: [
 				{ event: "Start", time: "08:00 AM" },
 				{ event: "Playtests", time: "06:00 PM" },
-				{ event: "Giving out rewards", time: "07:30 PM" },
+				{ event: "Giving out rewards and packing up", time: "07:30 PM" },
 				{ event: "End of event", time: "08:00 PM" },
 			]
 		}
@@ -791,6 +793,8 @@ Mumbai`.split("\n")
 				<p>This fall, we invite you to learn something new, make something you're really proud of, meet new friends, and go on an incredible adventure together.</p>
 
 				<p>Not only that, but you can win cool merch like sticker sheets, button pins and T-shirts by shipping your game!</p>
+
+				<p>More information can be found in our <a class="text-pink" target="_blank" href="https://discord.gg/YDV4z4CDDc">Discord</a></p>
 
 				<p class="mb-2">With love,</p>
 
