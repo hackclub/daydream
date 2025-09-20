@@ -9,10 +9,10 @@
 	// Configuration - Put your information here!
 	const eventName = "Bengaluru"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "Benagluru";
-	const eventAddress = "Dayanand Sagar University Bengaluru"; // Leave this empty if you don't want an address
+	const eventAddress = "Scaler School of Technology"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recQJb8ANIempxRxc"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = "https://maps.app.goo.gl/WTsjC83KM7vRA4Cc9"
+	const directionsURL = "https://maps.app.goo.gl/JkQ53siibWzqaQzJ9"
 	const contactLink = "mailto:bengaluru@daydream.hackclub.com"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
@@ -21,7 +21,7 @@
 		{ image: "/Bengaluru/xyz.png", name: ".xyz", url: "https://gen.xyz" },
 		{ image: "/Bengaluru/yubico.svg", name: "Yubico", url: "https://www.yubico.com" },
 		{ image: "/Bengaluru/cc.webp", name: "CodeCrafters", url: "https://codecrafters.io/" },
-		{ image: "/Bengaluru/dsu.png", name: "Dayanand Sagar University", url: "https://www.dsu.edu.in/" },		
+		{ image: "/Bengaluru/sst.webp", name: "Scaler School of Technology", url: "https://www.scaler.com/school-of-technology/" },	
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -29,26 +29,16 @@
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Doors open", time: "11:00 AM" },
-				{ event: "Opening ceremony", time: "12:00 PM" },
-				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Start working on your project!", time: "1:00 PM" },
-				{ event: "Workshop 1", time: "2:00 PM" },
-				{ event: "Activity 1", time: "4:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
-				{ event: "Dinner", time: "6:00 PM" },
-				{ event: "Lightning talks", time: "8:00 PM" },
-				{ event: "Midnight surprise", time: "12:00 AM" }
+			{ event: "Registration", time: "05:00 AM" },
+			{ event: "Hacking begins", time: "07:00 AM" },
+			{ event: "Lunch", time: "01:00 PM – 02:00 PM" },
+			{ event: "Submissions & Voting on Podium", time: "07:00 PM" },
+			{ event: "Awards & Closing Ceremony ", time: "08:00 PM " },
+			{ event: "Networking Dinner", time: "10:00 PM" },
+			{ event: "See ya next time", time: "10:30 PM" }
 			]
 		},
-		{
-			title: "Sunday, September 28th",
-			items: [
-				{ event: "Breakfast", time: "8:00 AM" },
-				{ event: "Demos!", time: "10:30 AM" },
-				{ event: "Closing ceremony", time: "12:00 PM" }
-			]
-		}
+		
 	];
 
 	
@@ -829,24 +819,23 @@ Mumbai`.split("\n")
 				<img src="flag-plane.png" alt="Hack Club" class="h-29">
 			</a>
 		</div>
-
-		   <div class="relative inline-block px-4">
-			   <h3
-				   class="text-3xl italic font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent w-max max-sm:text-2xl mx-auto"
-			   >
-				   Game jam for high schoolers
-			   </h3>
-			   <img
-				   src="underline.svg"
-				   alt=""
-				   class="absolute left-1/2 -translate-x-1/2 -mt-1 h-auto scale-115"
-			   />
-			   <h4
-				   class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
-			   >
-				   Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
-			   </h4>
-		   </div>
+		<div class="relative inline-block px-4">
+			<h3
+				class="text-3xl italic font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent w-max max-sm:text-2xl mx-auto"
+			>
+				Game jam for high schoolers
+			</h3>
+			<img
+				src="underline.svg"
+				alt=""
+				class="absolute left-1/2 -translate-x-1/2 -mt-1 h-auto scale-115"
+			/>
+			<h4
+				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
+			>
+				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
+			</h4>
+		</div>
 		
 		<ParticipantSignUp {signupLink} {eventName} />
 	</div>
