@@ -5,4 +5,5 @@ export const redirects = {
     "Pokhara": "pokhara",
     "Red Sea": "red-sea",
     "manila": "philippines",
+    "Heist-Op-Den-Berg": "heist-op-den-berg",
 }

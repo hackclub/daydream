@@ -10,16 +10,19 @@
 	const eventName = "London";
 	const eventLocation = "London";
 	const eventAddress = "1 Sutherland St, Pimlico, London SW1V 4LD"; // Leave this empty if you don't want an address
+	const eventVenue = "Ada, the National College for Digital Skills";
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recnT3dNX6oOSR37K"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional
-	const directionsURL = ""
-	// const contactLink = ""
+	const directionsURL = "https://www.google.com/maps/search/ada+the+national+college+for+digital+skills+london";
+	const contactLink = "mailto:london@daydream.hackclub.com";
 	
 	// Sponsors Configuration
-	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
+	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		// { image: "src/routes/cambridge/images/rpilogo.png", name: "The Raspberry Pi Foundation", url: "https://www.raspberrypi.org/" },
-		// { image: "https://assets.hackclub.com/icon-rounded.png", name: "Hack Club", url: "https://hackclub.com/" }
+		{ image: "/uk/ada.svg", name: "Ada, the National College for Digital Skills", url: "https://www.ada.ac.uk/" },
+		{ image: "/uk/sparta-logo-dark.svg", name: "Sparta Global", url: "https://www.spartaglobal.com/" },
+		// { image: "/uk/red-hat.svg", name: "Red Hat", url: "https://www.redhat.com/en" },
+		{ image: "/uk/pcbway-logo.svg", name: "PCBWay", url: "https://www.pcbway.com/" },
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -894,11 +897,85 @@ Mumbai`.split("\n")
 			</div>
 		</div>
 	</div>
-
-	<div class="w-full absolute z-30 max-h-64 bottom-0 max-2xl:translate-y-1/4 max-lg:translate-y-1/2 pointer-events-none">	
+	<div class="w-full absolute z-30 max-h-64 bottom-0 max-2xl:translate-y-1/4 max-lg:translate-y-1/2 pointer-events-none">
 		<img src="/cloud-cover-1.png" alt="" class="w-full h-full object-contain min-[2048px]:hidden">
 	</div>
+</div>
 
+<div class="w-full relative flex items-start justify-center">
+	<!-- background -->
+	<div class="absolute top-0 left-0 w-full h-full -z-50 bg-[#FCEFC5]"></div>
+	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-30 pointer-events-none -z-40"></div>
+
+	<div class="w-full max-w-4xl mx-auto px-8 pt-64 pb-8 z-10">
+		{#if eventAddress}
+			<h2 class="text-center font-sans text-4xl md:text-5xl font-extrabold text-[#60574b] z-10000 mb-6">
+				Daydream {eventName} is taking place at
+				<br>
+				{#if directionsURL}
+					<a class="underline text-pink" href={directionsURL}>{eventVenue}</a>!
+				{:else}
+					<span class="underline">{eventVenue}</span>!
+				{/if}
+			</h2>
+		{/if}
+
+		<div class="w-full mb-8">
+			<iframe width="100%"
+			        height="400"
+			        style="border:0; display: block; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"
+			        loading="lazy"
+			        allowfullscreen
+			        title="Venue Navigation"
+			        src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJNWsznDscdkgRcXyd1S2fVQs&key=AIzaSyA0cmOJ7NBQCvicdS1XNsBRIzTNjwJrA7I"></iframe>
+		</div>
+
+		<div class="bg-white/30 p-8 rounded-lg shadow-sm mb-36">
+			<h3 class="text-3xl font-serif text-[#60574b] mb-6 text-center">Getting here</h3>
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<div class="bg-white/50 p-6 rounded-lg">
+					<div class="flex items-center mb-4">
+						<img src="/uk/city-solid-full.svg" alt="" class="w-10 h-10 mr-3">
+						<h4 class="text-xl font-bold text-[#60574b]">Venue Location</h4>
+					</div>
+					<p class="text-[#60574b] text-lg">
+						Ada, the National College for Digital Skills<br>
+						1 Sutherland St<br>
+						Pimlico<br>
+						London<br>
+						SW1V 4LD<br>
+						United Kingdom
+					</p>
+				</div>
+				<div class="bg-white/50 p-6 rounded-lg">
+					<div class="flex items-center mb-4">
+						<img src="/uk/train-solid-full.svg" alt="" class="w-10 h-10 mr-3">
+						<h4 class="text-xl font-bold text-[#60574b]">By Rail</h4>
+					</div>
+					<ul class="space-y-2 text-[#60574b]">
+						<li>The <span class="font-bold">nearest station</span> is <span class="font-bold"><img src="/uk/national-rail.svg" alt="" class="w-5 h-5 mr-1 inline-block"><img src="/uk/underground-roundel.svg" alt="" class="w-5 h-5 mr-1 inline-block">Victoria</span>, which is just an <span class="font-bold">8 minute walk</span> from the venue!</li>
+						<li><span class="font-bold"><img src="/uk/underground-roundel.svg" alt="" class="w-5 h-5 mr-1 inline-block">Pimlico</span> is also a <span class="font-bold">14 minute walk</span> from the venue!</li>
+					    <li>Westmoreland Terrace and Sutherland Row bus stops are also right outside the venue!</li>
+					</ul>
+				</div>
+				<div class="bg-white/50 p-6 rounded-lg">
+					<div class="flex items-center mb-4">
+						<img src="/uk/car-solid-full.svg" alt="" class="w-10 h-10 mr-3">
+						<h4 class="text-xl font-bold text-[#60574b]">By Car</h4>
+					</div>
+					<ul class="space-y-2 text-[#60574b]">
+						<li><span class="font-bold">Parking:</span> There is <span class="font-bold">no parking</span> and <span class="font-bold">very limited drop-off on surrounding streets</span> available at the venue.</li>
+						<li>Nearby paid parking at <a class="underline text-pink" href="https://www.q-park.co.uk/en-gb/cities/london/pimlico">Q-Park Pimlico</a></li>
+						<li>Consider using public transport if possible due to congestion in central London.</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="w-full absolute z-30 max-h-64 bottom-0 max-2xl:translate-y-1/4 max-lg:translate-y-1/2 pointer-events-none">
+		<img src="/cloud-cover-1.png" alt="" class="w-full h-full object-contain min-[2048px]:hidden">
+	</div>
 </div>
 
 <!-- Schedule Container -->
@@ -984,63 +1061,35 @@ Mumbai`.split("\n")
 				<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">
 					Sponsors
 				</h2>
-				
+
 				<!-- Brush texture overlay for header -->
 				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
 			</div>
-			
+
 			<!-- Main Content Area -->
 			<div class="relative bg-gradient-to-b from-[#CCF4FD] to-[#AECDF6] px-8 pt-8 pb-16">
 				<!-- Brush texture overlay for content -->
 				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
-				<h2 class="text-4xl font-serif text-[#00000] text-center" style="padding:20px; font-size:extralarge">
-					Partner Sponsors
-				</h2>
 				<!-- Sponsors Grid -->
 				<div class="relative z-10 min-h-40">
 					{#if sponsors.length > 0}
-						<!-- First row (up to 4 sponsors) -->
-						{#if sponsors.length > 4}
-							<div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center mb-8">
-								{#each sponsors.slice(0, 4) as sponsor}
-									<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
-										<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
-									</a>
-								{/each}
-							</div>
-							
-							<!-- Second row (remaining sponsors, centered) -->
-							{#if sponsors.length > 4}
-								<div class="flex justify-center">
-									<div class="grid grid-cols-2 md:grid-cols-3 gap-8 items-center justify-items-center max-w-2xl">
-										{#each sponsors.slice(4) as sponsor, index}
-											<a href={sponsor.url} 
-												class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors {sponsors.slice(4).length === 3 && index === 2 ? 'md:col-span-1 col-span-2 max-w-xs mx-auto' : ''}" 
-												target="_blank" rel="noopener noreferrer">
-												<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
-											</a>
-										{/each}
-									</div>
-								</div>
-							{/if}
-						{:else}
-							<!-- Single row for 4 or fewer sponsors -->
-							<div class="flex justify-center">
-								<div class="grid gap-8 items-center justify-items-center max-w-4xl {sponsors.length === 1 ? 'grid-cols-1' : sponsors.length === 2 ? 'grid-cols-1 md:grid-cols-2' : sponsors.length === 3 ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-2 md:grid-cols-4'}">
-									{#each sponsors as sponsor}
-										<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
-											<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
-										</a>
-									{/each}
-								</div>
-							</div>
-						{/if}
+						<!-- Larger sponsor display -->
+						<div class="flex flex-wrap justify-center gap-10">
+							{#each sponsors as sponsor}
+								<a href={sponsor.url}
+								   class="bg-white/30 rounded-lg p-6 flex items-center justify-center hover:bg-white/50 transition-colors shadow-md transform hover:-translate-y-1 hover:shadow-lg transition-all duration-200"
+								   style="min-width: 240px; min-height: 120px; width: calc(33% - 20px);"
+								   target="_blank" rel="noopener noreferrer">
+									<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain" style="max-height: 80px;">
+								</a>
+							{/each}
+						</div>
 					{/if}
-					
+
 					{#if contactLink}
 						<!-- Call to action for sponsors -->
-						<div class="mt-8 text-center">
-							<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
+						<div class="mt-12 text-center">
+							<p class="text-xl text-[#335969] font-serif">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors font-bold">Get in touch</a></p>
 						</div>
 					{/if}
 				</div>
@@ -1179,27 +1228,12 @@ Mumbai`.split("\n")
 <div class="w-full bg-gradient-to-b from-[#FDC5D1] to-[#FAE3C9] items-center justify-center px-0 md:px-8 relative pt-36">
 	<div class="w-full max-w-5xl lg:max-w-6xl mx-auto px-2 md:px-8">
 		<div class="relative w-full min-w-72">
-			{#if eventAddress}
-				<h2 class="text-center font-sans text-4xl md:text-5xl font-extrabold pt-12 text-[#60574b] z-10000">
-					{#if directionsURL}
-						Daydream {eventName} is taking place at <a class="underline text-pink" href={directionsURL}>{eventAddress}</a>!
-					{:else}
-						Daydream {eventName} is taking place at <span class="underline">{eventAddress}</span>!
-					{/if}
-				</h2>
-			{/if}
-			<div style="height: 2rem;"></div>
-			<div style="display: flex; justify-content: center; align-items: center; width: 100%;">
-				<iframe width="1000" height="500" style="border:0; display: block;" loading="lazy" allowfullscreen
-src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJNWsznDscdkgRcXyd1S2fVQs&key=AIzaSyA0cmOJ7NBQCvicdS1XNsBRIzTNjwJrA7I"></iframe>
-			</div>
-			<div style="height: 20rem;"></div>
 			<img src="banner-city.png" alt="Find a Daydream Near You" class="absolute left-1/2 -translate-x-1/2 -translate-y-1/3 md:-translate-y-[40%] h-48 w-auto z-100 scale-[1.15] md:scale-[1.65] saturate-70 brightness-110 object-contain px-4 pointer-events-none">
-			
+
 			<!-- Map container with cloudy edges -->
 			<div class="relative w-full h-156 overflow-hidden bg-transparent">
-				<iframe 
-					src={eventAddress ? "/event-map?location=" + encodeURIComponent(eventAddress) : "/map"}
+				<iframe
+					src={eventAddress ? "/event-map?location={encodeURIComponent(eventAddress)}" : "/map"}
 					class="w-full h-full border-0 bg-[#acd4e0]"
 					style="
 						mask-image: 
@@ -1457,7 +1491,7 @@ src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJNWsznDscdkgRcXyd1
 			<img src="window-2.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24  opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">All this, for free?</h3>
-				<p class="text-sm">Yep! Food, swag and good vibes are all included.</p>
+				<p class="text-sm">Yep! Food, swag and good vibes are all included. <u><a href="https://www.jukeboxprint.com/custom-stickers">Custom stickers</a></u> provided by Jukebox!</p>
 			</div>
 		</div>
 

@@ -13,6 +13,12 @@
 	const sponsors = [
 		{ image: "/sao-paulo/codelab.png", name: "USP CodeLab", url: "https://codelab.ime.usp.br/#/" },
         { image: "/sao-paulo/hacksp.png", name: "Hack SP", url: "https://hacksp.org" },
+		{ image: "/sao-paulo/imeusp.png", name: "IME USP", url: "https://ime.usp.br" },
+		{ image: "/sao-paulo/gdgsp.png", name: "Google Developers Group Sao Paulo", url: "https://gdg.community.dev/gdg-sao-paulo/" },
+		{ image: "/sao-paulo/noic.webp", name: "NOIC", url: "https://noic.com.br/" },
+		{ image: "/sao-paulo/flg.png", name: "First Lego Girls", url: "https://www.instagram.com/firstlegogirls/" },
+		{ image: "/sao-paulo/lala.png", name: "LALA", url: "https://latinamericanleadershipacademy.org/" },
+		{ image: "/sao-paulo/JukeBox.png", name: "Jukebox", url: "https://www.jukeboxprint.com/custom-stickers" }
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -20,7 +26,7 @@
 		{
 			title: "Sábado, 27 de Setembro",
 			items: [
-				{ event: "Portas abertas", time: "9:00 AM" },
+				{ event: "Portas abertas", time: "8:00 AM" },
 				{ event: "Cerimonia de Abertura", time: "10:00 PM" },
                 { event: "Atividade de Abertura", time: "10:30 PM" },
                 { event: "Comece a trabalhar nos projetos!", time: "10:00 AM" },
@@ -1022,7 +1028,8 @@ Mumbai`.split("\n")
 					
 					{#if contactLink}
 						<!-- Call to action for sponsors -->
-						<div class="mt-8 text-center">
+						<div class="mt-8 text-center">]
+							<p>Grande agradecimento à Jukebox por nossos <a class="underline" href="https://www.jukeboxprint.com/custom-stickers">custom stickers</a>!</p>
 							<p class="text-lg text-[#335969]">Quer patrocinar Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Entre em contato.</a></p>
 						</div>
 					{/if}

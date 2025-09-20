@@ -30,22 +30,21 @@
 			schedule: {
 				title: "Program",
 				day1: "Cumartesi, 27 Eylül",
-				day2: "Pazar, 28 Eylül"
 			},
 			events: {
 				doorsOpen: "Kapılar açılıyor",
-				openingCeremony: "Açılış töreni",
-				lunch: "Öğle yemeği",
-				startProject: "Projeniz üzerinde çalışmaya başlayın!",
-				workshop1: "Workshop 1",
-				activity1: "Aktivite 1",
-				workshop2: "Workshop 2",
-				dinner: "Akşam yemeği",
-				lightningTalks: "Hızlı konuşmalar",
-				midnightSurprise: "Gece yarısı sürprizi",
-				breakfast: "Kahvaltı",
-				demos: "Demo'lar!",
-				closingCeremony: "Kapanış töreni"
+				openingCeremony: "Açıklanacak",
+				lunch: "Açıklanacak",
+				startProject: "Açıklanacak",
+				workshop1: "Açıklanacak",
+				activity1: "Açıklanacak",
+				workshop2: "Açıklanacak",
+				dinner: "Açıklanacak",
+				lightningTalks: "Açıklanacak",
+				midnightSurprise: "Açıklanacak",
+				breakfast: "Açıklanacak",
+				demos: "Açıklanacak",
+				closingCeremony: "Kapanış"
 			}
 		},
 		en: {
@@ -83,42 +82,63 @@
 	$: t = languages[currentLanguage];
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
-	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
+	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" },
-		{ image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
-		{ image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
-		{ image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
-		{ image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
-		{ image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
-		{ image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
+		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/d28a7d1ece5e0aad330ef5013dbeec9355df6eb3_image.png", name: "Tech İstanbul", url: "https://tech.istanbul/" },
 	];
+	const tech_istanbul_photos = [
+		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/3cd81713a03bb90c92bcc8e3ad7a54bf84e044d7_oip.webp",href:"https://hc-cdn.hel1.your-objectstorage.com/s/v3/3cd81713a03bb90c92bcc8e3ad7a54bf84e044d7_oip.webp"},
+		{image:"https://hc-cdn.hel1.your-objectstorage.com/s/v3/d9fef92efd4e4a1bab1700c7b461dceb7f9d6890_be2ec0f5c540b48312f48f3accf208aa.jpg.webp",href:"https://hc-cdn.hel1.your-objectstorage.com/s/v3/d9fef92efd4e4a1bab1700c7b461dceb7f9d6890_be2ec0f5c540b48312f48f3accf208aa.jpg.webp"}
+	];
+
+	// Past events showcase data (placeholder images)
+const pastEvents = [
+  {
+    image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/4efe245862fb94abbb2a027df2c9f81fe77c482f_img_1964.jpg",
+    title: "Trail",
+    location: "Pacific Crest Trail, USA",
+    date: "2024 Summer",
+    description: "Katılımcıların kendi yaptıkları elektronik ekipmanlarla 7 gün boyunca Pasifik Crest Patikası'nda yürüdüğü, türünün ilk örneği bir 'hikeathon'."
+  },
+  {
+    image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/ed15ac9d35cf12684efa3bd85a48260d3c2155cc_250a3227.jpg",
+    title: "Blossom",
+    location: "Atlanta, GA, USA",
+    date: "2024 March",
+    description: "Atlanta'daki en büyük cinsiyet odaklı hackathon. Genç kadınların teknoloji alanında güçlenmesini hedefleyen bir etkinlik."
+  },
+  {
+    image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/0ef857a047cf4edc28b577a5cf9bc3d2ac40f471_19.jpg",
+    title: "Haunted House",
+    location: "Chicago, USA",
+    date: "2023 October",
+    description: "Cadılar Bayramı temalı bu hackathon'da katılımcılar, web teknolojilerini kullanarak 'en korkunç perili ev deneyimini' yaratmak için yarıştılar."
+  },
+  {
+    image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/51ccc1820af736eee57d6b988250cf7ae23166bf_image.png",
+    title: "Epoch",
+    location: "New Delhi, India",
+    date: "2023 New Year's",
+    description: "Hack Club'ın Amerika dışındaki ilk büyük etkinliği. Yeni yılı kod yazarak karşılamak için dünyanın dört bir yanından lise öğrencilerini bir araya getirdi."
+  },
+  {
+    image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/e2a7854396d35c1de7f1532f2798857dfbe730e8_image.png",
+    title: "Assemble",
+    location: "San Francisco, USA",
+    date: "2022 Summer",
+    description: "Pandemi sonrası düzenlenen ilk büyük lise hackathon'u. Öğrenciler Figma'nın genel merkezinde bir araya gelerek projeler geliştirdiler."
+  },
+];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
 	$: scheduleData = [
 		{
 			title: t.schedule.day1,
 			items: [
-				{ event: t.events.doorsOpen, time: "11:00" },
-				{ event: t.events.openingCeremony, time: "12:00" },
-				{ event: t.events.lunch, time: "12:30" },
-				{ event: t.events.startProject, time: "13:00" },
-				{ event: t.events.workshop1, time: "14:00" },
-				{ event: t.events.activity1, time: "16:00" },
-				{ event: t.events.workshop2, time: "16:00" },
-				{ event: t.events.dinner, time: "18:00" },
-				{ event: t.events.lightningTalks, time: "20:00" },
-				{ event: t.events.midnightSurprise, time: "00:00" }
+				{ event: t.events.doorsOpen, time: "09:00" },
+				{ event: t.events.closingCeremony, time: "21:00" }
 			]
 		},
-		{
-			title: t.schedule.day2,
-			items: [
-				{ event: t.events.breakfast, time: "08:00" },
-				{ event: t.events.demos, time: "10:30" },
-				{ event: t.events.closingCeremony, time: "12:00" }
-			]
-		}
 	];
 
 	
@@ -126,8 +146,9 @@
 	import { gsap } from "gsap";
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
 	import Ticker from "$lib/components/Ticker.svelte";
-	import Footer from "$lib/components/Footer.svelte";
-	import ParticipantSignUp from "$lib/components/ParticipantSignUp.svelte";
+import Footer from "$lib/components/Footer.svelte";
+import ParticipantSignUp from "$lib/components/ParticipantSignUp.svelte";
+import PastEventsCarousel from "$lib/components/istanbul/PastEventsCarousel.svelte";
 	import { page } from '$app/stores';
 	
 	
@@ -141,7 +162,8 @@
 	$: pageKeywords = t.keywords;
 
 	// Cities where the game jam is happening
-	const cities = `Columbus
+	const cities = `
+Columbus
 Lisbon 
 Boston
 Giza
@@ -166,7 +188,8 @@ Minneapolis
 Seattle
 Signapore
 Sydney
-Mumbai`.split("\n")
+Mumbai
+Ve şimdi İstanbul'da!`.split("\n")
 
 	function createSmoothPath(points: Array<{ x: number; y: number }>) {
 		if (points.length < 2) return "";
@@ -917,7 +940,7 @@ Mumbai`.split("\n")
 			<h4
 				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
 			>
-				{currentLanguage === 'tr' ? 'İstanbul\'da Gençler Tarafından Düzenleniyor' : 'Organized by Teenagers in ' + eventLocation}
+				{currentLanguage === 'tr' ? '27 Eylül\'de Tech İstanbul\'da!' : 'Organized by Teenagers in ' + eventLocation}
 			</h4>
 		</div>
 		
@@ -1167,7 +1190,73 @@ Mumbai`.split("\n")
 	</div>
 </div>
 {/if}
+{#if sponsorsEnabled}
+<!-- Second Billboard Section -->
+<div class="w-full bg-[#FCEFC5] pb-16 pt-6 px-8 flex justify-center">
+	<div class="relative max-w-4xl w-full">
+		<!-- Billboard Container -->
+		<div class="relative bg-[#f0f9ff] border-[10px] border-b-[16px] border-[#888896] rounded-lg rounded-b-xl mx-auto z-40">
+			<!-- Header Section -->
+			<div class="w-full bg-[url('/billboard-bg-texture.png')] bg-contain bg-repeat py-6 relative" style="border-bottom: 8px solid #B4B4C5;">
+				<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">
+					{currentLanguage === 'tr' ? 'Tech İstanbul' : 'Tech İstanbul'}
+				</h2>
+				<!-- Brush texture overlay for header -->
+				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
 
+			</div>
+			<!-- Main Content Area -->
+			<div class="relative bg-gradient-to-b from-[#CCF4FD] to-[#AECDF6] px-8 pt-8 pb-16">
+				<!-- Brush texture overlay for content -->
+				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
+				
+				<!-- Sponsors Grid -->
+				<div class="relative z-10 min-h-40">
+									{#each tech_istanbul_photos as sponsor}
+										<a  href={sponsor.href} class="bg-white/20 rounded-lg p-4 w-full h-50 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
+											<img src={sponsor.image} class="max-w-full max-h-full object-contain">
+										</a>
+									{/each}
+				</div>
+
+				<!-- Past Events Carousel -->
+				<div class="relative z-10 mt-8">
+					<PastEventsCarousel heading={currentLanguage === 'tr' ? `Hack Club'ın düzenlediği bazı etkinlikler` : 'Past Events'} events={pastEvents} />
+				</div>
+			</div>
+			
+			<!-- Billboard Bars (bottom) -->
+			<div 
+				class="absolute bottom-0 -left-[5px] w-[calc(100%+10px)] h-6 bg-[url('/billboard-bars.png')] bg-repeat-x bg-contain bg-center pointer-events-none z-10 border-[#9898a7] border-x-[6px]"
+			></div>
+		</div>
+		
+		<!-- Connecting Pillars to First Billboard -->
+		<div 
+			class="absolute top-0 left-[15%] w-[10vw] max-w-12 h-32 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain -translate-y-32"
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
+		></div>
+		<div 
+			class="absolute top-0 right-[15%] w-[10vw] max-w-12 h-32 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain -translate-y-32"
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
+		></div>
+		
+		<!-- Billboard Pillars (extending down from bottom) -->
+		<div 
+			class="absolute bottom-0 left-[15%] w-[10vw] max-w-12 h-24 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain translate-y-24"
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
+		>
+			<div class="absolute bottom-0 left-0 w-full h-auto bg-[url('/clouds-loop.png')] bg-no-repeat bg-contain bg-bottom pointer-events-none aspect-[2/1]"></div>
+		</div>
+		<div 
+			class="absolute bottom-0 right-[15%] w-[10vw] max-w-12 h-24 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain translate-y-24"
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
+		>
+			<div class="absolute bottom-0 left-0 w-full h-auto bg-[url('/clouds-loop.png')] bg-no-repeat bg-contain bg-bottom pointer-events-none aspect-[2/1]"></div>
+		</div>
+	</div>
+</div>
+{/if}
 <!-- Gamejam Text Section -->
 <div class="w-full bg-[#FCEFC5] flex justify-center py-16 relative overflow-hidden max-h-[400px]">
 	<!-- Cloud backdrop for gamejam text -->

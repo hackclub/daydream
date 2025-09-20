@@ -9,10 +9,10 @@
 	// Configuration - Put your information here!
 	const eventName = "NYC"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "New York City";
-	const eventAddress = ""; // Leave this empty if you don't want an address
+	const eventAddress = "Gumbo NYC @ 53 Bridge St. Suite 301"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recScab6KjhWs1rGe"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = ""
+	const directionsURL = "https://www.google.com/maps/place/GUMBO/data=!4m7!3m6!1s0x89c25a32fb9aaaab:0x3d05061e9da872ce!8m2!3d40.7028059!4d-73.9843246!16s%2Fg%2F11h3df314h!19sChIJq6qa-zJawokRznKonR4GBT0?authuser=0&hl=en&rclk=1"
 	const contactLink = "mailto:nyc@daydream.hackclub.com"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
@@ -20,6 +20,7 @@
 	const sponsors = [
 		{ image: "/nyc/medal.png", name: "Medal", url: "https://medal.tv" },
 		{ image: "/nyc/jukebox-logo.svg", name: "Jukebox", url: "https://jukeboxprint.com" },
+		{ image: "https://static.wixstatic.com/media/2d4ffd_deb3c3847e6649f5923c78a8dd21aa60~mv2.png/v1/crop/x_54,y_0,w_1392,h_1503/fill/w_556,h_596,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/0Kc-k22A.png", name: "Makerspace NYC", url: "https://www.makerspace.nyc" },
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -1052,6 +1053,7 @@ Mumbai`.split("\n")
 					{#if contactLink}
 						<!-- Call to action for sponsors -->
 						<div class="mt-8 text-center">
+							<h3>Special thanks to Jukebox for sponsoring our Daydream NYC <a class="underline hover:text-[#477783] transition-colors" href="https://www.jukeboxprint.com/custom-stickers">custom stickers</a>!</h3>
 							<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
 						</div>
 					{/if}
@@ -1089,6 +1091,7 @@ Mumbai`.split("\n")
 		</div>
 	</div>
 </div>
+
 {/if}
 
 <!-- Gamejam Text Section -->

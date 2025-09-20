@@ -26,17 +26,18 @@
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Doors open", time: "11:00 AM" },
-				{ event: "Tour of HQ", time: "11:30 AM" },
-				{ event: "Opening announcement", time: "12:00 PM" },
+				{ event: "Doors Open", time: "11:30 AM" },
+				{ event: "venue tour, introductions", time: "12:00 AM" },
 				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Start working on your project!", time: "1:00 PM" },
-				{ event: "Workshop 1", time: "2:00 PM" },
-				{ event: "Activity 1", time: "4:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
-				{ event: "Folino's Pizza Party!", time: "6:00 PM" },
-				{ event: "Lightning talks", time: "8:00 PM" },
-				{ event: "Midnight surprise", time: "12:00 AM" }
+				{ event: "Workshops and tutorials", time: "1:00 PM" },
+				{ event: "Start working!", time: "2:00 PM" },
+				{ event: "Progress updates", time: "5:00 PM" },
+				{ event: "Folino's Pizza!", time: "6:00 PM" },
+				{ event: "share your learnings", time: "8:00 PM" },
+				{ event: "Midnight surprise", time: "12:00 AM" },
+				{ event: "breakfast", time: "9:30 AM" },
+				{ event: "showcase your game!", time: "10:00 AM" },
+				{ event: "get swag, doors close", time: "12:00 PM" }
 			]
 		},
 		{
