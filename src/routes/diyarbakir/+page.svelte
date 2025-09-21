@@ -26,7 +26,7 @@
 				title: "Diyarbakır'da Oyun Yaratın",
 				subtitle: "Lise öğrencileri için oyun geliştirme etkinliği",
 				cta: "Şimdi Kayıt Ol",
-				deadline: "Son Başvuru: 19 Eylül"
+				deadline: "Son Başvuru: <span style='text-decoration: line-through; text-decoration-thickness: 3px; text-decoration-color: red;'>19</span> 22 Eylül"
 			},
 			schedule: {
 				title: "Program",
@@ -57,7 +57,7 @@
 				title: "Create Games in Diyarbakır",
 				subtitle: "Game development event for high school students",
 				cta: "Register Now",
-				deadline: "Deadline: September 19th"
+				deadline: "Deadline: <span style='text-decoration: line-through; text-decoration-thickness: 3px; text-decoration-color: red;'>19</span> 22 September"
 			},
 			schedule: {
 				title: "Schedule",
@@ -1036,7 +1036,7 @@ Mumbai`.split("\n")
 			<!-- Son Başvuru Tarihi -->
 			<div class="mt-4 px-4 py-2 bg-gradient-to-r from-[#E472AB] to-[#F2993E] rounded-full shadow-lg">
 				<p class="text-lg font-sans font-bold text-white max-sm:text-base">
-					{t.hero.deadline}
+					{@html t.hero.deadline}
 				</p>
 			</div>
 		</div>

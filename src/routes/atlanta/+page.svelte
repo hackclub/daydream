@@ -26,7 +26,8 @@
                custom stickers</a>!
            </p>`		},
 		{ image: "/atlanta/WCT.png", name: "We Create Tech", url: "https://www.wecreatetech.org/" },
-		{ image: "/atlanta/gtsbe.png", name: "National Society of Black Engineers at Georgia Tech", url: "https://www.gtsbe.org/"}
+		{ image: "/atlanta/gtsbe.png", name: "National Society of Black Engineers at Georgia Tech", url: "https://www.gtsbe.org/"},
+		{ image: "/atlanta/WIT.png", name: "Women In Tech", url: "https://mywit.org/programs/wit-campus/"}
 	];
 	
 	
@@ -1018,6 +1019,9 @@ Mumbai`.split("\n")
 									<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
 										<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
 									</a>
+									<div class="mt-2 text-center text-sm">
+										{@html sponsor.text}
+									</div>
 								{/each}
 							</div>
 							
@@ -1031,6 +1035,9 @@ Mumbai`.split("\n")
 												target="_blank" rel="noopener noreferrer">
 												<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
 											</a>
+											<div class="mt-2 text-center text-sm">
+												{@html sponsor.text}
+											</div>
 										{/each}
 									</div>
 								</div>
@@ -1043,6 +1050,9 @@ Mumbai`.split("\n")
 										<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
 											<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
 										</a>
+										<div class="mt-2 text-center text-sm">
+											{@html sponsor.text}
+										</div>
 									{/each}
 								</div>
 							</div>

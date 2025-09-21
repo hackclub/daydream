@@ -32,27 +32,25 @@
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Registration & Breakfast", time: "8:00-9:00" },
+				{ event: "Breakfast", time: "8:00-9:00" },
 				{ event: "Opening Ceremony", time: "9:00-9:45" },
 				{ event: "Hacking Begins", time: "10:00-01:00" },
 				{ event: "Lunch", time: "01:00-02:00"},
 				{ event: "Workshop 1", time: "02:00-03:00" },
-				{ event: "Hacking Session", time: "03:00-06:00" },
-				{ event: "Workshop 2", time: "06:00-07:00" },
-				{ event: "Dinner", time: "07:00-08:00" },	
+				{ event: "Hacking Session", time: "03:00-07:00" },
+				{ event: "Workshop 2", time: "07:00-08:00" },
 			]
 		},
 		{
 			title: "Sunday, September 28th",
 			items: [
-				{ event: "Breakfast", time: "8:00-9:00" },
-				{ event: "Hacking Begins", time: "09:00-12:00" },
+				{ event: "Hacking Begins", time: "08:00-12:00" },
 				{ event: "Lunch", time: "12:00-01:00" },
 				{ event: "Workshop 3", time: "01:00:02:00" },
 				{ event: "Project Submission", time: "04:00-05:00" },
 				{ event: "Judging & Networking", time: "05:00-06:30" },
 				{ event: "Closing Ceremony + Prizes", time: "06:30-07:30" },
-				{ event: "Dinner & Farewell", time: "07:30-08:00" },
+				{ event: "Farewell", time: "07:30-08:00" },
 			]
 		}
 	];

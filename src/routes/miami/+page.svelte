@@ -9,9 +9,9 @@
 	// Configuration - Put your information here!
 	const eventName = "Miami";
 	const eventLocation = "Miami";
-	const eventAddress = "11200 SW 8th St, Miami, FL 33199"; // Leave this empty if you don't want an address
+	const eventAddress = "2750 NW 3rd Ave #24, Miami, FL 33127"; // Leave this empty if you don't want an address
 	// These two are optional
-	const directionsURL = ""
+	const directionsURL = "https://www.google.com/maps?rlz=1C5OZZY_enUS1153US1153&um=1&ie=UTF-8&fb=1&gl=us&sa=X&geocode=Ke9sR6SzttmIMekps3_yAPDl&daddr=2750+NW+3rd+Ave+%2324,+Miami,+FL+33127"
 	const contactLink = "mailto:miami@daydream.hackclub.com"
 	
 	// Sponsors Configuration
@@ -25,8 +25,14 @@
 		{ image: "/miami/CodeCrunch.png", name: "Code Crunch", url: "https://codecrunchglobal.vercel.app/home.html" },
 		{ image: "/miami/ColorStack.png", name: "ColorStack", url: "https://ba-00001.github.io/colorstackatfiu/" },
 		{ image: "/miami/CAHSI.png", name: "CAHSI @ FIU", url: "https://cahsiatfiu.vercel.app/" },
-		// { image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
-		// { image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
+		{ image: "/miami/Jukebox.png", name: "Jukebox", url: "https://www.jukeboxprint.com/custom-stickers",
+							text: `<p class="text-lg text-[#335969] text-center">
+				             Big shoutout to Jukebox for our
+				             <a href="https://www.jukeboxprint.com/custom-stickers"
+				                class="underline hover:text-[#477783] transition-colors">
+				               custom stickers</a>!
+				           </p>`		},
+		{ image: "/miami/BigDuckGames.png", name: "Big Duck Games LLC", url: "https://www.bigduckgames.com/" },
 		// { image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
 	];
 	
@@ -847,8 +853,9 @@ Mumbai`.split("\n")
 			>
 				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
 			</h4>
+			
 		</div>
-		
+
 		<ParticipantSignUp {signupLink} {eventName} />
 	</div>
 
@@ -1057,6 +1064,12 @@ Mumbai`.split("\n")
 					{#if contactLink}
 						<!-- Call to action for sponsors -->
 						<div class="mt-8 text-center">
+							<p class="text-lg text-[#335969] text-center">
+								Big shoutout to Jukebox for our
+									<a href="https://www.jukeboxprint.com/custom-stickers"
+									class="underline hover:text-[#477783] transition-colors">
+									custom stickers</a>!
+							</p>
 							<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
 						</div>
 					{/if}

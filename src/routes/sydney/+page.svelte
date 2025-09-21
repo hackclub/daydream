@@ -23,7 +23,9 @@
 		{ image: "/sydney/oshw.png", name: "oshw", url: "https://oshwlab.com/" },
 		{ image: "/sydney/easyeda.png", name: "easyeda", url: "https://easyeda.com/" },
 		{ image: "/sydney/logo_horizontal_black_registered.png", name: "janestreet", url: "https://www.janestreet.com/" },
-		{ image: "/sydney/jukebox-logo.svg", name: "jukebox", url: "https://www.jukeboxprint.com/" },
+		{ image: "/sydney/StickerCo.png", name: "StickerCo", url: "https://www.stickerco.au/" },
+		{ image: "/sydney/insertcoin.png", name: "Insert Coin", url: "https://www.insertcoinclothing.com/" },
+		{ image: "/sydney/fluffe.jpg", name: "Fluffe", url: "https://www.fluffe.com/" },
 
 	];
 	
@@ -37,10 +39,9 @@
 				{ event: "Start working on your project!", time: "11:00 AM" },
 				{ event: "Workshop 1", time: "11:00 AM" },
 				{ event: "Lunch", time: "1:00 PM" },
-				{ event: "Awesomesauce Activity", time: "4:00 PM" },
-				{ event: "Workshop 2", time: "5:00 PM" },
-				{ event: "Dinner", time: "6:00 PM" },
-				{ event: "End of Day 1", time: "8:00 PM" },
+				{ event: "Awesomesauce Activity", time: "3:00 PM" },
+				{ event: "Workshop 2", time: "4:00 PM" },
+				{ event: "End of Day 1", time: "6:00 PM" },
 			]
 		},
 		{
@@ -52,7 +53,7 @@
 				{ event: "Activity 2", time: "12:30 PM" },
 				{ event: "Lunch", time: "1:00 PM" },
 				{ event: "Ships close and voting starts", time: "3:00 PM" },
-				{ event: "Closing ceremony", time: "5:00 PM" }
+				{ event: "Closing ceremony", time: "5:00 PM" },
 			]
 		}
 	];
@@ -842,7 +843,7 @@ Mumbai`.split("\n")
 			<h4
 				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
 			>
-				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
+				Organized by Teenagers in Sydney
 			</h4>
 		</div>
 		

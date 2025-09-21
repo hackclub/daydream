@@ -12,7 +12,7 @@
 	const eventAddress = '1315 73 Ave SE, Calgary, AB T2H 2X1'; // Leave this empty if you don't want an address
 	const signupLink = 'https://forms.hackclub.com/daydream-sign-up?event=recNehsKm6EH39VzK'; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = '';
+	const directionsURL = 'https://maps.app.goo.gl/cnCCyAEB23EFg62C7';
 	const contactLink = 'mailto:DaydreamCalgary@gmail.com';
 
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
@@ -48,6 +48,16 @@
 			name: 'Hack Club',
 			url: 'https://hackclub.com/'
 		},
+		{ 
+			image: 'https://raw.githubusercontent.com/bcydc/daydream/refs/heads/main/static/sponsors/jukebox-logo.svg',
+			name: 'Jukebox',
+			url: 'https://www.jukeboxprint.com/' 
+		},
+		{ 
+			image: 'https://scrapyard.hackclub.com/city/calgary/sponsors/polymaker.webp',
+			name: 'Polymaker',
+			url: 'https://polymaker.com/' 
+		},
 
 	];
 
@@ -56,36 +66,30 @@
 		{
 			title: 'Saturday, September 27th',
 			items: [
-				{ event: 'Doors open', time: '11:00 AM' },
-				{ event: 'Opening ceremony', time: '12:00 PM' },
+				{ event: 'Doors open', time: '9:00 AM' },
+				{ event: 'Opening ceremony', time: '9:20AM' },
 				{ event: 'Lunch', time: '12:30 PM' },
-				{ event: 'Start Projects', time: '1:00 PM' },
 				{ event: 'Workshop 1', time: '1:00 PM' },
 				{ event: 'Break', time: '3:00 PM' },
 				{ event: 'End of Workshop 1', time: '3:00 PM' },
 				{ event: 'Continue working on Projects', time: '4:00 PM' },
 				{ event: 'Workshop 2', time: '4:00 PM' },
 				{ event: 'Dinner Time!', time: '6:00 PM' },
-				{ event: 'Keep Working!', time: '7:00 PM' },
-				{ event: 'Fun Activities, Games, and Sharing your progress!', time: '9:00 PM' },
-				{ event: 'Goodbyes', time: '11:00 PM' }
+				{ event: 'Fun Activities, Games, and Sharing your progress!', time: '7:30 PM' },
+				{ event: 'Goodbyes', time: '8:30 PM' }
 			]
 		},
 		{
 			title: 'Sunday, September 28th',
 			items: [
-				{ event: 'Doors open', time: '11:00 AM' },
-				{ event: 'Opening talk', time: '12:00 PM' },
+				{ event: 'Doors open', time: '9:00 AM' },
+				{ event: 'Opening talk', time: '9:20 AM' },
 				{ event: 'Lunch', time: '12:30 PM' },
-				{ event: 'Continue working on Projects', time: '1:00 PM' },
-				{ event: 'Break', time: '3:00 PM' },
-				{ event: 'Workshop 3', time: '4:00 PM' },
-				{ event: 'Dinner Time!', time: '6:00 PM' },
-				{ event: 'Continue working on Projects', time: '7:00 PM' },
-				{ event: 'Submit Projects for Voting', time: '9:00 PM' },
-				{ event: 'Voting!', time: '10:00 PM' },
-				{ event: 'Ending Ceremony', time: '10:30 PM' },
-				{ event: 'Final Goodbyes', time: '11:00 PM' }
+				{ event: 'Workshop 3', time: '2:00 PM' },
+				{ event: 'Submit Projects for Voting', time: '6:30 PM' },
+				{ event: 'Dinner & Voting!', time: '7:00 PM' },
+				{ event: 'Ending Ceremony', time: '8:00 PM' },
+				{ event: 'Final Goodbyes', time: '8:30 PM' }
 			]
 		}
 	];
@@ -893,6 +897,12 @@ Mumbai`.split('\n');
 				Organized by Teenagers in {@html eventLocation.replaceAll(' ', '&nbsp;')}
 			</h4>
 		</div>
+
+			<!-- NEVER NEVER NEVER REMOVE THIS UNDER ANY CIRCUMSTANCES
+			     OR WE END UP ON THE HOOK FOR $700 TO JUKEBOX. -->
+			<div class="mt-4 text-md text-[#4579a5]">
+				<a href="https://www.jukeboxprint.com/custom-stickers" class="text-blue-600 hover:text-blue-800 underline">Custom stickers</a> provided by Jukebox!
+			</div>
 
 		<ParticipantSignUp {eventName} />
 	</div>

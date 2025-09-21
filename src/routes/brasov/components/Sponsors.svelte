@@ -4,7 +4,7 @@
 
     const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
     const sponsors: { image: string; name: string; url: string }[] = [
-        // { image: '/example/logo1.png', name: 'Sponsor 1', url: 'https://example1.com' },
+        {image: '/brasov/jukebox.png', name: 'Jukebox', url: 'https://www.jukeboxprint.com/custom-stickers'},
         // { image: '/example/logo2.png', name: 'Sponsor 2', url: 'https://example2.com' },
         // { image: '/example/logo3.png', name: 'Sponsor 3', url: 'https://example3.com' },
         // { image: '/example/logo4.png', name: 'Sponsor 4', url: 'https://example4.com' },
@@ -86,6 +86,12 @@
                                 </div>
                             {/if}
                         {/if}
+                        <div class="mt-8 text-center">
+                            <p class="text-lg text-[#335969]">Big shoutout to Jukebox for our <a
+                                    href={'https://www.jukeboxprint.com/custom-stickers'}
+                                    class="underline hover:text-[#477783] transition-colors">custom stickers</a>!
+                            </p>
+                        </div>
 
                         {#if contactLink}
                             <!-- Call to action for sponsors -->
