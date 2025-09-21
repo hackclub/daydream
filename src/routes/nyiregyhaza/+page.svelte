@@ -1,4 +1,5 @@
 <script lang="ts">
+	let screenWidth = 0
 	/**
 	 * This is the template site! Create a copy of this folder (src/routes/example)
 	 * and rename it to whatever you want your URL to be.
@@ -522,6 +523,7 @@ Mumbai`.split("\n")
 	}
 
 	onMount(() => {
+		screenWidth = window.screen.width
 		console.log('User city:', data.userCity);
 		
 		// Register GSAP plugins
@@ -884,7 +886,9 @@ Mumbai`.split("\n")
 				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
 					<a href="https://www.jukeboxprint.com/custom-stickers" class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
 						<img src="/nyiregyhaza/jukebox.webp" alt="Jukebox Print" class="max-w-full max-h-full object-contain">
-						<p class="text-xl m-2">Big shoutout to Jukebox for our custom stickers!</p>
+						{#if screenWidth > 615}
+						<p class="text-xl m-2 h-auto">Big shoutout to Jukebox for our custom stickers!</p>
+						{/if}
 					</a>
 				<!-- Sponsors Grid -->
 				<div class="relative z-10 min-h-40">
@@ -893,7 +897,7 @@ Mumbai`.split("\n")
 						{#if sponsors.length > 4}
 							<div class="grid grid-cols-1 md:grid-cols-1 gap-8 items-center justify-items-center mb-8">	
 								{#each sponsors.slice(0, 4) as sponsor}
-									<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 m-1 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
+									<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 m-1 w-full h-120 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
 										<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
 										<p class="text-xl m-2">{sponsor.text}</p>
 									</a>
@@ -921,7 +925,10 @@ Mumbai`.split("\n")
 									{#each sponsors as sponsor}
 										<div>
 											<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors m-1" target="_blank" rel="noopener noreferrer">
-												<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain"> <p class="text-xl m-2">{sponsor.text}</p>
+												<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain"> 
+												{#if screenWidth > 615}
+												<p class="text-xl m-2">{sponsor.text}</p>
+												{/if}
 											</a>
 										</div>
 									{/each}
