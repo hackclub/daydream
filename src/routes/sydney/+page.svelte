@@ -25,7 +25,7 @@
 		{ image: "/sydney/logo_horizontal_black_registered.png", name: "janestreet", url: "https://www.janestreet.com/" },
 		{ image: "/sydney/StickerCo.png", name: "StickerCo", url: "https://www.stickerco.au/" },
 		{ image: "/sydney/insertcoin.png", name: "Insert Coin", url: "https://www.insertcoinclothing.com/" },
-		{ image: "/sydney/fluffe.jpg", name: "Fluffe", url: "https://www.fluffe.com/" },
+		{ image: "/sydney/fluffe.png", name: "Fluffe", url: "https://www.fluffe.com/" },
 
 	];
 	
