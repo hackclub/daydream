@@ -23,8 +23,8 @@
 		{ image: "/sydney/oshw.png", name: "oshw", url: "https://oshwlab.com/" },
 		{ image: "/sydney/easyeda.png", name: "easyeda", url: "https://easyeda.com/" },
 		{ image: "/sydney/logo_horizontal_black_registered.png", name: "janestreet", url: "https://www.janestreet.com/" },
-		{ image: "/sydney/StickerCo.png", name: "StickerCo", url: "https://www.stickerco.au/" },
-		{ image: "/sydney/insertcoin.png", name: "Insert Coin", url: "https://www.insertcoinclothing.com/" },
+		{ image: "/sydney/Sstickercofixed.png", name: "StickerCo", url: "https://www.stickerco.au/" },
+		{ image: "/sydney/insertcoinfixed.png", name: "Insert Coin", url: "https://www.insertcoinclothing.com/" },
 		{ image: "/sydney/fluffe.png", name: "Fluffe", url: "https://www.fluffe.com/" },
 
 	];
