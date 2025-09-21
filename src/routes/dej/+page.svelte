@@ -8,11 +8,11 @@
 
 	// Configuration - Put your information here!
 	const eventName = "Dej"; // This should be the name of your event WITHOUT "Daydream" at the start
-	const eventLocation = "Dej";
-	const eventAddress = "Colegiul National Andrei Muresanu Dej"; // Leave this empty if you don't want an address
+	const eventLocation = "Dej";s
+	const eventAddress = "Liceul Teoretic "Alexandru Papiu Ilarian" Dej"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recs4m15djXdvqZmR"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = "https://maps.app.goo.gl/1srPkuQTgra7isAS6"
+	const directionsURL = "https://www.google.com/maps/place/Liceul+Teoretic+Alexandru+Papiu+Ilarian/@47.1422047,23.8721899,18.54z/data=!4m6!3m5!1s0x4749b89b3fb0ffd1:0xbf6db68877e47285!8m2!3d47.1415854!4d23.8729419!16s%2Fg%2F1tfhycn7?entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D"
 	const contactLink = "mailto:dej@daydream.hackclub.com"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
@@ -48,7 +48,7 @@
 		{
 			title: "Duminică, 28 Septembrie",
 			items: [
-				{ event: "Micul Dej", time: "08:00" },
+				{ event: "Micul dejun", time: "08:00" },
 				{ event: "Prezentarea proiectelor", time: "10:30" },
 				{ event: "Festivitatea de premiere", time: "13:00" }
 			]
