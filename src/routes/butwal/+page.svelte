@@ -12,7 +12,7 @@
 	const eventAddress = "Arambha Resort, Butwal, Nepal"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = "https://www.google.com/maps/search/arambha+resort+butwal+nepal"
+	const directionsURL = "https://maps.app.goo.gl/cJbgp8vCCte52R3k9"
 	const contactLink = "mailto:daydream@butwalhacks.com"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
@@ -32,29 +32,24 @@
 	let sponsorTiers: SponsorTier[] = [];
 	const sponsors = [];
 	
-	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
+	// Schedule Configuration - Our creative team is cooking up something amazing!
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
 		{
-			title: "Saturday, September 27th",
+			title: "📅 October 10, 2025",
 			items: [
-				{ event: "Doors open", time: "11:00 AM" },
-				{ event: "Opening ceremony", time: "12:00 PM" },
-				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Start working on your project!", time: "1:00 PM" },
-				{ event: "Workshop 1", time: "2:00 PM" },
-				{ event: "Activity 1", time: "4:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
-				{ event: "Dinner", time: "6:00 PM" },
-				{ event: "Lightning talks", time: "8:00 PM" },
-				{ event: "Midnight surprise", time: "12:00 AM" }
+				{ event: "🚧 Our amazing team is crafting the perfect schedule", time: "Right now!" },
+				{ event: "✨ Expect workshops, coding sessions, and surprises", time: "Both days" },
+				{ event: "🎯 Food, fun, and fantastic projects await", time: "24 hours" },
+				{ event: "🎪 Stay tuned for the full adventure lineup!", time: "Coming soon" }
 			]
 		},
 		{
-			title: "Sunday, September 28th",
+			title: "📅 October 11, 2025",
 			items: [
-				{ event: "Breakfast", time: "8:00 AM" },
-				{ event: "Demos!", time: "10:30 AM" },
-				{ event: "Closing ceremony", time: "12:00 PM" }
+				{ event: "🌟 Epic game development experience", time: "Guaranteed" },
+				{ event: "🍕 Delicious meals and snacks", time: "When hungry" },
+				{ event: "🏆 Amazing prizes and recognition", time: "For everyone" },
+				{ event: "🤝 New friendships and memories", time: "Lifelong" }
 			]
 		}
 	];
@@ -77,6 +72,17 @@
 	$: pageTitle = `Daydream ${eventName} - ${eventLocation} Game Jam`;
 	$: pageDescription = `Join Daydream ${eventName} in ${eventLocation}! A teen-led game jam where you'll build amazing games with other high schoolers. Food, workshops, and prizes included!`;
 	$: pageKeywords = `game jam, hackathon, teen coding, Hack Club, game development, ${eventLocation}, ${eventName}`;
+
+	// RSVP Email handling
+	let email = "";
+
+	function handleRSVPSubmit(event: Event) {
+		event.preventDefault();
+		if (email) {
+			const signupUrl = `https://forms.hackclub.com/daydream-sign-up?email=${encodeURIComponent(email)}&event=rect8rngYq4Ew2Xmn`;
+			window.open(signupUrl, '_blank');
+		}
+	}
 
 	// Cities where the game jam is happening
 	const cities = `Columbus
@@ -823,7 +829,7 @@ Mumbai`.split("\n")
 			<h2
 			class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
 			>
-			Butwal at September 27th & 28th
+			Butwal at October 10th & 11th
 			</h2>
 			<img src="daydream.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
 			<a href="https://butwalhacks.com" class="absolute top-0 -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
@@ -848,24 +854,32 @@ Mumbai`.split("\n")
 			</h4>
 		</div>
 		
-		<div class="flex flex-col sm:flex-row items-center justify-center gap-4 my-8">
-			<a
-				href="https://forms.hackclub.com/daydream-sign-up"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="px-10 py-4 rounded-full font-sans text-lg sm:text-xl font-semibold text-white bg-gradient-to-r from-[#F472B6] via-[#E879F9] to-[#6366F1] shadow-[0_6px_0_0_#9d3d75] hover:shadow-[0_8px_0_0_#7a2e59] active:shadow-[0_2px_0_0_#7a2e59] active:translate-y-0.5 transition-all duration-150 focus:outline-none focus:ring-4 focus:ring-pink-300/40"
-				style="background-image: linear-gradient(90deg,#F472B6,#E879F9,#6366F1);"
-			>
-				Sign Up
-			</a>
-			<a
-				href="https://butwalhacks.com" 
-				target="_blank" 
-				rel="noopener noreferrer"
-				class="px-10 py-4 rounded-full font-sans text-lg sm:text-xl font-semibold text-[#335969] bg-gradient-to-r from-[#FCEFC5] via-[#FFD6E8] to-[#CCF4FD] shadow-[0_6px_0_0_#b7b7c5] hover:shadow-[0_8px_0_0_#9d9daa] active:shadow-[0_2px_0_0_#9d9daa] active:translate-y-0.5 transition-all duration-150 focus:outline-none focus:ring-4 focus:ring-[#FFD6E8]/50"
-			>
-				More Info / Visit Site
-			</a>
+		<!-- RSVP Email Section -->
+		<div class="text-center mt-8">
+			<h3 class="text-white text-xl sm:text-2xl font-serif mb-4 opacity-95">
+				Ready to join the adventure?
+			</h3>
+			<p class="text-white text-base font-sans mb-6 max-w-lg mx-auto leading-relaxed opacity-95">
+				Get ready for 24 hours of coding, creativity, and community in beautiful Butwal!
+			</p>
+			<form on:submit={handleRSVPSubmit} class="flex flex-col items-center justify-center gap-4 max-w-lg mx-auto px-4">
+				<div class="w-full max-w-sm">
+					<input
+						type="email"
+						bind:value={email}
+						placeholder="Enter your email address"
+						required
+						class="w-full px-6 py-4 rounded-2xl bg-white/95 backdrop-blur-sm text-gray-800 font-sans placeholder-gray-500 focus:outline-none focus:ring-3 focus:ring-blue-300/50 text-center transition-all duration-200 shadow-lg border border-white/20"
+					/>
+				</div>
+				<button
+					type="submit"
+					class="px-12 py-4 rounded-2xl font-sans text-lg font-bold text-white bg-gradient-to-r from-[#F472B6] via-[#E879F9] to-[#6366F1] shadow-[0_6px_0_0_#9d3d75] hover:shadow-[0_8px_0_0_#7a2e59] hover:scale-105 active:shadow-[0_3px_0_0_#7a2e59] active:translate-y-1 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-pink-300/40 will-change-transform"
+					style="background-image: linear-gradient(90deg,#F472B6,#E879F9,#6366F1);"
+				>
+					Join Daydream Butwal
+				</button>
+			</form>
 		</div>
 	</div>
 
@@ -979,10 +993,10 @@ Mumbai`.split("\n")
 </div>
 
 <!-- Schedule Container -->
-<div class="w-full bg-[#FCEFC5] py-16 px-8 flex justify-center">
+<div class="w-full bg-[#FCEFC5] pt-16 px-8 flex justify-center">
 	<div class="relative max-w-4xl w-full">
 		<!-- Billboard Container -->
-		<div class="relative bg-[#f0f9ff] border-[10px] border-b-[16px] border-[#888896] rounded-lg rounded-b-xl mx-auto z-40">
+		<div class="relative bg-[#f0f9ff] border-[10px] border-[#888896] rounded-t-lg mx-auto z-40">
 			<!-- Billboard Lights (top) -->
 			<img 
 				src="/billboard-lights.png" 
@@ -1027,35 +1041,119 @@ Mumbai`.split("\n")
 					{/each}
 				</div>
 			</div>
-			
-			<!-- Billboard Bars (bottom) -->
-			<div 
-				class="absolute bottom-0 -left-[5px] w-[calc(100%+10px)] h-6 bg-[url('/billboard-bars.png')] bg-repeat-x bg-contain bg-center pointer-events-none z-10 border-[#9898a7] border-x-[6px]"
-			></div>
 		</div>
 		
-		<!-- Billboard Pillars -->
+		<!-- Billboard Pillars (left) -->
 		<div 
-			class="absolute top-1/2 left-[15%] w-[10vw] max-w-12 -bottom-12 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain"
+			class="absolute top-1/2 left-[15%] w-[10vw] max-w-12 bottom-0 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain"
 			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
-		>
-			<div class="absolute bottom-0 left-0 w-full h-auto bg-[url('/clouds-loop.png')] bg-no-repeat bg-contain bg-bottom pointer-events-none aspect-[2/1]"></div>
-		</div>
+		></div>
+		<!-- Billboard Pillars (right) -->
 		<div 
-			class="absolute top-1/2 right-[15%] w-[10vw] max-w-12 -bottom-12 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain"
+			class="absolute top-1/2 right-[15%] w-[10vw] max-w-12 bottom-0 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain"
 			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
-		>
-			<div class="absolute bottom-0 left-0 w-full h-auto bg-[url('/clouds-loop.png')] bg-no-repeat bg-contain bg-bottom pointer-events-none aspect-[2/1]"></div>
+		></div>
+		
+		<!-- Connection Pillar (left) - between Schedule and Venue -->
+		<div 
+			class="absolute bottom-0 left-[22%] w-[6vw] max-w-8 h-8 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain z-50"
+			style="box-shadow: inset 0 4px 8px -4px rgba(0, 0, 0, 0.2);"
+		></div>
+		
+		<!-- Connection Pillar (right) - between Schedule and Venue -->
+		<div 
+			class="absolute bottom-0 right-[22%] w-[6vw] max-w-8 h-8 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain z-50"
+			style="box-shadow: inset 0 4px 8px -4px rgba(0, 0, 0, 0.2);"
+		></div>
+		
+		<!-- Connection Bar - between pillars -->
+		<div 
+			class="absolute bottom-2 left-[22%] right-[22%] h-4 bg-[url('/billboard-bars.png')] bg-repeat-x pointer-events-none bg-contain z-45"
+			style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"
+		></div>
+		
+		<!-- Small decorative clouds around connection -->
+		<div class="absolute bottom-0 left-1/3 w-12 h-6 bg-[url('/cloud-1.png')] bg-contain bg-no-repeat opacity-40 pointer-events-none z-40"></div>
+		<div class="absolute bottom-0 right-1/3 w-12 h-6 bg-[url('/cloud-2.png')] bg-contain bg-no-repeat opacity-40 pointer-events-none z-40"></div>
+	</div>
+</div>
+
+<!-- Map Section -->
+<div class="w-full bg-[#FCEFC5] px-8 flex justify-center">
+	<div class="relative max-w-4xl w-full">
+		<!-- Billboard Container -->
+		<div class="relative bg-[#f0f9ff] border-l-[10px] border-r-[10px] border-[#888896] mx-auto z-40">
+			<!-- Header Section -->
+			<div class="w-full bg-[url('/billboard-bg-texture.png')] bg-contain bg-repeat py-6 relative" style="border-bottom: 8px solid #B4B4C5;">
+				<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">
+					Venue
+				</h2>
+				<!-- Brush texture overlay for header -->
+				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
+			</div>
+			
+			<!-- Main Content Area -->
+			<div class="relative bg-gradient-to-b from-[#CCF4FD] to-[#AECDF6] px-8 pt-8 pb-16">
+				<!-- Brush texture overlay for content -->
+				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
+				
+				<!-- Map Content -->
+				<div class="relative z-10">
+					<!-- Map container with cloudy edges -->
+					<div class="relative w-full h-96 overflow-hidden bg-transparent rounded-lg">
+						<iframe 
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.1895!2d83.4095413!3d27.6805404!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399688a953a13713%3A0xbc3ce305d1e70f0f!2sAramba%20Resort%20Nayagaun%2C%20Butwal!5e0!3m2!1sen!2snp!4v1700000000000!5m2!1sen!2snp"
+							class="w-full h-full border-0 bg-[#acd4e0] rounded-lg"
+							allowfullscreen="" 
+							loading="lazy" 
+							referrerpolicy="no-referrer-when-downgrade"
+							title="Aramba Resort - Daydream Butwal Venue">
+						</iframe>
+					</div>
+					
+					{#if eventAddress}
+						<p class="text-center font-sans text-xl pt-6 text-[#335969]">
+							{#if directionsURL}
+								Daydream {eventName} is taking place at <a class="underline text-pink-600 hover:text-pink-800" href={directionsURL} target="_blank" rel="noopener noreferrer">{eventAddress}</a>!
+							{:else}
+								Daydream {eventName} is taking place at <span class="underline">{eventAddress}</span>!
+							{/if}
+						</p>
+					{/if}
+				</div>
+			</div>
 		</div>
+		
+		<!-- Connection Pillar (left) - between Venue and Sponsors -->
+		<div 
+			class="absolute bottom-0 left-[22%] w-[6vw] max-w-8 h-8 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain z-50"
+			style="box-shadow: inset 0 4px 8px -4px rgba(0, 0, 0, 0.2);"
+		></div>
+		
+		<!-- Connection Pillar (right) - between Venue and Sponsors -->
+		<div 
+			class="absolute bottom-0 right-[22%] w-[6vw] max-w-8 h-8 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain z-50"
+			style="box-shadow: inset 0 4px 8px -4px rgba(0, 0, 0, 0.2);"
+		></div>
+		
+		<!-- Connection Bar - between pillars -->
+		<div 
+			class="absolute bottom-2 left-[22%] right-[22%] h-4 bg-[url('/billboard-bars.png')] bg-repeat-x pointer-events-none bg-contain z-45"
+			style="box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"
+		></div>
+		
+		<!-- Small decorative clouds around connection -->
+		<div class="absolute bottom-0 left-1/5 w-10 h-5 bg-[url('/cloud-1.png')] bg-contain bg-no-repeat opacity-30 pointer-events-none z-40"></div>
+		<div class="absolute bottom-0 right-1/5 w-10 h-5 bg-[url('/cloud-2.png')] bg-contain bg-no-repeat opacity-30 pointer-events-none z-40"></div>
 	</div>
 </div>
 
 {#if sponsorsEnabled}
-<!-- Second Billboard Section -->
-<div class="w-full bg-[#FCEFC5] pb-16 pt-6 px-8 flex justify-center">
+<!-- Sponsors Section -->
+<div class="w-full bg-[#FCEFC5] pb-16 px-8 flex justify-center">
 	<div class="relative max-w-4xl w-full">
 		
-		<div class="relative bg-[#f0f9ff] border-[10px] border-b-[16px] border-[#888896] rounded-lg rounded-b-xl mx-auto z-40">
+		<div class="relative bg-[#f0f9ff] border-[10px] border-b-[16px] border-[#888896] rounded-b-lg rounded-b-xl mx-auto z-40">
 			
 			<div class="w-full bg-[url('/billboard-bg-texture.png')] bg-contain bg-repeat py-6 relative" style="border-bottom: 8px solid #B4B4C5;">
 				<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">
@@ -1093,7 +1191,25 @@ Mumbai`.split("\n")
 					{#if contactLink}
 						<div class="mt-8 text-center">
 							<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
-							<p class="text-sm mt-4">See full sponsorship tiers: <a href="/sponsor-us" class="text-blue-700 underline hover:text-pink-600 transition-colors">/sponsor-us</a></p>
+							
+							<!-- Prominent Sponsor Button -->
+							<div class="mt-6">
+								<a 
+									href="https://daydream.butwalhacks.com/sponsor-us" 
+									target="_blank" 
+									rel="noopener noreferrer"
+									class="inline-block bg-gradient-to-r from-[#FF6B6B] to-[#4ECDC4] text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 hover:from-[#FF5252] hover:to-[#26A69A]"
+								>
+									🎯 Become a Sponsor
+								</a>
+							</div>
+							
+							<p class="text-sm mt-4 text-[#477783]">
+								View full sponsorship tiers and benefits at: 
+								<a href="https://daydream.butwalhacks.com/sponsor-us" target="_blank" rel="noopener noreferrer" class="text-blue-700 underline hover:text-pink-600 transition-colors font-medium">
+									daydream.butwalhacks.com/sponsor-us
+								</a>
+							</p>
 						</div>
 					{/if}
 				</div>
@@ -1126,54 +1242,6 @@ Mumbai`.split("\n")
 </div> 
 
 {/if}
-
-<!-- Venue Section -->
-<div class="w-full bg-[#FCEFC5] pb-16 pt-6 px-8 flex justify-center">
-	<div class="relative max-w-4xl w-full">
-		<div class="relative bg-[#f0f9ff] border-[10px] border-b-[16px] border-[#888896] rounded-lg rounded-b-xl mx-auto z-40">
-			<div class="w-full bg-[url('/billboard-bg-texture.png')] bg-contain bg-repeat py-6 relative" style="border-bottom: 8px solid #B4B4C5;">
-				<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">
-					Venue
-				</h2>
-				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
-			</div>
-			<div class="relative bg-gradient-to-b from-[#CCF4FD] to-[#AECDF6] px-8 pt-8 pb-16">
-				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
-				<div class="relative z-10 min-h-40 flex flex-col items-center justify-center">
-					<img src="/map-flag.png" alt="Venue Map" class="w-20 h-20 object-contain mb-4" />
-					<h3 class="text-2xl font-bold text-center mb-2 text-[#335969]">Arambha Resort</h3> 
-					<p class="text-lg text-[#335969] text-center mb-4">Butwal, Nepal</p>
-					<p class="text-lg text-[#335969] text-center mb-4">A perfect venue for our hackathon with great facilities and a beautiful environment!</p>
-					
-					<!-- Embedded Map -->
-					<div class="w-full max-w-2xl h-64 mb-4 rounded-lg overflow-hidden border-2 border-[#335969]/20">
-						<iframe 
-							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3563.2!2d83.4!3d27.7!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDQyJzAwLjAiTiA4M8KwMjQnMDAuMCJF!5e0!3m2!1sen!2snp!4v1600000000000!5m2!1sen!2snp"
-							width="100%" 
-							height="100%" 
-							style="border:0;" 
-							allowfullscreen 
-							loading="lazy" 
-							referrerpolicy="no-referrer-when-downgrade"
-							title="Arambha Resort Location">
-						</iframe>
-					</div>
-
-					<a href="https://www.google.com/maps/search/arambha+resort+butwal+nepal" target="_blank" class="underline text-blue-700 hover:text-blue-900">View on Google Maps</a>
-				</div>
-			</div>
-			<div class="absolute bottom-0 -left-[5px] w-[calc(100%+10px)] h-6 bg-[url('/billboard-bars.png')] bg-repeat-x bg-contain bg-center pointer-events-none z-10 border-[#9898a7] border-x-[6px]"></div>
-		</div>
-		<div class="absolute top-0 left-[15%] w-[10vw] max-w-12 h-32 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain -translate-y-32" style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"></div>
-		<div class="absolute top-0 right-[15%] w-[10vw] max-w-12 h-32 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain -translate-y-32" style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"></div>
-		<div class="absolute bottom-0 left-[15%] w-[10vw] max-w-12 h-24 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain translate-y-24" style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);">
-			<div class="absolute bottom-0 left-0 w-full h-auto bg-[url('/clouds-loop.png')] bg-no-repeat bg-contain bg-bottom pointer-events-none aspect-[2/1]"></div>
-		</div>
-		<div class="absolute bottom-0 right-[15%] w-[10vw] max-w-12 h-24 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain translate-y-24" style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);">
-			<div class="absolute bottom-0 left-0 w-full h-auto bg-[url('/clouds-loop.png')] bg-no-repeat bg-contain bg-bottom pointer-events-none aspect-[2/1]"></div>
-		</div>
-	</div>
-</div>
 
 <!-- Gamejam Text Section -->
 <div class="w-full bg-[#FCEFC5] flex justify-center py-16 relative overflow-hidden max-h-[400px]">
@@ -1272,121 +1340,8 @@ Mumbai`.split("\n")
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none bg-position-[0_100vh]"></div>
 </div>
 
-<div class="w-full bg-gradient-to-b from-[#FDC5D1] to-[#FAE3C9] items-center justify-center px-0 md:px-8 relative pt-36">
-	<div class="w-full max-w-5xl lg:max-w-6xl mx-auto px-2 md:px-8">
-		<div class="relative w-full min-w-72">
-			<img src="banner-city.png" alt="Find a Daydream Near You" class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 md:-translate-y-[40%] h-48 w-auto z-100 scale-[1.15] md:scale-[1.65] saturate-70 brightness-110 object-contain px-4 pointer-events-none">
-			
-			<!-- Map container with cloudy edges -->
-			<div class="relative w-full h-156 overflow-hidden bg-transparent">
-				<iframe 
-					src={eventAddress ? "/event-map?location=" + encodeURIComponent(eventAddress) : "/map"}
-					class="w-full h-full border-0 bg-[#acd4e0]"
-					style="
-						mask-image: 
-							linear-gradient(white, white),
-							url('/clouds-loop-mask-2.png'),
-							url('/clouds-loop-mask-1.png'),
-							url('/clouds-loop-mask-3.png'),
-							url('/clouds-loop-mask-4.png'),
-							url('/cloud-corner-1.png'),
-							url('/cloud-corner-2.png'),
-							url('/cloud-corner-3.png'),
-							url('/cloud-corner-4.png');
-						mask-position: 
-							center,
-							top left,
-							bottom left,
-							left top,
-							right top,
-							bottom left,
-							top left,
-							top right,
-							bottom right;
-						mask-size: 
-							auto auto,
-							auto 72px,
-							auto 72px,
-							72px auto,
-							72px auto,
-							100px 100px,
-							100px 100px,
-							100px 100px,
-							100px 100px;
-						mask-repeat: 
-							no-repeat,
-							repeat-x,
-							repeat-x,
-							repeat-y,
-							repeat-y,
-							no-repeat,
-							no-repeat,
-							no-repeat,
-							no-repeat;
-						-webkit-mask-image: 
-							linear-gradient(white, white),
-							url('/clouds-loop-mask-2.png'),
-							url('/clouds-loop-mask-1.png'),
-							url('/clouds-loop-mask-3.png'),
-							url('/clouds-loop-mask-4.png'),
-							url('/cloud-corner-1.png'),
-							url('/cloud-corner-2.png'),
-							url('/cloud-corner-3.png'),
-							url('/cloud-corner-4.png');
-						-webkit-mask-position: 
-							center,
-							top left,
-							bottom left,
-							left top,
-							right top,
-							bottom left,
-							top left,
-							top right,
-							bottom right;
-						-webkit-mask-size: 
-							auto auto,
-							auto 72px,
-							auto 72px,
-							72px auto,
-							72px auto,
-							100px 100px,
-							100px 100px,
-							100px 100px,
-							100px 100px;
-						-webkit-mask-repeat: 
-							no-repeat,
-							repeat-x,
-							repeat-x,
-							repeat-y,
-							repeat-y,
-							no-repeat,
-							no-repeat,
-							no-repeat,
-							no-repeat;
-						mask-type: luminance;
-						mask-mode: luminance;
-						mask-composite: exclude, add, add, add, add, add, add, add, add;
-					"
-					title="Daydream Events Map">
-				</iframe>
-			</div>
-			
-			{#if eventAddress}
-				<p class="text-center font-sans text-2xl pt-12 max-sm:text-xl text-[#60574b] z-10000">
-					{#if directionsURL}
-						Daydream {eventName} is taking place at <a class="underline text-pink" href={directionsURL}>{eventAddress}</a>!
-					{:else}
-						Daydream {eventName} is taking place at <span class="underline">{eventAddress}</span>!
-					{/if}
-				</p>
-			{/if}
-		</div>
-	</div>
-
-	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
-	
-	<!-- Macintosh Section -->
-	<div class="w-full flex justify-center py-16 px-8 mt-48 pb-[clamp(232px,29vw,464px)] max-sm:w-[120vw] max-sm:-translate-x-[10vw]">
+<!-- Macintosh Section -->
+<div class="w-full flex justify-center py-16 px-8 mt-48 pb-[clamp(232px,29vw,464px)] max-sm:w-[120vw] max-sm:-translate-x-[10vw]">
 		<div class="bg-[#c5c2b1] p-4 relative max-w-4xl" style="border-radius: calc(1.5rem + 1rem);">
 			<div class="bg-[#061E2D] text-[#D1E3EE] rounded-3xl py-18 md:py-16 px-10 md:px-18 relative overflow-visible" style="
 			border-image: url('/macintosh.png') 128 91 464 91; 
@@ -1514,9 +1469,8 @@ Mumbai`.split("\n")
 			</div>
 		</div>
 	</div>
-</div>
 
-
+<!-- FAQ Section -->
 <div class="w-full pb-24 max-md:pt-16 bg-gradient-to-b from-[#FAE3C9] to-[#e99cce] relative flex flex-col items-center justify-center">
 	<img src="faq-clouds.png" alt="" class="w-full">
 	<img src="faq.png" alt="FAQ" class="mb-12 h-24 scale-175 max-md:scale-120">
