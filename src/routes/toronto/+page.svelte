@@ -838,7 +838,8 @@ Mumbai`.split("\n")
 			<h4
 				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
 			>
-				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
+				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")} <br>
+                Sept 27–28 • Two days of hacking • 12 hours per day.
 			</h4>
 		</div>
 		

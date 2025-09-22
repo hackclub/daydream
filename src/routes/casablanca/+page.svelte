@@ -9,7 +9,7 @@
 	// Configuration - Put your information here!
 	const eventName = "Casablanca"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "Casablanca";
-	const eventAddress = "Ecole Centrale Casablanca, Ville Verte Côté Latéral Est à la forêt de Bouskoura, Bouskoura"; // Leave this empty if you don't want an address
+	const eventAddress = "École Centrale Casablanca"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recdsr7S8zh4sF7kh"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
 	const directionsURL = "https://maps.app.goo.gl/NurAHWkfhq122m2XA";
@@ -18,9 +18,9 @@
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/casablanca/centrale.png", name: "Ecole Centrale de Casablanca", url: "https://centrale-casablanca.ma/" },
-		{ image: "/casablanca/robots&more_logo.png", name: "Robots&More", url: "https://www.robots-and-more.com/" },
-		{ image: "/casablanca/hackclub.png", name: "Hackclub", url: "https://hackclub.com/" },
+		{ image: "/casablanca/ecc.png", name: "Ecole Centrale de Casablanca", url: "https://centrale-casablanca.ma/" },
+		{ image: "/casablanca/rm.png", name: "Robots&More", url: "https://www.robots-and-more.com/" },
+		{ image: "/casablanca/hackclub.svg", name: "Hackclub", url: "https://hackclub.com/" },
 		{ image: "/casablanca/jukebox.png", name: "Jukebox Print", url: "https://www.jukeboxprint.com/" }
 	];
 	
@@ -29,24 +29,26 @@
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Doors open", time: "11:00 AM" },
-				{ event: "Opening ceremony", time: "12:00 PM" },
-				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Start working on your project!", time: "1:00 PM" },
-				{ event: "Workshop 1", time: "2:00 PM" },
-				{ event: "Activity 1", time: "4:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
-				{ event: "Dinner", time: "6:00 PM" },
-				{ event: "Lightning talks", time: "8:00 PM" },
-				{ event: "Midnight surprise", time: "12:00 AM" }
+				{ event: "Doors open", time: "8:30 AM" },
+				{ event: "Opening ceremony", time: "9:15 AM" },
+				{ event: "Start working on your project!", time: "10:00 AM" },
+				{ event: "Activity 1", time: "10:20 AM" },
+				{ event: "Workshop 1", time: "11:30 AM" },
+				{ event: "Lunch", time: "1:00 PM" },
+				{ event: "Workshop 2", time: "2:00 PM" },
+				{ event: "Activity 2", time: "4:00 PM" },
+				{ event: "End of Day 1", time: "6:30 PM" },
 			]
 		},
 		{
 			title: "Sunday, September 28th",
 			items: [
-				{ event: "Breakfast", time: "8:00 AM" },
-				{ event: "Demos!", time: "10:30 AM" },
-				{ event: "Closing ceremony", time: "12:00 PM" }
+				{ event: "Doors open", time: "9:00 AM" },
+				{ event: "Lunch", time: "12:00 PM" },
+				{ event: "Workshop 3 - Shipping - MANDATORY", time: "1:15 PM" },
+				{ event: "Game presentation + voting", time: "2:10 PM" },
+				{ event: "Closing ceremony", time: "3:15 PM" },
+				{ event: "End of Day 2", time: "4:20 PM" }
 			]
 		}
 	];
@@ -812,12 +814,7 @@ Mumbai`.split("\n")
 		<div class="inline-block relative">
 			<div class="h-12"></div> 
 			<!-- space for the ship -->
-			<h2
-			class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
-			>
-				September 27th & 28th, 2025
-			</h2>
-			<img src="daydream.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
+			<img src="https://i.postimg.cc/d0fq86TJ/daydream-casablanca-logo-2.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
 			<a href="https://hackclub.com" class="absolute top-0 -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
 				<img src="flag-plane.png" alt="Hack Club" class="h-28">
 			</a>
@@ -826,7 +823,7 @@ Mumbai`.split("\n")
 			<h3
 				class="text-3xl italic font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent w-max max-sm:text-2xl mx-auto"
 			>
-				Game jam for high schoolers
+				Morocco's largest teenage game jam
 			</h3>
 			<img
 				src="underline.svg"
@@ -836,8 +833,9 @@ Mumbai`.split("\n")
 			<h4
 				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
 			>
-				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
+				September 27-28 @ École Centrale Casablanca
 			</h4>
+			<div class="mt-4 text-md text-[#4579a5]"><a href="https://www.jukeboxprint.com/custom-stickers" class="text-blue-600 hover:text-blue-800 underline">Custom stickers</a> provided by Jukebox!</div>
 		</div>
 		
 		<ParticipantSignUp {signupLink} {eventName} />
@@ -889,17 +887,17 @@ Mumbai`.split("\n")
 			</h2>
 			
 			<div class="text-[#8B4513] font-serif text-xl leading-relaxed space-y-8">
-				<p>Welcome to Hack Club's newest adventure. This fall we invite you to join us for Daydream, the world's biggest Game Jam happening simultaneously in 100 cities.</p>
+				<p>Welcome to Daydream Casablanca! This fall marks our third and biggest hackathon yet, and this time ...</p>
 
-				<p class="font-bold text-2xl">Hack Club wants you to make a game this fall.</p>
+				<p class="font-bold text-2xl">We want YOU to make your own video game</p>
 
-				<p>Don't consider yourself a game dev? No problem - we have tons of online and in-person workshops for you to make your first game! </p>
+				<p>Everyone has played a video game before, but what about building one? That’s exactly what you’ll get to do this September, with workshops and mentors ready to guide you through making your very first game. </p>
 
-				<p>This fall, we invite you to learn something new, make something you're really proud of, meet new friends, and go on an incredible adventure together.</p>
+				<p>We want you to leave with something you’ll be proud of, whether it’s the game you built, the new friendships you made, or the memories you’ll carry with you.</p>
 
 				<p class="mb-2">With love,</p>
 
-				<p class="italic text-2xl opacity-85">Augie and Renran from Hack Club HQ</p>
+				<p class="italic text-2xl opacity-85">Hack Club Casablanca Team</p>
 			</div>
 		</div>
 	</div>
@@ -1005,35 +1003,18 @@ Mumbai`.split("\n")
 				<!-- Sponsors Grid -->
 				<div class="relative z-10 min-h-40">
 					{#if sponsors.length > 0}
-						<!-- First row (up to 4 sponsors) -->
-						{#if sponsors.length > 4}
-							<div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center mb-8">
-								{#each sponsors.slice(0, 4) as sponsor}
-									<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
-										<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
-									</a>
-								{/each}
-							</div>
-							
-							<!-- Second row (remaining sponsors, centered) -->
-							{#if sponsors.length > 4}
-								<div class="flex justify-center">
-									<div class="grid grid-cols-2 md:grid-cols-3 gap-8 items-center justify-items-center max-w-2xl">
-										{#each sponsors.slice(4) as sponsor, index}
-											<a href={sponsor.url} 
-												class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors {sponsors.slice(4).length === 3 && index === 2 ? 'md:col-span-1 col-span-2 max-w-xs mx-auto' : ''}" 
-												target="_blank" rel="noopener noreferrer">
-												<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
-											</a>
-										{/each}
-									</div>
-								</div>
-							{/if}
-						{:else}
-							<!-- Single row for 4 or fewer sponsors -->
+						<!-- Main Sponsor: École Centrale Casablanca (bigger and centered) -->
+						<div class="flex justify-center mb-12">
+							<a href={sponsors[0].url} class="bg-white/20 rounded-lg p-8 hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
+								<img src={sponsors[0].image} alt={sponsors[0].name} class="h-32 w-auto max-w-80 object-contain">
+							</a>
+						</div>
+						
+						<!-- Other Sponsors (smaller, in a grid) -->
+						{#if sponsors.length > 1}
 							<div class="flex justify-center">
-								<div class="grid gap-8 items-center justify-items-center max-w-4xl {sponsors.length === 1 ? 'grid-cols-1' : sponsors.length === 2 ? 'grid-cols-1 md:grid-cols-2' : sponsors.length === 3 ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-2 md:grid-cols-4'}">
-									{#each sponsors as sponsor}
+								<div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center justify-items-center max-w-3xl">
+									{#each sponsors.slice(1) as sponsor}
 										<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
 											<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
 										</a>
@@ -1438,7 +1419,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students (13-18) are welcome to come!</p>
 		</div>
 		</div>
 
@@ -1456,7 +1437,7 @@ Mumbai`.split("\n")
 			<img src="window-2.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24  opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">All this, for free?</h3>
-				<p class="text-sm">Yep! Food, swag and good vibes are all included. Plus, if you're joining us from afar, we'll cover the cost of gas or a bus / train ticket.</p>
+				<p class="text-sm">Yep! Food, swag, workshops, and good vibes are all included.</p>
 			</div>
 		</div>
 

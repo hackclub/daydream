@@ -18,6 +18,7 @@
 		{ image: "/sao-paulo/noic.webp", name: "NOIC", url: "https://noic.com.br/" },
 		{ image: "/sao-paulo/flg.png", name: "First Lego Girls", url: "https://www.instagram.com/firstlegogirls/" },
 		{ image: "/sao-paulo/lala.png", name: "LALA", url: "https://latinamericanleadershipacademy.org/" },
+		{ image: "/sao-paulo/JukeBox.png", name: "Jukebox", url: "https://www.jukeboxprint.com/custom-stickers" }
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -1027,7 +1028,8 @@ Mumbai`.split("\n")
 					
 					{#if contactLink}
 						<!-- Call to action for sponsors -->
-						<div class="mt-8 text-center">
+						<div class="mt-8 text-center">]
+							<p>Grande agradecimento à Jukebox por nossos <a class="underline" href="https://www.jukeboxprint.com/custom-stickers">custom stickers</a>!</p>
 							<p class="text-lg text-[#335969]">Quer patrocinar Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Entre em contato.</a></p>
 						</div>
 					{/if}

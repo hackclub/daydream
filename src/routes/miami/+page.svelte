@@ -9,9 +9,9 @@
 	// Configuration - Put your information here!
 	const eventName = "Miami";
 	const eventLocation = "Miami";
-	const eventAddress = "11200 SW 8th St, Miami, FL 33199"; // Leave this empty if you don't want an address
+	const eventAddress = "400 NW 26th St, Miami, FL 33127";  // Leave this empty if you don't want an address
 	// These two are optional
-	const directionsURL = "https://www.google.com/maps/dir//11200+SW+8th+St,+Miami,+FL+33199/@25.7562233,-80.4579416,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x88d9bf2e414fde0f:0xae469ac7fb6b92f0!2m2!1d-80.3755401!2d25.7562465?entry=ttu&g_ep=EgoyMDI1MDkwNy4wIKXMDSoASAFQAw%3D%3D"
+	const directionsURL = "https://www.google.com/maps/dir/26.0179494,-80.3097179/400+NW+26th+St,+Miami,+FL+33127/@25.909817,-80.4389141,11z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x88d9b6b3a5eaeddd:0x4091a34cd9ba5c8d!2m2!1d-80.2022321!2d25.8011501?entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D" 
 	const contactLink = "mailto:miami@daydream.hackclub.com"
 	
 	// Sponsors Configuration
@@ -32,7 +32,7 @@
 				                class="underline hover:text-[#477783] transition-colors">
 				               custom stickers</a>!
 				           </p>`		},
-		// { image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
+		{ image: "/miami/BigDuckGames.png", name: "Big Duck Games LLC", url: "https://www.bigduckgames.com/" },
 		// { image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
 	];
 	
@@ -41,26 +41,26 @@
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Doors open", time: "7:00 AM" },
-				{ event: "Opening ceremony", time: "8:00 AM" },
-				{ event: "Team Formation session", time: "8:30 AM" },
-				{ event: "Start working on your project!", time: "9:00 AM" },
+				{ event: "Check in", time: "8:30 AM" },
+				{ event: "Opening ceremony", time: "9:30 AM" },
+				{ event: "Team Formation session", time: "10:00 AM" },
+				{ event: "Godot Workshop", time: "11:00 AM" },
 				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Pygame Workshop", time: "3:00 PM" },
-				{ event: "Godot Workshop", time: "4:00 PM" },
+				{ event: "Visual Novel Workshop", time: "1:30 PM" },
+				{ event: "Start working on your project!", time: "2:30 PM" },
 				{ event: "Dinner", time: "5:00 PM" },
-				{ event: "Github Workshop", time: "6:00 PM" }
+				{ event: "Pygame Workshop", time: "5:30 PM" }
 			]
 		},
 		{
 			title: "Sunday, September 28th",
 			items: [
-				{ event: "Doors open", time: "7:00 AM" },
-				{ event: "Breakfast", time: "8:00 AM" },
-				{ event: "Wrap Up Projects!", time: "10:30 AM" },
-				{ event: "Lunch", time: "1:00 PM" },
-				{ event: "Demos!", time: "4:00 PM" },
-				{ event: "Closing ceremony", time: "6:30 PM" }
+				{ event: "Check in", time: "8:30 AM" },
+				{ event: "GitHub Workshop", time: "10:00 AM" },
+				{ event: "Lunch", time: "12:00 PM" },
+				{ event: "Wrap Up Projects!", time: "1:30 PM" },
+				{ event: "Demos", time: "2:00 PM" },
+				{ event: "Closing ceremony", time: "4:00 PM" }
 			]
 		}
 	];
@@ -1457,13 +1457,23 @@ Mumbai`.split("\n")
 
 	<!-- FAQ Grid -->
 	<div class="grid grid-cols-2 gap-8 max-w-6xl px-8 z-10 max-[900px]:grid-cols-1 max-md:gap-16">
+
+		<!-- FAQ Item 0 -->
+		<div class="relative transform -rotate-2">
+			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
+			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
+				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Where is Daydream Miami taking place?</h3>
+				<p class="text-sm">The LAB Miami - The Dock. See directions above!</p>
+			</div>
+		</div>
+
 		<!-- FAQ Item 1 -->
 		<div class="relative transform -rotate-2">
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
 				<p class="text-sm">All high-school students are welcome to come!</p>
-		</div>
+			</div>
 		</div>
 
 		<!-- FAQ Item 2 -->

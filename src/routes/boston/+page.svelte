@@ -36,12 +36,13 @@
 				{ event: "Opening Ceremony", time: "8:30 AM" },
 				{ event: "Jumpstart Workshop", time: "8:50 AM" },
 				{ event: "Workshop 2 (TBA)", time: "10:00 AM" },
-				{ event: "Workshop 3 (TBA)", time: "11:05 AM" },
+				{ event: "Workshop 3 (TBA)", time: "11:00 AM" },
 				{ event: "Lunch", time: "12:15 PM" },
-				{ event: "Quick-time Event", time: "2:15 PM" },
 				{ event: "Ship (Submission) Deadline", time: "4:45 PM" },
-				{ event: "Ship Showcase & Voting", time: "4:45 PM" },
-				{ event: "Closing Ceremony!", time: "5:30 PM" },
+				{ event: "Ship Showcase & Voting", time: "5:00 PM" },
+				{ event: "Closing Ceremony", time: "5:30 PM" },
+				{ event: "Group Photo & Clean Up", time: "5:45 PM" },
+				{ event: "Event End", time: "6:00 PM" },
 			]
 		},
 

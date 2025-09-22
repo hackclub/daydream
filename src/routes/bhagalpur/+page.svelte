@@ -21,32 +21,39 @@
 		{ image: "/nyc/jukebox-logo.svg", name: "Jukebox", url: "https://www.jukeboxprint.com/" },
 	];
 	
-	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
-	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
-		{
-			title: "Saturday, September 27th",
-			items: [
-				{ event: "Doors open", time: "11:00 AM" },
-				{ event: "Opening ceremony", time: "12:00 PM" },
-				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Start working on your project!", time: "1:00 PM" },
-				{ event: "Workshop 1", time: "2:00 PM" },
-				{ event: "Activity 1", time: "4:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
-				{ event: "Dinner", time: "6:00 PM" },
-				{ event: "Lightning talks", time: "8:00 PM" },
-				{ event: "Midnight surprise", time: "12:00 AM" }
-			]
-		},
-		{
-			title: "Sunday, September 28th",
-			items: [
-				{ event: "Breakfast", time: "8:00 AM" },
-				{ event: "Demos!", time: "10:30 AM" },
-				{ event: "Closing ceremony", time: "12:00 PM" }
-			]
-		}
-	];
+// Schedule Configuration
+const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
+  {
+    title: "Day 1: 27th September",
+    items: [
+      { time: "7:00 AM", event: "Venue Opens & Registration" },
+      { time: "8:00 AM", event: "Registration Closes" },
+      { time: "8:00 AM - 8:30 AM", event: "Opening Ceremony" },
+      { time: "8:30 AM - 8:50 AM", event: "Team Formation" },
+      { time: "8:50 AM - 9:50 AM", event: "Godot Workshop" },
+      { time: "9:50 AM", event: "Hacking Begins" },
+      { time: "12:00 PM - 12:40 PM", event: "Lunch Break" },
+      { time: "12:40 PM", event: "Hacking Continues" },
+      { time: "3:30 PM - 4:10 PM", event: "Pasta Break" },
+      { time: "4:10 PM", event: "Final Hacking Sprint" },
+      { time: "4:50 PM - 5:00 PM", event: "Day 1 Wrap-up" },
+      { time: "5:00 PM", event: "Doors Close" }
+    ]
+  },
+  {
+    title: "Day 2: 28th September",
+    items: [
+      { time: "8:00 AM", event: "Doors Open" },
+      { time: "8:00 AM - 10:00 AM", event: "Final Touches & Submission" },
+      { time: "10:00 AM", event: "Submission Deadline" },
+      { time: "10:00 AM - 11:15 AM", event: "Project Expo & Voting" },
+      { time: "11:15 AM - 11:45 AM", event: "Snack Break" },
+      { time: "11:45 AM - 12:15 PM", event: "Winner Announcements" },
+      { time: "12:15 PM - 12:45 PM", event: "Swag Distribution" },
+      { time: "1:00 PM", event: "Doors Close" }
+    ]
+  }
+];
 
 	
 	import { onMount } from "svelte";

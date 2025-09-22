@@ -14,7 +14,8 @@
 		{ image: "/valencia/avast.png", name: "AVAST", url: "https://asociacion-avast.org/" },
 		{ image: "/valencia/jukebox.png", name: "Jukeboxprint", url: "https://jukeboxprint.com" },
 		{ image: "/valencia/nix.png", name: "Nix Media", url: "https://nixmedia.studio" },
-		{ image: "/valencia/auladeciencia.png", name: "Aula de Ciencia", url: "https://auladeciencia.es" }
+		{ image: "/valencia/auladeciencia.png", name: "Aula de Ciencia", url: "https://auladeciencia.es" },
+		{ image: "/valencia/yubico.png", name: "Yubico", url: "https://yubico.com" }
 	];
 	
 	// Schedule Configuration
