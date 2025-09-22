@@ -21,7 +21,7 @@
 	const sponsors = [
 		{ image: "/nyiregyhaza/L-SOFT_logo.png", name: "L-SOFT", url: "https://www.lsoft.hu/", text:"Many thanks to L-SOFT for financial support and helping us out with Graphic designs."},
 		{ image: "/nyiregyhaza/logo-eissmann.png", name: "Eissmann", url: "https://www.eissmann.com", text:"Thank you to Eissmann for providing tote bags, lanyards and pens for participants"},
-		//{ image: "/nyiregyhaza/epam_logo_light.png", name: "EPAM", url: "https://www.epam.com/", text:"Thank you to EPAM for providing promotional gifts for participants"},
+		{ image: "/nyiregyhaza/epam_logo_light.png", name: "EPAM", url: "https://www.epam.com/", text:"Thank you to EPAM for providing promotional gifts for participants"},
 		{ image: "/nyiregyhaza/g558.png", name: "DamidaSoft", url: "https://www.damidasoft.com/", text:"Thank you to DamidaSoft for financial support"}
 	];
 	
@@ -31,6 +31,7 @@
 			title: "Saturday, September 27th",
 			items: [
 				{ event: "Start", time: "08:00 AM" },
+				{ event: "Opening Ceremony", time: "09:00 AM"},
 				{ event: "Preparing for end of day one", time: "07:00 PM" },
 				{ event: "End of day one", time: "08:00 PM" },
 			]
@@ -884,7 +885,7 @@ Mumbai`.split("\n")
 			<div class="relative bg-gradient-to-b from-[#CCF4FD] to-[#AECDF6] px-8 pt-8 pb-16">
 				<!-- Brush texture overlay for content -->
 				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
-					<a href="https://www.jukeboxprint.com/custom-stickers" class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
+					<a href="https://www.jukeboxprint.com/custom-stickers" class="bg-white/20 rounded-lg p-4 w-auto h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
 						<img src="/nyiregyhaza/jukebox.webp" alt="Jukebox Print" class="max-w-full max-h-full object-contain">
 						{#if screenWidth > 615}
 						<p class="text-xl m-2 h-auto">Big shoutout to Jukebox for our custom stickers!</p>
