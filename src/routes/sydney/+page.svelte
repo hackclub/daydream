@@ -18,6 +18,7 @@
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
+		{ image: "/sydney/accel2.png", name: "AccelRT", url: "https://www.accelrt.net/" },
 		{ image: "/sydney/xyz.png", name: ".xyz", url: "https://gen.xyz" },
 		{ image: "/sydney/jlcpcb.png", name: "jlcpcb", url: "https://jlcpcb.com/" },
 		{ image: "/sydney/oshw.png", name: "oshw", url: "https://oshwlab.com/" },
@@ -26,6 +27,9 @@
 		{ image: "/sydney/stickercofixed.png", name: "StickerCo", url: "https://www.stickerco.au/" },
 		{ image: "/sydney/insertcoinfixed.png", name: "Insert Coin", url: "https://www.insertcoinclothing.com/" },
 		{ image: "/sydney/fluffe.png", name: "Fluffe", url: "https://www.fluffe.com/" },
+		{ image: "/sydney/fluffe.png", name: "Fluffe", url: "https://www.fluffe.com/" },
+		{ image: "/sydney/makers-empire.png", name: "Makers Empire", url: "https://www.makersempire.com/" },
+
 
 	];
 	
