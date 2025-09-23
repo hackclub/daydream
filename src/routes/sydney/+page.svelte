@@ -720,7 +720,7 @@ Mumbai`.split("\n")
 			window.removeEventListener("resize", handleResize);
 			document.removeEventListener("visibilitychange", handleVisibilityChange);
 			clearInterval(particleInterval);
-			ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+			ScrollTrigger.getAll().forEach((trigger: any) => trigger.kill());
 		};
 	});
 </script>
