@@ -27,7 +27,7 @@
 		{ image: "/sydney/stickercofixed.png", name: "StickerCo", url: "https://www.stickerco.au/" },
 		{ image: "/sydney/insertcoinfixed.png", name: "Insert Coin", url: "https://www.insertcoinclothing.com/" },
 		{ image: "/sydney/fluffe.png", name: "Fluffe", url: "https://www.fluffe.com/" },
-		{ image: "/sydney/makers-empire.png", name: "Makers Empire", url: "https://www.makersempire.com/" },
+		{ image: "/sydney/makersempire.png", name: "Makers Empire", url: "https://www.makersempire.com/" },
 
 
 	];
