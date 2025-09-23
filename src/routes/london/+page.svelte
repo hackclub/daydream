@@ -19,10 +19,11 @@
 	// Sponsors Configuration
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
+		{ image: "/uk/youthacks.svg", name: "Youthacks", url: "https://youthacks.org/" },
 		{ image: "/uk/ada.svg", name: "Ada, the National College for Digital Skills", url: "https://www.ada.ac.uk/" },
 		{ image: "/uk/sparta-logo-dark.svg", name: "Sparta Global", url: "https://www.spartaglobal.com/" },
 		// { image: "/uk/red-hat.svg", name: "Red Hat", url: "https://www.redhat.com/en" },
-		{ image: "/uk/pcbway-logo.svg", name: "PCBWay", url: "https://www.pcbway.com/" },
+		// { image: "/uk/pcbway-logo.svg", name: "PCBWay", url: "https://www.pcbway.com/" },
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -30,15 +31,18 @@
 		{
 			title: "Sunday, September 28th",
 			items: [
-				{ event: "Doors open", time: "8.30" },
-				{ event: "Opening ceremony", time: "9:00" },
-				{ event: "Get into teams, start working on your project!", time: "10:00" },
-				{ event: "Lunch", time: "13:00" },
-				{ event: "Continue working on projects", time: "14:00" },
-				{ event: "More projects work :)", time: "15:00" },
-				{ event: "Ship projects and vote", time: "18:00" },
-				{ event: "Closing Ceremony", time: "18:30" },
-				{ event: "Home!", time: "19:00" }
+				{ event: "Doors open", time: "8.45am" },
+				{ event: "Opening ceremony", time: "9.30am" },
+				{ event: "Get into teams, start working on your project!", time: "10.00am" },
+				{ event: "Workshops", time: "10.45am" },
+				{ event: "Lunch", time: "11.30am" },
+				{ event: "Continue working on projects", time: "12.15pm" },
+				{ event: "Lightning talks and AMAs", time: "13.00pm" },
+				{ event: "Dinner and afternoon snacktivities", time: "16.00pm" },
+				{ event: "Ship projects and submit to Podium!", time: "16.30pm" },
+				{ event: "Project demos and final submission", time: "17.15pm" },
+				{ event: "Closing ceremony", time: "18.30pm" },
+				{ event: "Home!", time: "19.15pm" }
 			]
 		},
 	];
@@ -907,7 +911,7 @@ Mumbai`.split("\n")
 	<div class="absolute top-0 left-0 w-full h-full -z-50 bg-[#FCEFC5]"></div>
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-30 pointer-events-none -z-40"></div>
 
-	<div class="w-full max-w-4xl mx-auto px-8 pt-64 pb-8 z-10">
+	<div class="w-full max-w-5xl mx-auto px-8 pt-64 pb-8 z-10">
 		{#if eventAddress}
 			<h2 class="text-center font-sans text-4xl md:text-5xl font-extrabold text-[#60574b] z-10000 mb-6">
 				Daydream {eventName} is taking place at
@@ -939,10 +943,9 @@ Mumbai`.split("\n")
 						<h4 class="text-xl font-bold text-[#60574b]">Venue Location</h4>
 					</div>
 					<p class="text-[#60574b] text-lg">
-						Ada, the National College for Digital Skills<br>
+						<span class="font-bold">Ada, the National College for Digital Skills</span><br>
 						1 Sutherland St<br>
-						Pimlico<br>
-						London<br>
+						Pimlico, London<br>
 						SW1V 4LD<br>
 						United Kingdom
 					</p>
@@ -953,9 +956,9 @@ Mumbai`.split("\n")
 						<h4 class="text-xl font-bold text-[#60574b]">By Rail</h4>
 					</div>
 					<ul class="space-y-2 text-[#60574b]">
-						<li>The <span class="font-bold">nearest station</span> is <span class="font-bold"><img src="/uk/national-rail.svg" alt="" class="w-5 h-5 mr-1 inline-block"><img src="/uk/underground-roundel.svg" alt="" class="w-5 h-5 mr-1 inline-block">Victoria</span>, which is just an <span class="font-bold">8 minute walk</span> from the venue!</li>
+						<li>The <span class="font-bold">nearest station</span> is <br><span class="font-bold"><img src="/uk/national-rail.svg" alt="" class="w-5 h-5 mr-1 inline-block"><img src="/uk/underground-roundel.svg" alt="" class="w-5 h-5 mr-1 inline-block">Victoria</span>, which is just an <span class="font-bold">8 minute walk</span> from the venue!</li>
 						<li><span class="font-bold"><img src="/uk/underground-roundel.svg" alt="" class="w-5 h-5 mr-1 inline-block">Pimlico</span> is also a <span class="font-bold">14 minute walk</span> from the venue!</li>
-					    <li>Westmoreland Terrace and Sutherland Row bus stops are also right outside the venue!</li>
+						<li>The <span class="font-bold">nearest bus stops</span> are <br><span class="font-bold"><img src="/uk/london-bus.svg" alt="" class="w-5 h-5 mr-1 inline-block">Westmoreland Terrace</span> and <br><span class="font-bold"><img src="/uk/london-bus.svg" alt="" class="w-5 h-5 mr-1 inline-block">Sutherland Row</span>, which are right outside the venue and both served by the <span class="font-bold">C10</span> service!</li>
 					</ul>
 				</div>
 				<div class="bg-white/50 p-6 rounded-lg">
@@ -1025,6 +1028,8 @@ Mumbai`.split("\n")
 							</div>
 						</div>
 					{/each}
+
+					<p class="text-center mt-4 font-serif italic text-[#335969]">Subject to change on day</p>
 				</div>
 			</div>
 			
@@ -1500,7 +1505,7 @@ Mumbai`.split("\n")
 			<img src="window-1.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24  opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What do I need?</h3>
-				<p class="text-sm">Your laptop, chargers, and an open mind!</p>
+				<p class="text-sm">Your laptop, chargers, and an open mind! Bring proof of student status (e.g., ID or be able to log in to school email)</p>
 			</div>
 		</div>
 
