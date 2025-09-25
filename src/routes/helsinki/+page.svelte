@@ -1578,18 +1578,16 @@ Mumbai`.split("\n")
 	// Configuration - Put your information here!
 	const eventName = "Helsinki";
 	const eventLocation = "Helsinki";
-	const eventAddress = "Puumiehenkuja 5A, 02150, Espoo"; // Leave this empty if you don't want an address
-	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recdfom5UbYh7cp59"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const eventAddress = ""; // Leave this empty if you don't want an address
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional
-	const directionsURL = "https://maps.app.goo.gl/HLrrBNuKbzZEfUUXA";
+	const directionsURL = "";
 	const contactLink = "mailto:helsinki@daydream.hackclub.com"
 	
 	// Sponsors Configuration
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
 		{ image: "/helsinki/supercell.png", name: "Supercell", url: "https://supercell.com" },
-		{ image: "/helsinki/jukebox-logo.svg", name: "Jukebox", url: "https://www.jukeboxprint.com" },
-		{ image: "/helsinki/aaltoes.png", name: "Aaltoes", url: "https://aaltoes.com" }
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -1606,7 +1604,7 @@ Mumbai`.split("\n")
 				//{ event: "Workshop 2", time: "16:00" },
 				{ event: "Dinner", time: "18:00" },
 				//{ event: "Lightning talks", time: "20:00" },
-				// { event: "Midnight surprise", time: "00:00" }
+				{ event: "Midnight surprise", time: "00:00" }
 			]
 		},
 		{
@@ -2410,12 +2408,6 @@ Mumbai`.split("\n")
 		</div>
 		
 		<ParticipantSignUp {signupLink} {eventName} />
-		
-		<div class="mt-6 inline-block bg-white/20 px-4 py-3 rounded-lg shadow-sm backdrop-blur-sm text-center">
-			<p class="m-0 text-sm md:text-base text-[#335969]">
-				Big shoutout to Jukebox for our <a href="https://www.jukeboxprint.com/custom-stickers" class="font-bold underline ">custom stickers</a>!
-			</p>
-		</div>
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
@@ -2568,7 +2560,7 @@ Mumbai`.split("\n")
 			<!-- Header Section -->
 			<div class="w-full bg-[url('/billboard-bg-texture.png')] bg-contain bg-repeat py-6 relative" style="border-bottom: 8px solid #B4B4C5;">
 				<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">
-					Sponsors / Partners
+					Sponsors
 				</h2>
 				<!-- Brush texture overlay for header -->
 				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
@@ -2861,12 +2853,11 @@ Mumbai`.split("\n")
 			{#if eventAddress}
 				<p class="text-center font-sans text-2xl pt-12 max-sm:text-xl text-[#60574b] z-10000">
 					{#if directionsURL}
-						Daydream {eventName} is taking place at <a class="underline text-pink" href={directionsURL}>Startup Sauna</a>!
+						Daydream {eventName} is taking place at <a class="underline text-pink" href={directionsURL}>{eventAddress}</a>!
 					{:else}
 						Daydream {eventName} is taking place at <span class="underline">{eventAddress}</span>!
 					{/if}
 				</p>
-				<p class="text-center text-[#60574b]">Thanks to Aaltoes for the venue!</p>
 			{/if}
 		</div>
 	</div>
@@ -3016,7 +3007,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
 		</div>
 		</div>
 

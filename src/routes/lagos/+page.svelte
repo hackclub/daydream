@@ -1584,19 +1584,22 @@ Lagos`.split("\n")
 	// Configuration - Put your information here!
 	const eventName = "Lagos"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "Lagos";
-	const eventAddress = "ALX Costain Hub(5th floor ITF House)"; // Leave this empty if you don't want an address
+	const eventAddress = "University of Lagos(UNILAG)"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = "https://maps.app.goo.gl/KA2WQHQttrHph6NPA"
-	const contactLink = "mailto:lagos@daydream.hackclub.com"
+	const directionsURL = ""
+	const contactLink = ""
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
-	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
+	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/lagos/alx.png", name: "ALX", url: "https://www.alxafrica.com" },
-		{ image: "/lagos/jukebox-logo.png", name: "Jukebox", url: "https://www.jukeboxprint.com/custom-stickers" },
-		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/c9cb975bd943abc8d3308de1909ba6acfcddad95_profile_photo1_3x-removebg-preview_2.png", name: "WebuildX", url: "https://www.webuildx.com" },
-		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/fb5da75247f8e7b757f94f7f20ad52c22bbd3f6d_img-20250914-wa0063-removebg-preview__1_.png", name: "Africa comicade", url: "https://africacomicade.org" }
+		{ image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" },
+		{ image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
+		{ image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
+		{ image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
+		{ image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
+		{ image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
+		{ image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -1605,24 +1608,27 @@ Lagos`.split("\n")
 			title: "Friday, September 26th",
 			items: [
 
-				{ event: "Doors open + Check-In", time: "11:00 AM" },
+				{ event: "Doors open", time: "11:00 AM" },
 				{ event: "Welcome Speech (Organizer)", time: "11:30 AM" },
-				{ event: "Problem Statement Reveal + Ground Rules", time: "11:45 AM" },
+				{ event: "Theme/Problem Statement Reveal + Rules", time: "11:45 AM" },
 				{ event: "Kickoff Speech (Guest/Judge/Partner) ", time: "12:15 PM" },
-				{ event: "Sponsor Showcase / Presentations", time: "12:30 PM" },
+				{ event: "Final Reg(Teams registered, get seated)", time: "12:30 PM" },
 				{ event: "Start working on your project!", time: "1:00 PM" },
 				{ event: "Lunch", time: "2:00 PM" },
 				{ event: "Activity 1", time: "4:00 PM" },
 				{ event: "Workshop 1", time: "4:30 PM" },
-				{ event: "Day 1 wrap-Up", time: "6:00 PM" }
+				{ event: "Dinner", time: "6:00 PM" },
+				{ event: "Lightning talks", time: "8:00 PM" },
+				{ event: "Midnight surprise", time: "12:00 AM" }
 			]
 		},
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Doors Reopen & Breakfast", time: "9:00 AM" },
+				{ event: "Breakfast", time: "8:00 AM" },
 				{ event: "Demos!(5-7 mins)", time: "10:30 AM" },
-				{ event: "Judging and Deliberation + lunch", time: "12:30 PM" },
+				{ event: "Judging and Deliberation", time: "12:30 PM" },
+				{ event: "Lunch", time: "12:30 PM" },
 				{ event: "Awards & Closing Ceremony", time: "2:00 PM" },
 			]
 		}
@@ -2629,7 +2635,7 @@ Lagos`.split("\n")
 								<div class="grid gap-8 items-center justify-items-center max-w-4xl {sponsors.length === 1 ? 'grid-cols-1' : sponsors.length === 2 ? 'grid-cols-1 md:grid-cols-2' : sponsors.length === 3 ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-2 md:grid-cols-4'}">
 									{#each sponsors as sponsor}
 										<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
-											<img src={sponsor.image} alt={sponsor.name} class="max-w-full min-w-[100px] max-h-full object-contain">
+											<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
 										</a>
 									{/each}
 								</div>
@@ -2640,7 +2646,6 @@ Lagos`.split("\n")
 					{#if contactLink}
 						<!-- Call to action for sponsors -->
 						<div class="mt-8 text-center">
-							<h3>Special thanks to Jukebox for sponsoring our Daydream Lagos <a class="underline hover:text-[#477783] transition-colors" href="https://www.jukeboxprint.com/custom-stickers">custom stickers</a>!</h3>
 							<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
 						</div>
 					{/if}
@@ -3033,7 +3038,7 @@ Lagos`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
 		</div>
 		</div>
 
