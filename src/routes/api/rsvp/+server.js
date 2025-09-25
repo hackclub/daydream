@@ -1,6 +1,7 @@
 import Airtable from 'airtable';
 import { json } from '@sveltejs/kit';
-import { AIRTABLE_API_KEY, AIRTABLE_BASE_ID, AIRTABLE_RSVPS_TABLE } from '$env/static/private';
+// import { AIRTABLE_API_KEY, AIRTABLE_BASE_ID, AIRTABLE_RSVPS_TABLE } from '$env/static/private';
+const { AIRTABLE_API_KEY, AIRTABLE_BASE_ID, AIRTABLE_RSVPS_TABLE } = process.env; 
 
 if (!AIRTABLE_API_KEY || !AIRTABLE_BASE_ID) {
 	console.warn('Airtable environment variables not configured, email saving will be skipped');

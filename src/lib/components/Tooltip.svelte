@@ -38,6 +38,7 @@
     on:mouseenter={handleMouseEnter}
     on:mouseleave={handleMouseLeave}
     on:click={handleClick}
+    on:keydown={handleClick}
   >
     <slot />
   </span>
@@ -48,6 +49,7 @@
     class:opacity-0={!showTooltip}
     class:opacity-100={showTooltip}
     class:pointer-events-auto={showTooltip}
+    class:pointer-events-none={!showTooltip}
     on:mouseenter={handleMouseEnter}
     on:mouseleave={handleMouseLeave}
   >
