@@ -1,1 +1,0 @@
-export const prerender = process.env.STATIC_PREVIEW === "true";

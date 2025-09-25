@@ -1,30 +1,38 @@
-<div align="center">
+# sv
 
-<img src="https://raw.githubusercontent.com/hackclub/daydream/main/static/github-banner.png" alt="Daydream">
+Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
 
-<br>
+## Creating a project
 
-<!-- divider line -->
-<h1 align="center"></h1>
+If you're seeing this, you've probably already done this step. Congrats!
 
-</div>
+```bash
+# create a new project in the current directory
+npx sv create
 
-# Dear Hackers, Musicians, and Artists,
+# create a new project in my-app
+npx sv create my-app
+```
 
-Welcome to Hack Club's newest adventure. This fall we invite you to join us for Daydream, the world's biggest Game Jam happening simultaneously in 100 cities.
+## Developing
 
-**Hack Club wants you to make a game this fall.**
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-Don't consider yourself a game dev? No problem - we have tons of online and in-person workshops for you to make your first game!
+```bash
+npm run dev
 
-This fall, we invite you to learn something new, make something you're really proud of, meet new friends, and go on an incredible adventure together.
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
 
-With love,
+## Building
 
-*The Daydream Team*
+To create a production version of your app:
 
----
+```bash
+npm run build
+```
 
-> Trying to make a website? Click [here](https://daydream.hackclub.com/guide/website).
+You can preview the production build with `npm run preview`.
 
-> Looking for the Organizing Guide? You can find that [here](https://daydream.hackclub.com/guide).
+> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.

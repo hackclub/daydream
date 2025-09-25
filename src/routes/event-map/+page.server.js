@@ -1,5 +1,4 @@
-// import { GEOCODER_API_KEY } from '$env/static/private';
-const { GEOCODER_API_KEY } = process.env;
+import { GEOCODER_API_KEY } from '$env/static/private';
 
 export const prerender = false;
 

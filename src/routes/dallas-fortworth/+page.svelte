@@ -7,15 +7,15 @@
 	 */
 
 	// Configuration - Put your information here!
-	const eventName = "RGV";
-	const eventLocation = "the Rio Grande Valley";
-	const eventAddress = ""; // Leave this empty if you don't want an address
+	const eventName = "DFW (Dallas-Fortworth)";
+	const eventLocation = "Dallas";
+	const eventAddress = "TBD"; // Leave this empty if you don't want an address
 	// These two are optional
-	const directionsURL = ""
+	const directionsURL = "" // Add a google maps link here once you have an address
 	const contactLink = ""
 	
 	// Sponsors Configuration
-	const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recHbKhhA5VWAH7Lg"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
 	const sponsors = [
 		{ image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" },
@@ -1569,4 +1569,3 @@ Mumbai`.split("\n")
 		</div>
 	</div>
 {/if}
-

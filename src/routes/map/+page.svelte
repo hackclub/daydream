@@ -267,14 +267,10 @@
 							.addTo(map);
 						
 						// Create popup that shows on hover
-						const popupContent = location.hasPage 
-							? `${location.event_name}<br><span style="font-size: 12px; opacity: 0.5;">(Click to open website)</span>`
-							: location.event_name;
-						
 						const popup = L.popup({
 							closeButton: false,
 							className: 'custom-popup'
-						}).setContent(popupContent);
+						}).setContent(location.event_name);
 						
 						marker.bindPopup(popup);
 						
@@ -285,18 +281,6 @@
 						marker.on('mouseout', () => {
 							marker.closePopup();
 						});
-						
-						// Only add click handler for events that have pages
-						if (location.hasPage) {
-							marker.on('click', () => {
-								// If in iframe, post message to parent; otherwise navigate directly
-								if (window.parent !== window) {
-									window.parent.postMessage({ type: 'navigate', slug: location.slug }, '*');
-								} else {
-									window.location.href = `/${location.slug}`;
-								}
-							});
-						}
 					}
 				});
 			});
