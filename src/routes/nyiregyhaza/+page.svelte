@@ -18,7 +18,9 @@
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/nyiregyhaza/jukebox.webp", name: "Jukebox Print", url: "https://www.jukeboxprint.com/custom-stickers" }
+		{ image: "/nyiregyhaza/L-SOFT_logo.png", name: "L-SOFT", url: "https://www.lsoft.hu/", text:"Many thanks to L-SOFT for helping us out with Graphic designs."},
+		{ image: "/nyiregyhaza/logo-eissmann.png", name: "Eissmann", url: "https://www.eissmann.com", text:"Thank you to Eissmann for providing tote bags, lanyards and pens for participants"},
+		{ image: "/nyiregyhaza/epam_logo_light.png", name: "EPAM", url: "https://www.epam.com/", text:"Thank you to EPAM for providing promotional gifts for participants"}
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -363,97 +365,7 @@ Mumbai`.split("\n")
 		isTyping = false;
 	}
 
-	async function fetchIdea(): Promise<string> {
-		let attempt = 0;
-		const maxAttempts = 5;
-		
-		while (attempt < maxAttempts) {
-			try {
-				const response = await fetch('/api/idea', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json',
-					}
-				});
-				
-				if (!response.ok) {
-					if (response.status === 500) {
-						throw new Error(`Server error: ${response.status}`);
-					} else {
-						// Don't retry on non-500 errors
-						return "How about a game where you collect magical crystals to save a mysterious floating world?";
-					}
-				}
-				
-				const data = await response.json();
-				return data.idea;
-			} catch (error) {
-				attempt++;
-				console.warn(`Attempt ${attempt} failed:`, error);
-				
-				if (attempt >= maxAttempts) {
-					return "How about a game where you collect magical crystals to save a mysterious floating world?";
-				}
-				
-				// Wait before retrying
-				await new Promise(resolve => setTimeout(resolve, 1000));
-			}
-		}
-		
-		return "How about a game where you collect magical crystals to save a mysterious floating world?";
-	}
-
-	async function dreamIdea() {
-		if (isRolling) return;
-		
-		isRolling = true;
-		showDone = false;
-		showDice = true;
-		ideaText = "";
-		
-		const startTime = Date.now();
-		const minDuration = 1000;
-		let fetchComplete = false;
-		let fetchResult: string = "";
-		
-		// Start fetch and dice animation concurrently
-		const fetchPromise = fetchIdea().then(result => {
-			fetchResult = result;
-			fetchComplete = true;
-			return result;
-		});
-		
-		// Dice animation loop
-		const dicePromise = (async () => {
-			while (true) {
-				const elapsed = Date.now() - startTime;
-				
-				// Stop if both minimum time has passed AND fetch is complete
-				if (elapsed >= minDuration && fetchComplete) {
-					break;
-				}
-				
-				diceNumbers = [
-					Math.floor(Math.random() * 6) + 1,
-					Math.floor(Math.random() * 6) + 1,
-					Math.floor(Math.random() * 6) + 1
-				];
-				
-				await new Promise(resolve => setTimeout(resolve, 100));
-			}
-		})();
-		
-		// Wait for both to complete
-		await Promise.all([fetchPromise, dicePromise]);
-		
-		showDone = false;
-		showDice = false;
-		isRolling = false;
-		
-		// Start typing animation with the fetched idea
-		await typeText(fetchResult);
-	}
-
+	
 	function setupPlaneAnimation() {
 		const container = document.getElementById("islands-container");
 		const airplane = document.getElementById("paper-airplane");
@@ -714,35 +626,6 @@ Mumbai`.split("\n")
 	:global(html) {
 		overflow-x: hidden;
 	}
-	
-	/* Minimal scrollbar styling */
-	.idea-output-box::-webkit-scrollbar {
-		width: 8px;
-	}
-	
-	.idea-output-box::-webkit-scrollbar-track {
-		background: transparent;
-	}
-	
-	.idea-output-box::-webkit-scrollbar-thumb {
-		background-color: #d1e3ee;
-		border-radius: 0;
-		border: none;
-	}
-	
-	.idea-output-box::-webkit-scrollbar-thumb:hover {
-		background-color: #d1e3ee;
-	}
-	
-	.idea-output-box::-webkit-scrollbar-corner {
-		background: transparent;
-	}
-	
-	/* Firefox scrollbar styling */
-	.idea-output-box {
-		scrollbar-width: auto;
-		scrollbar-color: #d1e3ee transparent;
-	}
 </style>
 
 
@@ -826,7 +709,7 @@ Mumbai`.split("\n")
 			<h4
 				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
 			>
-				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
+				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}<br>Daydream Nyíregyháza is taking place at <a class="text-pink" href="https://maps.app.goo.gl/Ws2S4MYtHm2npJuZ7" target="_blank">4400 Nyíregyháza, Városmajor utca 4.</a>!
 			</h4>
 		</div>
 		
@@ -864,25 +747,7 @@ Mumbai`.split("\n")
 	<img src="/clouds-top-left.png" alt="" class="absolute left-0 w-3/12 -bottom-12  translate-y-1/2 z-20 pointer-events-none">
 	
 
-	<!-- Desktop stickers button (bottom left) -->
-	<a
-		href="https://forms.hackclub.com/daydream-stickers"
-		target="_blank"
-		class="hidden md:block absolute bottom-16 left-16 z-50 w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none"
-	>
-		Get free stickers
-		<img
-			src="button-clouds.svg" 
-			alt="" 
-			class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
-		>
-		<img
-			src="rock-sticker.png"
-			alt=""
-			class="absolute bottom-2 right-3 translate-2/3 w-18 h-18 object-contain pointer-events-none"
-			style="transform: rotate(-15deg);"
-		>
-	</a>
+	
 </div>
 
 <div class="w-full relative flex items-start justify-center">
@@ -894,22 +759,24 @@ Mumbai`.split("\n")
 		<div class="relative z-20 px-20 pt-20 pb-52 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
 			<div class="absolute bottom-0 left-0 w-full h-24 z-10 pointer-events-none bg-[url('/clouds-loop.png')] bg-repeat-x bg-bottom bg-contain"></div>
 			<h2 class="text-5xl font-serif italic text-[#8B4513] mb-10 relative">
-				Dear Hackers, Musicians, and Artists,
+				Daydream Nyíregyháza
 				<img src="/underline.svg" alt="" class="absolute left-0 -bottom-3 w-64 h-auto opacity-70">
 			</h2>
 			
 			<div class="text-[#8B4513] font-serif text-xl leading-relaxed space-y-8">
-				<p>Welcome to Hack Club's newest adventure. This fall we invite you to join us for Daydream, the world's biggest Game Jam happening simultaneously in 100 cities.</p>
+				<p>We are organizing a Game making Hackathon in Nyíregyháza, it's taking place on the 27th and 28th of September.</p>
 
 				<p class="font-bold text-2xl">Hack Club wants you to make a game this fall.</p>
 
-				<p>Don't consider yourself a game dev? No problem - we have tons of online and in-person workshops for you to make your first game! </p>
+				<p>Don't consider yourself a game dev? No problem - we will support you during and before the hackathon by making tutorials and giving ideas and tips for your game.</p>
 
 				<p>This fall, we invite you to learn something new, make something you're really proud of, meet new friends, and go on an incredible adventure together.</p>
 
+				<p>Not only that, but you can win cool merch like sticker sheets, button pins and T-shirts by shipping your game!</p>
+
 				<p class="mb-2">With love,</p>
 
-				<p class="italic text-2xl opacity-85">Augie and Renran from Hack Club HQ</p>
+				<p class="italic text-2xl opacity-85">Marcell and Csaba</p>
 			</div>
 		</div>
 	</div>
@@ -1011,16 +878,20 @@ Mumbai`.split("\n")
 			<div class="relative bg-gradient-to-b from-[#CCF4FD] to-[#AECDF6] px-8 pt-8 pb-16">
 				<!-- Brush texture overlay for content -->
 				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
-				
+					<a href="https://www.jukeboxprint.com/custom-stickers" class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
+						<img src="/nyiregyhaza/jukebox.webp" alt="Jukebox Print" class="max-w-full max-h-full object-contain">
+						<p class="text-xl m-2">Big shoutout to Jukebox for our custom stickers!</p>
+					</a>
 				<!-- Sponsors Grid -->
 				<div class="relative z-10 min-h-40">
 					{#if sponsors.length > 0}
 						<!-- First row (up to 4 sponsors) -->
 						{#if sponsors.length > 4}
-							<div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center mb-8">
+							<div class="grid grid-cols-1 md:grid-cols-1 gap-8 items-center justify-items-center mb-8">	
 								{#each sponsors.slice(0, 4) as sponsor}
-									<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
+									<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 m-1 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
 										<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
+										<p class="text-xl m-2">{sponsor.text}</p>
 									</a>
 								{/each}
 							</div>
@@ -1042,14 +913,15 @@ Mumbai`.split("\n")
 						{:else}
 							<!-- Single row for 4 or fewer sponsors -->
 							<div class="flex justify-center">
-								<div class="grid gap-8 items-center justify-items-center max-w-4xl {sponsors.length === 1 ? 'grid-cols-1' : sponsors.length === 2 ? 'grid-cols-1 md:grid-cols-2' : sponsors.length === 3 ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-2 md:grid-cols-4'}">
+								<div class="gap-8 items-center justify-items-center max-w-4xl {sponsors.length === 1 ? 'grid-cols-1' : sponsors.length === 2 ? 'grid-cols-1 md:grid-cols-2' : sponsors.length === 3 ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-2 md:grid-cols-4'}">
 									{#each sponsors as sponsor}
-										<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
-											<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
-										</a>
+										<div>
+											<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors m-1" target="_blank" rel="noopener noreferrer">
+												<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain"> <p class="text-xl m-2">{sponsor.text}</p>
+											</a>
+										</div>
 									{/each}
 								</div>
-								<p class="text-lg font-sans text-[#477783] s-cn9vZYSQMWjl text-xl" style="margin:auto 0;">Big shoutout to Jukebox for our <a href="https://www.jukeboxprint.com/custom-stickers" target="_blank"	>custom stickers</a>!</p>
 							</div>
 						{/if}
 					{/if}
@@ -1305,136 +1177,6 @@ Mumbai`.split("\n")
 	</div>
 
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
-	
-	<!-- Macintosh Section -->
-	<div class="w-full flex justify-center py-16 px-8 mt-48 pb-[clamp(232px,29vw,464px)] max-sm:w-[120vw] max-sm:-translate-x-[10vw]">
-		<div class="bg-[#c5c2b1] p-4 relative max-w-4xl" style="border-radius: calc(1.5rem + 1rem);">
-			<div class="bg-[#061E2D] text-[#D1E3EE] rounded-3xl py-18 md:py-16 px-10 md:px-18 relative overflow-visible" style="
-			border-image: url('/macintosh.png') 128 91 464 91; 
-			border-image-slice: 128 91 464 91; 
-			border-image-width: clamp(64px, 8vw, 128px) clamp(45px, 6vw, 91px) clamp(232px, 29vw, 464px) clamp(45px, 6vw, 91px); 
-			border-image-outset: clamp(64px, 8vw, 128px) clamp(45px, 6vw, 91px) clamp(232px, 29vw, 464px) clamp(45px, 6vw, 91px); 
-			border-image-repeat: stretch; 
-			border-style: solid;
-		">
-			<!-- frame around content -->
-			<div class="absolute inset-0 bg-[url(/macintosh-frame.png)] bg-size-[100%_100%]"></div>
-
-			<!-- Hack Club logo on border -->
-			<img 
-				src="/macintosh-hc-logo.png" 
-				alt="Hack Club logo" 
-				class="absolute w-12 h-12 pointer-events-none z-20" 
-				style="
-					bottom: calc(-1 * clamp(232px, 29vw, 464px) + 8rem);
-					left: 5%;
-				"
-			>
-			
-			<!-- Brushstroke overlay on border -->
-			<div 
-				class="absolute pointer-events-none z-25" 
-				style="
-					top: calc(-1 * clamp(64px, 8vw, 128px));
-					left: calc(-1 * clamp(45px, 6vw, 91px));
-					right: calc(-1 * clamp(45px, 6vw, 91px));
-					bottom: calc(-1 * clamp(232px, 29vw, 464px));
-					background-image: url('/brushstroking.png');
-					background-size: 100vw 100vh;
-					background-repeat: repeat;
-					mix-blend-mode: overlay;
-					opacity: 0.4;
-				"
-			></div>
-			
-			<!-- Keyboard image -->
-			<img 
-				src="/macintosh-keyboard.png" 
-				alt="Macintosh keyboard" 
-				class="absolute pointer-events-none z-30 max-sm:!w-[250%]" 
-				style="
-					bottom: calc(-1 * clamp(232px, 29vw, 464px) - 10px - clamp(0px, 14vw, 180px));
-					left: 50%;
-					transform: translateX(-50%);
-					width: 175%;
-					max-width: none;
-				"
-			>
-			
-			<!-- Scanlines effect -->
-			<div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent bg-[length:100%_6px] bg-repeat-y pointer-events-none opacity-30"></div>
-			
-			<!-- Rounded container -->
-				<!-- Scanlines inside container -->
-				<div class="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent bg-[length:100%_8px] bg-repeat-y pointer-events-none opacity-20"></div>
-				
-				<div class="space-y-8 max-sm:space-y-4 relative z-10">
-					<h2 class="text-5xl md:text-6xl lg:text-7xl font-pixel leading-tight">
-						What will you <img src="/dream-pixel.png" alt="Dream?" class="h-[0.75em] font-serif italic [image-rendering:pixelated] inline align-middle -translate-y-1.5">
-					</h2>
-					
-					<p class="text-xl md:text-2xl opacity-90 font-pixel">
-						You can make any game you want as long as it can be deployed on itch.io! All games made must be deployed and available online for other participants to play and experience. We will only accept itch.io submission links.
-						<br>
-						<br>
-						Here are some cool projects from past hackathons to get you inspired:
-					</p>
-					
-					<ul class="space-y-2 font-pixel text-xl md:text-2xl">
-						<li class="flex items-start">
-							<span class="mr-4">•</span>
-							<a href="https://bucketfish.itch.io/remedy-renemy" target="_blank" class="underline mr-2">Remedy Renemy</a>by Tongyu and Kai Ling
-						</li>
-						<li class="flex items-start">
-							<span class="mr-4">•</span>
-							<a href="https://nanomars.itch.io/not-an-idle" target="_blank" class="underline mr-2">Not an Idle</a> by Armand
-						</li>
-						<li class="flex items-start">
-							<span class="mr-4">•</span>
-							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> by Agustin
-						</li>
-					</ul>
-					
-					<p class="text-xl md:text-2xl opacity-90 font-pixel leading-relaxed">
-						We'll have workshops and activities before Daydream to help you learn game development using Godot! 
-					</p>
-					
-					<!-- Bottom section with input -->
-					<div class="flex flex-col md:flex-row md:items-end gap-10 pt-8">
-						<div>
-							<h3 class="text-3xl md:text-4xl font-pixel mb-4">Stuck?</h3>
-							<button 
-								class="bg-[#D1E3EE] text-[#061E2D] px-8 py-4 font-pixel text-xl md:text-2xl hover:bg-[#B8D3E0] cursor-pointer max-sm:w-full"
-								on:click={dreamIdea}
-							>
-								Dream an idea for me
-							</button>
-						</div>
-						
-						<div class="flex-1">
-							<div class="border-2 border-[#D1E3EE] p-6 min-h-40 max-h-40 w-full flex items-start overflow-y-auto idea-output-box">
-								{#if ideaText}
-									<p class="font-pixel text-xl md:text-2xl text-[#D1E3EE] w-full">
-										{ideaText}{#if isTyping}<span class="animate-pulse">|</span>{/if}
-									</p>
-								{:else if showDice}
-									<div class="flex items-center justify-around w-full h-full">
-										{#each diceNumbers as diceNumber}
-											<img 
-												src="/dice/dice-{diceNumber}.png" 
-												alt="Dice showing {diceNumber}"
-												class="h-24 w-24 object-contain flex-shrink-0 max-w-[30%] [image-rendering:pixelated]"
-											/>
-										{/each}
-									</div>
-								{/if}
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 </div>
 
 
@@ -1449,7 +1191,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 
@@ -1556,5 +1298,4 @@ Mumbai`.split("\n")
 			></iframe>
 		</div>
 	</div>
-{/if}
-
+{/if}	

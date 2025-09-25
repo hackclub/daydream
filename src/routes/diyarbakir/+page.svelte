@@ -25,7 +25,8 @@
 			hero: {
 				title: "Diyarbakır'da Oyun Yaratın",
 				subtitle: "Lise öğrencileri için oyun geliştirme etkinliği",
-				cta: "Şimdi Kayıt Ol"
+				cta: "Şimdi Kayıt Ol",
+				deadline: "Son Başvuru: <span style='text-decoration: line-through; text-decoration-thickness: 3px; text-decoration-color: red;'>19</span> 22 Eylül"
 			},
 			schedule: {
 				title: "Program",
@@ -33,19 +34,19 @@
 				day2: "Pazar, 28 Eylül"
 			},
 			events: {
-				doorsOpen: "Kapılar açılıyor",
+				doorsOpen: "Kapıların açılışı",
 				openingCeremony: "Açılış töreni",
 				lunch: "Öğle yemeği",
-				startProject: "Projeniz üzerinde çalışmaya başlayın!",
-				workshop1: "Workshop 1",
+				startProject: "Projeler üzerinde çalışma başlıyor",
+				workshop1: "Atölye Çalışması 1",
 				activity1: "Aktivite 1",
-				workshop2: "Workshop 2",
+				workshop2: "Atölye Çalışması 2",
 				dinner: "Akşam yemeği",
-				lightningTalks: "Hızlı konuşmalar",
-				midnightSurprise: "Gece yarısı sürprizi",
+				lightningTalks: "Hızlı Konuşmalar (Lightning Talks)",
+				midnightSurprise: "Gece Yarısı Sürprizi ",
 				breakfast: "Kahvaltı",
-				demos: "Demo'lar!",
-				closingCeremony: "Kapanış töreni"
+				demos: "Demo Sunumları",
+				closingCeremony: "Kapanış Töreni"
 			}
 		},
 		en: {
@@ -55,7 +56,8 @@
 			hero: {
 				title: "Create Games in Diyarbakır",
 				subtitle: "Game development event for high school students",
-				cta: "Register Now"
+				cta: "Register Now",
+				deadline: "Deadline: <span style='text-decoration: line-through; text-decoration-thickness: 3px; text-decoration-color: red;'>19</span> 22 September"
 			},
 			schedule: {
 				title: "Schedule",
@@ -101,7 +103,7 @@
 				{ event: t.events.startProject, time: "13:00" },
 				{ event: t.events.workshop1, time: "14:00" },
 				{ event: t.events.activity1, time: "16:00" },
-				{ event: t.events.workshop2, time: "16:00" },
+				{ event: t.events.workshop2, time: "17:00" },
 				{ event: t.events.dinner, time: "18:00" },
 				{ event: t.events.lightningTalks, time: "20:00" },
 				{ event: t.events.midnightSurprise, time: "00:00" }
@@ -1030,6 +1032,13 @@ Mumbai`.split("\n")
 			>
 				{currentLanguage === 'tr' ? 'Diyarbakır\'da Gençler Tarafından Düzenleniyor' : 'Organized by Teenagers in ' + eventLocation}
 			</h4>
+			
+			<!-- Son Başvuru Tarihi -->
+			<div class="mt-4 px-4 py-2 bg-gradient-to-r from-[#E472AB] to-[#F2993E] rounded-full shadow-lg">
+				<p class="text-lg font-sans font-bold text-white max-sm:text-base">
+					{@html t.hero.deadline}
+				</p>
+			</div>
 		</div>
 		
 		<!-- Custom RSVP Button for Diyarbakır -->
@@ -1075,25 +1084,7 @@ Mumbai`.split("\n")
 	<img src="/clouds-top-left.png" alt="" class="absolute left-0 w-3/12 -bottom-12  translate-y-1/2 z-20 pointer-events-none">
 	
 
-	<!-- Desktop stickers button (bottom left) -->
-	<a
-		href="https://forms.hackclub.com/daydream-stickers"
-		target="_blank"
-		class="hidden md:block absolute bottom-16 left-16 z-50 w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none"
-	>
-		Get free stickers
-		<img
-			src="button-clouds.svg" 
-			alt="" 
-			class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
-		>
-		<img
-			src="rock-sticker.png"
-			alt=""
-			class="absolute bottom-2 right-3 translate-2/3 w-18 h-18 object-contain pointer-events-none"
-			style="transform: rotate(-15deg);"
-		>
-	</a>
+	
 </div>
 
 <div class="w-full relative flex items-start justify-center">
@@ -1105,7 +1096,7 @@ Mumbai`.split("\n")
 		<div class="relative z-20 px-20 pt-20 pb-52 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
 			<div class="absolute bottom-0 left-0 w-full h-24 z-10 pointer-events-none bg-[url('/clouds-loop.png')] bg-repeat-x bg-bottom bg-contain"></div>
 			<h2 class="text-5xl font-serif italic text-[#8B4513] mb-10 relative">
-				{currentLanguage === 'tr' ? 'Sevgili Hacker\'lar, Müzisyenler ve Sanatçılar,' : 'Dear Hackers, Musicians, and Artist,'}
+				{currentLanguage === 'tr' ? 'Sevgili Yazılımcılar, Müzisyenler ve Sanatçılar,' : 'Dear Hackers, Musicians, and Artist,'}
 				<img src="/underline.svg" alt="" class="absolute left-0 -bottom-3 w-64 h-auto opacity-70">
 			</h2>
 			
@@ -1341,7 +1332,7 @@ Mumbai`.split("\n")
 			<div class="relative w-72 h-40 max-md:w-80 animate-hover ![--hover:-0.15rem] ![animation-delay:1.7s] z-20" data-point="1">
 				<img src="paper1.png" alt="" class="w-full h-full object-contain">
 				<div class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center">
-					<span class="font-sans text-[#E472AB] font-bold text-[1.3rem] mr-1">#1:</span> <a href={signupLink} class="underline">{currentLanguage === 'tr' ? 'Kayıt ol' : 'Sign up'}</a> {currentLanguage === 'tr' ? 'Daydream' : 'for Daydream'} {eventName}
+					<span class="font-sans text-[#E472AB] font-bold text-[1.3rem] mr-1">#1:</span> {currentLanguage === 'tr' ? 'Daydream\'a Diyarbakır\'a' : 'for Daydream'} <a href={signupLink} class="underline">{currentLanguage === 'tr' ? 'kayıt ol' : 'Sign up'}</a>
 				</div>
 			</div>
 		</div>
@@ -1505,9 +1496,9 @@ Mumbai`.split("\n")
 			{#if eventAddress}
 				<p class="text-center font-sans text-2xl pt-12 max-sm:text-xl text-[#60574b] z-10000">
 					{#if directionsURL}
-						Daydream {eventName} is taking place at <a class="underline text-pink" href={directionsURL}>{eventAddress}</a>!
+						{currentLanguage === 'tr' ? 'Daydream ' + eventName + ' etkinliği ' : 'Daydream ' + eventName + ' is taking place at '}<a class="underline text-pink" href={directionsURL}>{currentLanguage === 'tr' ? eventAddress : eventAddress}</a>{currentLanguage === 'tr' ? ' mekanında gerçekleşiyor!' : '!'}
 					{:else}
-						Daydream {eventName} is taking place at <span class="underline">{eventAddress}</span>!
+						{currentLanguage === 'tr' ? 'Daydream ' + eventName + ' etkinliği ' : 'Daydream ' + eventName + ' is taking place at '}<span class="underline">{eventAddress}</span>{currentLanguage === 'tr' ? ' mekanında gerçekleşiyor!' : '!'}
 					{/if}
 				</p>
 			{/if}
@@ -1601,7 +1592,7 @@ Mumbai`.split("\n")
 						</li>
 						<li class="flex items-start">
 							<span class="mr-4">•</span>
-							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> by Agustin
+							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> by Agustin & Juan
 						</li>
 					</ul>
 					
@@ -1659,7 +1650,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">{currentLanguage === 'tr' ? 'Daydream\'e kimler katılabilir?' : 'Who can participate in Daydream?'}</h3>
-				<p class="text-sm">{currentLanguage === 'tr' ? 'Tüm lise ve üst ortaokul yaşındaki öğrenciler katılmaya davetlidir!' : 'All high-school & upper-middle-school aged students are welcome to come!'}</p>
+				<p class="text-sm">{currentLanguage === 'tr' ? 'Tüm lise ve üst ortaokul yaşındaki öğrenciler katılmaya davetlidir!' : 'All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong>'}</p>
 		</div>
 		</div>
 

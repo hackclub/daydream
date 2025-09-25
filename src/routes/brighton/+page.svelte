@@ -9,17 +9,19 @@
 	// Configuration - Put your information here!
 	const eventName = "Brighton";
 	const eventLocation = "Brighton";
-	const eventAddress = ""; // Leave this empty if you don't want an address
+	const eventAddress = "Brighton Youth Centre, 64 Edward St, Brighton and Hove, Brighton BN2 0JR"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional
-	// const directionsURL = ""
-	// const contactLink = ""
+	const directionsURL = "https://www.google.com/maps/dir/52.2452992,-0.2523136/Elite+Pro+Fitness+Studios,+Youth+Centre,+64+Edward+St,+Brighton+and+Hove,+Brighton+BN2+0JR/@51.2972404,-0.7798991,9.11z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x487585a23399241b:0x798255839266a481!2m2!1d-0.1307783!2d50.8221787?entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D"
+	const contactLink = "mailto:brighton@daydream.hackclub.com";
 	
 	// Sponsors Configuration
-	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
+	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
+		{ image: "/uk/youthacks.svg", name: "Youthacks", url: "https://youthacks.org/" },
 		// { image: "src/routes/cambridge/images/rpilogo.png", name: "The Raspberry Pi Foundation", url: "https://www.raspberrypi.org/" },
-		// { image: "https://assets.hackclub.com/icon-rounded.png", name: "Hack Club", url: "https://hackclub.com/" }
+		 { image: "https://assets.hackclub.com/icon-rounded.png", name: "Hack Club", url: "https://hackclub.com/" },
+		 { image: "https://www.brightonyouthcentre.org.uk/testsite/wp-content/uploads/sites/6/2018/03/website-banner-white-grey-short.jpg", name: "Brighton Youth Centre", url: "https://www.brightonyouthcentre.org.uk/"}
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -27,13 +29,12 @@
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Doors open", time: "8:45" },
-				{ event: "Opening ceremony", time: "9:10" },
-				{ event: "Get into teams, start working on your project!", time: "10:00" },
-				{ event: "Lunch", time: "13:00" },
-				{ event: "Continue working on projects", time: "14:00" },
-				{ event: "Workshop", time: "15:00" },
-				{ event: "More projects work :)", time: "16:00" },
+				{ event: "Doors open", time: "8:30" },
+				{ event: "Opening ceremony", time: "9:00" },
+				{ event: "Get into teams, start working on your project!", time: "9:30" },
+				{ event: "Lunch", time: "12:30" },
+				{ event: "AMA with a Game Developer!", time: "13:30" },
+				{ event: "Back to coding :)", time: "14:00" },
 				{ event: "Dinner", time: "18:00" },
 				{ event: "Ship projects and vote", time: "19:00" },
 				{ event: "Closing Ceremony", time: "20:20" },
@@ -866,25 +867,7 @@ Mumbai`.split("\n")
 	<img src="/clouds-top-left.png" alt="" class="absolute left-0 w-3/12 -bottom-12  translate-y-1/2 z-20 pointer-events-none">
 	
 
-	<!-- Desktop stickers button (bottom left) -->
-	<a
-		href="https://forms.hackclub.com/daydream-stickers"
-		target="_blank"
-		class="hidden md:block absolute bottom-16 left-16 z-50 w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none"
-	>
-		Get free stickers
-		<img
-			src="button-clouds.svg" 
-			alt="" 
-			class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
-		>
-		<img
-			src="rock-sticker.png"
-			alt=""
-			class="absolute bottom-2 right-3 translate-2/3 w-18 h-18 object-contain pointer-events-none"
-			style="transform: rotate(-15deg);"
-		>
-	</a>
+	
 </div>
 
 <div class="w-full relative flex items-start justify-center">
@@ -1058,6 +1041,9 @@ Mumbai`.split("\n")
 						{/if}
 					{/if}
 					
+					<div class="mt-8 text-center">
+						<p class="text-lg text-[#335969]"><a href="https://www.jukeboxprint.com/custom-stickers" class="underline hover:text-[#477783] transition-colors">Custom stickers</a> provided by Jukebox!</p>
+					</div>
 					{#if contactLink}
 						<!-- Call to action for sponsors -->
 						<div class="mt-8 text-center">
@@ -1395,7 +1381,7 @@ Mumbai`.split("\n")
 						</li>
 						<li class="flex items-start">
 							<span class="mr-4">•</span>
-							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> by Agustin
+							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> by Agustin & Juan
 						</li>
 					</ul>
 					

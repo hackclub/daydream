@@ -9,20 +9,50 @@
 	// Configuration - Put your information here!
 	const eventName = 'Srinagar'; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = 'Srinagar';
-	const eventAddress = ''; // Leave this empty if you don't want an address
+	const eventAddress = `Sarovar Premiere, City Mall, Srinagar`;
 	const signupLink = 'https://forms.hackclub.com/daydream-sign-up?event=recpMytdpOvW33V3L'; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = '';
-	const contactLink = '';
+	const directionsURL = 'https://maps.app.goo.gl/nXDZNPdpd7WRQDEz5';
+	const contactLink = 'mailto:srinagar@daydream.hackclub.com';
 
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
 		{
+			image: '/srinagar/almuqeet.svg',
+			name: 'Almuqeet Systems Pvt Ltd',
+			url: 'https://almuqeet.net/'
+		},
+		{
 			image:
 				'https://hc-cdn.hel1.your-objectstorage.com/s/v3/5c6f29f2226f6bb46c0085cf7c9c40eac35099bb_github_logo.png',
 			name: 'GitHub',
 			url: 'https://github.com'
+		},
+		{
+			image: 'srinagar/risingkashmir.png',
+			name: 'Rising Kashmir',
+			url: 'https://risingkashmir.com'
+		},
+		{
+			image: 'srinagar/sarovar.png',
+			name: 'Sarovar Premiere, Srinagar',
+			url: 'https://www.sarovarhotels.com/sarovar-premiere-srinagar/'
+		},
+		{
+			image: 'srinagar/SNTPL.png',
+			name: 'SNTPL',
+			url: 'https://sntisp.com/'
+		},
+		{
+			image: 'srinagar/yubico.png',
+			name: 'Yubico',
+			url: 'http://yubico.com/'
+		},
+		{
+			image: 'srinagar/jukebox.png',
+			name: 'Jukebox',
+			url: 'https://jukeboxprint.com'
 		}
 	];
 
@@ -33,11 +63,10 @@
 			items: [
 				{ event: 'Doors open', time: '08:00 AM' },
 				{ event: 'Opening ceremony', time: '09:00 AM' },
-				{ event: 'Start working on your project!', time: '9:30 AM' },
-				{ event: 'Workshop 1', time: '10:00 AM' },
-				{ event: 'Workshop 2', time: '10:00 AM' },
+				{ event: 'Start working on your project!', time: '09:30 AM' },
+				{ event: 'Workshop', time: '10:00 AM' },
 				{ event: 'Lunch', time: '01:00 PM' },
-				{ event: 'Activity 1', time: '3:00 PM' },
+				{ event: 'Activity 1', time: '03:00 PM' },
 				{ event: 'Wrap up', time: '06:00 PM' }
 			]
 		},
@@ -45,7 +74,7 @@
 			title: 'Sunday, September 28th',
 			items: [
 				{ event: 'Doors open', time: '08:00 AM' },
-				{ event: 'Start working on your project!', time: '8:30 AM' },
+				{ event: 'Start working on your project!', time: '08:30 AM' },
 				{ event: 'Activity 1', time: '11:00 AM' },
 				{ event: 'Lunch', time: '01:00 PM' },
 				{ event: 'Hackathon Ends', time: '02:45 PM' },
@@ -924,26 +953,6 @@ Mumbai`.split('\n');
 		alt=""
 		class="absolute left-0 w-3/12 -bottom-12 translate-y-1/2 z-20 pointer-events-none"
 	/>
-
-	<!-- Desktop stickers button (bottom left) -->
-	<a
-		href="https://forms.hackclub.com/daydream-stickers"
-		target="_blank"
-		class="hidden md:block absolute bottom-16 left-16 z-50 w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none"
-	>
-		Get free stickers
-		<img
-			src="button-clouds.svg"
-			alt=""
-			class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
-		/>
-		<img
-			src="rock-sticker.png"
-			alt=""
-			class="absolute bottom-2 right-3 translate-2/3 w-18 h-18 object-contain pointer-events-none"
-			style="transform: rotate(-15deg);"
-		/>
-	</a>
 </div>
 
 <div class="w-full relative flex items-start justify-center">
@@ -1709,7 +1718,7 @@ Mumbai`.split('\n');
 								href="https://juanes10201.itch.io/speedtickers"
 								target="_blank"
 								class="underline mr-2">SPEEDTICKERS</a
-							> by Agustin
+							> by Agustin & Juan
 						</li>
 					</ul>
 
@@ -1780,7 +1789,7 @@ Mumbai`.split('\n');
 					Who can participate in Daydream?
 				</h3>
 				<p class="text-sm">
-					All high-school & upper-middle-school aged students are welcome to come!
+					All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong>
 				</p>
 			</div>
 		</div>

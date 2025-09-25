@@ -32,15 +32,15 @@
 		{
 			title: "Sâmbătă, 27 septembrie",
 			items: [
-				{ event: "Deschiderea ușilor", time: "13:00" },
-				{ event: "Ceremonia de deschidere", time: "13:30" },
+				{ event: "Deschiderea maratonului", time: "11:00" },
+				{ event: "Ceremonia de deschidere", time: "11:30" },
+				{ event: "Începe lucrul la jocul tău!", time: "12:00" },
 				{ event: "Prânz", time: "14:00" },
-				{ event: "Începe lucrul la proiectul tău!", time: "14:00" },
-				{ event: "Workshop 1", time: "16:00" },
-				{ event: "Activitatea 1", time: "17:00" },
+				{ event: "Workshop 1", time: "14:30" },
+				{ event: "Activitatea 1", time: "16:00" },
 				{ event: "Workshop 2", time: "18:00" },
 				{ event: "Cină", time: "20:00" },
-				{ event: "Prezentări rapide", time: "21:00" },
+				{ event: "Prezentări rapide", time: "20:30" },
 				{ event: "Surpriza de la miezul nopții", time: "00:00" }
 			]
 		},
@@ -48,10 +48,10 @@
 			title: "Duminică, 28 septembrie",
 			items: [
 				{ event: "Micul dejun", time: "08:00" },
-				{ event: "Stop lucru", time: "14:00" },
-				{ event: "Demo-uri", time: "14:00" },
-				{ event: "Votare", time: "14:45" },
-				{ event: "Festivitate de premiere", time: "15:00" }
+				{ event: "Stop lucru", time: "10:00" },
+				{ event: "Prezentarea jocurilor", time: "10:30" },
+				{ event: "Votare", time: "11:30" },
+				{ event: "Festivitate de premiere", time: "12:00" }
 			]
 		}
 	];
@@ -879,25 +879,7 @@ Mumbai`.split("\n")
 	<img src="/clouds-top-left.png" alt="" class="absolute left-0 w-3/12 -bottom-12  translate-y-1/2 z-20 pointer-events-none">
 	
 
-	<!-- Desktop stickers button (bottom left) -->
-	<a
-		href="https://forms.hackclub.com/daydream-stickers"
-		target="_blank"
-		class="hidden md:block absolute bottom-16 left-16 z-50 w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none"
-	>
-		Obține stickere gratuite
-		<img
-			src="button-clouds.svg" 
-			alt="" 
-			class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
-		>
-		<img
-			src="rock-sticker.png"
-			alt=""
-			class="absolute bottom-2 right-3 translate-2/3 w-18 h-18 object-contain pointer-events-none"
-			style="transform: rotate(-15deg);"
-		>
-	</a>
+	
 </div>
 
 <div class="w-full relative flex items-start justify-center">
@@ -909,7 +891,7 @@ Mumbai`.split("\n")
 		<div class="relative z-20 px-20 pt-20 pb-52 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
 			<div class="absolute bottom-0 left-0 w-full h-24 z-10 pointer-events-none bg-[url('/clouds-loop.png')] bg-repeat-x bg-bottom bg-contain"></div>
 			<h2 class="text-5xl font-serif italic text-[#8B4513] mb-10 relative">
-				Dragi hackeri, muzicieni și artiști,
+				Dragi adolescenti,
 				<img src="/underline.svg" alt="" class="absolute left-0 -bottom-3 w-64 h-auto opacity-70">
 			</h2>
 			
@@ -1405,7 +1387,7 @@ Mumbai`.split("\n")
 						</li>
 						<li class="flex items-start">
 							<span class="mr-4">•</span>
-							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> de Agustin
+							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> de Agustin & Juan
 						</li>
 					</ul>
 					
@@ -1532,6 +1514,15 @@ Mumbai`.split("\n")
 	</div>
 
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
+</div>
+
+<!-- Sticker Acknowledgment -->
+<div class="w-full bg-[#e99cce] py-8 flex justify-center">
+	<div class="text-center">
+		<p class="text-white font-serif text-lg">
+			<a href="https://www.jukeboxprint.com/custom-stickers" class="text-white underline hover:text-gray-200 transition-colors">Custom stickers</a> provided by Jukebox
+		</p>
+	</div>
 </div>
 
 <Footer />

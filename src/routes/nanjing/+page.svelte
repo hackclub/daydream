@@ -3,6 +3,7 @@
 	const lang = writable<'en' | 'zh'>('en');
 	const t = {
 		en: {
+			eventAddress: 'Central Road No.389, Phoenix International Plaza 3F, Gulou District',
 			heroDate: 'September 27, 2025',
 			heroTitle: 'Game jam for high schoolers',
 			heroSubtitle: 'Organized by Teenagers in Nanjing',
@@ -20,22 +21,25 @@
 				{
 					title: "Saturday, September 27th",
 					items: [
-						{ event: "Doors open", time: "8:30 AM" },
+						{ event: "Doors open", time: "9:00 AM" },
 						{ event: "Opening ceremony", time: "9:30 AM" },
 						{ event: "Start working on your project!", time: "10:00 AM" },
-						{ event: "Workshop 1", time: "11:00 AM" },
+						{ event: "Workshop 1: Godot Platformer", time: "10:00 AM" },
+						{ event: "Workshop 2 (TBA)", time: "11:00 AM" },
 						{ event: "Lunch", time: "12:30 PM" },
-						{ event: "Activity 1", time: "1:30 PM" },
-						{ event: "Workshop 2", time: "3:00 PM" },
+						{ event: "Activity 1 (TBA)", time: "2:30 PM" },
 						{ event: "Lightning talks", time: "5:00 PM" },
 						{ event: "Dinner", time: "6:00 PM" },
-						{ event: "Demos!", time: "7:00 PM" },
+						{ event: "Demos and voting!", time: "7:00 PM" },
 						{ event: "Closing ceremony", time: "8:30 PM" }
 					]
 				}
 			],
 			sponsors: 'Sponsors',
 			sponsorCTA: 'Want to sponsor Daydream Nanjing? ',
+			sponsorJukebox: 'Big shoutout to Jukebox for our ',
+			sponsorCustomStickers: 'custom stickers',
+			sponsorJukeboxPost: '！',
 			steps: [
 				'#1: Sign up for Daydream Nanjing',
 				'#2: Attend a workshop and learn about game development',
@@ -43,6 +47,8 @@
 				'#4: Start building your game - no experience needed',
 				'#5: Share what you made with the world!'
 			],
+			isTakingPlaceAt: ' is taking place at ',
+			locationPost: '!',
 			macintosh: {
 				titlePre: 'What will you ',
 				titleImage: '/dream-pixel.png',
@@ -59,7 +65,7 @@
 				},
 				item3: {
 					name: 'SPEEDTICKERS',
-					author: 'by Agustin'
+					author: 'by Agustin & Juan'
 				},
 				line3: 'We\'ll have workshops and activities before Daydream to help you learn game development using Godot!',
 				stuck: 'Stuck?',
@@ -68,7 +74,7 @@
 			faq: [
 				{
 					q: 'Who can participate in Daydream?',
-					a: 'All high-school & upper-middle-school aged students are welcome to come!'
+					a: 'All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong>'
 				},
 				{
 					q: 'Can I organize a Daydream in my city?',
@@ -76,7 +82,7 @@
 				},
 				{
 					q: 'All this, for free?',
-					a: 'Yep! Food, swag and good vibes are all included. Plus, if you\'re joining us from afar, we\'ll cover the cost of gas or a bus / train ticket.'
+					a: 'Yep! Food, swag and good vibes are all included.'
 				},
 				{
 					q: 'What do I need?',
@@ -103,6 +109,7 @@
 			contactUs: 'Get in touch'
 		},
 		zh: {
+			eventAddress: '鼓楼区中央路389号凤凰国际大厦3楼',
 			heroDate: '2025年9月27日',
 			heroTitle: '为高中生举办的游戏创作节',
 			heroSubtitle: '由南京的青少年组织',
@@ -120,22 +127,25 @@
 				{
 					title: "周六，2025年9月27日",
 					items: [
-						{ event: "入场", time: "上午8:30" },
+						{ event: "入场", time: "上午9:00" },
 						{ event: "开幕式", time: "上午9:30" },
 						{ event: "开始你的项目！", time: "上午10:00" },
-						{ event: "工作坊1", time: "上午11:00" },
+						{ event: "工作坊1：Godot 平台动作游戏", time: "上午10:00" },
+						{ event: "工作坊2（待定）", time: "上午11:00" },
 						{ event: "午餐", time: "下午12:30" },
-						{ event: "活动1", time: "下午1:30" },
-						{ event: "工作坊2", time: "下午3:00" },
+						{ event: "活动1（待定）", time: "下午2:30" },
 						{ event: "闪电演讲", time: "下午5:00" },
 						{ event: "晚餐", time: "下午6:00" },
-						{ event: "演示！", time: "下午7:00" },
+						{ event: "展示与投票！", time: "下午7:00" },
 						{ event: "闭幕式", time: "下午8:30" }
 					]
 				}
 			],
 			sponsors: '赞助商',
 			sponsorCTA: '想赞助 Daydream 南京吗？',
+			sponsorJukebox: '感谢 Jukebox 为我们提供',
+			sponsorCustomStickers: '定制贴纸',
+			sponsorJukeboxPost: '！',
 			steps: [
 				'#1: 报名参加 Daydream 南京',
 				'#2: 参加工作坊，学习游戏开发',
@@ -143,6 +153,8 @@
 				'#4: 开始创作你的游戏 - 无需经验',
 				'#5: 向世界展示你的作品！'
 			],
+			isTakingPlaceAt: '将在',
+			locationPost: '举行!',
 			macintosh: {
 				titlePre: '你会',
 				titleImage: '/nanjing/dream-pixel.png',
@@ -159,7 +171,7 @@
 				},
 				item3: {
 					name: 'SPEEDTICKERS',
-					author: '作者：Agustin'
+					author: '作者：Agustin & Juan'
 				},
 				line3: '在Daydream之前，我们还会举办工作坊和活动，帮助你学习使用Godot进行游戏开发！',
 				stuck: '卡住了？',
@@ -176,7 +188,7 @@
 				},
 				{
 					q: '这些都是免费的吗？',
-					a: '是的！餐饮、赠品和欢乐氛围都包含在内。此外，如果你从远方前来，我们还会报销你的汽油费、公交车票或火车票。'
+					a: '是的！餐饮、赠品和欢乐氛围都包含在内。'
 				},
 				{
 					q: '我需要准备什么？',
@@ -208,10 +220,10 @@
 	// Configuration - Put your information here!
 	const eventName = "Nanjing"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "南京";
-	const eventAddress = ""; // Leave this empty if you don't want an address
+	const eventAddress = "389 Central Road, Nanjing, China"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recEVnEw4mgdvuCF9"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = ""
+	const directionsURL = "https://surl.amap.com/4yOWojHEfgw"
 	const contactLink = "mailto:daydream.nanjing@outlook.com"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
@@ -241,9 +253,9 @@
 	
 	// Get current URL for dynamic metadata
 	$: currentUrl = `https://daydream.hackclub.com${$page.url.pathname}`;
-	$: pageTitle = `Daydream ${eventName} - ${eventLocation} Game Jam`;
-	$: pageDescription = `Join Daydream ${eventName} in ${eventLocation}! A teen-led game jam where you'll build amazing games with other high schoolers. Food, workshops, and prizes included!`;
-	$: pageKeywords = `game jam, hackathon, teen coding, Hack Club, game development, ${eventLocation}, ${eventName}`;
+	$: pageTitle = `Daydream Nanjing - Nanjing Game Jam`;
+	$: pageDescription = `Join Daydream Nanjing! A teen-led game jam where you'll build amazing games with other high schoolers. Food, workshops, and prizes included!`;
+	$: pageKeywords = `game jam, hackathon, teen coding, Hack Club, game development, Nanjing`;
 
 	// Cities where the game jam is happening
 	const cities = `Columbus
@@ -1079,25 +1091,7 @@ Mumbai`.split("\n")
 	<img src="/clouds-top-left.png" alt="" class="absolute left-0 w-3/12 -bottom-12  translate-y-1/2 z-20 pointer-events-none">
 	
 
-	<!-- Desktop stickers button (bottom left) -->
-	 <a
-	 href="https://forms.hackclub.com/daydream-stickers"
-	 target="_blank"
-	 class="hidden md:block absolute bottom-16 left-16 z-50 w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none"
-	 >
-	 {l10n.stickers}
-	 <img
-	 src="button-clouds.svg" 
-	 alt="" 
-	 class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
-	 >
-	 <img
-	 src="rock-sticker.png"
-	 alt=""
-	 class="absolute bottom-2 right-3 translate-2/3 w-18 h-18 object-contain pointer-events-none"
-	 style="transform: rotate(-15deg);"
-	 >
-	 </a>
+	
 </div>
 
 <div class="w-full relative flex items-start justify-center">
@@ -1259,7 +1253,11 @@ Mumbai`.split("\n")
 							</div>
 						{/if}
 					{/if}
-					
+
+					<div class="mt-8 text-center">
+						<p class="text-lg text-[#335969]">{l10n.sponsorJukebox}<a href="https://www.jukeboxprint.com/custom-stickers" class="underline hover:text-[#477783] transition-colors" target="_blank">{l10n.sponsorCustomStickers}</a>{l10n.sponsorJukeboxPost}</p>
+					</div>
+
 					{#if contactLink}
 						<!-- Call to action for sponsors -->
 						<div class="mt-8 text-center">
@@ -1407,7 +1405,7 @@ Mumbai`.split("\n")
 			<!-- Map container with cloudy edges -->
 			<div class="relative w-full h-156 overflow-hidden bg-transparent">
 				<iframe 
-					src={eventAddress ? "/event-map?location=" + encodeURIComponent(eventAddress) : "/map"}
+					src="/map"
 					class="w-full h-full border-0 bg-[#acd4e0]"
 					style="
 						mask-image: 
@@ -1501,9 +1499,9 @@ Mumbai`.split("\n")
 			{#if eventAddress}
 				<p class="text-center font-sans text-2xl pt-12 max-sm:text-xl text-[#60574b] z-10000">
 					{#if directionsURL}
-						Daydream {eventName} 将在<a class="underline text-pink" href={directionsURL}>{eventAddress}</a>举行！
+						Daydream {eventName} {l10n.isTakingPlaceAt}<a class="underline text-pink" href={directionsURL}>{l10n.eventAddress}</a>{l10n.locationPost}
 					{:else}
-						Daydream {eventName} 将在<span class="underline">{eventAddress}</span>举行！
+						Daydream {eventName} {l10n.isTakingPlaceAt}<span class="underline">{l10n.eventAddress}</span>{l10n.locationPost}
 					{/if}
 				</p>
 			{/if}

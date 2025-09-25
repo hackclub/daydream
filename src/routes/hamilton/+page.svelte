@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	/**
 	 * This is the template site! Create a copy of this folder (src/routes/example)
 	 * and rename it to whatever you want your URL to be.
@@ -8,66 +10,60 @@
 
 	// Configuration - Put your information here!
 	const eventName = "Hamilton";
-	const eventLocation = "Hamilton";
+	const eventLocation = "Hamilton, ON";
 	const eventAddress = "12 Barton St Level 2, Waterdown, ON L0R 2H0, Canada"; // Leave this empty if you don't want an address
 	// These two are optional
 	const directionsURL = "https://www.google.com/maps/place/12+Barton+St+Level+2,+Waterdown,+ON+L0R+2H0/"
 	const contactLink = "mailto:hamilton@daydream.hackclub.com"
 	
-		// Sponsors Configuration
-        const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
-	const sponsors = [
-		{ image: "/hamilton/sponsors/saints.png", name: "Saints Studio (Venue)", url: "https://saintsstudio.ca" },
-		//{ image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
-		//{ image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
-		//{ image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
-		//{ image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
-		//{ image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
-		//{ image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
-	];
-	
-	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
-	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
-		{
-			title: "Saturday, September 27th",
-			items: [
-				{ event: "Registration opens", time: "10:00 AM" },
-				{ event: "Doors open", time: "12:00 PM" },
-				{ event: "Opening ceremony", time: "1:00 PM" },
-				{ event: "Team Formation", time: "1:30 PM" },
-				{ event: "Start working on your project!", time: "1:30 PM" },
-				{ event: "Workshop 1", time: "1:45 PM" },
-				{ event: "Activity 1", time: "3:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
-				{ event: "Dinner", time: "5:30 PM" },
-				{ event: "Activity 2", time: "6:00 PM" },
-				{ event: "Workshop 3", time: "7:30 PM" },
-				{ event: "Activity 3", time: "8:30 PM" },
-				{ event: "Activity 4", time: "9:30 PM" },
-				{ event: "Quiet Time", time: "10:30 PM" }
-			]
-		},
-		{
-			title: "Sunday, September 28th",
-			items: [
-				{ event: "Wake Up!", time: "7:00 AM" },
-				{ event: "Breakfast", time: "7:30 AM" },
-				{ event: "Project Deadline", time: "10:00 AM" },
-				{ event: "Voting", time: "10:15 AM" },
-				{ event: "Winner Announcement/Closing Ceremony", time: "11:00 AM" },
-				{ event: "Cleanup", time: "11:30 AM" },
-				{ event: "Goodbye!", time: "12:00 PM" }
-			]
-		}
-	];
+	// Sponsors Configuration
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=rec2hrHzbHwmzR2Wi"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
+	let sponsors: Array<{tier: string, sponsors: Array<{name: string, logo: string, link: string}>}> = [];
+	let sponsorsLoading = true;
 
+	onMount(() => {
+		fetchScheduleData();
+		fetchSponsors();
+	});
 	
-	import { onMount } from "svelte";
+	async function fetchSponsors() {
+		try {
+			const response = await fetch('https://raw.githubusercontent.com/gamerwaves/daydream-hamilton-config/refs/heads/main/sponsors.json');
+			const jsonText = await response.text();
+			// Remove any trailing commas that might be in the JSON
+			const fixedJson = jsonText.replace(/,\s*([}\]])/g, '$1');
+			const data = JSON.parse(fixedJson);
+			sponsors = data;
+		} catch (error) {
+			console.error('Failed to fetch sponsors:', error);
+			sponsors = [];
+		} finally {
+			sponsorsLoading = false;
+		}
+	}
+
+	let scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [];
+	let scheduleLoading = true;
+
+	async function fetchScheduleData() {
+		try {
+			const response = await fetch('https://raw.githubusercontent.com/gamerwaves/daydream-hamilton-config/refs/heads/main/schedule.json');
+			const data = await response.json();
+			scheduleData = data;
+		} catch (error) {
+			console.error('Failed to fetch schedule:', error);
+			scheduleData= [];
+		} finally {
+			scheduleLoading = false;
+		}
+	}
+
 	import { gsap } from "gsap";
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
 	import Ticker from "$lib/components/Ticker.svelte";
 	import Footer from "$lib/components/Footer.svelte";
-	import ParticipantSignUp from "$lib/components/hamilton/ParticipantSignUp.svelte";
+	import ParticipantSignUp from "$lib/components/ParticipantSignUp.svelte";
 	import { page } from '$app/stores';
 	
 	
@@ -104,7 +100,7 @@ Dubai
 San Francisco
 Minneapolis
 Seattle
-Signapore
+Singapore
 Sydney
 Mumbai`.split("\n")
 
@@ -382,7 +378,7 @@ Mumbai`.split("\n")
 		
 		isTyping = false;
 	}
-
+/*
 	async function fetchIdea(): Promise<string> {
 		let attempt = 0;
 		const maxAttempts = 5;
@@ -473,6 +469,8 @@ Mumbai`.split("\n")
 		// Start typing animation with the fetched idea
 		await typeText(fetchResult);
 	}
+*/
+
 
 	function setupPlaneAnimation() {
 		const container = document.getElementById("islands-container");
@@ -628,6 +626,12 @@ Mumbai`.split("\n")
 	}
 
 	onMount(() => {
+		if (sponsorsEnabled) {
+			fetchSponsors();
+		}
+
+		fetchScheduleData();
+
 		console.log('User city:', data.userCity);
 		
 		// Register GSAP plugins
@@ -736,6 +740,8 @@ Mumbai`.split("\n")
 	}
 	
 	/* Minimal scrollbar styling */
+
+	/*
 	.idea-output-box::-webkit-scrollbar {
 		width: 8px;
 	}
@@ -758,11 +764,12 @@ Mumbai`.split("\n")
 		background: transparent;
 	}
 	
-	/* Firefox scrollbar styling */
+	// Firefox scrollbar styling
 	.idea-output-box {
 		scrollbar-width: auto;
 		scrollbar-color: #d1e3ee transparent;
 	}
+	*/
 </style>
 
 
@@ -827,9 +834,11 @@ Mumbai`.split("\n")
 			>
 				September 27th & 28th, 2025
 			</h2>
-			<img src="hamilton/daydream.png" alt="Daydream" class="h-40 mb-6 mt-6 w-auto object-contain max-w-full px-4" />
-			<a href="https://hackclub.com" class="absolute top-0 -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
+			<img src="hamilton/daydream.png" alt="Daydream" class="h-40 mb-6 mt-8 w-auto object-contain max-w-full px-4" />
+			<a href="https://hackclub.com" class="absolute top-2 left-1/2 -translate-x-1/2 w-full max-w-[600px] px-4 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
+				<div class="flex justify-end pr-22 mr-22">
 				<img src="flag-plane.png" alt="Hack Club" class="h-28">
+			</div>
 			</a>
 		</div>
 		<div class="relative inline-block px-4">
@@ -846,12 +855,41 @@ Mumbai`.split("\n")
 			<h4
 				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
 			>
-				 Organized by Teenagers in  {@html eventLocation.replaceAll(" ", "&nbsp;")}
+				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
 			</h4>
 		</div>
 		
-		<ParticipantSignUp />
+		<ParticipantSignUp {signupLink} {eventName} />
 	</div>
+	{#if eventAddress}
+					<!-- Address Box - Prominent display -->
+					<div
+						class="mt-8 bg-white/80 backdrop-blur-sm border-4 border-[#487DAB] rounded-2xl px-8 py-6 max-w-2xl mx-4 shadow-lg relative z-30"
+					>
+						<div class="text-center">
+							<h3 class="text-2xl font-serif font-bold text-[#487DAB] mb-3 max-sm:text-xl">
+								Venue
+							</h3>
+							{#if directionsURL}
+								<a
+									href={directionsURL}
+									class="block text-xl font-sans text-[#60574b] hover:text-[#487DAB] transition-colors underline decoration-2 underline-offset-4 max-sm:text-lg"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									{eventAddress}
+								</a>
+							{:else}
+								<p class="text-xl font-sans text-[#60574b] max-sm:text-lg">
+									{eventAddress}
+								</p>
+							{/if}
+							{#if directionsURL}
+								<p class="text-sm text-[#60574b]/70 mt-2 font-sans">Click for directions ⤴︎</p>
+							{/if}
+						</div>
+					</div>
+				{/if}
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/12 left-36 bottom-81 z-20"> -->
@@ -884,25 +922,7 @@ Mumbai`.split("\n")
 	<img src="/clouds-top-left.png" alt="" class="absolute left-0 w-3/12 -bottom-12  translate-y-1/2 z-20 pointer-events-none">
 	
 
-	<!-- Desktop stickers button (bottom left) -->
-	<a
-		href="https://forms.hackclub.com/daydream-stickers"
-		target="_blank"
-		class="hidden md:block absolute bottom-16 left-16 z-50 w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none"
-	>
-		Get free stickers
-		<img
-			src="button-clouds.svg" 
-			alt="" 
-			class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
-		>
-		<img
-			src="rock-sticker.png"
-			alt=""
-			class="absolute bottom-2 right-3 translate-2/3 w-18 h-18 object-contain pointer-events-none"
-			style="transform: rotate(-15deg);"
-		>
-	</a>
+	
 </div>
 
 <div class="w-full relative flex items-start justify-center">
@@ -968,25 +988,31 @@ Mumbai`.split("\n")
 				
 				<!-- Schedule Content -->
 				<div class="relative z-10">
-					{#each scheduleData as day, dayIndex}
-						<div class="bg-white/50 py-6 -mx-8 {dayIndex < scheduleData.length - 1 ? 'mb-8' : ''}">
-							<h3 class="text-2xl font-sans font-bold text-[#335969] mb-6 text-center px-8 max-sm:text-xl max-sm:px-4">
-								{day.title}
-							</h3>
-							
-							<div class="max-w-xl mx-auto px-4">
-								{#each day.items as item, index}
-									<div class="flex items-center justify-between py-2">
-										<span class="text-lg font-sans text-[#477783]">{item.event}</span>
-										<span class="text-lg font-sans text-[#477783]">{item.time}</span>
-									</div>
-									{#if index < day.items.length - 1}
-										<div class="h-[2px] bg-white/30"></div>
-									{/if}
-								{/each}
+					{#if scheduleLoading}
+						<div class="flex justify-center items-center min-h-40">
+                            <p class="text-lg text-[#335969]">Loading schedule...</p>
+                        </div>
+					{:else}
+						{#each scheduleData as day, dayIndex}
+							<div class="bg-white/50 py-6 -mx-8 {dayIndex < scheduleData.length - 1 ? 'mb-8' : ''}">
+								<h3 class="text-2xl font-sans font-bold text-[#335969] mb-6 text-center px-8 max-sm:text-xl max-sm:px-4">
+									{day.title}
+								</h3>
+								
+								<div class="max-w-xl mx-auto px-4">
+									{#each day.items as item, index}
+										<div class="flex items-center justify-between py-2">
+											<span class="text-lg font-sans text-[#477783]">{item.event}</span>
+											<span class="text-lg font-sans text-[#477783]">{item.time}</span>
+										</div>
+										{#if index < day.items.length - 1}
+											<div class="h-[2px] bg-white/30"></div>
+										{/if}
+									{/each}
+								</div>
 							</div>
-						</div>
-					{/each}
+						{/each}
+					{/if}
 				</div>
 			</div>
 			
@@ -1033,53 +1059,69 @@ Mumbai`.split("\n")
 				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
 				
 				<!-- Sponsors Grid -->
-				<div class="relative z-10 min-h-40">
-					{#if sponsors.length > 0}
-						<!-- First row (up to 4 sponsors) -->
-						{#if sponsors.length > 4}
-							<div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center mb-8">
-								{#each sponsors.slice(0, 4) as sponsor}
-									<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
-										<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
-									</a>
-								{/each}
-							</div>
-							
-							<!-- Second row (remaining sponsors, centered) -->
-							{#if sponsors.length > 4}
-								<div class="flex justify-center">
-									<div class="grid grid-cols-2 md:grid-cols-3 gap-8 items-center justify-items-center max-w-2xl">
-										{#each sponsors.slice(4) as sponsor, index}
-											<a href={sponsor.url} 
-												class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors {sponsors.slice(4).length === 3 && index === 2 ? 'md:col-span-1 col-span-2 max-w-xs mx-auto' : ''}" 
-												target="_blank" rel="noopener noreferrer">
-												<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
+                <div class="relative z-10 min-h-40">
+                    {#if sponsorsLoading}
+                        <div class="flex justify-center items-center min-h-40">
+                            <p class="text-lg text-[#335969]">Loading sponsors...</p>
+                        </div>
+                    {:else if sponsors.length > 0}
+                        <!-- Render sponsors by tier -->
+                        {#each sponsors as tierData}
+                            {#if tierData.sponsors && tierData.sponsors.length > 0}
+                                <!-- Tier Section -->
+                                <div class="mb-8 rounded-lg p-6 {
+                                    tierData.tier === 'partner' ? 'bg-blue-500/20' :
+									tierData.tier === 'galaxy' ? 'bg-pink-500/20' :
+                                    tierData.tier === 'star' ? 'bg-yellow-500/30' :
+                                    tierData.tier === 'moon' ? 'bg-green-400/30' :
+                                    tierData.tier === 'cloud' ? 'bg-orange-600/30' :
+                                    'bg-white/20'
+                                }">
+                                    <h3 class="text-2xl font-sans font-bold text-[#335969] mb-4 text-center capitalize">
+                                        {tierData.tier} Sponsors
+                                    </h3>
+                                    
+                                    <!-- Sponsors Grid for this tier -->
+                                    <div class="grid gap-6 items-center justify-items-center {
+                                        tierData.tier === 'partner' ? 'grid-cols-1 md:grid-cols-2' :
+                                        'grid-cols-2 md:grid-cols-3 lg:grid-cols-4'
+                                    }">
+                                        {#each tierData.sponsors as sponsor}
+                                            <a 
+												href={sponsor.link} 
+												class="bg-white/40 rounded-lg p-4 w-full {
+													tierData.tier === 'partner' ? 'h-32' : 'h-fit'
+												} flex flex-col items-center justify-center hover:bg-white/60 transition-colors" 
+												target="_blank" 
+												rel="noopener noreferrer"
+											>
+												<img 
+													src={sponsor.logo} 
+													alt={sponsor.name} 
+													class="max-w-full max-h-[80px] object-contain mb-2"
+												>
+												<h4 class="text-center text-lg font-sans text-[#335969]">
+													{sponsor.name}
+												</h4>
 											</a>
-										{/each}
-									</div>
-								</div>
-							{/if}
-						{:else}
-							<!-- Single row for 4 or fewer sponsors -->
-							<div class="flex justify-center">
-								<div class="grid gap-8 items-center justify-items-center max-w-4xl {sponsors.length === 1 ? 'grid-cols-1' : sponsors.length === 2 ? 'grid-cols-1 md:grid-cols-2' : sponsors.length === 3 ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-2 md:grid-cols-4'}">
-									{#each sponsors as sponsor}
-										<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
-											<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
-										</a>
-									{/each}
-								</div>
-							</div>
-						{/if}
-					{/if}
-					
-					{#if contactLink}
-						<!-- Call to action for sponsors -->
-						<div class="mt-8 text-center">
-							<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
-						</div>
-					{/if}
-				</div>
+                                        {/each}
+                                    </div>
+                                </div>
+                            {/if}
+                        {/each}
+                    {:else}
+                        <div class="flex justify-center items-center min-h-40">
+                            <p class="text-lg text-[#335969]">No sponsors at this time.</p>
+                        </div>
+                    {/if}
+                    
+                    {#if contactLink}
+                        <!-- Call to action for sponsors -->
+                        <div class="mt-8 text-center">
+                            <p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a> or <a href="https://raw.githubusercontent.com/gamerwaves/daydream-hamilton-config/refs/heads/main/Daydream%20Hamilton%20Prospectus.pdf" class="underline hover:text-[#477783] transition-colors" target="_blank">See our prospectus</a></p>
+                        </div>
+                    {/if}
+                </div>
 			</div>
 			
 			<!-- Billboard Bars (bottom) -->
@@ -1150,7 +1192,7 @@ Mumbai`.split("\n")
 			<div class="relative w-72 h-40 max-md:w-80 animate-hover ![--hover:-0.15rem] ![animation-delay:1.7s] z-20" data-point="1">
 				<img src="paper1.png" alt="" class="w-full h-full object-contain">
 				<div class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center">
-					<span class="font-sans text-[#E472AB] font-bold text-[1.3rem] mr-1">#1:</span> <a href="https://forms.hackclub.com/daydream-sign-up?event=rec2hrHzbHwmzR2Wi" class="underline">Sign up</a> for Daydream {eventName}
+					<span class="font-sans text-[#E472AB] font-bold text-[1.3rem] mr-1">#1:</span> <a href={signupLink} class="underline">Sign up</a> for Daydream {eventName}
 				</div>
 			</div>
 		</div>
@@ -1220,7 +1262,7 @@ Mumbai`.split("\n")
 			<!-- Map container with cloudy edges -->
 			<div class="relative w-full h-156 overflow-hidden bg-transparent">
 				<iframe 
-					src={eventAddress ? "/event-map?location=" + encodeURIComponent(eventAddress) : "/map"}
+					src={eventAddress ? "/event-map?location={encodeURIComponent(eventAddress)}" : "/map"}
 					class="w-full h-full border-0 bg-[#acd4e0]"
 					style="
 						mask-image: 
@@ -1310,16 +1352,6 @@ Mumbai`.split("\n")
 					title="Daydream Events Map">
 				</iframe>
 			</div>
-			
-			{#if eventAddress}
-				<p class="text-center font-sans text-2xl pt-12 max-sm:text-xl text-[#60574b] z-10000">
-					{#if directionsURL}
-						Daydream {eventName} is taking place at <a class="underline text-pink" href={directionsURL}>{eventAddress}</a>!
-					{:else}
-						Daydream {eventName} is taking place at <span class="underline">{eventAddress}</span>!
-					{/if}
-				</p>
-			{/if}
 		</div>
 	</div>
 
@@ -1410,7 +1442,7 @@ Mumbai`.split("\n")
 						</li>
 						<li class="flex items-start">
 							<span class="mr-4">•</span>
-							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> by Agustin
+							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> by Agustin & Juan
 						</li>
 					</ul>
 					
@@ -1419,7 +1451,7 @@ Mumbai`.split("\n")
 					</p>
 					
 					<!-- Bottom section with input -->
-					<div class="flex flex-col md:flex-row md:items-end gap-10 pt-8">
+					<!-- <div class="flex flex-col md:flex-row md:items-end gap-10 pt-8">
 						<div>
 							<h3 class="text-3xl md:text-4xl font-pixel mb-4">Stuck?</h3>
 							<button 
@@ -1449,7 +1481,7 @@ Mumbai`.split("\n")
 								{/if}
 							</div>
 						</div>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -1468,7 +1500,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 
@@ -1481,12 +1513,13 @@ Mumbai`.split("\n")
 			</div>
 		</div>
 
+
 		<!-- FAQ Item 3 -->
 		<div class="relative transform rotate-2">
 			<img src="window-2.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24  opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">All this, for free?</h3>
-				<p class="text-sm">Yep! Food, swag and good vibes are all included. Plus, if you're joining us from afar, we'll cover the cost of gas or a bus / train ticket.</p>
+				<p class="text-sm">Yep! Food, swag and good vibes are all included. Plus, if you're joining us from afar, we'll cover the cost of gas or a bus / train ticket. Learn more <a href="https://gas.hackclub.com/">here</a></p>
 			</div>
 		</div>
 

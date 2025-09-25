@@ -2,9 +2,9 @@
 	// Configuration
 	const eventName = "Valencia";
 	const eventLocation = "Valencia";
-	const eventAddress = "";
+	const eventAddress = "Aula de Ciencia, C/ de Felipe Valls, 119, 46035 Valencia";
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recPq4lURkQWbmJFY&lang=es";
-	const directionsURL = ""
+	const directionsURL = "https://maps.app.goo.gl/2wrdnZJvA2Mx1oiC7";
 	const contactLink = "mailto:valencia@daydream.hackclub.com"
 	const sponsorLink = "https://hcb.hackclub.com/donations/start/daydream-valencia"
 	
@@ -14,6 +14,8 @@
 		{ image: "/valencia/avast.png", name: "AVAST", url: "https://asociacion-avast.org/" },
 		{ image: "/valencia/jukebox.png", name: "Jukeboxprint", url: "https://jukeboxprint.com" },
 		{ image: "/valencia/nix.png", name: "Nix Media", url: "https://nixmedia.studio" },
+		{ image: "/valencia/auladeciencia.png", name: "Aula de Ciencia", url: "https://auladeciencia.es" },
+		{ image: "/valencia/yubico.png", name: "Yubico", url: "https://yubico.com" }
 	];
 	
 	// Schedule Configuration
@@ -815,14 +817,14 @@ Mumbai`.split("\n")
 			>
 				27 y 28 de septiembre de 2025
 			</h2>
-			<img src="daydream.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
-			<a href="https://hackclub.com" class="absolute top-0 -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
-				<img src="flag-plane.png" alt="Hack Club" class="h-28">
+			<img src="daydream.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-[90vw] sm:max-w-full px-2 sm:px-4" />
+			<a href="https://hackclub.com" class="absolute top-0 -right-6 max-sm:-right-2 max-sm:scale-90 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
+				<img src="flag-plane.png" alt="Hack Club" class="h-28 max-sm:h-24">
 			</a>
 		</div>
-		<div class="relative inline-block px-4">
+		<div class="relative inline-block px-2 sm:px-4 max-w-[90vw]">
 			<h3
-				class="text-3xl italic font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent w-max max-sm:text-2xl mx-auto"
+				class="text-3xl italic font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl mx-auto text-center"
 			>
 				Game jam para estudiantes de secundaria
 			</h3>
@@ -872,25 +874,7 @@ Mumbai`.split("\n")
 	<img src="/clouds-top-left.png" alt="" class="absolute left-0 w-3/12 -bottom-12  translate-y-1/2 z-20 pointer-events-none">
 	
 
-	<!-- Desktop stickers button (bottom left) -->
-	<a
-		href="https://forms.hackclub.com/daydream-stickers"
-		target="_blank"
-		class="hidden md:block absolute bottom-16 left-16 z-50 w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none"
-	>
-		Consigue pegatinas gratis
-		<img
-			src="button-clouds.svg" 
-			alt="" 
-			class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
-		>
-		<img
-			src="rock-sticker.png"
-			alt=""
-			class="absolute bottom-2 right-3 translate-2/3 w-18 h-18 object-contain pointer-events-none"
-			style="transform: rotate(-15deg);"
-		>
-	</a>
+	
 </div>
 
 <div class="w-full relative flex items-start justify-center">
@@ -914,6 +898,8 @@ Mumbai`.split("\n")
 				<p>¿No te consideras un desarrollador de juegos? No hay problema, tenemos un montón de talleres para que hagas tu primer juego.</p>
 
 				<p>Este otoño, te invitamos a aprender algo nuevo, crear algo de lo que estés realmente orgulloso, conocer nuevos amigos y embarcarte juntos en una aventura increíble.</p>
+
+				<p>Te esperamos el 27 y 28 de septiembre en <a href={directionsURL} target="_blank" rel="noopener noreferrer" class="underline">{@html eventAddress.replaceAll(" ", "&nbsp;")}</a>!</p>
 
 				<p class="mb-2">Con cariño,</p>
 
@@ -1305,16 +1291,6 @@ Mumbai`.split("\n")
 					title="Daydream Events Map">
 				</iframe>
 			</div>
-			
-			{#if eventAddress}
-				<p class="text-center font-sans text-2xl pt-12 max-sm:text-xl text-[#60574b] z-10000">
-					{#if directionsURL}
-						Daydream {eventName} tendrá lugar en <a class="underline text-pink" href={directionsURL}>{eventAddress}</a>!
-					{:else}
-						Daydream {eventName} tendrá lugar en <span class="underline">{eventAddress}</span>!
-					{/if}
-				</p>
-			{/if}
 		</div>
 	</div>
 
@@ -1405,7 +1381,7 @@ Mumbai`.split("\n")
 						</li>
 						<li class="flex items-start">
 							<span class="mr-4">•</span>
-							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> por Agustin
+							<a href="https://juanes10201.itch.io/speedtickers" target="_blank" class="underline mr-2">SPEEDTICKERS</a> por Agustin & Juan
 						</li>
 					</ul>
 					
