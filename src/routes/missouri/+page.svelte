@@ -28,11 +28,10 @@
 			items: [
 				{ event: "Doors open", time: "9:00 AM" },
 				{ event: "Opening ceremony", time: "9:30 AM" },
-				{ event: "Teaming / Start working on your project!", time: "10:00 AM" },
-				{ event: "Workshop 1", time: "10:30 AM" },
+				{ event: "Start working on your project!", time: "10:00 AM" },
+				{ event: "Workshop 1", time: "11:00 AM" },
 				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Activity", time: "2:30 PM" },
-				{ event: "Workshop 2", time: "4:30 PM" },
+				{ event: "Workshop 2", time: "3:00 PM" },
 				{ event: "Dinner", time: "6:00 PM" },
 				{ event: "Go home and rest", time: "8:00 PM" },
 			]
@@ -41,7 +40,7 @@
 			title: "Sunday, September 28th",
 			items: [
 				{ event: "Doors open", time: "9:00 AM" },
-				{ event: "Breakfast", time: "9:00 AM" },
+				{ event: "Breakfast", time: "9:30 AM" },
 				{ event: "Workshop 3", time: "11:00 AM" },
 				{ event: "Lunch", time: "12:30 AM" },
 				{ event: "Submissions close!", time: "4:00 PM" },

@@ -29,7 +29,7 @@
 			<input
 				type="email"
 				name="email"
-				placeholder="Enter email to Sign Up"
+				placeholder="Enter email to RSVP"
 				class="w-80 px-3 py-1 text-dark focus:outline-none flex-1"
 				required
 			/>
