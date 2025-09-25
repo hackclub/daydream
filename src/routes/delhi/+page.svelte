@@ -8,7 +8,7 @@
 
 	// Configuration - Put your information here!
 	const eventName = "Delhi";
-	const eventLocation = "IIT Delhi";
+	const eventLocation = "Delhi";
 	const eventAddress = "IIT Delhi";
 	// These two are optional
 	const directionsURL = ""
