@@ -113,7 +113,7 @@ div:has(> div > [data-cy="select-value-container"]),
   --daydream-pink-dark: #A65A80;
   --daydream-bg-blue: #CCF4FD;
   --daydream-bg-cream: #FCEFC5;
-  --daydream-text-brown: #8B4513;
+  --daydream-text-brushstrokbrushstrokown: #8B4513;
 }
 
 #scrollable-widgets-wrapper {

@@ -1589,9 +1589,9 @@ Mumbai`.split("\n")
 	// Configuration - Put your information here!
 	const eventName = "Miami";
 	const eventLocation = "Miami";
-	const eventAddress = ""; // Leave this empty if you don't want an address
+	const eventAddress = "400 NW 26th St, Miami, FL 33127";  // Leave this empty if you don't want an address
 	// These two are optional
-	const directionsURL = ""
+	const directionsURL = "https://www.google.com/maps/dir/26.0179494,-80.3097179/400+NW+26th+St,+Miami,+FL+33127/@25.909817,-80.4389141,11z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x88d9b6b3a5eaeddd:0x4091a34cd9ba5c8d!2m2!1d-80.2022321!2d25.8011501?entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D" 
 	const contactLink = "mailto:miami@daydream.hackclub.com"
 	
 	// Sponsors Configuration
@@ -1601,12 +1601,18 @@ Mumbai`.split("\n")
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recbYBNEWgDH7grEM"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 
 	const sponsors = [
-		// { image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" },
-		// { image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
-		// { image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
-		// { image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
-		// { image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
-		// { image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
+		{ image: "/miami/GDG.png", name: "Google Developer Group @ FIU", url: "https://gdg.community.dev/gdg-on-campus-florida-international-university/" },
+		{ image: "/miami/CodeCrunch.png", name: "Code Crunch", url: "https://codecrunchglobal.vercel.app/home.html" },
+		{ image: "/miami/ColorStack.png", name: "ColorStack", url: "https://ba-00001.github.io/colorstackatfiu/" },
+		{ image: "/miami/CAHSI.png", name: "CAHSI @ FIU", url: "https://cahsiatfiu.vercel.app/" },
+		{ image: "/miami/Jukebox.png", name: "Jukebox", url: "https://www.jukeboxprint.com/custom-stickers",
+							text: `<p class="text-lg text-[#335969] text-center">
+				             Big shoutout to Jukebox for our
+				             <a href="https://www.jukeboxprint.com/custom-stickers"
+				                class="underline hover:text-[#477783] transition-colors">
+				               custom stickers</a>!
+				           </p>`		},
+		{ image: "/miami/BigDuckGames.png", name: "Big Duck Games LLC", url: "https://www.bigduckgames.com/" },
 		// { image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
 	];
 	
@@ -1615,26 +1621,26 @@ Mumbai`.split("\n")
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Doors open", time: "7:00 AM" },
-				{ event: "Opening ceremony", time: "8:00 AM" },
-				{ event: "Team Formation session", time: "8:30 AM" },
-				{ event: "Start working on your project!", time: "9:00 AM" },
+				{ event: "Check in", time: "8:30 AM" },
+				{ event: "Opening ceremony", time: "9:30 AM" },
+				{ event: "Team Formation session", time: "10:00 AM" },
+				{ event: "Godot Workshop", time: "11:00 AM" },
 				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Pygame Workshop", time: "3:00 PM" },
-				{ event: "Godot Workshop", time: "4:00 PM" },
+				{ event: "Visual Novel Workshop", time: "1:30 PM" },
+				{ event: "Start working on your project!", time: "2:30 PM" },
 				{ event: "Dinner", time: "5:00 PM" },
-				{ event: "Github Workshop", time: "6:00 PM" }
+				{ event: "Pygame Workshop", time: "5:30 PM" }
 			]
 		},
 		{
 			title: "Sunday, September 28th",
 			items: [
-				{ event: "Doors open", time: "7:00 AM" },
-				{ event: "Breakfast", time: "8:00 AM" },
-				{ event: "Wrap Up Projects!", time: "10:30 AM" },
-				{ event: "Lunch", time: "1:00 PM" },
-				{ event: "Demos!", time: "4:00 PM" },
-				{ event: "Closing ceremony", time: "6:30 PM" }
+				{ event: "Check in", time: "8:30 AM" },
+				{ event: "GitHub Workshop", time: "10:00 AM" },
+				{ event: "Lunch", time: "12:00 PM" },
+				{ event: "Wrap Up Projects!", time: "1:30 PM" },
+				{ event: "Demos", time: "2:00 PM" },
+				{ event: "Closing ceremony", time: "4:00 PM" }
 			]
 		}
 	];
@@ -2427,8 +2433,9 @@ Mumbai`.split("\n")
 			>
 				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
 			</h4>
+			
 		</div>
-		
+
 		<ParticipantSignUp {signupLink} {eventName} />
 	</div>
 
@@ -2582,7 +2589,7 @@ Mumbai`.split("\n")
 			<!-- Header Section -->
 			<div class="w-full bg-[url('/billboard-bg-texture.png')] bg-contain bg-repeat py-6 relative" style="border-bottom: 8px solid #B4B4C5;">
 				<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">
-					Sponsors
+					Sponsors & Partners
 				</h2>
 				<!-- Brush texture overlay for header -->
 				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
@@ -2637,6 +2644,12 @@ Mumbai`.split("\n")
 					{#if contactLink}
 						<!-- Call to action for sponsors -->
 						<div class="mt-8 text-center">
+							<p class="text-lg text-[#335969] text-center">
+								Big shoutout to Jukebox for our
+									<a href="https://www.jukeboxprint.com/custom-stickers"
+									class="underline hover:text-[#477783] transition-colors">
+									custom stickers</a>!
+							</p>
 							<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
 						</div>
 					{/if}
@@ -3024,13 +3037,23 @@ Mumbai`.split("\n")
 
 	<!-- FAQ Grid -->
 	<div class="grid grid-cols-2 gap-8 max-w-6xl px-8 z-10 max-[900px]:grid-cols-1 max-md:gap-16">
+
+		<!-- FAQ Item 0 -->
+		<div class="relative transform -rotate-2">
+			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
+			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
+				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Where is Daydream Miami taking place?</h3>
+				<p class="text-sm">The LAB Miami - The Dock. See directions above!</p>
+			</div>
+		</div>
+
 		<!-- FAQ Item 1 -->
 		<div class="relative transform -rotate-2">
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
-		</div>
+				<p class="text-sm">All high-school students are welcome to come!</p>
+			</div>
 		</div>
 
 		<!-- FAQ Item 2 -->
@@ -3056,7 +3079,7 @@ Mumbai`.split("\n")
 			<img src="window-1.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24  opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What do I need?</h3>
-				<p class="text-sm">Your laptop, chargers, and an open mind!</p>
+				<p class="text-sm">Your laptop, chargers, power strips, extension cords, and an open mind!</p>
 			</div>
 		</div>
 
@@ -3083,7 +3106,7 @@ Mumbai`.split("\n")
 			<img src="window-2.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What if my parents are concerned?</h3>
-				<p class="text-sm">We're here to help! You can see our parent guide here, or they can reach out to us at daydream@hackclub.com for questions.</p>
+				<p class="text-sm">We're here to help! You can see our parent guide at https://docs.google.com/document/d/1DO6sSNnOC0tNpom1VmDwZVmfA2ZmKHVp0-HAUTUdNK4/edit?usp=sharing, or they can reach out to us at miami@daydream.hackclub.com for questions.</p>
 			</div>
 		</div>
 
@@ -3095,7 +3118,17 @@ Mumbai`.split("\n")
 				<p class="text-sm">ANY type of game based on the theme! Platformer, visual novel, clicker game, etc. Be as creative as possible!</p>
 			</div>
 		</div>
-		<!-- FAQ Item 9 -->
+
+	<!-- FAQ Item 9 -->
+		<div class="relative transform -rotate-1">
+			<img src="window-1.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
+			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
+				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What if I have another question?</h3>
+				<p class="text-sm">Email us at miami@daydream.hackclub.com or DM us on Instagram @daydreamiami</p>
+			</div>
+		</div>
+    
+		<!-- FAQ Item 10 -->
 		<div class="relative transform rotate-1">
 			<img src="window-4.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
@@ -3104,7 +3137,7 @@ Mumbai`.split("\n")
 			</div>
 		</div>
 
-		<!-- FAQ Item 10 -->
+		<!-- FAQ Item 11 -->
 		<div class="relative transform -rotate-1">
 			<img src="window-1.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24  opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">

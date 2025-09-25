@@ -1615,7 +1615,7 @@ Mumbai`.split("\n")
 			fromHq: 'Augie dan Renran dari Hack Club HQ',
 			schedule: 'Jadwal',
 			sponsors: 'Sponsors',
-			communityPartners: 'Community Partners',
+			communityPartners: 'Media Partners',
 			wantToSponsor: 'Ingin mensponsori Daydream Jakarta?',
 			getInTouch: 'Hubungi kami',
 			howToWin: 'Begini Cara Anda Menang',
@@ -1699,7 +1699,7 @@ Mumbai`.split("\n")
 			fromHq: 'Augie and Renran from Hack Club HQ',
 			schedule: 'Schedule',
 			sponsors: 'Sponsors',
-			communityPartners: 'Community Partners',
+			communityPartners: 'Media Partners',
 			wantToSponsor: 'Want to sponsor Daydream Jakarta?',
 			getInTouch: 'Get in touch',
 			howToWin: "Here's How You Win a",
@@ -1722,7 +1722,7 @@ Mumbai`.split("\n")
 			dreamIdea: 'Dream an idea for me',
 			faq: 'FAQ',
 			whoCanParticipate: 'Who can participate in Daydream?',
-			allStudents: 'All high-school & upper-middle-school aged students are welcome to come!',
+			allStudents: 'All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong>',
 			forFree: 'All this, for free?',
 			yep: 'Yep! Food, swag and good vibes are all included.',
 			whatDoINeed: 'What do I need?',
@@ -1767,11 +1767,6 @@ Mumbai`.split("\n")
 			image: '/jakarta/sponsors/twibbonize.png',
 			name: 'Twibbonize',
 			url: 'https://twibbonize.com/'
-		},
-		{
-			image: 'https://storage.jukeboxprint.com/s/images/jukebox-meta-im.png',
-			name: 'Jukebox Print',
-			url: 'https://jukeboxprint.com/custom-stickers'
 		}
 	];
 	const communityPartners = [
@@ -1779,6 +1774,16 @@ Mumbai`.split("\n")
 			image: '/jakarta/partners/intergalactic-science-kingdom.png',
 			name: 'Intergalactic Science Kingdom',
 			url: 'https://discord.gg/fajrulfx'
+		},
+		{
+			image: '/jakarta/partners/web-programming-unpas.png',
+			name: 'Web Programming UNPAS',
+			url: 'https://discord.gg/wpu'
+		},
+        {
+			image: '/jakarta/partners/logo%20info%20lomba%20IT.png',
+			name: 'Info Lomba IT',
+			url: 'https://www.infolombait.com/'
 		}
 	];
 
@@ -2728,39 +2733,6 @@ Mumbai`.split('\n');
 		alt=""
 		class="absolute left-0 w-3/12 -bottom-12 translate-y-1/2 z-20 pointer-events-none"
 	/>
-
-	<!-- Desktop stickers button (bottom left) -->
-	<button
-		on:click={() => {
-			if (hasClickedFilloutButton) {
-				window.open('https://forms.hackclub.com/daydream-stickers', '_blank');
-			} else {
-				toast.warning(t.getStickersTroubleshootTitle, {
-					description: t.getStickersTroubleshootDescription,
-					duration: 30000,
-					closeButton: true,
-					class: 'min-w-lg',
-					position: 'top-left'
-				});
-
-				hasClickedFilloutButton = true;
-			}
-		}}
-		class="hidden md:block absolute bottom-16 left-16 z-50 w-max px-4 py-2 bg-pink border-b-2 border-b-pink-dark text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer overflow-visible hover:shadow-[0_2px_0_0_theme(colors.pink.dark)] hover:-translate-y-[2px] active:border-transparent active:shadow-none"
-	>
-		{t.getStickers}
-		<img
-			src="button-clouds.svg"
-			alt=""
-			class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
-		/>
-		<img
-			src="rock-sticker.png"
-			alt=""
-			class="absolute bottom-2 right-3 translate-2/3 w-18 h-18 object-contain pointer-events-none"
-			style="transform: rotate(-15deg);"
-		/>
-	</button>
 </div>
 
 <div class="w-full relative flex items-start justify-center">
@@ -3051,13 +3023,6 @@ Mumbai`.split('\n');
 					{#if contactLink}
 						<!-- Call to action for sponsors -->
 						<div class="mt-8 text-center">
-							<p class="text-lg text-[#335969]">
-								Thanks to Jukebox for the coolest
-								<a
-									href={`https://www.jukeboxprint.com/custom-stickers`}
-									class="underline hover:text-[#477783] transition-colors">custom stickers</a
-								>
-							</p>
 							<p class="text-lg text-[#335969]">
 								{t.wantToSponsor}
 								<a

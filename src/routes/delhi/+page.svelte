@@ -9,7 +9,7 @@
 	// Configuration - Put your information here!
 	const eventName = "Delhi";
 	const eventLocation = "Delhi";
-	const eventAddress = "EMPI Business School, Chhatarpur, New Delhi";
+	const eventAddress = "Indian Institute of Technology (IIT Delhi)";
 	// These two are optional
 	const directionsURL = "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyBggCEEUYOzIHCAMQABiPAjIHCAQQABiPAjIHCAUQABiPAjIGCAYQLhhA0gEIMjE5MmowajmoAgCwAgE&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=Kc8nJWow4Aw5MT30ze_8afND&daddr=Near+CSKM+Public+School,+Satbari,+Chhatarpur,+New+Delhi,+Delhi+110068"
 	const contactLink = "mailto:delhi@daydream.hackclub.com"

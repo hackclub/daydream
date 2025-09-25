@@ -9,22 +9,16 @@
 	// Configuration - Put your information here!
 	const eventName = "Andover"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "Andover";
-	const eventAddress = "Phillips Academy(TBD)"; // Leave this empty if you don't want an address
+	const eventAddress = "Merrimack College"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recnliSU84ibxwFSG"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = ""
+	const directionsURL = "https://www.google.com/maps?um=1&ie=UTF-8&fb=1&gl=us&sa=X&geocode=Kee5e2kgBuOJMXeXc1PiYch0&daddr=315+Turnpike+St,+North+Andover,+MA+01845"
 	const contactLink = "mailto:example@daydream.hackclub.com"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
 	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" },
-		{ image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
-		{ image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
-		{ image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
-		{ image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
-		{ image: "/example/logo6.png", name: "Sponsor 6", url: "https://example6.com" },
-		{ image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
+		{ image: "/example/image.png", name: "Custom stickers provided by JukeBox", url: "Custom stickers" },
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -34,7 +28,7 @@
 			items: [
 				{ event: "Check in", time: "10:00 AM" },
 				{ event: "Opening ceremony 1", time: "10:30 AM" },
-				{ event: "Start working!", time: "10:45 AM" },
+				{ event: "Start working! / Learn Godot workshop", time: "10:45 AM" },
 				{ event: "Lunch", time: "12:00 PM" },
 				{ event: "Continue working", time: "1:00 PM" },
                 { event: "Spikeball Competition", time: "2:00 PM" },
@@ -46,13 +40,13 @@
 		{
 			title: "Sunday, September 28th",
 			items: [
-				{ event: "Check in", time: "10:00 AM" },
-				{ event: "Opening ceremony 2", time: "10:30 AM" },
-				{ event: "Start working!", time: "10:45 AM" },
+				{ event: "Check in", time: "9:00 AM" },
+				{ event: "Opening ceremony 2", time: "9:30 AM" },
+				{ event: "Start working!", time: "10:00 AM" },
 				{ event: "Lunch", time: "12:00 PM" },
 				{ event: "Continue working", time: "1:00 PM" },
-                { event: "Hacking ends", time: "3:30 PM" },
-                { event: "Day 2 ends", time: "4:30 PM" }
+                { event: "Dinner / Judging", time: "5:00 PM" },
+                { event: "Day 2 ends", time: "6:00 PM" }
 			]
 		}
 	];
@@ -842,8 +836,21 @@ Mumbai`.split("\n")
 			<h4
 				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
 			>
-				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
+				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")} 
 			</h4>
+			<h6
+			class="text-lg opacity-90 mt-2 font-serif text-gray-700 max-sm:text-base"
+		>
+			JukeBox provided
+			<a 
+				href="https://www.jukeboxprint.com/custom-stickers" 
+				target="_blank" 
+				rel="noopener noreferrer" 
+				class="text-blue-600 underline hover:text-blue-800"
+			>
+				Custom Stickers
+			</a>
+		</h6>
 		</div>
 		
 		<ParticipantSignUp {signupLink} {eventName} />
@@ -1446,7 +1453,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 

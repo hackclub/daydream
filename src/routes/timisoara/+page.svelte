@@ -32,15 +32,15 @@
 		{
 			title: "Sâmbătă, 27 septembrie",
 			items: [
-				{ event: "Deschiderea ușilor", time: "13:00" },
-				{ event: "Ceremonia de deschidere", time: "13:30" },
+				{ event: "Deschiderea maratonului", time: "11:00" },
+				{ event: "Ceremonia de deschidere", time: "11:30" },
+				{ event: "Începe lucrul la jocul tău!", time: "12:00" },
 				{ event: "Prânz", time: "14:00" },
-				{ event: "Începe lucrul la proiectul tău!", time: "14:00" },
-				{ event: "Workshop 1", time: "16:00" },
-				{ event: "Activitatea 1", time: "17:00" },
+				{ event: "Workshop 1", time: "14:30" },
+				{ event: "Activitatea 1", time: "16:00" },
 				{ event: "Workshop 2", time: "18:00" },
 				{ event: "Cină", time: "20:00" },
-				{ event: "Prezentări rapide", time: "21:00" },
+				{ event: "Prezentări rapide", time: "20:30" },
 				{ event: "Surpriza de la miezul nopții", time: "00:00" }
 			]
 		},
@@ -48,10 +48,10 @@
 			title: "Duminică, 28 septembrie",
 			items: [
 				{ event: "Micul dejun", time: "08:00" },
-				{ event: "Stop lucru", time: "14:00" },
-				{ event: "Demo-uri", time: "14:00" },
-				{ event: "Votare", time: "14:45" },
-				{ event: "Festivitate de premiere", time: "15:00" }
+				{ event: "Stop lucru", time: "10:00" },
+				{ event: "Prezentarea jocurilor", time: "10:30" },
+				{ event: "Votare", time: "11:30" },
+				{ event: "Festivitate de premiere", time: "12:00" }
 			]
 		}
 	];
@@ -891,7 +891,7 @@ Mumbai`.split("\n")
 		<div class="relative z-20 px-20 pt-20 pb-52 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
 			<div class="absolute bottom-0 left-0 w-full h-24 z-10 pointer-events-none bg-[url('/clouds-loop.png')] bg-repeat-x bg-bottom bg-contain"></div>
 			<h2 class="text-5xl font-serif italic text-[#8B4513] mb-10 relative">
-				Dragi hackeri, muzicieni și artiști,
+				Dragi adolescenti,
 				<img src="/underline.svg" alt="" class="absolute left-0 -bottom-3 w-64 h-auto opacity-70">
 			</h2>
 			
@@ -1514,6 +1514,15 @@ Mumbai`.split("\n")
 	</div>
 
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
+</div>
+
+<!-- Sticker Acknowledgment -->
+<div class="w-full bg-[#e99cce] py-8 flex justify-center">
+	<div class="text-center">
+		<p class="text-white font-serif text-lg">
+			<a href="https://www.jukeboxprint.com/custom-stickers" class="text-white underline hover:text-gray-200 transition-colors">Custom stickers</a> provided by Jukebox
+		</p>
+	</div>
 </div>
 
 <Footer />

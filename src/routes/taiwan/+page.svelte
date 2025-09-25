@@ -2127,7 +2127,7 @@ Mumbai`.split("\n")
 	// Configuration - Put your information here!
 	const eventName = "Taiwan";
 	const signupLink = "http://signup.hackit.tw/events/daydream-taiwan";
-	const eventLocation = " TCS 探索未來國際教育機構（臺師大林口校區） ";
+	const eventLocation = " TCS 探索未來國際實驗教育機構（臺師大林口校區） ";
 	const eventAddress = "";
 
 	// These two are optional
@@ -2143,6 +2143,7 @@ Mumbai`.split("\n")
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
 	    { image: "/taiwan/logos/Jukebox.png", name: "Jukebox", url: "https://www.jukeboxprint.com/" },
+	    { image: "/taiwan/logos/1password.png", name: "1Password", url: "https://1password.com" },
 	];
 
 	// Partners Configuration
@@ -3719,12 +3720,20 @@ Mumbai`.split("\n")
 							<div class="flex justify-center">
 								<div class="grid gap-8 items-center justify-items-center max-w-4xl {sponsors.length === 1 ? 'grid-cols-1' : sponsors.length === 2 ? 'grid-cols-1 md:grid-cols-2' : sponsors.length === 3 ? 'grid-cols-2 md:grid-cols-3' : 'grid-cols-2 md:grid-cols-4'}">
 									{#each sponsors as sponsor}
-										<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
-											<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
-										</a>
+										<div class="w-full flex flex-col items-center">
+											<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
+												<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
+											</a>
+										</div>
 									{/each}
 								</div>
 							</div>
+							{#if sponsors.some(s => s.name === 'Jukebox')}
+								<p class="mt-3 text-sm text-[#335969] text-center opacity-90">
+									特別感謝 Jukebox 提供
+									<a href="https://www.jukeboxprint.com/custom-stickers" target="_blank" rel="noopener noreferrer" class="underline">客製貼紙</a>！
+								</p>
+							{/if}
 						{/if}
 					{/if}
 					

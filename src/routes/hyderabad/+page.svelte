@@ -32,27 +32,25 @@
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Registration & Breakfast", time: "8:00-9:00" },
+				{ event: "Breakfast", time: "8:00-9:00" },
 				{ event: "Opening Ceremony", time: "9:00-9:45" },
 				{ event: "Hacking Begins", time: "10:00-01:00" },
 				{ event: "Lunch", time: "01:00-02:00"},
 				{ event: "Workshop 1", time: "02:00-03:00" },
-				{ event: "Hacking Session", time: "03:00-06:00" },
-				{ event: "Workshop 2", time: "06:00-07:00" },
-				{ event: "Dinner", time: "07:00-08:00" },	
+				{ event: "Hacking Session", time: "03:00-07:00" },
+				{ event: "Workshop 2", time: "07:00-08:00" },
 			]
 		},
 		{
 			title: "Sunday, September 28th",
 			items: [
-				{ event: "Breakfast", time: "8:00-9:00" },
-				{ event: "Hacking Begins", time: "09:00-12:00" },
+				{ event: "Hacking Begins", time: "08:00-12:00" },
 				{ event: "Lunch", time: "12:00-01:00" },
 				{ event: "Workshop 3", time: "01:00:02:00" },
 				{ event: "Project Submission", time: "04:00-05:00" },
 				{ event: "Judging & Networking", time: "05:00-06:30" },
 				{ event: "Closing Ceremony + Prizes", time: "06:30-07:30" },
-				{ event: "Dinner & Farewell", time: "07:30-08:00" },
+				{ event: "Farewell", time: "07:30-08:00" },
 			]
 		}
 	];
@@ -1446,7 +1444,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 

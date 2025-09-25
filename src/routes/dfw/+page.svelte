@@ -22,7 +22,10 @@
 	const sponsors = [
 		{image: "https://storage.jukeboxprint.com/s/images/jukebox-meta-im.png", name: "Jukebox Print", url: "https://jukeboxprint.com/custom-stickers"},
 		{image: "https://dallasmakerspace.org/w/images/2/2c/PNG_Logo_Coral.png", name: "Dallas Makerspace", url: "https://dallasmakerspace.org/"},
-		{image: "https://drstich.com/wp-content/uploads/2018/11/logo-1.png", name: "Bailey Orthodontics", url: "https://drstich.com/"}
+		{image: "https://drstich.com/wp-content/uploads/2018/11/logo-1.png", name: "Bailey Orthodontics", url: "https://drstich.com/"},
+		{image: "https://circuits-diy.com/wp-content/uploads/2020/03/easyeda-logo.png", name: "Easy EDA", url: "https://easyeda.com/"},
+		{image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/7e8f7d5117a802ddc65bf803e64d8e4b4f5f0dcd_image-removebg-preview__8_.png", name: "Andy's Frozen Custard", url: "https://www.eatandys.com/"},
+		{image: "https://www.robosource.net/img/robosourcenet-logo-1641673523.jpg", name: "RoboSource", url: "https://www.robosource.net/"}
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -1456,7 +1459,7 @@ Lagos`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 

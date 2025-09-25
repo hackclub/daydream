@@ -9,10 +9,10 @@
 	// Configuration - Put your information here!
 	const eventName = "Bengaluru"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "Benagluru";
-	const eventAddress = "Dayanand Sagar University Bengaluru"; // Leave this empty if you don't want an address
+	const eventAddress = "Scaler School of Technology"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recQJb8ANIempxRxc"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = "https://maps.app.goo.gl/WTsjC83KM7vRA4Cc9"
+	const directionsURL = "https://maps.app.goo.gl/JkQ53siibWzqaQzJ9"
 	const contactLink = "mailto:bengaluru@daydream.hackclub.com"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
@@ -21,7 +21,7 @@
 		{ image: "/Bengaluru/xyz.png", name: ".xyz", url: "https://gen.xyz" },
 		{ image: "/Bengaluru/yubico.svg", name: "Yubico", url: "https://www.yubico.com" },
 		{ image: "/Bengaluru/cc.webp", name: "CodeCrafters", url: "https://codecrafters.io/" },
-		{ image: "/Bengaluru/dsu.png", name: "Dayanand Sagar University", url: "https://www.dsu.edu.in/" },		
+		{ image: "/Bengaluru/sst.webp", name: "Scaler School of Technology", url: "https://www.scaler.com/school-of-technology/" },	
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -29,29 +29,20 @@
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Doors open", time: "11:00 AM" },
-				{ event: "Opening ceremony", time: "12:00 PM" },
-				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Start working on your project!", time: "1:00 PM" },
-				{ event: "Workshop 1", time: "2:00 PM" },
-				{ event: "Activity 1", time: "4:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
-				{ event: "Dinner", time: "6:00 PM" },
-				{ event: "Lightning talks", time: "8:00 PM" },
-				{ event: "Midnight surprise", time: "12:00 AM" }
+			{ event: "Registration", time: "05:00 AM" },
+			{ event: "Hacking begins", time: "07:00 AM" },
+			{ event: "Lunch", time: "01:00 PM – 02:00 PM" },
+			{ event: "Submissions & Voting on Podium", time: "07:00 PM" },
+			{ event: "Awards & Closing Ceremony ", time: "08:00 PM " },
+			{ event: "Networking Dinner", time: "10:00 PM" },
+			{ event: "See ya next time", time: "10:30 PM" }
 			]
 		},
-		{
-			title: "Sunday, September 28th",
-			items: [
-				{ event: "Breakfast", time: "8:00 AM" },
-				{ event: "Demos!", time: "10:30 AM" },
-				{ event: "Closing ceremony", time: "12:00 PM" }
-			]
-		}
+		
 	];
 
 	
+
 	import { onMount } from "svelte";
 	import { gsap } from "gsap";
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -59,6 +50,8 @@
 	import Footer from "$lib/components/Footer.svelte";
 	import ParticipantSignUp from "$lib/components/ParticipantSignUp.svelte";
 	import { page } from '$app/stores';
+	import JukeboxBanner from '$lib/components/JukeboxBanner.svelte';
+	import { Sticker } from 'phosphor-svelte';
 	
 	
 	/** @type {import('./$types').PageData} */
@@ -790,6 +783,10 @@ Mumbai`.split("\n")
 </svelte:head>
 
 
+
+
+<JukeboxBanner />
+
 <div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
 
 <div class="flex flex-col items-center justify-center h-screen text-center bg-gradient-to-b from-[#CCF4FD] to-[#B8D9F8] bg-blend-overlay relative">
@@ -815,7 +812,7 @@ Mumbai`.split("\n")
 			<h2
 			class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
 			>
-				September 27th & 28th, 2025
+				September 27th 2025
 			</h2>
 			<img src="/Bengaluru/daydreamblr.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4 pl-[150px]" />
 			<a href="https://hackclub.com" class="absolute top-[-30px] -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
@@ -1440,7 +1437,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 
@@ -1548,4 +1545,3 @@ Mumbai`.split("\n")
 		</div>
 	</div>
 {/if}
-

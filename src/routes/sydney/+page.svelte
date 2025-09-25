@@ -1578,23 +1578,28 @@ Mumbai`.split("\n")
 	 */
 
 	// Configuration - Put your information here!
-	const eventName = "Tyree Energy Technologies Building";
-	const eventLocation = "Sydney";
-	const eventAddress = "Kensington NSW 2033";
+	const eventName = "Sydney";
+	const eventLocation = "UNSW Tyree Energy Technologies Building";
+	const eventAddress = "Tyree Energy Technologies Building, Kensington NSW 2033";
 	// These two are optional
-	const directionsURL = "https://maps.app.goo.gl/92axMdj2mN527YA88"
+	const directionsURL = "https://www.google.com/maps/dir//Tyree+Energy+Technologies+Building,+Kensington+NSW+2033/@-33.9174825,151.2259502,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x6b12b10c04b1d1cf:0x5cc0081e85bdef38!2m2!1d151.2267283!2d-33.9177365?entry=ttu&g_ep=EgoyMDI1MDkwOC4wIKXMDSoASAFQAw%3D%3D"
 	const contactLink = "mailto:sydney@daydream.hackclub.com"
 	
 	// Sponsors Configuration
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
+		{ image: "/sydney/accel2.png", name: "AccelRT", url: "https://accelrt.net" },
 		{ image: "/sydney/xyz.png", name: ".xyz", url: "https://gen.xyz" },
 		{ image: "/sydney/jlcpcb.png", name: "jlcpcb", url: "https://jlcpcb.com/" },
 		{ image: "/sydney/oshw.png", name: "oshw", url: "https://oshwlab.com/" },
 		{ image: "/sydney/easyeda.png", name: "easyeda", url: "https://easyeda.com/" },
 		{ image: "/sydney/logo_horizontal_black_registered.png", name: "janestreet", url: "https://www.janestreet.com/" },
-		{ image: "/sydney/jukebox-logo.svg", name: "jukebox", url: "https://www.jukeboxprint.com/" },
+		{ image: "/sydney/StickerCo.png", name: "StickerCo", url: "https://www.stickerco.au/" },
+		{ image: "/sydney/insertcoin.png", name: "Insert Coin", url: "https://www.insertcoinclothing.com/" },
+		{ image: "/sydney/fluffe.png", name: "Fluffe", url: "https://www.fluffe.com/" },
+		{ image: "/sydney/makersempire.png", name: "Maker's Empire", url: "https://www.makersempire.com/" },
+		{ image: "/sydney/epomaker.png", name: "Epomaker", url: "https://epomaker.com/" },
 
 	];
 	
@@ -1603,24 +1608,26 @@ Mumbai`.split("\n")
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Doors open", time: "10:00 AM" },
-				{ event: "Opening ceremony", time: "11:00 AM" },
-				{ event: "Start working on your project!", time: "12:00 PM" },
+				{ event: "Doors open", time: "9:00 AM" },
+				{ event: "Opening ceremony", time: "10:00 AM" },
+				{ event: "Start working on your project!", time: "11:00 AM" },
+				{ event: "Workshop 1", time: "11:00 AM" },
 				{ event: "Lunch", time: "1:00 PM" },
-				{ event: "Workshop 1", time: "2:00 PM" },
-				{ event: "Activity 1", time: "4:00 PM" },
-				{ event: "Workshop 2", time: "5:00 PM" },
-				{ event: "Dinner", time: "6:00 PM" },
-				{ event: "End of Day 1", time: "8:00 PM" },
+				{ event: "Awesomesauce Activity", time: "3:00 PM" },
+				{ event: "Workshop 2", time: "4:00 PM" },
+				{ event: "End of Day 1", time: "6:00 PM" },
 			]
 		},
 		{
 			title: "Sunday, September 28th",
 			items: [
-				{ event: "Breakfast", time: "8:00 AM" },
-				{ event: "Activity 3", time: "10:30 AM" },
-				{ event: "Activity 4", time: "12:30 PM" },
-				{ event: "Closing ceremony", time: "3:00 PM" }
+				{ event: "Doors open", time: "9:00 AM" },
+				{ event: "Breakfast", time: "9:00 AM" },
+				{ event: "Workshop 3", time: "10:30 AM" },
+				{ event: "Activity 2", time: "12:30 PM" },
+				{ event: "Lunch", time: "1:00 PM" },
+				{ event: "Ships close and voting starts", time: "3:00 PM" },
+				{ event: "Closing ceremony", time: "5:00 PM" },
 			]
 		}
 	];
@@ -2410,7 +2417,7 @@ Mumbai`.split("\n")
 			<h4
 				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
 			>
-				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
+				Organized by Teenagers in Sydney
 			</h4>
 		</div>
 		
@@ -3014,7 +3021,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-primary-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school students aged 13-18 are welcome to come!</p>
 		</div>
 		</div>
 
@@ -3032,7 +3039,7 @@ Mumbai`.split("\n")
 			<img src="window-2.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24  opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">All this, for free?</h3>
-				<p class="text-sm">Yep! Food, swag and cool custom stickers from Jukebox are all included.</p>
+				<p class="text-sm">Yep! Food, swag and cool <a href="https://www.jukeboxprint.com/custom-stickers">custom stickers</a> from Jukebox are all included.</p>
 			</div>
 		</div>
 
@@ -3041,7 +3048,7 @@ Mumbai`.split("\n")
 			<img src="window-1.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24  opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What do I need?</h3>
-				<p class="text-sm">Your laptop, chargers, toiletries, sleeping bags, and an open mind!</p>
+				<p class="text-sm">Your laptop, chargers, water bottle, and an open mind!</p>
 			</div>
 		</div>
 
