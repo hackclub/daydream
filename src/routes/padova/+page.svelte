@@ -16,7 +16,7 @@
 	const contactLink = "mailto:padova@daydream.hackclub.com"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
-	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
+	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
 	const sponsors = [
 		{ image: "https://www.centrogiotto.com/wp-content/uploads/2024/04/Logo-cc-centro-giotto.png", name: "Centro Giotto", url: "https://www.centrogiotto.com" },
 		{ image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
