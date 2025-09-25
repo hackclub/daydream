@@ -70,8 +70,10 @@
         items: [
             { event: "Breakfast", time: "8:00 AM" },
 			{ event: "Activity 2", time: "9:00 AM"},
-            { event: "Demos!", time: "10:30 AM" },
-            { event: "Closing ceremony", time: "1:00 PM" }
+            { event: "Demos!", time: "2:30 PM" },
+			{ event: "Workshop 3", time: "3:00 PM" },
+			{ event: "Final Submission closes", time: "4:30 PM" },
+            { event: "Closing ceremony", time: "5:00 PM" }
         ]
     }
 ];
