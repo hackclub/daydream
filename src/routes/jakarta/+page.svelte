@@ -212,9 +212,9 @@
 			url: 'https://www.infolombait.com/'
 		},
 		{
-			image: '/jakarta/partners/ojt-creative.png',
-			name: 'OJT Creative',
-			url: 'https://www.instagram.com/ojt_creative/'
+			image: '/jakarta/partners/Logo%20csrelatedcompetitions.png',
+			name: 'CompSci-Related Competitions',
+			url: 'https://www.instagram.com/csrelatedcompetitions/'
 		}
 	];
 
