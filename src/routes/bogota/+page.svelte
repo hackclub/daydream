@@ -9,10 +9,10 @@
 	// Configuration - Put your information here!
 	const eventName = "Bogotá"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "Bogotá";
-	const eventAddress = ""; // Leave this empty if you don't want an address
+	const eventAddress = "Cl 12c #6 - 25"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=rec2MH0ZD6NGdH9O8"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = ""
+	const directionsURL = "https://www.google.com/maps/place/UniRosario+Claustro/@4.6000788,-74.0758677,17z/data=!4m15!1m8!3m7!1s0x8e3f99a6ef384295:0xd943c22ee1ffdacc!2sCl+12c+%236-25,+La+Candelaria,+Bogot%C3%A1!3b1!8m2!3d4.6000788!4d-74.0732928!16s%2Fg%2F11gfcyczxv!3m5!1s0x8e3f9988ac90b4d5:0x8d63b0e5d0e6c87a!8m2!3d4.6000787!4d-74.0732927!16s%2Fg%2F11gl11qgfk?entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D"
 	const contactLink = ""
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
@@ -29,11 +29,27 @@
 	
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
     {
-        title: "Se definirá pronto",
-        items: [
-            { event: "", time: "" }
-        ]
-    }
+			title: "Sábado, 27 de septiembre",
+			items: [
+				{event: 'Se abren las puertas', time: '8:00 AM' },
+				{event: 'Ceremonia de apertura', time: '8:15 AM'},
+				{event: 'Taller #1', time: '9:30 AM' },
+				{event: 'Taller #2', time: '10:30 AM' },
+				{event: 'Taller #3', time: '12:00 PM' },
+				{event: 'Almuerzo', time: '1:30 PM' },
+				{event: 'Fin del primer día', time: '4:00 PM' }
+			]
+		},
+		{
+			title: "Domingo, 28 de septiembre",
+			items: [
+				{event: 'Se abren las puertas', time: '8:00 AM' },
+				{event: 'Entrega de videojuegos y votación', time: '10:30 AM' },
+				{event: 'Ceremonia de clausura y premiación', time: '12:00 PM' }
+
+			]
+		}
+	
 
 ];
 
@@ -771,10 +787,21 @@ Mumbai`.split("\n")
 	<meta name="robots" content="index, follow" />
 	<meta name="author" content="Hack Club" />
 	<link rel="canonical" href={currentUrl} />
+
 	
 	<!-- Analytics -->
 	<script defer data-domain="daydream.hackclub.com" src="https://plausible.io/js/script.js"></script>
 </svelte:head>
+
+
+<!-- Jukebox Partnership Banner -->
+<div class="w-full bg-[#8B4513] text-[#FCEFC5] py-3 px-4 text-center relative z-50">
+	<div class="flex items-center justify-center space-x-2 text-sm md:text-base font-serif">
+		<img src="rock-sticker.png" alt="Sticker" class="h-6 w-auto transform rotate-12">
+		<span>🎉 Muchas gracias a Jukebox por los <a href="https://www.jukeboxprint.com/custom-stickers" class="underline hover:no-underline transition-all">stickers personalizados</a> para Daydream Bogotá</span>
+		<img src="rock-sticker.png" alt="Sticker" class="h-6 w-auto transform -rotate-12">
+	</div>
+</div>
 
 
 <div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
@@ -826,9 +853,43 @@ Mumbai`.split("\n")
 				Organizada por jóvenes en {@html eventLocation.replaceAll(" ", "&nbsp;")}
 			</h4>
 		</div>
+
 		
 		<ParticipantSignUp {signupLink} {eventName} />
 	</div>
+
+	
+	{#if eventAddress}
+					<!-- Address Box - Prominent display -->
+					<div
+						class="mt-8 bg-white/80 backdrop-blur-sm border-4 border-[#487DAB] rounded-2xl px-8 py-6 max-w-2xl mx-4 shadow-lg relative z-30"
+					>
+						<div class="text-center">
+							<h3 class="text-2xl font-serif font-bold text-[#487DAB] mb-3 max-sm:text-xl">
+								En la Universidad del Rosario, sede Claustro
+							</h3>
+							
+							{#if directionsURL}
+								<a
+									href={directionsURL}
+									class="block text-xl font-sans text-[#60574b] hover:text-[#487DAB] transition-colors underline decoration-2 underline-offset-4 max-sm:text-lg"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									{eventAddress}
+								</a>
+								
+							{:else}
+								<p class="text-xl font-sans text-[#60574b] max-sm:text-lg">
+									{eventAddress}
+								</p>
+							{/if}
+							{#if directionsURL}
+								<p class="text-sm text-[#60574b]/70 mt-2 font-sans">Revisa la <a target="blank_" class="text-blue-500 hover:underline" href="https://docs.google.com/document/d/1gD558roJh6HLG6yNEP5KFNhHj-Gi0dbQfrQKvHoXIqw/edit?usp=sharing">guía</a> para más información </p>
+							{/if}
+						</div>
+					</div>
+		{/if}
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/12 left-36 bottom-81 z-20"> -->
@@ -872,18 +933,19 @@ Mumbai`.split("\n")
 		<div class="relative z-20 px-20 pt-20 pb-52 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
 			<div class="absolute bottom-0 left-0 w-full h-24 z-10 pointer-events-none bg-[url('/clouds-loop.png')] bg-repeat-x bg-bottom bg-contain"></div>
 			<h2 class="text-5xl font-serif italic text-[#8B4513] mb-10 relative">
-				Estimad@s hackers, músic@s y artistas:
+				Estimados hackers, músicos y artistas::
 				<img src="/underline.svg" alt="" class="absolute left-0 -bottom-3 w-64 h-auto opacity-70">
 			</h2>
 			
 			<div class="text-[#8B4513] font-serif text-xl leading-relaxed space-y-8">
-				<p>Bienvenid@s a la nueva aventura de Hack Club. Este otoño te invitamos a unirte a nosotros para Daydream, la Game Jam más grande del mundo que se lleva a cabo simultáneamente en 100 ciudades.</p>
+				<p>Bienvenidos a la nueva aventura de Hack Club.
+Este septiembre te invitamos a unirte a nosotros en Daydream, la game jam más grande del mundo, que se llevará a cabo simultáneamente en más de 100 ciudades.</p>
 
-				<p class="font-bold text-2xl">Queremos ayudarte a que hagas un juego este otoño.</p>
+				<p class="font-bold text-2xl">Queremos ayudarte a crear tu propio videojuego</p>
 
-				<p>¿No te consideras un desarrollador de juegos? No hay problema, tenemos un montón de talleres para que hagas tu primer juego.</p>
+				<p>¿No te consideras desarrollador de juegos? No pasa nada: tendremos un montón de talleres para guiarte en la creación de tu primer proyecto.</p>
 
-				<p>Este otoño, te invitamos a aprender algo nuevo, crear algo de lo que estés realmente orgulloso, conocer nuevos amigos y embarcarte juntos en una aventura increíble.</p>
+				<p>En Daydream tendrás la oportunidad de aprender algo nuevo, construir algo de lo que realmente te sientas orgulloso, conocer nuevos amigos y vivir juntos una experiencia increíble.</p>
 
 				<p class="mb-2">Con cariño,</p>
 

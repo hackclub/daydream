@@ -9,10 +9,10 @@
 	// Configuration - Put your information here!
 	const eventName = "Khagaria"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "Khagaria";
-	const eventAddress = "Signature Cafe & Restaurant, Infront of DM office, Koshi College Rd, Khagaria, Bihar 851205"; // Leave this empty if you don't want an address
+	const eventAddress = "New Holy Ganges Public School, Khagaria, Bihar 851205"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recymsr7YilKc3ltK"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = "https://maps.app.goo.gl/BdZaFKaXTBUKtxp76"
+	const directionsURL = "https://maps.app.goo.gl/9dF8VjudWfjHeUmH6"
 	const contactLink = "mailto:khagaria@daydream.hackclub.com"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
@@ -34,16 +34,16 @@
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Doors open", time: "8:00 AM" },
-				{ event: "Opening ceremony", time: "9:00 AM" },
-				{ event: "Breakfast", time: "9:30 AM" },
-				{ event: "Start working on your project!", time: "10:00 AM" },
-				{ event: "Workshop 1", time: "11:00 AM" },
-				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Activity 1", time: "2:00 PM" },
-				{ event: "Workshop 2", time: "3:00 PM" },
-				{ event: "Lightning talks", time: "4:30 PM" },
-				{ event: "Closing ceremony", time: "6:00 PM" }
+				{ event: "Doors open", time: "10:00 AM" },
+				{ event: "Opening ceremony", time: "10:30 AM" },
+				{ event: "Breakfast", time: "11:00 AM" },
+				{ event: "Start working on your project!", time: "11:30 AM" },
+				{ event: "Workshop 1", time: "12:30 PM" },
+				{ event: "Lunch", time: "2:00 PM" },
+				{ event: "Activity 1", time: "3:30 PM" },
+				{ event: "Workshop 2", time: "4:30 PM" },
+				{ event: "Lightning talks", time: "6:00 PM" },
+				{ event: "Closing ceremony", time: "7:00 PM" }
 			]
 		},
 		{
@@ -1445,7 +1445,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 

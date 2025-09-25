@@ -980,6 +980,81 @@ Mumbai`.split("\n")
 	</div>
 </div>
 
+<!-- Jukebox Custom Stickers Billboard Section -->
+<div class="w-full bg-[#FCEFC5] pb-16 pt-6 px-8 flex justify-center">
+	<div class="relative max-w-4xl w-full">
+		<!-- Billboard Container -->
+		<div class="relative bg-[#f0f9ff] border-[10px] border-b-[16px] border-[#888896] rounded-lg rounded-b-xl mx-auto z-40">
+			<!-- Header Section -->
+			<div class="w-full bg-[url('/billboard-bg-texture.png')] bg-contain bg-repeat py-6 relative" style="border-bottom: 8px solid #B4B4C5;">
+				<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">
+					Custom Stickers
+				</h2>
+				<!-- Brush texture overlay for header -->
+				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
+			</div>
+			
+			<!-- Main Content Area -->
+			<div class="relative bg-gradient-to-b from-[#CCF4FD] to-[#AECDF6] px-8 pt-8 pb-16">
+				<!-- Brush texture overlay for content -->
+				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
+				
+				<!-- Jukebox logo + text -->
+				<div class="relative z-10 min-h-40">
+					<div class="flex justify-center">
+						<div class="grid gap-8 items-center justify-items-center max-w-4xl grid-cols-1">
+							<!-- Jukebox logo -->
+							<div class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center">
+								<img src="/agadir/jukebox-logo.svg" alt="Jukebox" class="max-w-full max-h-full object-contain">
+							</div>
+						</div>
+					</div>
+
+					<!-- Text with link -->
+					<div class="mt-8 text-center">
+						<p class="text-lg text-[#335969]">
+							<a href="https://www.jukeboxprint.com/custom-stickers" target="_blank" rel="noopener noreferrer" class="underline hover:text-[#477783] transition-colors">
+								Custom stickers
+							</a>
+							provided by Jukebox
+						</p>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Billboard Bars (bottom) -->
+			<div 
+				class="absolute bottom-0 -left-[5px] w-[calc(100%+10px)] h-6 bg-[url('/billboard-bars.png')] bg-repeat-x bg-contain bg-center pointer-events-none z-10 border-[#9898a7] border-x-[6px]"
+			></div>
+		</div>
+		
+		<!-- Connecting Pillars to Billboard -->
+		<div 
+			class="absolute top-0 left-[15%] w-[10vw] max-w-12 h-32 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain -translate-y-32"
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
+		></div>
+		<div 
+			class="absolute top-0 right-[15%] w-[10vw] max-w-12 h-32 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain -translate-y-32"
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
+		></div>
+		
+		<!-- Billboard Pillars (extending down from bottom) -->
+		<div 
+			class="absolute bottom-0 left-[15%] w-[10vw] max-w-12 h-24 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain translate-y-24"
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
+		>
+			<div class="absolute bottom-0 left-0 w-full h-auto bg-[url('/clouds-loop.png')] bg-no-repeat bg-contain bg-bottom pointer-events-none aspect-[2/1]"></div>
+		</div>
+		<div 
+			class="absolute bottom-0 right-[15%] w-[10vw] max-w-12 h-24 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain translate-y-24"
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
+		>
+			<div class="absolute bottom-0 left-0 w-full h-auto bg-[url('/clouds-loop.png')] bg-no-repeat bg-contain bg-bottom pointer-events-none aspect-[2/1]"></div>
+		</div>
+	</div>
+</div>
+
+
 {#if sponsorsEnabled}
 <!-- Second Billboard Section -->
 <div class="w-full bg-[#FCEFC5] pb-16 pt-6 px-8 flex justify-center">
@@ -1436,7 +1511,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 

@@ -30,18 +30,20 @@
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
 		{
-			title: "Saturday, September 27th",
+			title: "Daydream Giza Schedule",
 			items: [
-				{ event: "Doors open", time: "9:00 AM" },
-				{ event: "Opening ceremony", time: "10:00 AM" },
-				{ event: "Game development workshop", time: "11:00 AM" },
-				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Start working on your project!", time: "1:30 PM" },
-				{ event: "Team building activities", time: "3:00 PM" },
-				{ event: "Afternoon coding session", time: "4:00 PM" },
-				{ event: "Project demos", time: "7:00 PM" },
-				{ event: "Closing ceremony & awards", time: "8:00 PM" },
-				{ event: "Event ends", time: "9:00 PM" }
+				{ event: "Doors open", time: "8:30 AM" },
+				{ event: "Gathering and Opening ceremony", time: "9:00 AM" },
+				{ event: "Snack", time: "10:00 AM" },
+				{ event: "Start working on your game!", time: "10:00 AM" },
+				{ event: "Workshops", time: "10:30 AM" },
+				{ event: "Lunch & Light Activity", time: "3:00 PM" },
+				{ event: "Final Stretch!", time: "5:30 PM" },
+				{ event: "Dinner (Snack)", time: "6:00 PM" },
+				{ event: "Mentor Support with Submissions!", time: "6:30 PM" },
+				{ event: "FINAL Submissions", time: "7:30 PM" },
+				{ event: "Demos/Voting/Merch Distribution", time: "8:30 PM" },
+				{ event: "Closing ceremony", time: "9:00 PM" }
 			]
 		}
 	];
@@ -981,6 +983,98 @@ Mumbai`.split("\n")
 	</div>
 </div>
 
+<!-- Location Section -->
+<div class="w-full bg-[#FCEFC5] pb-16 pt-6 px-8 flex justify-center">
+	<div class="relative max-w-4xl w-full">
+		<!-- Billboard Container -->
+		<div class="relative bg-[#f0f9ff] border-[10px] border-b-[16px] border-[#888896] rounded-lg rounded-b-xl mx-auto z-40">
+			<!-- Header Section -->
+			<div class="w-full bg-[url('/billboard-bg-texture.png')] bg-contain bg-repeat py-6 relative" style="border-bottom: 8px solid #B4B4C5;">
+				<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">
+					Event Location
+				</h2>
+				<!-- Brush texture overlay for header -->
+				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
+			</div>
+			
+			<!-- Main Content Area -->
+			<div class="relative bg-gradient-to-b from-[#CCF4FD] to-[#AECDF6] px-8 pt-8 pb-16">
+				<!-- Brush texture overlay for content -->
+				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
+				
+				<!-- Location Content -->
+				<div class="relative z-10 text-center">
+					<!-- School Logo -->
+					<div class="mb-8">
+						<img src="/giza/school logo.png" alt="Stanford Egypt - Integrated Schools West Cairo" class="h-32 w-auto mx-auto object-contain bg-white/20 rounded-lg p-4">
+					</div>
+					
+					<!-- Hosted By Text -->
+					<div class="mb-6">
+						<h3 class="text-2xl font-sans font-bold text-[#335969] mb-2">Hosted by</h3>
+						<p class="text-xl font-serif text-[#477783]">Stanford Egypt - Integrated Schools</p>
+						<p class="text-lg font-serif text-[#477783]">West Cairo Campus</p>
+					</div>
+					
+					<!-- Address and Map -->
+					<div class="bg-white/30 rounded-lg p-6 max-w-2xl mx-auto">
+						<div class="mb-4">
+							<h4 class="text-lg font-sans font-semibold text-[#335969] mb-2">Address:</h4>
+							<p class="text-[#477783] font-serif">West Cairo, Giza, Egypt</p>
+						</div>
+						
+						<!-- Map Link -->
+						<div class="mt-6">
+							<a 
+								href="https://maps.app.goo.gl/jA12bCMbYJFvPia66" 
+								target="_blank" 
+								rel="noopener noreferrer"
+								class="inline-block bg-[#335969] hover:bg-[#477783] text-white font-sans font-semibold py-3 px-6 rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-transform"
+							>
+								📍 View on Google Maps
+							</a>
+						</div>
+						
+						<!-- Additional Info -->
+						<div class="mt-4 text-sm text-[#477783]/80">
+							<p>Click the map link above for detailed directions and location information</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<!-- Billboard Bars (bottom) -->
+			<div 
+				class="absolute bottom-0 -left-[5px] w-[calc(100%+10px)] h-6 bg-[url('/billboard-bars.png')] bg-repeat-x bg-contain bg-center pointer-events-none z-10 border-[#9898a7] border-x-[6px]"
+			></div>
+		</div>
+		
+		<!-- Connecting Pillars to Schedule Billboard -->
+		<div 
+			class="absolute top-0 left-[15%] w-[10vw] max-w-12 h-32 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain -translate-y-32"
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
+		></div>
+		<div 
+			class="absolute top-0 right-[15%] w-[10vw] max-w-12 h-32 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain -translate-y-32"
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
+		></div>
+		
+		<!-- Billboard Pillars (extending down from bottom) -->
+		<div 
+			class="absolute bottom-0 left-[15%] w-[10vw] max-w-12 h-24 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain translate-y-24"
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
+		>
+			<div class="absolute bottom-0 left-0 w-full h-auto bg-[url('/clouds-loop.png')] bg-no-repeat bg-contain bg-bottom pointer-events-none aspect-[2/1]"></div>
+		</div>
+		<div 
+			class="absolute bottom-0 right-[15%] w-[10vw] max-w-12 h-24 bg-[url('/billboard-pillar.png')] bg-repeat-y pointer-events-none bg-contain translate-y-24"
+			style="box-shadow: inset 0 8px 12px -6px rgba(0, 0, 0, 0.1);"
+		>
+			<div class="absolute bottom-0 left-0 w-full h-auto bg-[url('/clouds-loop.png')] bg-no-repeat bg-contain bg-bottom pointer-events-none aspect-[2/1]"></div>
+		</div>
+	</div>
+</div>
+
 {#if sponsorsEnabled}
 <!-- Second Billboard Section -->
 <div class="w-full bg-[#FCEFC5] pb-16 pt-6 px-8 flex justify-center">
@@ -1437,7 +1531,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 

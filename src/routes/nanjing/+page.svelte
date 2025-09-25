@@ -3,6 +3,7 @@
 	const lang = writable<'en' | 'zh'>('en');
 	const t = {
 		en: {
+			eventAddress: 'Central Road No.389, Phoenix International Plaza 3F, Gulou District',
 			heroDate: 'September 27, 2025',
 			heroTitle: 'Game jam for high schoolers',
 			heroSubtitle: 'Organized by Teenagers in Nanjing',
@@ -46,6 +47,8 @@
 				'#4: Start building your game - no experience needed',
 				'#5: Share what you made with the world!'
 			],
+			isTakingPlaceAt: ' is taking place at ',
+			locationPost: '!',
 			macintosh: {
 				titlePre: 'What will you ',
 				titleImage: '/dream-pixel.png',
@@ -71,7 +74,7 @@
 			faq: [
 				{
 					q: 'Who can participate in Daydream?',
-					a: 'All high-school & upper-middle-school aged students are welcome to come!'
+					a: 'All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong>'
 				},
 				{
 					q: 'Can I organize a Daydream in my city?',
@@ -106,6 +109,7 @@
 			contactUs: 'Get in touch'
 		},
 		zh: {
+			eventAddress: '鼓楼区中央路389号凤凰国际大厦3楼',
 			heroDate: '2025年9月27日',
 			heroTitle: '为高中生举办的游戏创作节',
 			heroSubtitle: '由南京的青少年组织',
@@ -149,6 +153,8 @@
 				'#4: 开始创作你的游戏 - 无需经验',
 				'#5: 向世界展示你的作品！'
 			],
+			isTakingPlaceAt: '将在',
+			locationPost: '举行!',
 			macintosh: {
 				titlePre: '你会',
 				titleImage: '/nanjing/dream-pixel.png',
@@ -214,10 +220,10 @@
 	// Configuration - Put your information here!
 	const eventName = "Nanjing"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "南京";
-	const eventAddress = ""; // Leave this empty if you don't want an address
+	const eventAddress = "389 Central Road, Nanjing, China"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recEVnEw4mgdvuCF9"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = ""
+	const directionsURL = "https://surl.amap.com/4yOWojHEfgw"
 	const contactLink = "mailto:daydream.nanjing@outlook.com"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
@@ -1399,7 +1405,7 @@ Mumbai`.split("\n")
 			<!-- Map container with cloudy edges -->
 			<div class="relative w-full h-156 overflow-hidden bg-transparent">
 				<iframe 
-					src={eventAddress ? "/event-map?location=" + encodeURIComponent(eventAddress) : "/map"}
+					src="/map"
 					class="w-full h-full border-0 bg-[#acd4e0]"
 					style="
 						mask-image: 
@@ -1493,9 +1499,9 @@ Mumbai`.split("\n")
 			{#if eventAddress}
 				<p class="text-center font-sans text-2xl pt-12 max-sm:text-xl text-[#60574b] z-10000">
 					{#if directionsURL}
-						Daydream {eventName} 将在<a class="underline text-pink" href={directionsURL}>{eventAddress}</a>举行！
+						Daydream {eventName} {l10n.isTakingPlaceAt}<a class="underline text-pink" href={directionsURL}>{l10n.eventAddress}</a>{l10n.locationPost}
 					{:else}
-						Daydream {eventName} 将在<span class="underline">{eventAddress}</span>举行！
+						Daydream {eventName} {l10n.isTakingPlaceAt}<span class="underline">{l10n.eventAddress}</span>{l10n.locationPost}
 					{/if}
 				</p>
 			{/if}

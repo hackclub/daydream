@@ -15,7 +15,7 @@
 	const contactLink = "mailto:boston@daydream.hackclub.com"
 	
 	// Sponsors Configuration
-	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recFq8OHZBogqb5Ym"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const signupLink = "daydream.hackclub.com/404"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
 		{ image: "/boston/jukebox-logo.svg", name: "Jukebox", url: "https://www.jukeboxprint.com/custom-stickers",
@@ -36,12 +36,13 @@
 				{ event: "Opening Ceremony", time: "8:30 AM" },
 				{ event: "Jumpstart Workshop", time: "8:50 AM" },
 				{ event: "Workshop 2 (TBA)", time: "10:00 AM" },
-				{ event: "Workshop 3 (TBA)", time: "11:05 AM" },
+				{ event: "Workshop 3 (TBA)", time: "11:00 AM" },
 				{ event: "Lunch", time: "12:15 PM" },
-				{ event: "Quick-time Event", time: "2:15 PM" },
 				{ event: "Ship (Submission) Deadline", time: "4:45 PM" },
-				{ event: "Ship Showcase & Voting", time: "4:45 PM" },
-				{ event: "Closing Ceremony!", time: "5:30 PM" },
+				{ event: "Ship Showcase & Voting", time: "5:00 PM" },
+				{ event: "Closing Ceremony", time: "5:30 PM" },
+				{ event: "Group Photo & Clean Up", time: "5:45 PM" },
+				{ event: "Event End", time: "6:00 PM" },
 			]
 		},
 
@@ -838,13 +839,23 @@ Mumbai`.split("\n")
 				class="absolute left-1/2 -translate-x-1/2 -mt-1 h-auto scale-115"
 			/>
 			<h4
-				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
+				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#5697d0] bg-clip-text text-transparent max-sm:text-xl"
 			>
 				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
 			</h4>
 		</div>
 		
-		<ParticipantSignUp {signupLink} {eventName} />
+		<!-- Signups Closed Message -->
+		<div class="mt-8 flex flex-col items-center gap-3 z-5 max-md:scale-90">
+			<div class="relative rounded-full overflow-hidden" style="padding: 2px 2px 5px 2px;">
+				<div class="rounded-full bg-white border-2 border-dark font-sans p-2 flex flex-row items-center gap-2 shadow-[0_3px_0_0_theme(colors.dark)]">
+					<div class="w-80 px-3 py-1 text-dark flex-1 text-center group cursor-pointer">
+						<span class="group-hover:hidden">Signups closed</span>
+						<span class="hidden group-hover:inline">Email <a href="mailto:boston@daydream.hackclub.com" class="text-pink underline hover:text-[#d65ea3] transition-colors">boston@daydream.hackclub.com</a> for inquirys</span>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
@@ -1135,7 +1146,7 @@ Mumbai`.split("\n")
 			<div class="relative w-72 h-40 max-md:w-80 animate-hover ![--hover:-0.15rem] ![animation-delay:1.7s] z-20" data-point="1">
 				<img src="paper1.png" alt="" class="w-full h-full object-contain">
 				<div class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center">
-					<span class="font-sans text-[#E472AB] font-bold text-[1.3rem] mr-1">#1:</span> <a href={signupLink} class="underline">Sign up</a> for Daydream {eventName}
+					<span class="font-sans text-[#E472AB] font-bold text-[1.3rem] mr-1">#1:</span> <span class="line-through">Sign up for Daydream {eventName}</span> (sign-ups closed)
 				</div>
 			</div>
 		</div>
@@ -1453,7 +1464,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 

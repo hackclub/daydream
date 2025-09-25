@@ -9,10 +9,10 @@
 	// Configuration - Put your information here!
 	const eventName = "Bengaluru"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "Benagluru";
-	const eventAddress = "Dayanand Sagar University Bengaluru"; // Leave this empty if you don't want an address
+	const eventAddress = "Scaler School of Technology"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recQJb8ANIempxRxc"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = "https://maps.app.goo.gl/WTsjC83KM7vRA4Cc9"
+	const directionsURL = "https://www.google.com/maps/place/Scaler+School+of+Technology/@12.8386865,77.6623159,1045m/data=!3m2!1e3!4b1!4m6!3m5!1s0x3bae6d6ab07d151b:0xc0af49ccfc84871a!8m2!3d12.8386865!4d77.6648962!16s%2Fg%2F11sw2pf_fj?entry=tts&g_ep=EgoyMDI1MDkxNi4wIPu8ASoASAFQAw%3D%3D&skid=a2281411-3773-46cb-a83d-3921772adf47"
 	const contactLink = "mailto:bengaluru@daydream.hackclub.com"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
@@ -21,37 +21,36 @@
 		{ image: "/Bengaluru/xyz.png", name: ".xyz", url: "https://gen.xyz" },
 		{ image: "/Bengaluru/yubico.svg", name: "Yubico", url: "https://www.yubico.com" },
 		{ image: "/Bengaluru/cc.webp", name: "CodeCrafters", url: "https://codecrafters.io/" },
-		{ image: "/Bengaluru/dsu.png", name: "Dayanand Sagar University", url: "https://www.dsu.edu.in/" },		
+		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/dbb15865f412c8bc475ba991f82259e6b6245b32_scaler.png", name: "Scaler School of Tech", url: "https://www.scaler.com" },
 	];
 	
-	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
-	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
+	// Schedule Configuration
+	const scheduleData: { title: string; items: { event: string; time: string; icon?: any; subtitle?: string; }[] }[] = [
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Doors open", time: "11:00 AM" },
-				{ event: "Opening ceremony", time: "12:00 PM" },
-				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Start working on your project!", time: "1:00 PM" },
-				{ event: "Workshop 1", time: "2:00 PM" },
-				{ event: "Activity 1", time: "4:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
-				{ event: "Dinner", time: "6:00 PM" },
-				{ event: "Lightning talks", time: "8:00 PM" },
-				{ event: "Midnight surprise", time: "12:00 AM" }
-			]
-		},
-		{
-			title: "Sunday, September 28th",
-			items: [
-				{ event: "Breakfast", time: "8:00 AM" },
-				{ event: "Demos!", time: "10:30 AM" },
-				{ event: "Closing ceremony", time: "12:00 PM" }
+				{ event: "Check-In", time: "6:00 AM – 7:00 AM", icon: SignIn },
+				{ event: "Opening Ceremony", time: "7:00 AM – 7:30 AM", icon: Microphone },
+				{ event: "Breakfast", time: "7:30 AM – 8:00 AM", icon: Coffee },
+				{ event: "Workshop: Godot", time: "8:00 AM – 9:00 AM", icon: PresentationChart },
+				{ event: "Break", time: "9:00 AM – 9:15 AM", icon: Coffee },
+				{ event: "Workshop: Ren'Py", time: "9:15 AM – 10:15 AM", icon: PresentationChart },
+				{ event: "Coding Session: Work on Games", time: "10:15 AM – 1:00 PM", icon: GameController },
+				{ event: "Status Update: Games", time: "1:00 PM – 1:30 PM", icon: Microphone },
+				{ event: "Lunch", time: "1:30 PM – 2:30 PM", icon: ForkKnife },
+				{ event: "Coding Session: Work on Games", time: "2:30 PM – 5:30 PM", icon: GameController },
+				{ event: "Snack Break + Status Update: Games", time: "5:30 PM – 6:00 PM", icon: Hamburger },
+				{ event: "Coding Session: Finalize & Polish Games", time: "6:00 PM – 7:00 PM", icon: GameController },
+				{ event: "Submit Games @ Podium", time: "7:00 PM – 8:00 PM", icon: Trophy, subtitle: "Get YubiKeys + T-Shirts + Totes after approval" },
+				{ event: "Closing Ceremony", time: "8:00 PM – 9:00 PM", icon: Confetti },
+				{ event: "Dinner", time: "9:00 PM – 10:00 PM", icon: ForkKnife },
+				{ event: "Dinner / Clean-Up / Doors Close / Exit", time: "10:00 PM – 11:00 PM", icon: Door }
 			]
 		}
 	];
 
 	
+
 	import { onMount } from "svelte";
 	import { gsap } from "gsap";
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -59,6 +58,8 @@
 	import Footer from "$lib/components/Footer.svelte";
 	import ParticipantSignUp from "$lib/components/ParticipantSignUp.svelte";
 	import { page } from '$app/stores';
+	import JukeboxBanner from '$lib/components/JukeboxBanner.svelte';
+	import { Sticker, SignIn, Microphone, ForkKnife, GameController, Coffee, PresentationChart, Trophy, Door, Confetti, Hamburger } from 'phosphor-svelte';
 	
 	
 	/** @type {import('./$types').PageData} */
@@ -790,6 +791,10 @@ Mumbai`.split("\n")
 </svelte:head>
 
 
+
+
+<JukeboxBanner />
+
 <div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
 
 <div class="flex flex-col items-center justify-center h-screen text-center bg-gradient-to-b from-[#CCF4FD] to-[#B8D9F8] bg-blend-overlay relative">
@@ -815,30 +820,36 @@ Mumbai`.split("\n")
 			<h2
 			class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
 			>
-				September 27th & 28th, 2025
+				September 27th 2025
 			</h2>
 			<img src="/Bengaluru/daydreamblr.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4 pl-[150px]" />
 			<a href="https://hackclub.com" class="absolute top-[-30px] -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
 				<img src="flag-plane.png" alt="Hack Club" class="h-29">
 			</a>
 		</div>
-		<div class="relative inline-block px-4">
-			<h3
-				class="text-3xl italic font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent w-max max-sm:text-2xl mx-auto"
-			>
-				Game jam for high schoolers
-			</h3>
-			<img
-				src="underline.svg"
-				alt=""
-				class="absolute left-1/2 -translate-x-1/2 -mt-1 h-auto scale-115"
-			/>
-			<h4
-				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
-			>
-				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
-			</h4>
-		</div>
+
+		   <div class="relative inline-block px-4">
+			   <h3
+				   class="text-3xl italic font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent w-max max-sm:text-2xl mx-auto"
+			   >
+				   Game jam for high schoolers
+			   </h3>
+			   <img
+				   src="underline.svg"
+				   alt=""
+				   class="absolute left-1/2 -translate-x-1/2 -mt-1 h-auto scale-115"
+			   />
+			   <h4
+				   class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
+			   >
+				   Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
+			   </h4>
+			   <div class="mt-4">
+				   <p class="text-lg opacity-85 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-base">
+					   📍 Taking place at <a href={directionsURL} class="underline hover:opacity-75 transition-opacity" target="_blank" rel="noopener noreferrer">{eventAddress}</a>
+				   </p>
+			   </div>
+		   </div>
 		
 		<ParticipantSignUp {signupLink} {eventName} />
 	</div>
@@ -877,41 +888,6 @@ Mumbai`.split("\n")
 	
 </div>
 
-<div class="w-full relative flex items-start justify-center">
-	<!-- background -->
-	<div class="absolute top-0 left-0 w-full h-full -z-50 bg-[#FCEFC5]"></div>
-	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-30 pointer-events-none -z-40"></div>
-	
-	<div class="relative max-w-4xl mx-auto h-full flex items-start pt-24 max-sm:pt-40 px-8 max-sm:px-2">
-		<div class="relative z-20 px-20 pt-20 pb-52 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
-			<div class="absolute bottom-0 left-0 w-full h-24 z-10 pointer-events-none bg-[url('/clouds-loop.png')] bg-repeat-x bg-bottom bg-contain"></div>
-			<h2 class="text-5xl font-serif italic text-[#8B4513] mb-10 relative">
-				Dear Hackers, Musicians, and Artists,
-				<img src="/underline.svg" alt="" class="absolute left-0 -bottom-3 w-64 h-auto opacity-70">
-			</h2>
-			
-			<div class="text-[#8B4513] font-serif text-xl leading-relaxed space-y-8">
-				<p>Welcome to Hack Club's newest adventure. This fall we invite you to join us for Daydream, the world's biggest Game Jam happening simultaneously in 100 cities.</p>
-
-				<p class="font-bold text-2xl">Hack Club wants you to make a game this fall.</p>
-
-				<p>Don't consider yourself a game dev? No problem - we have tons of online and in-person workshops for you to make your first game! </p>
-
-				<p>This fall, we invite you to learn something new, make something you're really proud of, meet new friends, and go on an incredible adventure together.</p>
-
-				<p class="mb-2">With love,</p>
-
-				<p class="italic text-2xl opacity-85">Augie and Renran from Hack Club HQ</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="w-full absolute z-30 max-h-64 bottom-0 max-2xl:translate-y-1/4 max-lg:translate-y-1/2 pointer-events-none">	
-		<img src="/cloud-cover-1.png" alt="" class="w-full h-full object-contain min-[2048px]:hidden">
-	</div>
-
-</div>
-
 <!-- Schedule Container -->
 <div class="w-full bg-[#FCEFC5] py-16 px-8 flex justify-center">
 	<div class="relative max-w-4xl w-full">
@@ -946,14 +922,24 @@ Mumbai`.split("\n")
 								{day.title}
 							</h3>
 							
-							<div class="max-w-xl mx-auto px-4">
+							<div class="max-w-2xl mx-auto px-4">
 								{#each day.items as item, index}
-									<div class="flex items-center justify-between py-2">
-										<span class="text-lg font-sans text-[#477783]">{item.event}</span>
-										<span class="text-lg font-sans text-[#477783]">{item.time}</span>
+									<div class="flex items-start gap-3 py-3">
+										{#if item.icon}
+											<svelte:component this={item.icon} class="w-5 h-5 text-[#477783] flex-shrink-0 mt-0.5" />
+										{/if}
+										<div class="flex-1 flex items-start justify-between gap-4">
+											<div class="flex-1">
+												<span class="text-lg font-sans text-[#477783]">{item.event}</span>
+												{#if item.subtitle}
+													<div class="text-sm font-sans text-[#477783] opacity-75 mt-1">({item.subtitle})</div>
+												{/if}
+											</div>
+											<span class="text-lg font-sans text-[#477783] text-right whitespace-nowrap">{item.time}</span>
+										</div>
 									</div>
 									{#if index < day.items.length - 1}
-										<div class="h-[2px] bg-white/30"></div>
+										<div class="h-[2px] bg-white/30 ml-8"></div>
 									{/if}
 								{/each}
 							</div>
@@ -1086,6 +1072,41 @@ Mumbai`.split("\n")
 	</div>
 </div>
 {/if}
+
+<div class="w-full relative flex items-start justify-center">
+	<!-- background -->
+	<div class="absolute top-0 left-0 w-full h-full -z-50 bg-[#FCEFC5]"></div>
+	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-30 pointer-events-none -z-40"></div>
+
+	<div class="relative max-w-4xl mx-auto h-full flex items-start pt-24 max-sm:pt-40 px-8 max-sm:px-2">
+		<div class="relative z-20 px-20 pt-20 pb-52 rounded-lg mb-0 max-sm:px-18" style="background-image: url('/letter-top.png'), linear-gradient(to bottom, #FCEFC5 100px, transparent 100px), url('/letter-loop.png'); background-size: 100% auto, 100% auto, 100% auto; background-repeat: no-repeat, no-repeat, repeat-y; background-position: top, top, top; background-attachment: local, local, local;">
+			<div class="absolute bottom-0 left-0 w-full h-24 z-10 pointer-events-none bg-[url('/clouds-loop.png')] bg-repeat-x bg-bottom bg-contain"></div>
+			<h2 class="text-5xl font-serif italic text-[#8B4513] mb-10 relative">
+				Dear Hackers, Musicians, and Artists,
+				<img src="/underline.svg" alt="" class="absolute left-0 -bottom-3 w-64 h-auto opacity-70">
+			</h2>
+
+			<div class="text-[#8B4513] font-serif text-xl leading-relaxed space-y-8">
+				<p>Welcome to Hack Club's newest adventure. This fall we invite you to join us for Daydream, the world's biggest Game Jam happening simultaneously in 100 cities.</p>
+
+				<p class="font-bold text-2xl">Hack Club wants you to make a game this fall.</p>
+
+				<p>Don't consider yourself a game dev? No problem - we have tons of online and in-person workshops for you to make your first game! </p>
+
+				<p>This fall, we invite you to learn something new, make something you're really proud of, meet new friends, and go on an incredible adventure together.</p>
+
+				<p class="mb-2">With love,</p>
+
+				<p class="italic text-2xl opacity-85">Augie and Renran from Hack Club HQ</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="w-full absolute z-30 max-h-64 bottom-0 max-2xl:translate-y-1/4 max-lg:translate-y-1/2 pointer-events-none">
+		<img src="/cloud-cover-1.png" alt="" class="w-full h-full object-contain min-[2048px]:hidden">
+	</div>
+
+</div>
 
 <!-- Gamejam Text Section -->
 <div class="w-full bg-[#FCEFC5] flex justify-center py-16 relative overflow-hidden max-h-[400px]">
@@ -1458,7 +1479,7 @@ Mumbai`.split("\n")
 			<img src="window-2.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24  opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">All this, for free?</h3>
-				<p class="text-sm">Yep! Food, swag and good vibes are all included. Plus, if you're joining us from afar, we'll cover the cost of gas or a bus / train ticket.</p>
+				<p class="text-sm">Yep! Food, swag and good vibes are all included. Merch and swags are first-come, first-served.</p>
 			</div>
 		</div>
 
@@ -1467,7 +1488,7 @@ Mumbai`.split("\n")
 			<img src="window-1.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24  opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What do I need?</h3>
-				<p class="text-sm">Your laptop, chargers, toiletries, sleeping bags, and an open mind!</p>
+				<p class="text-sm">Your laptop, chargers, toiletries, and an open mind!</p>
 			</div>
 		</div>
 
@@ -1503,7 +1524,7 @@ Mumbai`.split("\n")
 			<img src="window-1.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What can I make at Daydream?</h3>
-				<p class="text-sm">ANY type of game based on the theme! Platformer, visual novel, clicker game, etc. Be as creative as possible!</p>
+				<p class="text-sm">ANY type of game based on the theme! Platformer, visual novel, clicker game, etc. Be as creative as possible! To qualify, your game must be shipped & playable.</p>
 			</div>
 		</div>
 	</div>
@@ -1548,4 +1569,3 @@ Mumbai`.split("\n")
 		</div>
 	</div>
 {/if}
-

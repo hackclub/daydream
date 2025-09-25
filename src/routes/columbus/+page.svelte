@@ -9,16 +9,23 @@
 	// Configuration - Put your information here!
 	const eventName = 'Columbus'; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = 'Columbus';
-	const eventAddress = 'To Be Announced 🗣🗣'; // Leave this empty if you don't want an address
-	const signupLink = 'https://forms.hackclub.com/daydream-sign-up'; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const eventAddress = 'Meeting Room 4 at Columbus Metropolitan Library Hilltop Branch 🗣 511 S Hague Ave, Columbus, OH 43204'; // Leave this empty if you don't want an address
+	const signupLink = 'https://forms.hackclub.com/daydream-sign-up?event=recJBFfb0qMz4FKXS'; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL =
-		'';
+	const directionsURL = 'https://www.google.com/maps/place/Columbus+Metropolitan+Library:+Hilltop+Branch/@39.9444865,-83.0761387,16z/data=!3m1!4b1!4m6!3m5!1s0x88388ffbf499762f:0xefa7d61b92c2ea2d!8m2!3d39.9444824!4d-83.0735638!16s%2Fg%2F1wzt30rt?entry=ttu&g_ep=EgoyMDI1MDkyMi4wIKXMDSoASAFQAw%3D%3D'
 	const contactLink = 'mailto:columbus@daydream.hackclub.com';
 
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
+		{ image: "https://storage.jukeboxprint.com/s/images/jukebox-logo.svg", name: "Jukebox", url: "https://www.jukeboxprint.com/custom-stickers",
+							text: `<p class="text-lg text-[#335969] text-center">
+				             Big shoutout to Jukebox for our
+				             <a href="https://www.jukeboxprint.com/custom-stickers"
+				                class="underline hover:text-[#477783] transition-colors">
+				               custom stickers</a>!
+				           </p>`		},
+		{ image: 'https://avatars.githubusercontent.com/u/221655294?s=200&v=4', name: 'Bird2Branch', url: 'https://bird2branch.org/' },
 		{ image: 'https://hack.osu.edu/wp-content/uploads/2025/06/hack-2025-logo.png', name: 'Hack OHI/O', url: 'https://hack.osu.edu/' },
 		{ image: 'https://www.worthingtonenterprises.com/images/default-source/default-album/worthington-enterprises-logo-block.png?sfvrsn=ce80296d_1', name: 'Worthington Enterprises', url: 'https://www.worthingtonenterprises.com/' },
 	];
@@ -28,13 +35,23 @@
 		{
 			title: 'Saturday, September 27th',
 			items: [
-				{ event: 'TO BE ANNOUNCED', time: 'XX:XX' },
+				{ event: 'Doors open', time: '09:00 AM' },
+				{ event: 'Opening ceremony', time: '09:15 AM' },
+				{ event: 'Workshop 1', time: '09:40 AM' },
+				{ event: 'Work time & Beginner tutorials', time: '11:30 AM' },
+				{ event: 'Lunch time (Subway!)', time: '12:00 PM' },
+				{ event: 'Leave for the day', time: '01:00 PM' }
 			]
 		},
 		{
 			title: 'Sunday, September 28th',
 			items: [
-				{ event: 'TO BE ANNOUNCED', time: 'XX:XX' },
+				{ event: 'Doors open', time: '01:00 PM' },
+				{ event: 'Workshop 2', time: '01:15 PM' },
+				{ event: 'Wrap up game development', time: '02:30 PM' },
+				{ event: 'Voting', time: '03:30 PM' },
+				{ event: 'Closing ceremony', time: '04:00 PM' },
+				{ event: 'End of Daydream Columbus', time: '04:30 PM' }
 			]
 		}
 	];
@@ -1045,7 +1062,7 @@ Mumbai`.split('\n');
 					class="w-full bg-[url('/billboard-bg-texture.png')] bg-contain bg-repeat py-6 relative"
 					style="border-bottom: 8px solid #B4B4C5;"
 				>
-					<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">Past Sponsors</h2>
+					<h2 class="text-4xl font-serif text-[#F0F0FF] text-center">Current & Past Sponsors</h2>
 					<!-- Brush texture overlay for header -->
 					<div
 						class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"
@@ -1707,7 +1724,7 @@ Mumbai`.split('\n');
 					Who can participate in Daydream?
 				</h3>
 				<p class="text-sm">
-					All high-school & upper-middle-school aged students are welcome to come!
+					All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong>
 				</p>
 			</div>
 		</div>

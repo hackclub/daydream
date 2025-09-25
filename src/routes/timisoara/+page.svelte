@@ -1516,6 +1516,15 @@ Mumbai`.split("\n")
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
 </div>
 
+<!-- Sticker Acknowledgment -->
+<div class="w-full bg-[#e99cce] py-8 flex justify-center">
+	<div class="text-center">
+		<p class="text-white font-serif text-lg">
+			<a href="https://www.jukeboxprint.com/custom-stickers" class="text-white underline hover:text-gray-200 transition-colors">Custom stickers</a> provided by Jukebox
+		</p>
+	</div>
+</div>
+
 <Footer />
 
 <!-- Video Popup Modal -->

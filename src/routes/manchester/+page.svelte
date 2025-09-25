@@ -1,23 +1,17 @@
 <script lang="ts">
-	/**
-	 * This is the template site! Create a copy of this folder (src/routes/example)
-	 * and rename it to whatever you want your URL to be.
-	 * 
-	 * Then, configure the event name, location, and schedule below:
-	 */
-
 	// Configuration - Put your information here!
 	const eventName = "Manchester";
 	const eventLocation = "Manchester";
-	const eventAddress = "The Ada Foundation Manchester, M4 5AF"; // Leave this empty if you don't want an address
-	const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const eventAddress = "Ada, the National College for Digital Skills, M4 5AF"; // Leave this empty if you don't want an address
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recm8Atgh1Wtmb5DD"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional
 	const directionsURL = ""
 	const contactLink = ""
 	
 	// Sponsors Configuration
-	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
+	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
+		{ image: "/uk/youthacks.svg", name: "Youthacks", url: "https://youthacks.org/" },
 		];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!

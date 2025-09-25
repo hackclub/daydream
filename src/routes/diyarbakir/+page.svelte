@@ -26,7 +26,7 @@
 				title: "Diyarbakır'da Oyun Yaratın",
 				subtitle: "Lise öğrencileri için oyun geliştirme etkinliği",
 				cta: "Şimdi Kayıt Ol",
-				deadline: "Son Başvuru: 19 Eylül"
+				deadline: "Son Başvuru: <span style='text-decoration: line-through; text-decoration-thickness: 3px; text-decoration-color: red;'>19</span> 22 Eylül"
 			},
 			schedule: {
 				title: "Program",
@@ -57,7 +57,7 @@
 				title: "Create Games in Diyarbakır",
 				subtitle: "Game development event for high school students",
 				cta: "Register Now",
-				deadline: "Deadline: September 19th"
+				deadline: "Deadline: <span style='text-decoration: line-through; text-decoration-thickness: 3px; text-decoration-color: red;'>19</span> 22 September"
 			},
 			schedule: {
 				title: "Schedule",
@@ -1036,7 +1036,7 @@ Mumbai`.split("\n")
 			<!-- Son Başvuru Tarihi -->
 			<div class="mt-4 px-4 py-2 bg-gradient-to-r from-[#E472AB] to-[#F2993E] rounded-full shadow-lg">
 				<p class="text-lg font-sans font-bold text-white max-sm:text-base">
-					{t.hero.deadline}
+					{@html t.hero.deadline}
 				</p>
 			</div>
 		</div>
@@ -1650,7 +1650,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">{currentLanguage === 'tr' ? 'Daydream\'e kimler katılabilir?' : 'Who can participate in Daydream?'}</h3>
-				<p class="text-sm">{currentLanguage === 'tr' ? 'Tüm lise ve üst ortaokul yaşındaki öğrenciler katılmaya davetlidir!' : 'All high-school & upper-middle-school aged students are welcome to come!'}</p>
+				<p class="text-sm">{currentLanguage === 'tr' ? 'Tüm lise ve üst ortaokul yaşındaki öğrenciler katılmaya davetlidir!' : 'All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong>'}</p>
 		</div>
 		</div>
 

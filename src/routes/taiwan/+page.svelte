@@ -2,7 +2,7 @@
 	// Configuration - Put your information here!
 	const eventName = "Taiwan";
 	const signupLink = "http://signup.hackit.tw/events/daydream-taiwan";
-	const eventLocation = " TCS 探索未來國際教育機構（臺師大林口校區） ";
+	const eventLocation = " TCS 探索未來國際實驗教育機構（臺師大林口校區） ";
 	const eventAddress = "";
 
 	// These two are optional

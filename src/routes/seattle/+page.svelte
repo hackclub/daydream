@@ -9,10 +9,10 @@
 	// Configuration - Put your information here!
 	const eventName = 'Seattle'; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = 'Seattle';
-	const eventAddress = ''; // Leave this empty if you don't want an address
+	const eventAddress = '9931 Willows Rd NE, Redmond, WA 98052'; // Leave this empty if you don't want an address
 	const signupLink = 'https://forms.hackclub.com/daydream-sign-up?event=recK6TeqRiPWomO7z'; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = '';
+	const directionsURL = 'https://maps.app.goo.gl/b6mdsr7dox5kMBQF6'; 
 	const contactLink = 'mailto:hunterzhuang0@gmail.com';
 
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
@@ -22,6 +22,17 @@
 		// 	image: '/seattle/jukebox.svg',
 		// 	name: 'Jukebox',
 		// 	url: 'https://www.jukeboxprint.com/custom-stickers'
+		// }
+		// {
+		// 	image: '/seattle/digipen.svg',
+		// 	name: 'DigiPen',
+		// 	url: 'https://www.digipen.edu/'
+		// }
+		// {
+		// 	image: '/seattle/easyeda.svg',
+		// image: '/seattle/jlcpcb.svg',
+		// 	name: 'EasyEDA + JLCPCP',
+		// 	url: 'https://jlcpcb.com/?from=VGEUSPCBA&utm_source=google&utm_medium=cpc&utm_campaign=22566519506&utm_content=752684430871&utm_term=b_turnkey%20pcb%20assembly&adgroupid=179674504077&utm_network=g_&gad_source=1&gad_campaignid=22566519506&gbraid=0AAAAA_qF0YNjuDGW9Wru1JdlwHvmAHVkS&gclid=Cj0KCQjw_rPGBhCbARIsABjq9cf4pHm-j07ITtee374Bc8yIc2z2vgl-AMo59qQQheZz_L4flJ6-EVMaAoA2EALw_wcB'
 		// }
 		// { image: '/example/logo2.png', name: 'Sponsor 2', url: 'https://example2.com' }
 	];
@@ -34,13 +45,14 @@
 				{ event: 'Doors open', location: '', time: '09:00 AM' },
 				{ event: 'Opening ceremony', location: 'Plato', time: '09:30 AM' },
 				{ event: 'Workshop: How to make a Godot Platformer', location: 'Plato', time: '10:30 AM' },
-				{ event: 'Workshop: How to make a Ren\'Py Visual Novel', location: 'Lorde', time: '10:30 AM' },
+				{ event: 'Workshop: How to make a Ren\'Py Visual Novel', location: 'Al-Khwarizmi', time: '10:30 AM' },
 				{ event: 'Required: Getting your project on Github!', location: 'Plato', time: '11:30 AM' },
 				{ event: 'Lunch', location: 'Cafe', time: '12:00 PM' },
-				{ event: 'Workshop: Get introduced to hardware! ', location: 'Lorde', time: '03:00 PM' },
+				{ event: 'Workshop: How to Make Art and Music For Your Game', location: 'Plato', time: '10:30 AM' },
+				{ event: 'Workshop: Intro to PCB Design! ', location: 'Al-Khwarizmi', time: '03:00 PM' },
 				{ event: 'Dinner', location: 'Cafe', time: '06:00 PM' },
-				{ event: 'Show off your Project!', location: 'Lorde', time: '08:00 PM' },
-				{ event: 'Goodbye!', location: 'Plato', time: '08:50 PM' },
+				{ event: 'Show off your Project!', location: 'Al-Khwarizmi', time: '08:00 PM' },
+				{ event: 'Goodbye! (Presentation)', location: 'Plato', time: '08:50 PM' },
 				{ event: 'Doors Closed', location: '', time: '09:20 PM' },
 			]
 		},
@@ -51,8 +63,8 @@
 				{ event: 'Welcome Back! Presentation', location: 'Plato', time: '09:30 AM' },
 				{ event: 'Lunch', location: 'Cafe', time: '12:00 PM' },
 				{ event: 'Workshop: How to ship a Godot Game', location: 'Plato', time: '04:10 PM' },
-				{ event: 'Workshop: How to ship a Ren\'Py Novel', location: 'Lorde', time: '04:10 PM' },
-				{ event: 'Workshop: How to ship a Unity Game', location: 'Lorde', time: '04:40 PM' },
+				{ event: 'Workshop: How to ship a Ren\'Py Novel', location: 'Al-Khwarizmi', time: '04:10 PM' },
+				{ event: 'Workshop: How to ship a Unity Game', location: 'Plato', time: '04:40 PM' },
 				{ event: 'Dinner', location: 'Cafe', time: '05:30 PM' },
 				{ event: 'SHIP YOUR GAME!', location: '', time: '06:00 PM' },
 				{ event: 'Required: How to vote on Podium', location: 'Plato', time: '06:30 PM' },
@@ -821,7 +833,7 @@ Mumbai`.split('\n');
 	></div>
 
 	<div
-		class="buildings-front-parallax absolute top-0 left-0 w-full h-full bg-[url(/seattle/banner.svg)] bg-no-repeat bg-contain pointer-events-none lg:-translate-y-28"
+		class="buildings-front-parallax absolute top-0 left-0 w-full h-full bg-[url(/seattle/banner.svg)] bg-no-repeat bg-contain pointer-events-none lg:-translate-y-32"
 	></div>
 	<!-- brush texture clipped to front buildings -->
 	<div
@@ -829,10 +841,10 @@ Mumbai`.split('\n');
 		style="mask-image: url('/seattle/banner.svg'); mask-size: contain; mask-repeat: no-repeat; mask-position: center top; -webkit-mask-image: url('/seattle/banner.svg'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center top;"
 	></div>
 	<div
-		class="hero-ui-parallax flex flex-col items-center justify-center text-center relative z-5 -translate-y-20 min-w-full"
+		class="hero-ui-parallax flex flex-col items-center justify-center text-center relative z-30 -translate-y-2"
 	>
 		<div class="inline-block relative">
-			<div class="h-36"></div>
+			<div class="h-12"></div>
 			<!-- space for the ship -->
 			<h2
 				class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
@@ -842,13 +854,13 @@ Mumbai`.split('\n');
 			<img
 				src="/seattle/daydream.svg"
 				alt="Daydream"
-				class="mb-9 w-auto h-48 object-contain max-w-full py-4"
+				class="h-40 mt-100 mb-6 w-auto object-contain max-w-full px-4"
 			/>
 			<a
 				href="https://hackclub.com"
-				class="absolute top-8 -right-30 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem] p-4"
+				class="absolute top-0 -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]"
 			>
-				<img src="flag-plane.png" alt="Hack Club" class="h-32" />
+				<img src="flag-plane.png" alt="Hack Club" class="h-28" />
 			</a>
 		</div>
 		<div class="relative inline-block px-4">
@@ -867,9 +879,44 @@ Mumbai`.split('\n');
 			>
 				Organized by Teenagers in {@html eventLocation.replaceAll(' ', '&nbsp;')}
 			</h4>
-		</div>
 
-		<ParticipantSignUp {signupLink} {eventName} />
+			<div class="mb-70">
+
+				<div class="mt-10 mb-15 relative z-30">
+					<ParticipantSignUp {signupLink} {eventName} />
+				</div>
+
+				{#if eventAddress}
+					<!-- Address Box - Prominent display -->
+					<div
+						class="mt-8 bg-white/80 backdrop-blur-sm border-4 border-[#487DAB] rounded-2xl px-8 py-6 max-w-2xl mx-4 shadow-lg relative z-30"
+					>
+						<div class="text-center">
+							<h3 class="text-2xl font-serif font-bold text-[#487DAB] mb-3 max-sm:text-xl">
+								Venue
+							</h3>
+							{#if directionsURL}
+								<a
+									href={directionsURL}
+									class="block text-xl font-sans text-[#60574b] hover:text-[#487DAB] transition-colors underline decoration-2 underline-offset-4 max-sm:text-lg"
+									target="_blank"
+									rel="noopener noreferrer"
+								>
+									{eventAddress}
+								</a>
+							{:else}
+								<p class="text-xl font-sans text-[#60574b] max-sm:text-lg">
+									{eventAddress}
+								</p>
+							{/if}
+							{#if directionsURL}
+								<p class="text-sm text-[#60574b]/70 mt-2 font-sans">Click for directions⤴︎</p>
+							{/if}
+						</div>
+					</div>
+				{/if}
+			</div>
+		</div>
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
@@ -1105,21 +1152,64 @@ Mumbai`.split('\n');
 
 					<!-- Sponsors Grid -->
 					<div class="relative z-10 min-h-40">
-						<div
-							class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors gap-8"
-						>
-							<img
-								src="seattle/jukebox.svg"
-								alt="Jukebox"
-								class="max-w-full max-h-full object-contain"
-							/>
-							<p class="text-lg text-[#335969]">
-								<a href="https://www.jukeboxprint.com/custom-stickers" class="text-pink-600"
-									>Custom Stickers</a
-								>
+						<!-- Jukebox -->
+							<div
+								class="bg-white/20 rounded-lg p-4 w-full flex items-center hover:bg-white/40 transition-colors gap-8"
+							>
+							<div class="flex items-center gap-4 w-40 justify-center">
+								<img src="seattle/jukebox.svg" alt="Jukebox" class="h-12 w-auto object-contain" />
+							</div>
+
+							<div class="flex-1">
+								<p class="text-lg text-[#335969]">
+								<a href="https://www.jukeboxprint.com/custom-stickers" class="text-pink-600">
+									Custom Stickers
+								</a>
 								with love from Jukebox
-							</p>
+								</p>
+							</div>
 						</div>
+
+						<!-- DigiPen -->
+						<div
+							class="bg-white/20 rounded-lg p-4 w-full flex items-center hover:bg-white/40 transition-colors gap-8"
+						>
+							<div class="flex items-center gap-4 w-40 justify-center">
+								<img src="seattle/digipen.svg" alt="DigiPen" class="h-12 w-auto object-contain" />
+							</div>
+
+							<div class="flex-1">
+								<p class="text-lg text-[#335969]">
+								<a href="https://www.digipen.edu/" class="text-red-600">
+									Venue
+								</a>
+								donated by the DigiPen Institute of Technology
+								</p>
+							</div>
+						</div>
+
+						<!-- EasyEDA + JLCPCB -->
+						<div
+							class="bg-white/20 rounded-lg p-4 w-full flex items-center hover:bg-white/40 transition-colors gap-8"
+						>
+							<div class="flex items-center gap-4 w-40 justify-center">
+								<img src="seattle/easyeda.svg" alt="EasyEDA" class="h-12 w-auto object-contain" />
+								<img src="seattle/jlcpcb.svg" alt="JLCPCB" class="h-12 w-auto object-contain" />
+							</div>
+
+							<div class="flex-1">
+								<p class="text-lg text-[#335969]">
+								<a
+									href="https://jlcpcb.com/?from=VGEUSPCBA"
+									class="text-blue-600"
+								>
+									Custom PCB Boards
+								</a>
+								created by EasyEDA + JLCPCB
+								</p>
+							</div>
+						</div>
+
 						{#if sponsors.length > 0}
 							<!-- First row (up to 4 sponsors) -->
 							{#if sponsors.length > 4}
@@ -1777,7 +1867,7 @@ Mumbai`.split('\n');
 					Who can participate in Daydream?
 				</h3>
 				<p class="text-sm">
-					All high-school & upper-middle-school aged students are welcome to come!
+					All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong>
 				</p>
 			</div>
 		</div>
