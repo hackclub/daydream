@@ -1,21 +1,14 @@
 <script lang="ts">
-	/**
-	 * Enhanced Red Sea Daydream Event Site
-	 * Features: Countdown timer, interactive schedule, social media integration,
-	 * enhanced animations, mobile responsiveness, and more engaging content
-	 */
-
-	// Configuration - Enhanced with more details
 	const eventName = "Red Sea";
-	const eventLocation = "Red Sea City";
-	const eventAddress = "Sun Rise International School, Red Sea Governorate";
+    const eventLocation = "Red Sea City";
+    const eventAddress = "Royal El-Geel El-Saaed Modern School";
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recfLqydkliPcUYoe";
-	const directionsURL = "https://maps.app.goo.gl/S3k6yH2JQqCX5fgL6";
+    const directionsURL = "https://maps.app.goo.gl/8BkZSPb4nofRRiNv6";
 	const contactLink = "mailto:redsea.stem.hackclub@gmail.com";
 	
 	// Event dates and times - 12-hour event
-	const eventStartDate = new Date('2025-09-27T10:00:00+02:00'); // Egypt timezone
-	const eventEndDate = new Date('2025-09-27T22:00:00+02:00'); // Same day, 12 hours
+    const eventStartDate = new Date('2025-10-04T10:00:00+02:00'); // Egypt timezone
+    const eventEndDate = new Date('2025-10-04T22:00:00+02:00'); // Same day, 12 hours
 	
 	// Social Media Links
 	const socialLinks = {
@@ -27,14 +20,32 @@
 	
 	// Enhanced Sponsors Configuration
 	const sponsorsEnabled = true; // Hide sponsors for now but keep call to action
-			const sponsors = [
-		{ 
-			image: "/red-sea/jukebox.png", 
-			name: "Jukebox Print", 
-			url: "https://www.jukeboxprint.com/custom-stickers",
-			tier: "silver"
-		}
-	];
+            const sponsors = [
+        { 
+            image: "/red-sea/jukebox.png", 
+            name: "Jukebox Print", 
+            url: "https://www.jukeboxprint.com/custom-stickers",
+            tier: "silver"
+        },
+        {
+            image: "/red-sea/boards-against-humanity.png",
+            name: "Cards Against Humanity",
+            tier: "bronze",
+            description: "Provided board card prizes"
+        },
+        {
+            image: "/red-sea/science-land.png",
+            name: "Science Land",
+            tier: "silver",
+            description: "Provided IDs, snacks, and prizes for second and third place"
+        },
+        {
+            image: "/red-sea/future-coders.png",
+            name: "Future Coders",
+            tier: "gold",
+            description: "Provided mentors, organizers, and the venue"
+        }
+    ];
 	
 	// Enhanced Schedule - 12-hour single day event with 2 workshops
 	const scheduleData: { 
@@ -50,98 +61,98 @@
 		}[] 
 	}[] = [
 		{
-			title: "Saturday, September 27th",
-			date: "2025-09-27",
-			items: [
-				{ 
-					event: "Doors Open & Registration", 
-					time: "9:30 AM",
+			title: "Saturday, October 4th",
+			date: "2025-10-04",
+            items: [
+                { 
+                    event: "Doors Open & Registration", 
+                    time: "8:30 AM – 9:30 AM",
 					description: "Check-in, get your swag bag, and meet fellow participants",
 					location: "Main Hall",
 					type: "activity"
 				},
 				{ 
 					event: "Opening Ceremony", 
-					time: "10:00 AM",
+                    time: "9:30 AM – 10:00 AM",
 					description: "Welcome speech, event overview, and team formation",
 					location: "Main Auditorium",
 					type: "presentation"
 				},
-				{ 
-					event: "Icebreaker Activities", 
-					time: "10:30 AM",
+                { 
+                    event: "Icebreaker Activities", 
+                    time: "10:00 AM – 10:30 AM",
 					description: "Fun games to get to know your fellow hackers",
 					location: "Main Hall",
 					type: "activity"
 				},
+                { 
+                    event: "Team Building & Brainstorming", 
+                    time: "10:30 AM – 11:00 AM",
+                    description: "Form teams and start brainstorming your game ideas",
+                    location: "Main Hall",
+                    type: "activity"
+                },
+                { 
+                    event: "Workshop: Platformer with Godot Engine", 
+                    time: "11:00 AM – 12:00 PM",
+                    description: "Build a basic 2D platformer using Godot (scenes, nodes, physics, and input).",
+                    speaker: "TBA",
+                    location: "Workshop Room A",
+                    type: "workshop"
+                },
 				{ 
-					event: "Game Development Workshop 1", 
-					time: "11:00 AM",
-					description: "Introduction to game development basics and tools",
-					speaker: "TBA",
-					location: "Workshop Room A",
-					type: "workshop"
+                    event: "Break", 
+                    time: "12:00 PM – 12:30 PM",
+                    description: "Short break to recharge",
+                    location: "Dining Area",
+                    type: "break"
 				},
+                { 
+                    event: "Workshop: Visual Novel with Ren’Py", 
+                    time: "12:30 PM – 1:30 PM",
+                    description: "Create a visual novel in Ren’Py (dialogue, choices, assets, and basic scripting).",
+                    speaker: "TBA",
+                    location: "Workshop Room A",
+                    type: "workshop"
+                },
 				{ 
-					event: "Lunch Break", 
-					time: "12:30 PM",
-					description: "Delicious food and networking time",
-					location: "Dining Area",
-					type: "break"
-				},
-				{ 
-					event: "Game Development Workshop 2", 
-					time: "2:00 PM",
-					description: "Advanced game mechanics and programming concepts",
-					speaker: "TBA",
-					location: "Workshop Room A",
-					type: "workshop"
-				},
-				{ 
-					event: "Team Building & Brainstorming", 
-					time: "3:30 PM",
-					description: "Form teams and start brainstorming your game ideas",
-					location: "Main Hall",
-					type: "activity"
-				},
-				{ 
-					event: "Snack Break", 
-					time: "5:00 PM",
-					description: "Refreshments and team discussions",
-					location: "Lounge Area",
-					type: "break"
+                    event: "Lunch", 
+                    time: "1:30 PM – 2:00 PM",
+                    description: "Delicious food and networking time",
+                    location: "Dining Area",
+                    type: "break"
 				},
 				{ 
 					event: "Development & Mentorship", 
-					time: "5:30 PM",
+                    time: "2:00 PM – 5:30 PM",
 					description: "Build your game with mentor support and guidance",
 					location: "Main Hall",
 					type: "activity"
 				},
 				{ 
-					event: "Dinner", 
-					time: "7:00 PM",
-					description: "Delicious dinner and team bonding",
-					location: "Dining Area",
-					type: "break"
+                    event: "Snack Break", 
+                    time: "5:30 PM – 6:00 PM",
+                    description: "Refreshments and team discussions",
+                    location: "Lounge Area",
+                    type: "break"
 				},
 				{ 
 					event: "Final Development Sprint", 
-					time: "8:00 PM",
+                    time: "6:00 PM – 8:00 PM",
 					description: "Last push to complete your game project",
 					location: "Main Hall",
 					type: "activity"
 				},
 				{ 
 					event: "Project Showcase & Awards", 
-					time: "9:30 PM",
+                    time: "8:00 PM – 9:00 PM",
 					description: "Present your game and celebrate achievements",
 					location: "Main Auditorium",
 					type: "presentation"
 				},
 				{ 
 					event: "Closing Ceremony", 
-					time: "10:30 PM",
+                    time: "9:00 PM – 10:00 PM",
 					description: "Final remarks and future opportunities",
 					location: "Main Auditorium",
 					type: "presentation"
@@ -948,10 +959,10 @@ Red Sea`.split("\n")
 			<h2
 			class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
 			>
-				September 27th & 28th, 2025
+				October 4th, 2025
 			</h2>
-			<img src="/red-sea/daydream.png" alt="Daydream" class="h-64 mb-6 w-auto object-contain max-w-full px-4" />
-			<a href="https://hackclub.com" class="absolute top-0 -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
+			<img src="/red-sea/daydream.svg" alt="Daydream" class="h-64 mb-6 w-auto object-contain max-w-full px-4" />
+			<a href="https://hackclub.com" aria-label="Hack Club" class="absolute top-0 -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
 				<img src="/flag-plane.png" alt="Hack Club" class="h-28">
 			</a>
 		</div>
@@ -1337,10 +1348,14 @@ Red Sea`.split("\n")
 											<div class="bg-white/50 rounded-lg p-4 h-24 flex items-center justify-center mb-3">
 												<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
 											</div>
-											<h3 class="font-bold text-[#335969] text-lg mb-2">{sponsor.name}</h3>
-											<p class="text-sm text-[#477783]">
-												Big shoutout to Jukebox for our <a href="https://www.jukeboxprint.com/custom-stickers" target="_blank" rel="noopener noreferrer" class="text-pink hover:text-pink-dark underline">custom stickers</a>!
-											</p>
+                                            <h3 class="font-bold text-[#335969] text-lg mb-2">{sponsor.name}</h3>
+                                            {#if sponsor.name === 'Jukebox Print'}
+                                                <p class="text-sm text-[#477783]">
+                                                    Big shoutout to Jukebox for our <a href="https://www.jukeboxprint.com/custom-stickers" target="_blank" rel="noopener noreferrer" class="text-pink hover:text-pink-dark underline">custom stickers</a>!
+                                                </p>
+                                            {:else if sponsor.description}
+                                                <p class="text-sm text-[#477783]">{sponsor.description}</p>
+                                            {/if}
 										</div>
 									</div>
 								</div>
@@ -1562,8 +1577,8 @@ Red Sea`.split("\n")
 			
 			<!-- Map container with cloudy edges -->
 			<div class="relative w-full h-156 overflow-hidden bg-transparent">
-				<iframe 
-					src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4393.223885058621!2d33.804376376122384!3d27.22416934663533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1452877818029b35%3A0xf3a85e8b5fa0ecd7!2sSunrise%20International%20School!5e1!3m2!1sen!2seg!4v1756900426781!5m2!1sen!2seg"
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3547.3674012096017!2d33.83335937612289!3d27.239004345991!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x145287ca1dd6ce11%3A0x14987eb303985474!2sRoyal%20El-Geel%20El-Saaed%20Modern%20School!5e0!3m2!1sen!2seg!4v1758624892145!5m2!1sen!2seg"
 					class="w-full h-full border-0 bg-[#acd4e0]"
 					style="
 						mask-image: 
@@ -1650,7 +1665,7 @@ Red Sea`.split("\n")
 						mask-mode: luminance;
 						mask-composite: exclude, add, add, add, add, add, add, add, add;
 					"
-					title="Daydream Events Map">
+                    title="Daydream Events Map">
 				</iframe>
 			</div>
 			
@@ -1800,7 +1815,7 @@ Red Sea`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 
@@ -1818,7 +1833,7 @@ Red Sea`.split("\n")
 			<img src="window-2.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24  opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">All this, for free?</h3>
-				<p class="text-sm">Yep! Food, swag and good vibes are all included. Plus, if you're joining us from afar, we'll cover the cost of gas or a bus / train ticket.</p>
+				<p class="text-sm">Yep! Food, swag and good vibes are all included.</p>
 			</div>
 		</div>
 

@@ -9,46 +9,53 @@
 	// Configuration - Put your information here!
 	const eventName = "Delhi";
 	const eventLocation = "Delhi";
-	const eventAddress = "Indian Institute of Technology (IIT Delhi)";
+	const eventAddress = "IIT Delhi";
 	// These two are optional
-	const directionsURL = "https://www.google.com/maps?gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyBggCEEUYOzIHCAMQABiPAjIHCAQQABiPAjIHCAUQABiPAjIGCAYQLhhA0gEIMjE5MmowajmoAgCwAgE&um=1&ie=UTF-8&fb=1&gl=in&sa=X&geocode=Kc8nJWow4Aw5MT30ze_8afND&daddr=Near+CSKM+Public+School,+Satbari,+Chhatarpur,+New+Delhi,+Delhi+110068"
+	const directionsURL = ""
 	const contactLink = "mailto:delhi@daydream.hackclub.com"
 	
 	// Sponsors Configuration
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recv184IchLIW0Y72"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
-	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
+	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/sydney/xyz.png", name: ".xyz", url: "https://gen.xyz" },
-		{ image: "/sydney/jlcpcb.png", name: "jlcpcb", url: "https://jlcpcb.com/" },
-		{ image: "/sydney/oshw.png", name: "oshw", url: "https://oshwlab.com/" },
-		{ image: "/sydney/easyeda.png", name: "easyeda", url: "https://easyeda.com/" },
+		{ image: "/delhi/scalerlogo.jpg", name: "Scaler School of Technology", url: "https://www.scaler.com/school-of-technology/" },
+		{ image: "/delhi/stackskb.jpg", name: "StacksKB", url: "https://stackskb.com/" },
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
 		{
-			title: "Saturday, September 27th",
+			title: "Saturday, October 4th",
 			items: [
-				{ event: "Doors open", time: "9:00 AM" },
-				{ event: "Opening ceremony", time: "9:30 PM" },
-				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Start working on your project!", time: "1:00 PM" },
-				{ event: "Workshop 1", time: "3:00 PM" },
-				{ event: "Activity 1", time: "4:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
-				{ event: "Dinner", time: "6:00 PM" },
-				{ event: "Lightning talks", time: "8:00 PM" },
-				{ event: "Midnight surprise", time: "12:00 AM" }
+				{ event: "Doors open", time: "8:00 AM" },
+				{ event: "Opening ceremony", time: "8:30 AM" },
+				{ event: "Snacks", time: "9:30 AM" },
+				{ event: "Godot Workshop", time: "10:00 AM" },
+				{ event: "Ren'Py Workshop", time: "11:00 AM" },
+				{ event: "Lunch", time: "1:00 PM" },
+				{ event: "Sponsor Session", time: "3:00 PM" },
+				{ event: "Snacks", time: "4:00 PM" },
+				{ event: "Lightning talks", time: "5:00 PM" },
+				{ event: "Dinner", time: "6:30 PM" },
+				{ event: "Day 1 Wrap-up", time: "7:45 PM" }
 			]
 		},
 		{
-			title: "Sunday, September 28th",
+			title: "Sunday, October 5th",
 			items: [
-				{ event: "Breakfast", time: "8:00 AM" },
-				{ event: "Continue Working!", time: "8:30 AM" },
-				{ event: "Shipping Workshop!", time: "5:30 PM" },
-				{ event: "Demos", time: "7:30 PM" },
-				{ event: "Closing ceremony", time: "8:00 PM" }
+				{ event: "Doors open", time: "8:00 AM" },
+				{ event: "Recap time", time: "8:30 AM" },
+				{ event: "Continue Working", time: "9:00 AM" },
+				{ event: "Snacks", time: "10:00 AM" },
+				{ event: "Surprise Workshop", time: "11:00 AM" },
+				{ event: "Lunch", time: "1:00 PM" },
+				{ event: "Final Sprint", time: "3:00 PM" },
+				{ event: "Shipping Time", time: "5:45 PM" },
+				{ event: "Dinner", time: "6:00 PM" },
+				{ event: "Demos", time: "6:30 PM" },
+				{ event: "Closing Ceremony", time: "7:15 PM" },
+				{ event: "Daydream Ends", time: "8:00 PM" }
+
 			]
 		}
 	];
@@ -817,7 +824,7 @@ Mumbai`.split("\n")
 			<h2
 			class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
 			>
-				September 27th & 28th, 2025
+				October 4th & 5th, 2025
 			</h2>
 			<img src="daydream.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
 			<a href="https://hackclub.com" class="absolute top-0 -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
@@ -1477,7 +1484,7 @@ Mumbai`.split("\n")
 			<img src="window-1.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24  opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What do I need?</h3>
-				<p class="text-sm">Your laptop, chargers, toiletries, sleeping bags, and an open mind!</p>
+				<p class="text-sm">Your laptop, chargers, toiletries, and an open mind!</p>
 			</div>
 		</div>
 

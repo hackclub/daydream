@@ -9,17 +9,19 @@
 	// Configuration - Put your information here!
 	const eventName = "Brighton";
 	const eventLocation = "Brighton";
-	const eventAddress = ""; // Leave this empty if you don't want an address
+	const eventAddress = "Brighton Youth Centre, 64 Edward St, Brighton and Hove, Brighton BN2 0JR"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional
-	// const directionsURL = ""
-	// const contactLink = ""
+	const directionsURL = "https://www.google.com/maps/dir/52.2452992,-0.2523136/Elite+Pro+Fitness+Studios,+Youth+Centre,+64+Edward+St,+Brighton+and+Hove,+Brighton+BN2+0JR/@51.2972404,-0.7798991,9.11z/data=!4m9!4m8!1m1!4e1!1m5!1m1!1s0x487585a23399241b:0x798255839266a481!2m2!1d-0.1307783!2d50.8221787?entry=ttu&g_ep=EgoyMDI1MDkxNy4wIKXMDSoASAFQAw%3D%3D"
+	const contactLink = "mailto:brighton@daydream.hackclub.com";
 	
 	// Sponsors Configuration
-	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
+	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
+		{ image: "/uk/youthacks.svg", name: "Youthacks", url: "https://youthacks.org/" },
 		// { image: "src/routes/cambridge/images/rpilogo.png", name: "The Raspberry Pi Foundation", url: "https://www.raspberrypi.org/" },
-		// { image: "https://assets.hackclub.com/icon-rounded.png", name: "Hack Club", url: "https://hackclub.com/" }
+		 { image: "https://assets.hackclub.com/icon-rounded.png", name: "Hack Club", url: "https://hackclub.com/" },
+		 { image: "https://www.brightonyouthcentre.org.uk/testsite/wp-content/uploads/sites/6/2018/03/website-banner-white-grey-short.jpg", name: "Brighton Youth Centre", url: "https://www.brightonyouthcentre.org.uk/"}
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -27,13 +29,12 @@
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Doors open", time: "8:45" },
-				{ event: "Opening ceremony", time: "9:10" },
-				{ event: "Get into teams, start working on your project!", time: "10:00" },
-				{ event: "Lunch", time: "13:00" },
-				{ event: "Continue working on projects", time: "14:00" },
-				{ event: "Workshop", time: "15:00" },
-				{ event: "More projects work :)", time: "16:00" },
+				{ event: "Doors open", time: "8:30" },
+				{ event: "Opening ceremony", time: "9:00" },
+				{ event: "Get into teams, start working on your project!", time: "9:30" },
+				{ event: "Lunch", time: "12:30" },
+				{ event: "AMA with a Game Developer!", time: "13:30" },
+				{ event: "Back to coding :)", time: "14:00" },
 				{ event: "Dinner", time: "18:00" },
 				{ event: "Ship projects and vote", time: "19:00" },
 				{ event: "Closing Ceremony", time: "20:20" },
@@ -1040,6 +1041,9 @@ Mumbai`.split("\n")
 						{/if}
 					{/if}
 					
+					<div class="mt-8 text-center">
+						<p class="text-lg text-[#335969]"><a href="https://www.jukeboxprint.com/custom-stickers" class="underline hover:text-[#477783] transition-colors">Custom stickers</a> provided by Jukebox!</p>
+					</div>
 					{#if contactLink}
 						<!-- Call to action for sponsors -->
 						<div class="mt-8 text-center">

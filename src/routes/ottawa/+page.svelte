@@ -872,7 +872,7 @@ Mumbai`.split('\n');
 			<div class="mb-70">
 
 				<div class="mt-10 mb-15 relative z-30">
-					<ParticipantSignUp {signupLink} {eventName} />
+					<ParticipantSignUp closed {signupLink} {eventName} />
 				</div>
 
 				{#if eventAddress}
@@ -1734,7 +1734,7 @@ Mumbai`.split('\n');
 					Who can participate in Daydream?
 				</h3>
 				<p class="text-sm">
-					All high-school & upper-middle-school aged students are welcome to come!
+					All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong>
 				</p>
 			</div>
 		</div>

@@ -18,7 +18,7 @@
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/charlotte/jukebox.png", name: "Jukebox" , url: "https://www.jukeboxprint.com/custom-stickers", 
+		{ image: "/charlotte/jukebox.png", name: "Jukebox", url: "https://www.jukeboxprint.com/custom-stickers", 
 		text: `<p class="text-lg text-[#335969] text-center">
              Big shoutout to Jukebox for our
              <a href="https://www.jukeboxprint.com/custom-stickers"
@@ -33,12 +33,13 @@
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Doors open", time: "2:00 PM" },
-				{ event: "Opening ceremony", time: "2:15 PM" },
+				{ event: "Doors open", time: "1:30 PM" },
+				{ event: "Event Starts", time: "2:00 PM" },
+				{ event: "Opening ceremony and decide theme", time: "2:15 PM" },
 				{ event: "Start working on your projects", time: "2:45 PM" },
-				{ event: "Group checkins", time: "4:00 PM" },
-				{ event: "Dinner", time: "6:00 PM" },
-				{ event: "Lightning talks", time: "8:00 PM" },
+				{ event: "Group checkins", time: "5:00 PM" },
+				{ event: "Dinner", time: "6:30 PM" },
+				{ event: "Lightning talks and Optional Presentations", time: "9:00 PM" },
 				{ event: "Midnight surprise", time: "12:00 AM" }
 			]
 		},
@@ -46,9 +47,10 @@
 			title: "Sunday, September 28th",
 			items: [
 				{ event: "Breakfast", time: "8:00 AM" },
-				{ event: "Presentations!", time: "11:30 AM" },
-				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Closing ceremony and awards", time: "2:00 PM" }
+				{ event: "Presentations!", time: "12:00 PM" },
+				{ event: "Lunch", time: "1:00 PM" },
+				{ event: "Closing ceremony and awards", time: "1:30 PM" },
+				{ event: "Event ends", time: "2:00 PM" },
 			]
 		}
 	];
@@ -95,7 +97,6 @@ Visakhapatnam
 Dubai
 San Francisco
 Minneapolis
-Charlotte
 Seattle
 Singapore
 Sydney
@@ -876,6 +877,8 @@ Mumbai`.split("\n")
 	<img src="/clouds-top-right.png" alt="" class="absolute right-0 w-1/2 -bottom-12 translate-y-1/2 z-20 pointer-events-none">
 	<img src="/clouds-top-left.png" alt="" class="absolute left-0 w-3/12 -bottom-12  translate-y-1/2 z-20 pointer-events-none">
 	
+
+	
 </div>
 
 <div class="w-full relative flex items-start justify-center">
@@ -892,7 +895,7 @@ Mumbai`.split("\n")
 			</h2>
 			
 			<div class="text-[#8B4513] font-serif text-xl leading-relaxed space-y-8">
-				<p>Welcome to Hack Club's newest adventure. This fall we invite you to join us for Daydream, the world's biggest Game Jam happening simultaneously in 100 cities.</p>
+				<p>Welcome to Hack Club's newest adventure. On September 27-28, we invite you to join us for Daydream Charlotte, part of the world's biggest Game Jam happening simultaneously in 100 cities.</p>
 
 				<p class="font-bold text-2xl">Hack Club wants you to make a game this fall.</p>
 
@@ -900,9 +903,9 @@ Mumbai`.split("\n")
 
 				<p>This fall, we invite you to learn something new, make something you're really proud of, meet new friends, and go on an incredible adventure together.</p>
 
-				<p class="mb-2">With love,</p>
+				<p class="mb-2">Your Organizers,</p>
 
-				<p class="italic text-2xl opacity-85">Augie and Renran from Hack Club HQ</p>
+				<p class="italic text-2xl opacity-85">Anders Coltvet, Liam Newbill, Joseph DeLuca, and Caden Masek</p>
 			</div>
 		</div>
 	</div>
@@ -1046,12 +1049,16 @@ Mumbai`.split("\n")
 						{/if}
 					{/if}
 					
-					{#if contactLink}
-						<!-- Call to action for sponsors -->
-						<div class="mt-8 text-center">
-							<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
-						</div>
-					{/if}
+										{#if contactLink}
+												<!-- Jukebox shoutout -->
+												<div class="mt-8 text-center">
+													<span class="block mb-2 text-base text-[#335969]">Big shoutout to Jukebox for our
+														<a href="https://www.jukeboxprint.com/custom-stickers" class="underline hover:text-[#477783] transition-colors" target="_blank" rel="noopener noreferrer">
+															custom stickers</a>
+													</span>
+													<p class="text-lg text-[#335969]">Want to sponsor Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Get in touch</a></p>
+												</div>
+										{/if}
 				</div>
 			</div>
 			
@@ -1441,7 +1448,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 
@@ -1549,4 +1556,3 @@ Mumbai`.split("\n")
 		</div>
 	</div>
 {/if}
-

@@ -8,33 +8,62 @@
 	let newMessage = '';
 	let isTyping = false;
 	
-	// Enhanced chatbot responses
+    // Enhanced chatbot responses and helpers
+    const SIGNUP_URL = 'https://forms.hackclub.com/daydream-sign-up?event=recfLqydkliPcUYoe';
+    const DIRECTIONS_URL = 'https://maps.app.goo.gl/8BkZSPb4nofRRiNv6';
 	const botResponses = {
 		greeting: [
 			"Hello! Welcome to Daydream Red Sea! 👋 How can I help you today?",
 			"Hi there! I'm here to help with any questions about Daydream Red Sea! 🎮",
 			"Welcome! Ask me anything about the event, registration, or what to expect!"
 		],
-		registration: [
-			"To register for Daydream Red Sea, click the sign-up button on the main page or visit: https://forms.hackclub.com/daydream-sign-up?event=recfLqydkliPcUYoe",
-			"Registration is free! Just fill out the form and you'll receive confirmation details.",
-			"Sign up now to secure your spot! The event is open to all high-school & upper-middle-school students."
-		],
-		location: [
-			"Daydream Red Sea is taking place at South Valley University Hurghada Branch, Ras Ghareb - Hurghada Rd, Red Sea Governorate",
-			"You can find directions here: https://maps.app.goo.gl/frKTnS8kkmSts9sH6",
-			"The venue is easily accessible and we'll provide detailed directions closer to the event."
-		],
-		time: [
-			"Daydream Red Sea is on Saturday, September 27th, 2025 from 10:00 AM to 10:00 PM (12 hours total)",
-			"The event runs from 10 AM to 10 PM - a full day of game development fun!",
-			"Mark your calendar: September 27th, 2025 - 12 hours of creativity and coding!"
-		],
-		workshops: [
-			"We have 2 exciting workshops: Game Development Workshop 1 (11:00 AM) and Game Development Workshop 2 (2:00 PM)",
-			"Learn game development basics in the morning and advanced concepts in the afternoon!",
-			"Two workshops covering everything from basics to advanced game mechanics."
-		],
+    registration: [
+        `Register here: ${SIGNUP_URL}`,
+        "Registration is free! Fill out the form and you'll receive confirmation details.",
+        `Sign up now to secure your spot: ${SIGNUP_URL}`
+    ],
+    location: [
+        "Daydream Red Sea is taking place at Royal El-Geel El-Saaed Modern School.",
+        `Directions: ${DIRECTIONS_URL}`,
+        "The venue is easily accessible; check the map link for exact directions."
+    ],
+    time: [
+        "Daydream Red Sea is on Saturday, October 4th, 2025 from 10:00 AM to 10:00 PM (12 hours total)",
+        "The event runs from 10 AM to 10 PM - a full day of game development fun!",
+        "Mark your calendar: October 4th, 2025 - 12 hours of creativity and coding!"
+    ],
+    workshops: [
+        "Two workshops: Platformer with Godot (11:00 AM – 12:00 PM) and Visual Novel with Ren’Py (12:30 PM – 1:30 PM)",
+        "Learn to build a 2D platformer in Godot and create a visual novel in Ren’Py.",
+        "Hands-on sessions: Godot platformer then Ren’Py visual novel."
+    ],
+    schedule: [
+        "<strong>Schedule</strong><br>" +
+        "<div class=\"grid grid-cols-1 gap-1 text-sm\">" +
+        "<div><span class=\"font-semibold\">8:30–9:30</span> Registration</div>" +
+        "<div><span class=\"font-semibold\">9:30–10:00</span> Opening</div>" +
+        "<div><span class=\"font-semibold\">10:00–10:30</span> Icebreakers</div>" +
+        "<div><span class=\"font-semibold\">10:30–11:00</span> Team Building</div>" +
+        "<div><span class=\"font-semibold\">11:00–12:00</span> Godot Workshop</div>" +
+        "<div><span class=\"font-semibold\">12:00–12:30</span> Break</div>" +
+        "<div><span class=\"font-semibold\">12:30–1:30</span> Ren’Py Workshop</div>" +
+        "<div><span class=\"font-semibold\">1:30–2:00</span> Lunch</div>" +
+        "<div><span class=\"font-semibold\">2:00–5:30</span> Dev & Mentorship</div>" +
+        "<div><span class=\"font-semibold\">5:30–6:00</span> Snack</div>" +
+        "<div><span class=\"font-semibold\">6:00–8:00</span> Final Sprint</div>" +
+        "<div><span class=\"font-semibold\">8:00–9:00</span> Showcase</div>" +
+        "<div><span class=\"font-semibold\">9:00–10:00</span> Closing</div>" +
+        "</div>",
+    ],
+    food: [
+        "Food: Lunch (1:30–2:00 PM) and a Snack Break (5:30–6:00 PM) provided. Free food and snacks throughout the day!",
+    ],
+    mentors: [
+        "Mentors: Future Coders is providing mentors and organizers to help you throughout the event.",
+    ],
+    sponsors: [
+        "Sponsors: Future Coders (mentors, organizers, venue), Science Land (IDs, snacks, prizes for 2nd & 3rd), Jukebox Print (custom stickers).",
+    ],
 		prizes: [
 			"Prizes are TBA - we're working on some amazing rewards! Stay tuned for updates.",
 			"We'll announce the prize details soon. They'll be worth the wait! 🏆",
@@ -58,14 +87,19 @@
 	};
 	
 	// Quick response buttons
-	const quickResponses = [
-		"Registration",
-		"Location & Time", 
-		"Workshops",
-		"Prizes",
-		"What to bring",
-		"Contact"
-	];
+    const quickResponses = [
+        "Registration",
+        "Location & Time",
+        "Directions",
+        "Schedule",
+        "Workshops",
+        "Food",
+        "Mentors",
+        "Sponsors",
+        "Prizes",
+        "What to bring",
+        "Contact"
+    ];
 	
 	// Notification system
 	let showNotification = false;
@@ -116,40 +150,85 @@
 		}
 	];
 	
-	function getBotResponse(userMessage: string): string {
-		const message = userMessage.toLowerCase();
+    function getBotResponse(userMessage: string): string {
+    const message = userMessage.toLowerCase();
+    const normalized = message.replace(/\s+/g, ' ').trim();
 		
-		// Check for different types of questions
+    // Check for different types of questions
 		if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
 			return botResponses.greeting[Math.floor(Math.random() * botResponses.greeting.length)];
 		}
-		if (message.includes('register') || message.includes('sign up') || message.includes('signup') || message.includes('apply')) {
-			return botResponses.registration[Math.floor(Math.random() * botResponses.registration.length)];
-		}
-		if (message.includes('where') || message.includes('location') || message.includes('venue') || message.includes('address')) {
+    // Registration intents (including common misspelling "registeration")
+    if (/\b(register|registration|registeration|sign\s*up|signup|apply)\b/.test(normalized)) {
+        return botResponses.registration[0];
+    }
+    if (message.includes('where') || message.includes('location') || message.includes('venue') || message.includes('address') || message.includes('directions') || message.includes('map')) {
 			return botResponses.location[Math.floor(Math.random() * botResponses.location.length)];
 		}
-		if (message.includes('when') || message.includes('time') || message.includes('date') || message.includes('schedule')) {
-			return botResponses.time[Math.floor(Math.random() * botResponses.time.length)];
+    if (message.includes('when') || message.includes('time') || message.includes('date')) {
+        return botResponses.time[Math.floor(Math.random() * botResponses.time.length)];
+    }
+    if (message.includes('schedule') || message.includes('agenda') || message.includes('timeline') || message.includes('program')) {
+        return botResponses.schedule[0];
 		}
 		if (message.includes('workshop') || message.includes('learn') || message.includes('teach') || message.includes('class')) {
 			return botResponses.workshops[Math.floor(Math.random() * botResponses.workshops.length)];
 		}
-		if (message.includes('prize') || message.includes('win') || message.includes('award') || message.includes('reward')) {
+    if (message.includes('prize') || message.includes('win') || message.includes('award') || message.includes('reward')) {
 			return botResponses.prizes[Math.floor(Math.random() * botResponses.prizes.length)];
 		}
-		if (message.includes('bring') || message.includes('need') || message.includes('require') || message.includes('laptop')) {
+    if (message.includes('bring') || message.includes('need') || message.includes('require') || message.includes('laptop') || message.includes('food') || message.includes('lunch') || message.includes('dinner') || message.includes('snack') || message.includes('meal')) {
+        if (message.includes('food') || message.includes('lunch') || message.includes('dinner') || message.includes('snack') || message.includes('meal')) {
+            return botResponses.food[0];
+        }
 			return botResponses.requirements[Math.floor(Math.random() * botResponses.requirements.length)];
 		}
-		if (message.includes('contact') || message.includes('email') || message.includes('help') || message.includes('question')) {
+    if (message.includes('mentor') || message.includes('mentors') || message.includes('help') || message.includes('support')) {
+        return botResponses.mentors[0];
+    }
+    if (message.includes('sponsor') || message.includes('sponsors') || message.includes('partner')) {
+        return botResponses.sponsors[0];
+    }
+    if (message.includes('contact') || message.includes('email') || message.includes('question')) {
 			return botResponses.contact[Math.floor(Math.random() * botResponses.contact.length)];
 		}
 		
-		// Default response
-		return botResponses.default[Math.floor(Math.random() * botResponses.default.length)];
+        // Default response with guidance
+        const fallback = botResponses.default[Math.floor(Math.random() * botResponses.default.length)];
+        return `${fallback} Try one of: Registration, Location & Time, Workshops, Prizes, What to bring, Contact.`;
 	}
+
+    // Format message content into HTML (linkify URLs)
+    function formatMessage(content: string): string {
+        const urlRegex = /(https?:\/\/[^\s]+)/g;
+        return content.replace(urlRegex, (url) => {
+            const safe = url.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            return `<span class=\"inline-block max-w-full align-middle\"><a href=\"${safe}\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"underline text-pink hover:text-pink-dark break-words [overflow-wrap:anywhere]\">${safe}</a></span>`;
+        });
+    }
+
+    // Scroll management + unread badge
+    import { tick } from 'svelte';
+    let messagesContainer: HTMLElement;
+    let unreadCount = 0;
+    let isUserNearBottom = true;
+
+    function isNearBottom(el: HTMLElement, threshold = 48) {
+        return el.scrollHeight - el.scrollTop - el.clientHeight <= threshold;
+    }
+
+    async function scrollToBottom(force = false) {
+        await tick();
+        if (!messagesContainer) return;
+        if (force || isNearBottom(messagesContainer)) {
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            unreadCount = 0;
+        } else {
+            unreadCount = Math.min(99, unreadCount + 1);
+        }
+    }
 	
-	function sendMessage(message?: string) {
+    async function sendMessage(message?: string) {
 		const messageToSend = message || newMessage;
 		if (messageToSend.trim()) {
 			chatMessages = [...chatMessages, {
@@ -163,25 +242,24 @@
 				newMessage = '';
 			}
 			
-			// Get intelligent response
-			setTimeout(() => {
-				isTyping = true;
-				setTimeout(() => {
-					const botResponse = getBotResponse(messageToSend);
-					chatMessages = [...chatMessages, {
-						id: Date.now() + 1,
-						user: 'Event Bot',
-						message: botResponse,
-						time: new Date().toLocaleTimeString(),
-						isBot: true
-					}];
-					isTyping = false;
-				}, 1500);
-			}, 800);
+            // Get intelligent response instantly (no delays)
+            isTyping = true;
+            await tick();
+            scrollToBottom(true);
+            const botResponse = getBotResponse(messageToSend);
+            chatMessages = [...chatMessages, {
+                id: Date.now() + 1,
+                user: 'Event Bot',
+                message: botResponse,
+                time: new Date().toLocaleTimeString(),
+                isBot: true
+            }];
+            isTyping = false;
+            scrollToBottom(true);
 		}
 	}
 	
-	function sendQuickResponse(response: string) {
+async function sendQuickResponse(response: string) {
 		// Add user message
 		chatMessages = [...chatMessages, {
 			id: Date.now(),
@@ -190,21 +268,20 @@
 			time: new Date().toLocaleTimeString()
 		}];
 		
-		// Get intelligent response
-		setTimeout(() => {
-			isTyping = true;
-			setTimeout(() => {
-				const botResponse = getBotResponse(response);
-				chatMessages = [...chatMessages, {
-					id: Date.now() + 1,
-					user: 'Event Bot',
-					message: botResponse,
-					time: new Date().toLocaleTimeString(),
-					isBot: true
-				}];
-				isTyping = false;
-			}, 1500);
-		}, 800);
+        // Get intelligent response instantly (no delays)
+        isTyping = true;
+        await tick();
+        scrollToBottom(true);
+        const botResponse = getBotResponse(response);
+        chatMessages = [...chatMessages, {
+            id: Date.now() + 1,
+            user: 'Event Bot',
+            message: botResponse,
+            time: new Date().toLocaleTimeString(),
+            isBot: true
+        }];
+        isTyping = false;
+        scrollToBottom(true);
 	}
 	
 	function handleKeyPress(event: KeyboardEvent) {
@@ -291,52 +368,28 @@
 	
 	<!-- Chat Window -->
 	{#if showChat}
-		<div class="absolute bottom-16 right-0 w-80 bg-white rounded-lg shadow-xl border border-gray-200">
+        <div class="absolute bottom-16 right-0 w-[24rem] bg-white rounded-2xl shadow-2xl border border-gray-200">
 			<!-- Chat Header -->
-			<div class="bg-pink text-white p-4 rounded-t-lg">
-				<h3 class="font-bold">Daydream {eventName} Support</h3>
-				<p class="text-sm opacity-90">Ask us anything!</p>
+            <div class="bg-gradient-to-r from-pink to-pink-dark text-white p-4 rounded-t-2xl">
+                <h3 class="font-bold text-lg">Daydream {eventName} Support</h3>
+                <p class="text-sm opacity-90">Ask us anything!</p>
 			</div>
 			
 			<!-- Chat Messages -->
-			<div class="flex-1 overflow-y-auto p-4 space-y-3 max-h-64">
+            <div bind:this={messagesContainer} class="flex-1 overflow-y-auto p-4 space-y-3 max-h-80">
 				<!-- Welcome message and quick choices -->
-				{#if chatMessages.length === 0}
-					<div class="text-center text-gray-500 text-sm">
-						<p class="mb-3">Welcome! Ask me anything about Daydream Red Sea!</p>
-						<div class="space-y-2">
-							{#each quickResponses as response}
-								<button 
-									class="block w-full text-left px-3 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm transition-colors"
-									on:click={() => sendQuickResponse(response)}
-								>
-									{response}
-								</button>
-							{/each}
-						</div>
-					</div>
-				{:else}
-					<!-- Show quick choices after first interaction -->
-					<div class="mb-3">
-						<p class="text-xs text-gray-500 mb-2">Quick questions:</p>
-						<div class="grid grid-cols-2 gap-1">
-							{#each quickResponses as response}
-								<button 
-									class="text-xs px-2 py-1 bg-gray-100 hover:bg-gray-200 rounded transition-colors"
-									on:click={() => sendQuickResponse(response)}
-								>
-									{response}
-								</button>
-							{/each}
-						</div>
-					</div>
-				{/if}
+                <!-- Only show the footer chooser; remove duplicate quick questions here -->
+                {#if chatMessages.length === 0}
+                    <div class="text-center text-gray-500 text-sm">
+                        <p class="mb-3">Welcome! Ask me anything about Daydream Red Sea!</p>
+                    </div>
+                {/if}
 				
 				{#each chatMessages as message}
-					<div class="flex {message.user === 'You' ? 'justify-end' : 'justify-start'}">
-						<div class="max-w-xs {message.user === 'You' ? 'bg-pink text-white' : 'bg-gray-100 text-gray-800'} rounded-lg px-3 py-2">
-							<div class="text-xs opacity-75 mb-1">{message.user}</div>
-							<div>{message.message}</div>
+                    <div class="flex {message.user === 'You' ? 'justify-end' : 'justify-start'}">
+                        <div class="chat-bubble max-w-[80%] {message.user === 'You' ? 'bg-pink text-white' : 'bg-white text-gray-800 border border-gray-200'} rounded-xl px-4 py-3 shadow">
+                            <div class="text-xs opacity-75 mb-1">{message.user}</div>
+                            <div class="text-sm whitespace-pre-wrap break-words [overflow-wrap:anywhere]">{@html formatMessage(message.message)}</div>
 							<div class="text-xs opacity-75 mt-1">{message.time}</div>
 						</div>
 					</div>
@@ -357,13 +410,13 @@
 			</div>
 			
 			<!-- Chat Footer - Only show quick choices -->
-			<div class="p-4 border-t border-gray-200">
+            <div class="p-4 border-t border-gray-200 bg-white rounded-b-2xl">
 				<div class="text-center">
-					<p class="text-sm text-gray-600 mb-2">Choose a question to ask:</p>
-					<div class="grid grid-cols-2 gap-2">
+                    <p class="text-sm text-gray-600 mb-3">Choose a question to ask:</p>
+                    <div class="grid grid-cols-2 gap-2">
 						{#each quickResponses as response}
 							<button 
-								class="text-sm px-3 py-2 bg-pink text-white rounded-lg hover:bg-pink-dark transition-colors"
+                                class="text-sm px-3 py-2 bg-pink text-white rounded-full hover:bg-pink-dark transition-colors shadow"
 								on:click={() => sendQuickResponse(response)}
 							>
 								{response}

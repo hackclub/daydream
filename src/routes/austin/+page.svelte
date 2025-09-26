@@ -845,7 +845,6 @@ Mumbai`.split("\n")
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat pointer-events-none opacity-100 lg:-translate-y-15 bg-center mix-blend-overlay" style="mask-image: url('/buildings-front.png'); mask-size: contain; mask-repeat: no-repeat; mask-position: center top; -webkit-mask-image: url('/buildings-front.png'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center top;"></div>
 	<div class="hero-ui-parallax flex flex-col items-center justify-center text-center relative z-5 -translate-y-2">
 		<div class="inline-block relative">
-			<div class="h-12"></div> 
 			<!-- space for the ship -->
 			<h2
 			class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
@@ -922,6 +921,12 @@ Mumbai`.split("\n")
 			>
 				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
 			</h4>
+
+			<h4
+				class="text-lg opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
+			>
+				<a href="https://jukeboxprint.com/custom-stickers" class="underline text-blue-500 hover:text-blue-400" target="_blank">Custom stickers</a> provided by Jukebox!
+			</h4>
 		</div>
 		
 		<ParticipantSignUp {signupLink} {eventName} />
@@ -994,7 +999,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 
@@ -1012,7 +1017,7 @@ Mumbai`.split("\n")
 			<img src="window-2.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What if my parents are concerned?</h3>
-				<p class="text-sm">We're here to help! You can reach out to us at daydream@hackclub.com for questions. There will be background-checked adult supervision as well as gender-separated sleeping areas at the event.</p>
+				<p class="text-sm">We're here to help! You can reach out to us at daydream@hackclub.com for questions or look at our <a href="https://docs.google.com/document/d/e/2PACX-1vSZiX13ZdKOFX9uqiomdM299RRJ_JC4FsUZR8-RAnzZe0MVf_P645M53FjX1cvCon7tJyqmHwWeC2BW/pub" target="_blank" class="underline text-blue-500 hover:text-blue-400">parent guide</a>. There will be adult supervision as well as gender-separated sleeping areas at the event.</p>
 			</div>
 		</div>
 

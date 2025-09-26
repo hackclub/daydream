@@ -23,6 +23,8 @@
 		{ image: "/toronto/oshwlab.png", name: "OSHWLab", url: "https://oshwlab.com" },
 		{ image: "/toronto/shopify.png", name: "Shopify", url: "https://www.shopify.com/ca" },
 		{ image: "/toronto/jukebox.png", name: "Jukebox", url: "https://www.jukeboxprint.com/" },
+		{ image: "/toronto/tailed.png", name: "Tailed", url: "https://tailed.ca/" },
+		{ image: "/toronto/keybay.png", name: "Keybay", url: "https://keybay.tech/" },
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -1449,7 +1451,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 
