@@ -49,7 +49,7 @@
 	$: pageDescription = `Join Daydream ${eventName} in ${eventLocation}! A teen-led game jam where you'll build amazing games with other high schoolers. Food, workshops, and prizes included!`;
 	$: pageKeywords = `game jam, hackathon, teen coding, Hack Club, game development, ${eventLocation}, ${eventName}`;
 
-	// schedule not final
+	// schedule
 	const scheduleData = [
     {
         title: "Saturday, September 27th",
