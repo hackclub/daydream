@@ -49,18 +49,20 @@
 	$: pageDescription = `Join Daydream ${eventName} in ${eventLocation}! A teen-led game jam where you'll build amazing games with other high schoolers. Food, workshops, and prizes included!`;
 	$: pageKeywords = `game jam, hackathon, teen coding, Hack Club, game development, ${eventLocation}, ${eventName}`;
 
-	// schedule not final
+	// schedule
 	const scheduleData = [
     {
         title: "Saturday, September 27th",
         items: [
-            { event: "Doors open", time: "8:00 AM" },
+            { event: "Doors open  + Breakfast", time: "8:00 AM" },
             { event: "Opening ceremony", time: "9:00 AM" },
-            { event: "Start Working on Your Project + Breakfast", time: "10:00 AM" },
-            { event: "Workshop 1", time: "10:30 AM" },
-            { event: "Activity 1", time: "12:00 PM" },
-            { event: "Progress Check", time: "4:00 PM" },
-            { event: "Workshop 2", time: "5:00 PM" },			
+            { event: "Start Working on Your Project", time: "10:00 AM" },
+            { event: "Workshop 1", time: "10:00 AM" },
+			{ event: "Lunch", time: "12:00 PM"},
+            { event: "Workshop 2", time: "2:00 PM" },
+			{ event: "Progress Check", time: "4:00 PM" },
+			{ event: "Activity 1", time: "5:00 PM" },
+			{ event: "Dinner", time: "6:00 PM"},
             { event: "Start Wrapping Up", time: "7:00 PM" },
             { event: "End of Day 1", time: "8:00 PM" }
         ]
@@ -69,11 +71,15 @@
         title: "Sunday, September 28th",
         items: [
             { event: "Breakfast", time: "8:00 AM" },
-			{ event: "Activity 2", time: "9:00 AM"},
-            { event: "Demos!", time: "2:30 PM" },
-			{ event: "Workshop 3", time: "3:00 PM" },
+			{ event: "Mini Opening Ceremony + Progress Check", time: "9:00 AM"},
+			{ event: "Activity 2", time: "10:00 AM"},
+			{ event: "Lunch", time: "12:00 PM"},
+            { event: "Demos!", time: "3:00 PM" },
+			{ event: "Workshop 3", time: "2:00 PM" },
 			{ event: "Final Submission closes", time: "4:30 PM" },
-            { event: "Closing ceremony", time: "5:00 PM" }
+			{ event: "Mystery Treat", time: "5:00 PM"},
+            { event: "Closing ceremony", time: "5:30 PM" },
+			{ event: "End of Daydream Atlanta", time: "6:00 PM"}
         ]
     }
 ];
