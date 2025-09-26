@@ -12,7 +12,7 @@
 	const eventAddress = '106 Washington Ave, Oshkosh, WI'; // Leave this empty if you don't want an address
 	const signupLink = 'https://forms.hackclub.com/daydream-sign-up?event=recoaH6KudPxjwIy1'; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = 'Please enter the front door by the l statue! Someone will be waiting at the door to check you in! (You can park in the parking lot and walk around to the front doors outside the building!)';
+	const directionsURL = 'Please enter the front door by the lion statue! Someone will be waiting at the door to check you in! (You can park in the parking lot and walk around to the front doors outside the building!)';
 	const contactLink = 'mailto:oshkosh@daydream.hackclub.com';ion
 
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
