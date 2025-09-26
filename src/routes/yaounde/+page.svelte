@@ -18,7 +18,7 @@
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
 	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/example/logo1.png", name: "Sponsor 1", url: "https://example1.com" },
+		{ image: "https://upload.wikimedia.org/wikipedia/commons/1/19/Cards_Against_Humanity_logo.png", name: "Cards Against Humanity", url: "https://www.cardsagainsthumanity.com" },
 		{ image: "/example/logo2.png", name: "Sponsor 2", url: "https://example2.com" },
 		{ image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
 		{ image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
@@ -30,23 +30,30 @@
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
 		{
-			title: "(Non-Final) Saturday, September 27th",
+			title: "Saturday, September 27",
 			items: [
-				{ event: "Doors open", time: "11:00 AM" },
-				{ event: "Opening ceremony", time: "12:00 PM" },
-				{ event: "Start working on your project!", time: "1:00 PM" },
-				{ event: "Workshop 1", time: "2:00 PM" },
-				{ event: "Lunch", time: "3:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
-				{ event: "Everyone Leaves", time: "6:00 PM" }
+				{ event: "Check-in", time: "8:00 AM" },
+				{ event: "Opening ceremony & General Introduction", time: "9:30 PM" },
+				{ event: "Godot Workshop", time: "10:00 AM" },
+				{ event: "Break and Sponsors", time: "12:00 AM" },
+				{ event: "Back to work!", time: "1:00 PM" },
+				{ event: "Sponsors", time: "3:00 PM" },
+				{ event: "Lunch", time: "3:30 PM" },
+				{ event: "Keep on working people", time: "4:30 PM" },
+				{ event: "Closing", time: "5:30 PM" }
 			]
 		},
 		{
-			title: "Sunday, September 28th",
+			title: "Sunday, September 28",
 			items: [
-				{ event: "Breakfast", time: "8:00 AM" },
-				{ event: "Demos!", time: "10:30 AM" },
-				{ event: "Closing ceremony", time: "12:00 PM" }
+				{ event: "Check-in", time: "9:00 AM" },
+				{ event: "Workshop on Shipping and Podium", time: "10:00 AM" },
+				{ event: "Back to work", time: "11:30 AM" },
+				{ event: "Break", time: "12:30 PM" },
+				{ event: "Ship your games!", time: "2:00 PM" },
+				{ event: "Projects Showcase", time: "3:00 PM" },
+				{ event: "Awards", time: "4:30 PM" },
+				{ event: "Closing", time: "5:00 PM" }
 			]
 		}
 	];
