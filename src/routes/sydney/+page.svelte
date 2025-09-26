@@ -18,6 +18,7 @@
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
+		{ image: "/sydney/accel2.png", name: "AccelRT", url: "https://accelrt.net" },
 		{ image: "/sydney/xyz.png", name: ".xyz", url: "https://gen.xyz" },
 		{ image: "/sydney/jlcpcb.png", name: "jlcpcb", url: "https://jlcpcb.com/" },
 		{ image: "/sydney/oshw.png", name: "oshw", url: "https://oshwlab.com/" },
@@ -25,7 +26,9 @@
 		{ image: "/sydney/logo_horizontal_black_registered.png", name: "janestreet", url: "https://www.janestreet.com/" },
 		{ image: "/sydney/StickerCo.png", name: "StickerCo", url: "https://www.stickerco.au/" },
 		{ image: "/sydney/insertcoin.png", name: "Insert Coin", url: "https://www.insertcoinclothing.com/" },
-		{ image: "/sydney/fluffe.jpg", name: "Fluffe", url: "https://www.fluffe.com/" },
+		{ image: "/sydney/fluffe.png", name: "Fluffe", url: "https://www.fluffe.com/" },
+		{ image: "/sydney/makersempire.png", name: "Maker's Empire", url: "https://www.makersempire.com/" },
+		{ image: "/sydney/epomaker.png", name: "Epomaker", url: "https://epomaker.com/" },
 
 	];
 	
@@ -1447,7 +1450,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-primary-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school students aged 13-18 are welcome to come!</p>
 		</div>
 		</div>
 

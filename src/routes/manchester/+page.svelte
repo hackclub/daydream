@@ -9,8 +9,9 @@
 	const contactLink = ""
 	
 	// Sponsors Configuration
-	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
+	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
+		{ image: "/uk/youthacks.svg", name: "Youthacks", url: "https://youthacks.org/" },
 		];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!

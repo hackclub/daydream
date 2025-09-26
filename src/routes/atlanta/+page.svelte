@@ -70,8 +70,10 @@
         items: [
             { event: "Breakfast", time: "8:00 AM" },
 			{ event: "Activity 2", time: "9:00 AM"},
-            { event: "Demos!", time: "10:30 AM" },
-            { event: "Closing ceremony", time: "1:00 PM" }
+            { event: "Demos!", time: "2:30 PM" },
+			{ event: "Workshop 3", time: "3:00 PM" },
+			{ event: "Final Submission closes", time: "4:30 PM" },
+            { event: "Closing ceremony", time: "5:00 PM" }
         ]
     }
 ];
@@ -845,7 +847,7 @@ Mumbai`.split("\n")
 			</h4>
 		</div>
 		
-		<ParticipantSignUp {signupLink} {eventName} />
+		<ParticipantSignUp closed {signupLink} {eventName} />
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
@@ -1454,7 +1456,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 

@@ -24,25 +24,29 @@
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
 		{
-			title: "Sábado, 27 de Septiembre",
+			title: "Sábado",
 			items: [
 				{ event: "Puertas abren", time: "10:00 AM - 12:00 PM" },
-				{ event: "Ceremonia de apertura", time: "12:00 PM" },
-				{ event: "Lunch break", time: "12:30 PM" },
-				{ event: "Empieza a crear tu proyecto!", time: "1:00 PM" },
-				{ event: "Workshop 1", time: "2:00 PM" },
-				{ event: "Activity 1", time: "4:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
-				{ event: "Cena!", time: "6:00 PM" },
-				{ event: "Lightning talks!", time: "8:00 PM" },			
+				{ event: "Ceremonia de apertura", time: "12:00 PM - 12:30 PM" },
+				{ event: "Brainstorm de juegos", time: "12:30 PM - 1:00 PM" },
+				{ event: "Workshop 1 (como crear tu juego)", time: "1:00 PM - 2:00 PM" },
+				{ event: "Empieza a crear tu proyecto!", time: "1:30 PM - 3:00 PM" },
+				{ event: "Snack! + plática del avance", time: "3:00 PM - 4:00 PM" },
+				{ event: "Workshop 2 (pixel art para tu juego)", time: "4:00 PM - 5:00 PM" },
+				{ event: "Creación de tu juego!", time: "5:00 PM - 7:30 PM" },
+				{ event: "Lighting talks!", time: "7:30 PM - 8:00 PM" },
+				{ event: "Cena", time: "8:00 PM - 9:00 PM" },
+				{ event: "Creación de tu juego!", time: "9:00 PM - 10:00 AM (Domingo)" },
 			]
 		},
 		{
-			title: "Domingo, 28 de Septiembre",
+			title: "Domingo",
 			items: [
+				{ event: "Snack de medianoche", time: "12:00 AM - 6:00 AM" },
 				{ event: "Desayuno", time: "8:00 AM" },
-				{ event: "Demos!", time: "10:30 AM" },
-				{ event: "Ceremonia de cierre ", time: "12:00 PM" }
+				{ event: "Publicación de tu juego", time: "10:00 AM" },
+				{ event: "VOTACIÓN", time: "11:00 AM" },
+				{ event: "Ceremonia de cierre", time: "12:00 PM - 1:00 PM" },
 			]
 		}
 	];
@@ -64,7 +68,7 @@
 	$: currentUrl = `https://daydream.hackclub.com${$page.url.pathname}`;
 	$: pageTitle = `Daydream ${eventName} - Game Jam en ${eventLocation}`;
 	$: pageDescription = `¡Únete a Daydream ${eventName} en ${eventLocation}! Un game jam liderado por adolescentes donde crearás juegos increíbles con otros estudiantes de preparatoria. ¡Comida, Workshops y premios incluidos!`;
-	$: pageKeywords = `game jam, hackathon monterrye, hackatón, programación para adolescentes, Hack Club Monterrey, desarrollo de videojuegos, ${eventLocation}, ${eventName}`;
+	$: pageKeywords = `game jam, hackathon monterrey, hackatón, programación para adolescentes, Hack Club Monterrey, desarrollo de videojuegos, ${eventLocation}, ${eventName}`;
 
 	// Cities where the game jam is happening
 	const cities = `Columbus
@@ -1043,7 +1047,7 @@ Mumbai`.split("\n")
 					{#if contactLink}
 						<!-- Call to action for sponsors -->
 						<div class="mt-8 text-center">
-							<p class="text-lg text-[#335969]">Quieres patrocinar Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors"> muchas gracias! Pongamonos en contacto</a></p>
+							<p class="text-lg text-[#335969]">¡Un gran agradecimiento a Jukebox por nuestros <a href="https://jukeboxprint.com/custom-stickers" class="underline hover:text-[#477783] transition-colors" target="_blank" rel="noopener noreferrer">stickers personalizadas</a>! <br> ¿Quieres patrocinar Daydream {eventName}? <a href={contactLink} class="underline hover:text-[#477783] transition-colors">Ponte en contacto</a></p>
 						</div>	
 					{/if}
 				</div>
@@ -1168,7 +1172,7 @@ Mumbai`.split("\n")
 	<div class="flex flex-col items-center w-full basis-full translate-y-40 max-md:translate-y-12 z-20">
 		<div class="relative">
 			<div class="bg-[url('/card-final.png')] bg-contain bg-no-repeat bg-center text-2xl font-serif pt-24 px-8 w-128 h-96 text-center max-md:w-80 max-md:h-80 max-md:text-xl max-md:pt-16 animate-hover ![--hover:-0.15rem] ![animation-delay:1.9s]" data-point="5">
-				<span class="font-sans text-[#F2CC32] font-bold text-[1.5rem] mr-1">#5:</span> Share what you made with the world!
+				<span class="font-sans text-[#F2CC32] font-bold text-[1.5rem] mr-1">#5:</span> Comparte lo que hiciste con el mundo!
 			</div>
 		</div>
 	</div>
@@ -1283,7 +1287,7 @@ Mumbai`.split("\n")
 					{#if directionsURL}
 						Daydream {eventName} tomará lugar en <a class="underline text-pink" href={directionsURL}>{eventAddress}</a>!
 					{:else}
-						Daydream {eventName} se llevará a cabo en  <span class="underline">{eventAddress}</span>!
+						Daydream {eventName} se llevará a cabo en  <a href="https://maps.app.goo.gl/4FGdCRX18W7133E88" class="underline hover:text-[#477783] transition-colors" target="_blank" rel="noopener noreferrer"><span class="underline">{eventAddress}</span>!</a>
 					{/if}
 				</p>
 			{/if}

@@ -9,16 +9,17 @@
 	// Configuration - Put your information here!
 	const eventName = "Warsaw"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "Warsaw";
-	const eventAddress = "Ludwika Pasteura 5, 02-093 Warszawa"; // Leave this empty if you don't want an address
+	const eventAddress = "Aleja Stanów Zjednoczonych 24, 03-964 Warszawa"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=rec9CqGCSa8EqMcki"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = "https://www.google.com/maps/place//data=!4m2!3m1!1s0x471eccece2d062d9:0xeb502e63f53718c9?sa=X&ved=1t:8290&ictx=111"
+	const directionsURL = "https://www.google.com/maps/place//data=!4m2!3m1!1s0x471ecda73b1336e9:0x4e5923d12bacba3c?sa=X&ved=1t:8290&ictx=111"
 	const contactLink = "mailto:warsaw@daydream.hackclub.com"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
-	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
+	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/da7248dae7a294719b33caf12c532988c3864d96_untitled233.png", name: "Sponsor 1", url: "https://www.jukeboxprint.com/custom-stickers" },
+		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/9e65287e54c6b353ae66baa403a83784848cab6c_images.png", name: "Klub Naukowy Fenix", url: "https://fenix.club" },
+		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/da7248dae7a294719b33caf12c532988c3864d96_untitled233.png", name: "Jukebox", url: "https://www.jukeboxprint.com/custom-stickers" },
 
 	];
 	
@@ -27,16 +28,14 @@
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Doors open", time: "9:00 AM" },
-				{ event: "Opening ceremony", time: "10:00 AM" },
-				{ event: "Start working on your project!", time: "10:30 PM" },
-				{ event: "Workshop 1", time: "10:30 PM" },
-				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Activity 1", time: "2:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
-				{ event: "Dinner", time: "6:00 PM" },
-				{ event: "Demos!", time: "9:00 PM" },
-				{ event: "Closing ceremony", time: "10:00 PM" }
+				{ event: "Doors open", time: "9:00" },
+				{ event: "Opening ceremony", time: "10:00" },
+				{ event: "Start working on your project!", time: "10:15" },
+				{ event: "Workshop 1", time: "10:30" },
+				{ event: "Lunch", time: "14:30" },
+				{ event: "Workshop 2", time: "16:00" },
+				{ event: "Demos!", time: "18:00" },
+				{ event: "Closing ceremony", time: "19:00" }
 			]
 		},
 	];
@@ -1430,7 +1429,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 

@@ -1526,7 +1526,7 @@ Mumbai`.split("\n")
 			<img src="window-2.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What if my parents are concerned?</h3>
-				<p class="text-sm">We're here to help! You can see our parent guide here, or they can reach out to us at daydream@hackclub.com for questions.</p>
+				<p class="text-sm">We're here to help! You can see our parent guide at https://docs.google.com/document/d/1DO6sSNnOC0tNpom1VmDwZVmfA2ZmKHVp0-HAUTUdNK4/edit?usp=sharing, or they can reach out to us at miami@daydream.hackclub.com for questions.</p>
 			</div>
 		</div>
 

@@ -34,18 +34,15 @@
 				{ event: "Progress updates", time: "5:00 PM" },
 				{ event: "Folino's Pizza!", time: "6:00 PM" },
 				{ event: "share your learnings", time: "8:00 PM" },
-				{ event: "Midnight surprise", time: "12:00 AM" },
-				{ event: "breakfast", time: "9:30 AM" },
-				{ event: "showcase your game!", time: "10:00 AM" },
-				{ event: "get swag, doors close", time: "12:00 PM" }
+				{ event: "Midnight surprise", time: "12:00 AM" }
 			]
 		},
 		{
 			title: "Sunday, September 28th",
 			items: [
-				{ event: "Breakfast", time: "8:00 AM" },
-				{ event: "Demos!", time: "10:30 AM" },
-				{ event: "Closing ceremony + Swag", time: "12:00 PM" }
+				{ event: "breakfast", time: "9:30 AM" },
+				{ event: "showcase your game!", time: "10:00 AM" },
+				{ event: "get swag, doors close", time: "12:00 PM" }
 			]
 		}
 	];
@@ -1439,7 +1436,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 
