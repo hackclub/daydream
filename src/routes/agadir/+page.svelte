@@ -20,7 +20,7 @@
 	const sponsors = [
 		{ image: "/agadir/technopark.jpg", name: "Technopark Souss-Massa", url: "https://www.technopark.ma/reseau/#technopark-agadir" },
 		{ image: "/agadir/flag-orpheus-left.png", name: "Hack Club", url: "https://hackclub.com" },
-		{ image: "/agadir/adamphone.png", name: "Adam Phone"}
+		{ image: "/agadir/adamphone.jpeg", name: "Adam Phone"}
 
 	];
 	
@@ -29,8 +29,8 @@
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Opening ceremony", time: "8:30 AM" },
-				{ event: "Start working on your project!", time: "9:00 AM" },
+				{ event: "Doors opening", time: "8:40 AM" },
+				{ event: "Opening ceremony", time: "9:00 AM" },
 				{ event: "Workshop 1", time: "12:00 PM" },
 				{ event: "Lunch", time: "2:00 PM" },
 				{ event: "Workshop 2", time: "3:00 PM"},
@@ -41,7 +41,7 @@
 		{
 			title: "Sunday, September 28th",
 			items: [
-				{ event: "Breakfast", time: "8:30 AM" },
+				{ event: "Doors opening", time: "8:40 AM" },
 				{ event: "Lunch", time: "1:00 PM"},
 				{ event: "Demos!", time: "4:00 MM" },
 				{ event: "Closing ceremony", time: "6:00 PM" }
