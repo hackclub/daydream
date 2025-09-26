@@ -1,4 +1,5 @@
 <script lang="ts">
+	let screenWidth = 0
 	/**
 	 * This is the template site! Create a copy of this folder (src/routes/example)
 	 * and rename it to whatever you want your URL to be.
@@ -18,9 +19,10 @@
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "/nyiregyhaza/L-SOFT_logo.png", name: "L-SOFT", url: "https://www.lsoft.hu/", text:"Many thanks to L-SOFT for helping us out with Graphic designs."},
+		{ image: "/nyiregyhaza/L-SOFT_logo.png", name: "L-SOFT", url: "https://www.lsoft.hu/", text:"Many thanks to L-SOFT for financial support and helping us out with Graphic designs."},
 		{ image: "/nyiregyhaza/logo-eissmann.png", name: "Eissmann", url: "https://www.eissmann.com", text:"Thank you to Eissmann for providing tote bags, lanyards and pens for participants"},
-		{ image: "/nyiregyhaza/epam_logo_light.png", name: "EPAM", url: "https://www.epam.com/", text:"Thank you to EPAM for providing promotional gifts for participants"}
+		{ image: "/nyiregyhaza/epam_logo_light.png", name: "EPAM", url: "https://www.epam.com/", text:"Thank you to EPAM for providing promotional gifts for participants"},
+		{ image: "/nyiregyhaza/g558.png", name: "DamidaSoft", url: "https://www.damidasoft.com/", text:"Thank you to DamidaSoft for financial support"}
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -29,6 +31,8 @@
 			title: "Saturday, September 27th",
 			items: [
 				{ event: "Start", time: "08:00 AM" },
+				{ event: "Opening Ceremony", time: "09:00 AM"},
+				{ event: "Preparing for end of day one", time: "07:00 PM" },
 				{ event: "End of day one", time: "08:00 PM" },
 			]
 		},
@@ -37,7 +41,7 @@
 			items: [
 				{ event: "Start", time: "08:00 AM" },
 				{ event: "Playtests", time: "06:00 PM" },
-				{ event: "Giving out rewards", time: "07:30 PM" },
+				{ event: "Giving out rewards and packing up", time: "07:30 PM" },
 				{ event: "End of event", time: "08:00 PM" },
 			]
 		}
@@ -520,6 +524,7 @@ Mumbai`.split("\n")
 	}
 
 	onMount(() => {
+		screenWidth = window.screen.width
 		console.log('User city:', data.userCity);
 		
 		// Register GSAP plugins
@@ -774,6 +779,8 @@ Mumbai`.split("\n")
 
 				<p>Not only that, but you can win cool merch like sticker sheets, button pins and T-shirts by shipping your game!</p>
 
+				<p>More information can be found in our <a class="text-pink" target="_blank" href="https://discord.gg/YDV4z4CDDc">Discord</a></p>
+
 				<p class="mb-2">With love,</p>
 
 				<p class="italic text-2xl opacity-85">Marcell and Csaba</p>
@@ -878,9 +885,11 @@ Mumbai`.split("\n")
 			<div class="relative bg-gradient-to-b from-[#CCF4FD] to-[#AECDF6] px-8 pt-8 pb-16">
 				<!-- Brush texture overlay for content -->
 				<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
-					<a href="https://www.jukeboxprint.com/custom-stickers" class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
+					<a href="https://www.jukeboxprint.com/custom-stickers" class="bg-white/20 rounded-lg p-4 w-auto h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
 						<img src="/nyiregyhaza/jukebox.webp" alt="Jukebox Print" class="max-w-full max-h-full object-contain">
-						<p class="text-xl m-2">Big shoutout to Jukebox for our custom stickers!</p>
+						{#if screenWidth > 615}
+						<p class="text-xl m-2 h-auto">Big shoutout to Jukebox for our custom stickers!</p>
+						{/if}
 					</a>
 				<!-- Sponsors Grid -->
 				<div class="relative z-10 min-h-40">
@@ -889,7 +898,7 @@ Mumbai`.split("\n")
 						{#if sponsors.length > 4}
 							<div class="grid grid-cols-1 md:grid-cols-1 gap-8 items-center justify-items-center mb-8">	
 								{#each sponsors.slice(0, 4) as sponsor}
-									<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 m-1 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
+									<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 m-1 w-full h-120 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
 										<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
 										<p class="text-xl m-2">{sponsor.text}</p>
 									</a>
@@ -917,7 +926,10 @@ Mumbai`.split("\n")
 									{#each sponsors as sponsor}
 										<div>
 											<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors m-1" target="_blank" rel="noopener noreferrer">
-												<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain"> <p class="text-xl m-2">{sponsor.text}</p>
+												<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain"> 
+												{#if screenWidth > 615}
+												<p class="text-xl m-2">{sponsor.text}</p>
+												{/if}
 											</a>
 										</div>
 									{/each}
