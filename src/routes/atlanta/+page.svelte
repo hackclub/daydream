@@ -27,8 +27,17 @@
            </p>`		},
 		{ image: "/atlanta/WCT.png", name: "We Create Tech", url: "https://www.wecreatetech.org/" },
 		{ image: "/atlanta/gtsbe.png", name: "National Society of Black Engineers at Georgia Tech", url: "https://www.gtsbe.org/"},
-		{ image: "/atlanta/WIT.png", name: "Women In Tech", url: "https://mywit.org/programs/wit-campus/"}
+		{ image: "/atlanta/WIT.png", name: "Women In Tech", url: "https://mywit.org/programs/wit-campus/"},
+		{ image: "/atlanta/EK.png", name: "Exploding Kittens", url: "https://www.explodingkittens.com/", text: `<p class="text-lg text-[#335969] text-center"> Thank you exploding kittens
+		for providing us with branded prizes!  </p>`}, 
+		{ image: "/atlanta/VMotiv8.png", name: "VMotiv8", url: "https://vmotiv8.com/", text: `<p class="text-lg text-[#335969] text-center"> Complete academic coverage from Middle School through Graduate School prep. Every subject, every test, every pathway to success. Visit our website to have an ultimate college prep plan </p>`},
+		{ image: "/atlanta/YRI.png", name: "YRI Fellowship", url: "https://www.yriscience.com/", text: `<p class="text-lg text-[#335969] text-center"> The YRI Fellowship pairs ambitious students with PhD mentors and 
+		staff who guide you step-by-step to complete original research and get published in top journals. Quickly join the interest list <a href="yriscience.com/interested"
+                class="underline hover:text-[#477783] transition-colors">
+               here</a>!
+		 </p>`}
 	];
+
 	
 	
 	import { onMount } from "svelte";
