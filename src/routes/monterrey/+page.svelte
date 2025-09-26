@@ -9,7 +9,7 @@
 	// Configuration - Put your information here!
 	const eventName = "Monterrey"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "Monterrey";
-	const eventAddress = "PARQUE DE INVESTIGACION E INNOVACION TECNOLOGICA, ALIANZA SUR 303, 66628 Cdad. Apodaca, N.L."; // Leave this empty if you don't want an address
+	const eventAddress = "Novalan | Soluciones en IT"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recRX4BzRkxXfODPD"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
 	const directionsURL = ""
@@ -19,6 +19,7 @@
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
 		{ image: "https://storage.jukeboxprint.com/s/images/jukebox-meta-im.png", name: "Jukebox Print", url: "https://jukeboxprint.com/custom-stickers" },
+		
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -1287,7 +1288,7 @@ Mumbai`.split("\n")
 					{#if directionsURL}
 						Daydream {eventName} tomará lugar en <a class="underline text-pink" href={directionsURL}>{eventAddress}</a>!
 					{:else}
-						Daydream {eventName} se llevará a cabo en  <a href="https://maps.app.goo.gl/4FGdCRX18W7133E88" class="underline hover:text-[#477783] transition-colors" target="_blank" rel="noopener noreferrer"><span class="underline">{eventAddress}</span>!</a>
+						Daydream {eventName} se llevará a cabo en  <a href="https://maps.app.goo.gl/4QpYtx5mCGyV7Q5a7" class="underline hover:text-[#477783] transition-colors" target="_blank" rel="noopener noreferrer"><span class="underline">{eventAddress}</span>!</a>
 					{/if}
 				</p>
 			{/if}
