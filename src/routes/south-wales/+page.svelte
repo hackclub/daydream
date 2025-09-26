@@ -11,7 +11,7 @@
 	const eventName = "South Wales"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "South Wales";
 	const eventAddress = "North Ely Youth Centre, Pethybridge Rd, Cardiff CF5 4DP"; // Leave this empty if you don't want an address
-	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=reczEInWS6580DqFm"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
+	const signupLink = ""; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
 	const directionsURL = "https://maps.app.goo.gl/5vp2frcBuzUbV5h88"
 	const contactLink = "mailto:south-wales@daydream.hackclub.com"
@@ -841,7 +841,7 @@ Mumbai`.split("\n")
 			</h4>
 		</div>
 		
-		<ParticipantSignUp {signupLink} {eventName} />
+		<ParticipantSignUp closed {eventName} />
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
