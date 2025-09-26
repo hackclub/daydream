@@ -19,7 +19,7 @@
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
 		{ image: "/agadir/technopark.jpg", name: "Technopark Souss-Massa", url: "https://www.technopark.ma/reseau/#technopark-agadir" },
-		{ image: "/agadir/flag-orpheus-left.png", name: "Hack Club", url: "https://hackclub.com" }
+		{ image: "/agadir/flag-orpheus-left.png", name: "Hack Club", url: "https://hackclub.com" },
 		{ image: "/agadir/adamphone.png", name: "Adam Phone"}
 
 	];
