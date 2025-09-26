@@ -25,7 +25,8 @@
 		{image: "https://drstich.com/wp-content/uploads/2018/11/logo-1.png", name: "Bailey Orthodontics", url: "https://drstich.com/"},
 		{image: "https://circuits-diy.com/wp-content/uploads/2020/03/easyeda-logo.png", name: "Easy EDA", url: "https://easyeda.com/"},
 		{image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/7e8f7d5117a802ddc65bf803e64d8e4b4f5f0dcd_image-removebg-preview__8_.png", name: "Andy's Frozen Custard", url: "https://www.eatandys.com/"},
-		{image: "https://www.robosource.net/img/robosourcenet-logo-1641673523.jpg", name: "RoboSource", url: "https://www.robosource.net/"}
+		{image: "https://www.robosource.net/img/robosourcenet-logo-1641673523.jpg", name: "RoboSource", url: "https://www.robosource.net/"},
+		{image: "https://static.spotapps.co/website_images/ab_websites/81164_website/logo.png", name: "Numero 28 Allen", url: "https://numero28allen.com/"}
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
@@ -46,9 +47,9 @@
 			title: "Sunday, September 28th",
 			items: [
 				{ event: "Breakfast", time: "7:00 AM" },
-				{ event: "Hacking ends", time: "8:00 AM"},
-				{ event: "Showcase!", time: "9:00 AM" },
-				{ event: "Closing ceremony", time: "10:30 AM" }
+				{ event: "Projects due", time: "8:30 AM"},
+				{ event: "Showcase!", time: "9:30 AM" },
+				{ event: "Closing ceremony", time: "11:00 AM" }
 			]
 		}
 	];
