@@ -872,7 +872,7 @@ Mumbai`.split('\n');
 			<div class="mb-70">
 
 				<div class="mt-10 mb-15 relative z-30">
-					<ParticipantSignUp {signupLink} {eventName} />
+					<ParticipantSignUp closed {signupLink} {eventName} />
 				</div>
 
 				{#if eventAddress}
