@@ -224,7 +224,7 @@
 			title: t.saturdayTitle,
 			items: [
 				{ event: t.doorsOpen, time: '7:30 AM' },
-				{ event: t.openingCeremony, time: '9:00 AM' },
+				{ event: t.openingCeremony, time: '8:30 AM' },
 				{ event: t.startCoding, time: '10:00 AM' },
 				{ event: t.workshop1, time: '11:00 AM' },
 				{ event: t.lunch, time: '12:30 PM' },			
