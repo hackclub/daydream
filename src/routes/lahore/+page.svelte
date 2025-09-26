@@ -9,10 +9,10 @@
 	// Configuration - Put your information here!
 	const eventName = "Lahore"; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = "Lahore";
-	const eventAddress = "Imperial International School & College, Gulberg, Lahore"; // Leave this empty if you don't want an address
+	const eventAddress = "Coloc Work, 1st Floor Block H Gulberg 2, Lahore"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=rec9k7Pg1vLu1Bx9G"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = "https://maps.app.goo.gl/FtogZ8hFT6F5U1727"
+	const directionsURL = "https://maps.app.goo.gl/YXWqxj1WXzoVCpx36"
 	const contactLink = "mailto:daydream@alimad.co"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
@@ -1429,7 +1429,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 

@@ -33,18 +33,18 @@
 			},
 			events: {
 				doorsOpen: "Kapılar açılıyor",
-				openingCeremony: "Açıklanacak",
-				lunch: "Açıklanacak",
+				openingCeremony: "Hazırlık &Açılış Konuşması & Tema",
+				lunch: "Öğle Yemeği Arası",
 				startProject: "Açıklanacak",
-				workshop1: "Açıklanacak",
-				activity1: "Açıklanacak",
-				workshop2: "Açıklanacak",
-				dinner: "Açıklanacak",
+				workshop1: "#1 Workshop",
+				activity1: "İlk Etkinlik",
+				workshop2: "#2 Workshop",
+				dinner: "Proje Oylamaları",
 				lightningTalks: "Açıklanacak",
 				midnightSurprise: "Açıklanacak",
 				breakfast: "Açıklanacak",
 				demos: "Açıklanacak",
-				closingCeremony: "Kapanış"
+				closingCeremony: "Ödül Töreni & Kapanış"
 			}
 		},
 		en: {
@@ -84,7 +84,7 @@
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/d28a7d1ece5e0aad330ef5013dbeec9355df6eb3_image.png", name: "Tech İstanbul", url: "https://tech.istanbul/" },
+		{ image: "https://assets.hackclub.com/icon-rounded.svg", name: "Hack Club", url: "https://hackclub.com/" },
 	];
 	const tech_istanbul_photos = [
 		{ image: "https://hc-cdn.hel1.your-objectstorage.com/s/v3/3cd81713a03bb90c92bcc8e3ad7a54bf84e044d7_oip.webp",href:"https://hc-cdn.hel1.your-objectstorage.com/s/v3/3cd81713a03bb90c92bcc8e3ad7a54bf84e044d7_oip.webp"},
@@ -136,7 +136,13 @@ const pastEvents = [
 			title: t.schedule.day1,
 			items: [
 				{ event: t.events.doorsOpen, time: "09:00" },
-				{ event: t.events.closingCeremony, time: "21:00" }
+				{event: t.openingCeremony,time:"9:00 - 9:30"},
+				{event:t.workshop1,time:"10:00 - 10:50"},
+				{event:t.activity1,time:"12:00 - 12:30"},
+				{ event: t.events.lunch, time: "12:40 - 13:20" },
+				{ event: t.events.workshop2, time: "14:30 - 15:00" },
+				{event: t.events.dinner,time:"17:30 - 18:30"},
+				{ event: t.events.closingCeremony, time: "18:30 - 19:00" }
 			]
 		},
 	];
@@ -1610,7 +1616,7 @@ Ve şimdi İstanbul'da!`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">{currentLanguage === 'tr' ? 'Daydream\'e kimler katılabilir?' : 'Who can participate in Daydream?'}</h3>
-				<p class="text-sm">{currentLanguage === 'tr' ? 'Tüm lise ve üst ortaokul yaşındaki öğrenciler katılmaya davetlidir!' : 'All high-school & upper-middle-school aged students are welcome to come!'}</p>
+				<p class="text-sm">{currentLanguage === 'tr' ? 'Tüm lise ve üst ortaokul yaşındaki öğrenciler katılmaya davetlidir!' : 'All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong>'}</p>
 		</div>
 		</div>
 

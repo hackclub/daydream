@@ -9,10 +9,10 @@
 	// Configuration - Put your information here!
 	const eventName = "Monterey";
 	const eventLocation = "Monterey";
-	const eventAddress = ""; // Leave this empty if you don't want an address
+	const eventAddress = "2795 Thomas Grade, Morgan Hill, California, 95037"; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recRJjpziF5cMuByP"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional
-//	const directionsURL = "https://www.google.com/maps/search/1600+pennsylvania+avenue+washington+dc/"
+	const directionsURL = "https://www.google.com/maps/place/2795+Thomas+Grde,+Morgan+Hill,+CA+95037"
 	const contactLink = "mailto:monterey@daydream.hackclub.com"
 	
 	// Sponsors Configuration
@@ -27,24 +27,16 @@
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Doors open", time: "10:00 AM" },
-				{ event: "Opening ceremony", time: "12:00 PM" },
-				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Start working on your project!", time: "1:00 PM" },
-				{ event: "Jumpstart", time: "2:00 PM" },
-				{ event: "Activity 1", time: "4:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
+				{ event: "Doors open", time: "9:00 AM" },
+				{ event: "Breakfast", time: "9:30 AM" },
+				{ event: "Opening ceremony", time: "10:00 AM" },
+				{ event: "Start working on your project!", time: "10:10 AM" },
+				{ event: "Jumpstart", time: "10:30 AM" },
+				{ event: "Lunch", time: "12:00 PM"},
+				{ event: "Storyboard", time: "1:00 PM" },
 				{ event: "Dinner", time: "6:00 PM" },
-				{ event: "Lightning talks", time: "9:00 PM" },
-				{ event: "Midnight surprise", time: "12:00 AM" }
-			]
-		},
-		{
-			title: "Sunday, September 28th",
-			items: [
-				{ event: "Breakfast", time: "8:00 AM" },
-				{ event: "Demos!", time: "10:30 AM" },
-				{ event: "Closing ceremony", time: "12:00 PM" }
+				{ event: "Closing ceremony", time: "10:00 PM" },
+				{ event: "Goodbye!", time: "10:30 PM" }
 			]
 		}
 	];
@@ -813,7 +805,7 @@ Mumbai`.split("\n")
 			<h2
 			class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
 			>
-				September 27th & 28th, 2025
+				September 27th, 2025
 			</h2>
 			<img src="daydream.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
 			<a href="https://hackclub.com" class="absolute top-0 -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
@@ -834,7 +826,7 @@ Mumbai`.split("\n")
 			<h4
 				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
 			>
-				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
+				2795 Thomas Grade, Morgan Hill, CA | 9 AM - 10:30 PM
 			</h4>
 		</div>
 		
@@ -1439,7 +1431,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 

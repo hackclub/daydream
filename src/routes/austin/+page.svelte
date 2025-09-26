@@ -18,8 +18,9 @@
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
-		//{ image: "/austin/hack-club.svg", name: "Hack Club", url: "https://hackclub.com" },
+		{ image: "/austin/hack-club.svg", name: "Hack Club", url: "https://hackclub.com" },
 		{ image: "/austin/futo.svg", name: "FUTO", url: "https://futo.org/" },
+		{ image: "/austin/amd.svg", name: "AMD", url: "https://www.amd.com" },
 		// { image: "/example/logo3.png", name: "Sponsor 3", url: "https://example3.com" },
 		// { image: "/example/logo4.png", name: "Sponsor 4", url: "https://example4.com" },
 		// { image: "/example/logo5.png", name: "Sponsor 5", url: "https://example5.com" },
@@ -61,6 +62,38 @@
 	import Footer from "$lib/components/Footer.svelte";
 	import ParticipantSignUp from "$lib/components/ParticipantSignUp.svelte";
 	import { page } from '$app/stores';
+	import { writable } from "svelte/store";
+
+	// Countdown logic for time left until September 27th, 2025, 12 PM Central Time
+	function getTimeLeft() {
+		// Central Time is UTC-5 during daylight saving (CDT)
+		const target = new Date("2025-09-27T12:00:00-05:00");
+		const now = new Date();
+		let diffMs = target.getTime() - now.getTime();
+		if (diffMs < 0) diffMs = 0;
+		const totalSeconds = Math.floor(diffMs / 1000);
+		const days = Math.floor(totalSeconds / (60 * 60 * 24));
+		const hours = Math.floor((totalSeconds % (60 * 60 * 24)) / (60 * 60));
+		const minutes = Math.floor((totalSeconds % (60 * 60)) / 60);
+		const seconds = totalSeconds % 60;
+		return { days, hours, minutes, seconds };
+	}
+
+	const timeLeftStore = writable(getTimeLeft());
+	let timeLeft = getTimeLeft();
+
+	let intervalId: any;
+	onMount(() => {
+		intervalId = setInterval(() => {
+			const t = getTimeLeft();
+			timeLeftStore.set(t);
+		}, 1000); // update every second
+		const unsub = timeLeftStore.subscribe(t => timeLeft = t);
+		return () => {
+			clearInterval(intervalId);
+			unsub();
+		};
+	});
 	
 	
 	/** @type {import('./$types').PageData} */
@@ -794,7 +827,7 @@ Mumbai`.split("\n")
 
 <div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
 
-<div class="flex flex-col items-center justify-center h-screen text-center bg-gradient-to-b from-[#CCF4FD] to-[#B8D9F8] bg-blend-overlay relative">
+<div class="flex flex-col items-center justify-center h-[130vh] text-center bg-gradient-to-b from-[#CCF4FD] to-[#B8D9F8] bg-blend-overlay relative">
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-30 pointer-events-none"></div>
 
 	<!-- Cloudy Background -->
@@ -812,7 +845,6 @@ Mumbai`.split("\n")
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat pointer-events-none opacity-100 lg:-translate-y-15 bg-center mix-blend-overlay" style="mask-image: url('/buildings-front.png'); mask-size: contain; mask-repeat: no-repeat; mask-position: center top; -webkit-mask-image: url('/buildings-front.png'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center top;"></div>
 	<div class="hero-ui-parallax flex flex-col items-center justify-center text-center relative z-5 -translate-y-2">
 		<div class="inline-block relative">
-			<div class="h-12"></div> 
 			<!-- space for the ship -->
 			<h2
 			class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
@@ -820,11 +852,60 @@ Mumbai`.split("\n")
 				September 27th & 28th, 2025
 			</h2>
 			<img src="daydream.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
-			<a href="https://hackclub.com" class="absolute top-0 -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
-				<img src="flag-plane.png" alt="Hack Club" class="h-28">
-			</a>
 		</div>
 		<div class="relative inline-block px-4">
+			<div>
+				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 499 228" version="1.1">
+					<defs>
+					<filter id="alpha" filterUnits="objectBoundingBox" x="0%" y="0%" width="100%" height="100%">
+					<feColorMatrix type="matrix" in="SourceGraphic" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1 0"/>
+					</filter>
+					<mask id="mask0">
+					<g filter="url(#alpha)">
+					<rect x="0" y="0" width="499" height="228" style="fill:rgb(0%,0%,0%);fill-opacity:0.996078;stroke:none;"/>
+					</g>
+					</mask>
+					<clipPath id="clip1">
+					<rect x="0" y="0" width="499" height="228"/>
+					</clipPath>
+					<g id="surface5" clip-path="url(#clip1)">
+					<path style=" stroke:none;fill-rule:evenodd;fill:rgb(91.764706%,21.568628%,30.980393%);fill-opacity:1;" d="M 299.53125 110.046875 C 299.09375 109.167969 298.652344 108.289062 298.214844 107.410156 C 299.824219 106.714844 301.359375 105.835938 302.824219 104.773438 C 305.023438 98.171875 307.214844 91.582031 309.40625 85.003906 C 311.261719 83.308594 313.238281 81.769531 315.332031 80.394531 C 337.160156 72.445312 359.542969 70.25 382.480469 73.804688 C 390.222656 75.921875 397.242188 79.4375 403.542969 84.347656 C 423.734375 92.242188 444.140625 93.339844 464.769531 87.640625 C 464.597656 90.203125 464.816406 92.621094 465.425781 94.890625 C 462.242188 99.148438 460.046875 103.980469 458.84375 109.386719 C 462.695312 116.320312 467.082031 122.910156 472.007812 129.15625 C 459.289062 136.738281 445.464844 140.03125 430.535156 139.039062 C 412.757812 141.316406 398.054688 135.824219 386.429688 122.566406 C 381.515625 119.753906 376.25 118 370.628906 117.292969 C 349.648438 114.074219 329.898438 117.371094 311.382812 127.179688 C 309.9375 121.648438 307.746094 116.375 304.796875 111.363281 C 303.234375 110.140625 301.476562 109.699219 299.53125 110.046875 Z M 311.382812 87.640625 C 313.402344 98.359375 314.058594 109.34375 313.355469 120.589844 C 310.75 115.597656 308.339844 110.546875 306.113281 105.433594 C 308.378906 99.664062 310.132812 93.734375 311.382812 87.640625 Z M 311.382812 87.640625 "/>
+					</g>
+					<mask id="mask1">
+					<g filter="url(#alpha)">
+					<rect x="0" y="0" width="499" height="228" style="fill:rgb(0%,0%,0%);fill-opacity:0.988235;stroke:none;"/>
+					</g>
+					</mask>
+					<clipPath id="clip2">
+					<rect x="0" y="0" width="499" height="228"/>
+					</clipPath>
+					<g id="surface8" clip-path="url(#clip2)">
+					<path style=" stroke:none;fill-rule:evenodd;fill:rgb(99.215686%,99.215686%,99.607843%);fill-opacity:1;" d="M 88.871094 87.640625 C 111.214844 89.726562 133.597656 92.800781 156.019531 96.867188 C 155.816406 102.632812 157.574219 107.683594 161.285156 112.023438 C 171.800781 111.945312 182.332031 111.507812 192.886719 110.707031 C 194.382812 109.195312 195.699219 107.660156 196.835938 106.09375 C 213.953125 109.605469 231.070312 113.121094 248.183594 116.636719 C 252.527344 123.179688 257.792969 128.890625 263.984375 133.769531 C 234.886719 140.085938 205.480469 141.84375 175.769531 139.039062 C 159.496094 138.121094 143.257812 136.800781 127.054688 135.085938 C 105.382812 132.519531 84.316406 127.46875 63.855469 119.929688 C 56.257812 116.460938 49.453125 111.847656 43.449219 106.09375 C 41.175781 102.652344 40.515625 99.136719 41.472656 95.550781 C 45.335938 90.359375 50.605469 87.503906 57.273438 86.984375 C 67.832031 86.179688 78.363281 86.398438 88.871094 87.640625 Z M 88.871094 87.640625 "/>
+					</g>
+					</defs>
+					<g id="surface1">
+					<path style=" stroke:none;fill-rule:evenodd;fill:rgb(12.941177%,35.686275%,67.843139%);fill-opacity:1;" d="M 232.382812 88.960938 C 229.382812 90.460938 226.308594 92 223.167969 93.570312 C 220.097656 94.449219 217.023438 94.449219 213.953125 93.570312 C 197.863281 88.203125 181.625 83.371094 165.234375 79.074219 C 163.816406 78.1875 162.9375 76.867188 162.601562 75.121094 C 163.082031 72.230469 164.398438 69.816406 166.554688 67.871094 C 179.234375 58.925781 193.496094 54.53125 209.34375 54.695312 C 218.402344 54.628906 226.960938 56.605469 235.015625 60.625 C 241.03125 63.972656 243.007812 69.027344 240.941406 75.78125 C 238.402344 80.4375 235.550781 84.828125 232.382812 88.960938 Z M 232.382812 88.960938 "/>
+					<path style=" stroke:none;fill-rule:evenodd;fill:rgb(12.941177%,35.294119%,67.843139%);fill-opacity:1;" d="M 88.871094 87.640625 C 78.363281 86.398438 67.832031 86.179688 57.273438 86.984375 C 50.605469 87.503906 45.335938 90.359375 41.472656 95.550781 C 39.003906 94.023438 38.34375 91.824219 39.5 88.960938 C 41.175781 84.429688 44.027344 80.917969 48.058594 78.417969 C 61.578125 71.058594 76.0625 68.644531 91.503906 71.167969 C 92.917969 72.140625 93.796875 73.460938 94.136719 75.121094 C 93.058594 79.785156 91.304688 83.960938 88.871094 87.640625 Z M 88.871094 87.640625 "/>
+					<use xlink:href="#surface5" mask="url(#mask0)"/>
+					<path style=" stroke:none;fill-rule:evenodd;fill:rgb(12.941177%,36.078432%,68.627453%);fill-opacity:1;" d="M 270.566406 104.773438 C 263.777344 103.019531 257.191406 100.605469 250.816406 97.527344 C 247.292969 96.453125 244.660156 94.476562 242.917969 91.59375 C 253.410156 83.035156 265.261719 79.742188 278.464844 81.710938 C 279.671875 82.203125 280.769531 82.863281 281.757812 83.6875 C 282.578125 93.027344 278.847656 100.054688 270.566406 104.773438 Z M 270.566406 104.773438 "/>
+					<path style=" stroke:none;fill-rule:evenodd;fill:rgb(48.235294%,68.627453%,91.37255%);fill-opacity:1;" d="M 166.554688 67.871094 C 164.398438 69.816406 163.082031 72.230469 162.601562 75.121094 C 162.9375 76.867188 163.816406 78.1875 165.234375 79.074219 C 181.625 83.371094 197.863281 88.203125 213.953125 93.570312 C 217.023438 94.449219 220.097656 94.449219 223.167969 93.570312 C 226.308594 92 229.382812 90.460938 232.382812 88.960938 C 235.386719 89.890625 238.242188 91.210938 240.941406 92.914062 C 241.445312 92.179688 242.105469 91.742188 242.917969 91.59375 C 244.660156 94.476562 247.292969 96.453125 250.816406 97.527344 C 257.191406 100.605469 263.777344 103.019531 270.566406 104.773438 C 279.589844 105.796875 288.804688 106.675781 298.214844 107.410156 C 298.652344 108.289062 299.09375 109.167969 299.53125 110.046875 C 300.863281 112.554688 301.082031 115.1875 300.191406 117.953125 C 295.851562 123.308594 290.367188 126.820312 283.730469 128.496094 C 278.625 123.164062 272.917969 118.554688 266.617188 114.660156 C 261.007812 112.863281 255.300781 112.425781 249.5 113.339844 C 248.511719 114.226562 248.070312 115.324219 248.183594 116.636719 C 231.070312 113.121094 213.953125 109.605469 196.835938 106.09375 C 197.246094 102.472656 196.808594 98.957031 195.519531 95.550781 C 186.894531 91.453125 178.117188 87.71875 169.1875 84.347656 C 160.132812 83.25 155.742188 87.425781 156.019531 96.867188 C 133.597656 92.800781 111.214844 89.726562 88.871094 87.640625 C 91.304688 83.960938 93.058594 79.785156 94.136719 75.121094 C 93.796875 73.460938 92.917969 72.140625 91.503906 71.167969 C 76.0625 68.644531 61.578125 71.058594 48.058594 78.417969 C 51.683594 74.609375 56.074219 71.753906 61.222656 69.851562 C 70.609375 66.476562 80.261719 64.28125 90.1875 63.261719 C 115.882812 61.46875 141.339844 63.007812 166.554688 67.871094 Z M 166.554688 67.871094 "/>
+					<path style=" stroke:none;fill-rule:evenodd;fill:rgb(12.941177%,35.294119%,67.450982%);fill-opacity:1;" d="M 144.171875 78.417969 C 150.972656 79.519531 152.292969 82.816406 148.121094 88.300781 C 141.316406 90.277344 138.902344 87.859375 140.878906 81.050781 C 142.1875 80.304688 143.285156 79.425781 144.171875 78.417969 Z M 144.171875 78.417969 "/>
+					<path style=" stroke:none;fill-rule:evenodd;fill:rgb(12.54902%,34.901962%,67.058825%);fill-opacity:1;" d="M 119.15625 75.78125 C 125.425781 76.5625 127.179688 79.855469 124.421875 85.664062 C 114.460938 86.886719 112.703125 83.59375 119.15625 75.78125 Z M 119.15625 75.78125 "/>
+					<path style=" stroke:none;fill-rule:evenodd;fill:rgb(14.117648%,35.686275%,67.843139%);fill-opacity:1;" d="M 196.835938 106.09375 C 195.699219 107.660156 194.382812 109.195312 192.886719 110.707031 C 182.332031 111.507812 171.800781 111.945312 161.285156 112.023438 C 157.574219 107.683594 155.816406 102.632812 156.019531 96.867188 C 155.742188 87.425781 160.132812 83.25 169.1875 84.347656 C 178.117188 87.71875 186.894531 91.453125 195.519531 95.550781 C 196.808594 98.957031 197.246094 102.472656 196.835938 106.09375 Z M 196.835938 106.09375 "/>
+					<use xlink:href="#surface8" mask="url(#mask1)"/>
+					<path style=" stroke:none;fill-rule:evenodd;fill:rgb(48.627451%,69.01961%,92.156863%);fill-opacity:1;" d="M 169.1875 88.960938 C 176.714844 91.765625 184.175781 94.84375 191.570312 98.183594 C 192.121094 100.589844 192.121094 103.226562 191.570312 106.09375 C 183.21875 106.3125 174.878906 106.09375 166.554688 105.433594 C 168.664062 100.183594 169.542969 94.691406 169.1875 88.960938 Z M 169.1875 88.960938 "/>
+					<path style=" stroke:none;fill-rule:evenodd;fill:rgb(91.37255%,12.54902%,20.392157%);fill-opacity:1;" d="M 445.675781 110.046875 C 448.089844 110.890625 448.527344 112.207031 446.992188 114 C 445.828125 112.914062 445.386719 111.59375 445.675781 110.046875 Z M 445.675781 110.046875 "/>
+					<path style=" stroke:none;fill-rule:evenodd;fill:rgb(12.54902%,35.294119%,67.843139%);fill-opacity:1;" d="M 283.730469 128.496094 C 285.933594 132.617188 285.492188 136.347656 282.414062 139.699219 C 275.71875 139.652344 269.574219 137.675781 263.984375 133.769531 C 257.792969 128.890625 252.527344 123.179688 248.183594 116.636719 C 248.070312 115.324219 248.511719 114.226562 249.5 113.339844 C 255.300781 112.425781 261.007812 112.863281 266.617188 114.660156 C 272.917969 118.554688 278.625 123.164062 283.730469 128.496094 Z M 283.730469 128.496094 "/>
+					<path style=" stroke:none;fill-rule:evenodd;fill:rgb(92.54902%,18.82353%,27.058825%);fill-opacity:1;" d="M 445.675781 117.953125 C 450.101562 118.878906 450.539062 120.636719 446.992188 123.226562 C 445.769531 121.660156 445.332031 119.902344 445.675781 117.953125 Z M 445.675781 117.953125 "/>
+					<path style=" stroke:none;fill-rule:evenodd;fill:rgb(12.941177%,35.686275%,68.235296%);fill-opacity:1;" d="M 127.054688 135.085938 C 143.257812 136.800781 159.496094 138.121094 175.769531 139.039062 C 183.167969 154.238281 178.339844 160.167969 161.285156 156.832031 C 147.871094 152.546875 136.460938 145.296875 127.054688 135.085938 Z M 127.054688 135.085938 "/>
+					</g>
+					<path id="countdown" visibility="hidden" d="M 329.155,108.337
+					C 336.983,102.272 359.201,100.442 382.073,103.131
+					C 390.94,106.141 397.146,109.017 403.009,114.152
+					C 423.403,122.207 443.577,123.714 447.884,117.857"/>
+					<text fill="white" font-weight="bold" font-size="17"><textPath href="#countdown">{timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s</textPath></text>
+				</svg>
+			</div>
 			<h3
 				class="text-3xl italic font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent w-max max-sm:text-2xl mx-auto"
 			>
@@ -839,6 +920,12 @@ Mumbai`.split("\n")
 				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
 			>
 				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
+			</h4>
+
+			<h4
+				class="text-lg opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
+			>
+				<a href="https://jukeboxprint.com/custom-stickers" class="underline text-blue-500 hover:text-blue-400" target="_blank">Custom stickers</a> provided by Jukebox!
 			</h4>
 		</div>
 		
@@ -871,12 +958,97 @@ Mumbai`.split("\n")
 	<img src="/clouds-top-left-bg.svg" alt="" class="absolute left-0 w-3/12 -bottom-12  translate-y-1/2">
 	<div class="absolute left-0 w-3/12 -bottom-12 translate-y-1/2 bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none h-full" style="mask-image: url('/clouds-top-left-bg.svg'); mask-size: contain; mask-repeat: no-repeat; mask-position: center; -webkit-mask-image: url('/clouds-top-left-bg.svg'); -webkit-mask-size: contain; -webkit-mask-repeat: no-repeat; -webkit-mask-position: center;"></div>
 	
-	<img src="/clouds-top-middle.png" alt="" class="absolute left-5/12 -translate-x-1/2 w-7/12 -bottom-24 z-20 pointer-events-none">
-	<img src="/clouds-top-right.png" alt="" class="absolute right-0 w-1/2 -bottom-12 translate-y-1/2 z-20 pointer-events-none">
-	<img src="/clouds-top-left.png" alt="" class="absolute left-0 w-3/12 -bottom-12  translate-y-1/2 z-20 pointer-events-none">
+	<img src="/clouds-top-middle.png" alt="" class="absolute left-5/12 -translate-x-1/2 w-7/12 -bottom-24 z-10 pointer-events-none">
+	<img src="/clouds-top-right.png" alt="" class="absolute right-0 w-1/2 -bottom-12 translate-y-1/2 z-10 pointer-events-none">
+	<img src="/clouds-top-left.png" alt="" class="absolute left-0 w-3/12 -bottom-12  translate-y-1/2 z-10 pointer-events-none">
 	
 
 	
+</div>
+
+
+<div class="w-full pb-24 max-md:pt bg-[#FCEFC5] relative flex flex-col items-center justify-center">
+	<img src="faq.png" alt="FAQ" class="mb-12 h-24 scale-175 max-md:scale-120 z-20">
+	<img src="/clouds-top-middle.png" alt="" class="absolute left-5/12 -translate-x-1/2 w-7/12 -bottom-48 z-10 pointer-events-none">
+
+	<!-- FAQ Grid -->
+	<div class="grid grid-cols-2 gap-8 max-w-6xl px-8 z-10 max-[900px]:grid-cols-1 max-md:gap-16">
+		<!-- FAQ Item 2 -->
+
+
+		<!-- FAQ Item 3 -->
+		<div class="relative transform rotate-2">
+			<img src="window-2.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
+			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24  opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
+				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">All this, for free?</h3>
+				<p class="text-sm">Yep! Food, swag and good vibes are all included. Plus, if you're joining us from afar, we'll cover the cost of gas or a bus / train ticket.</p>
+			</div>
+		</div>
+
+		<!-- FAQ Item 4 -->
+		<div class="relative transform -rotate-1">
+			<img src="window-1.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
+			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24  opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
+				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What do I need?</h3>
+				<p class="text-sm">Your laptop, chargers, toiletries, sleeping bags, and an open mind!</p>
+			</div>
+		</div>
+
+				<!-- FAQ Item 1 -->
+		<div class="relative transform -rotate-2">
+			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
+			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
+				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
+		</div>
+		</div>
+
+		<!-- FAQ Item 6 -->
+		<div class="relative transform rotate-1">
+			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
+			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
+				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">I'm not good at coding. Can I still participate?</h3>
+				<p class="text-sm">This game jam is for all skill levels! We'll have workshops and other events so join us and let's learn together.</p>
+			</div>
+		</div>
+
+		<!-- FAQ Item 7 -->
+		<div class="relative transform -rotate-2">
+			<img src="window-2.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
+			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
+				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What if my parents are concerned?</h3>
+				<p class="text-sm">We're here to help! You can reach out to us at daydream@hackclub.com for questions or look at our <a href="https://docs.google.com/document/d/e/2PACX-1vSZiX13ZdKOFX9uqiomdM299RRJ_JC4FsUZR8-RAnzZe0MVf_P645M53FjX1cvCon7tJyqmHwWeC2BW/pub" target="_blank" class="underline text-blue-500 hover:text-blue-400">parent guide</a>. There will be adult supervision as well as gender-separated sleeping areas at the event.</p>
+			</div>
+		</div>
+
+		<!-- FAQ Item 8 -->
+		<div class="relative transform -rotate-1">
+			<img src="window-1.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
+			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
+				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What can I make at Daydream?</h3>
+				<p class="text-sm">ANY type of game based on the theme! Platformer, visual novel, clicker game, etc. Be as creative as possible!</p>
+			</div>
+		</div>
+
+		<div class="relative transform rotate-1">
+			<img src="window-4.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
+			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
+				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Can I organize a Daydream in my city?</h3>
+				<p class="text-sm">Definitely! Contact us via daydream@hackclub.com or join #daydream on slack.</p>
+			</div>
+		</div>
+
+				<!-- FAQ Item 5 -->
+		<div class="relative transform rotate-1">
+			<img src="window-4.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
+			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
+				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-1 max-md:text-base">What has Hack Club done before?</h3>
+				<p class="text-sm">Hack Club has run a hackathon in at GitHub HQ, a Game Jam in 50 cities, a hackathon on a train from Vermont to Los Angeles, and more!</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
 </div>
 
 <div class="w-full relative flex items-start justify-center">
@@ -903,7 +1075,7 @@ Mumbai`.split("\n")
 
 				<p class="mb-2">With love,</p>
 
-				<p class="italic text-2xl opacity-85">Augie and Renran from Hack Club HQ</p>
+				<p class="italic text-2xl opacity-85">The Daydream Austin team</p>
 			</div>
 		</div>
 	</div>
@@ -1186,7 +1358,7 @@ Mumbai`.split("\n")
 	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none bg-position-[0_100vh]"></div>
 </div>
 
-<div class="w-full bg-gradient-to-b from-[#FDC5D1] to-[#FAE3C9] items-center justify-center px-0 md:px-8 relative pt-36">
+<div class="w-full bg-gradient-to-b from-[#FDC5D1] to-[#e99cce] items-center justify-center px-0 md:px-8 relative pt-36">
 	<div class="w-full max-w-5xl lg:max-w-6xl mx-auto px-2 md:px-8">
 		<div class="relative w-full min-w-72">
 			<img src="banner-city.png" alt="Find a Daydream Near You" class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 md:-translate-y-[40%] h-48 w-auto z-100 scale-[1.15] md:scale-[1.65] saturate-70 brightness-110 object-contain px-4 pointer-events-none">
@@ -1428,89 +1600,6 @@ Mumbai`.split("\n")
 			</div>
 		</div>
 	</div>
-</div>
-
-
-<div class="w-full pb-24 max-md:pt-16 bg-gradient-to-b from-[#FAE3C9] to-[#e99cce] relative flex flex-col items-center justify-center">
-	<img src="faq-clouds.png" alt="" class="w-full">
-	<img src="faq.png" alt="FAQ" class="mb-12 h-24 scale-175 max-md:scale-120">
-
-	<!-- FAQ Grid -->
-	<div class="grid grid-cols-2 gap-8 max-w-6xl px-8 z-10 max-[900px]:grid-cols-1 max-md:gap-16">
-		<!-- FAQ Item 1 -->
-		<div class="relative transform -rotate-2">
-			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
-			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
-				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
-		</div>
-		</div>
-
-		<!-- FAQ Item 2 -->
-		<div class="relative transform rotate-1">
-			<img src="window-4.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
-			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
-				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Can I organize a Daydream in my city?</h3>
-				<p class="text-sm">Definitely! Contact us via daydream@hackclub.com or join #daydream on slack.</p>
-			</div>
-		</div>
-
-		<!-- FAQ Item 3 -->
-		<div class="relative transform rotate-2">
-			<img src="window-2.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
-			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24  opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
-				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">All this, for free?</h3>
-				<p class="text-sm">Yep! Food, swag and good vibes are all included. Plus, if you're joining us from afar, we'll cover the cost of gas or a bus / train ticket.</p>
-			</div>
-		</div>
-
-		<!-- FAQ Item 4 -->
-		<div class="relative transform -rotate-1">
-			<img src="window-1.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
-			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24  opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
-				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What do I need?</h3>
-				<p class="text-sm">Your laptop, chargers, toiletries, sleeping bags, and an open mind!</p>
-			</div>
-		</div>
-
-		<!-- FAQ Item 5 -->
-		<div class="relative transform rotate-1">
-			<img src="window-4.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
-			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
-				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-1 max-md:text-base">What has Hack Club done before?</h3>
-				<p class="text-sm">Hack Club has run a hackathon in at GitHub HQ, a Game Jam in 50 cities, a hackathon on a train from Vermont to Los Angeles, and more!</p>
-			</div>
-		</div>
-
-		<!-- FAQ Item 6 -->
-		<div class="relative transform rotate-1">
-			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
-			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
-				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">I'm not good at coding. Can I still participate?</h3>
-				<p class="text-sm">This game jam is for all skill levels! We'll have workshops and other events so join us and let's learn together.</p>
-			</div>
-		</div>
-
-		<!-- FAQ Item 7 -->
-		<div class="relative transform -rotate-2">
-			<img src="window-2.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
-			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
-				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What if my parents are concerned?</h3>
-				<p class="text-sm">We're here to help! You can see our parent guide here, or they can reach out to us at daydream@hackclub.com for questions.</p>
-			</div>
-		</div>
-
-		<!-- FAQ Item 8 -->
-		<div class="relative transform -rotate-1">
-			<img src="window-1.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
-			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
-				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">What can I make at Daydream?</h3>
-				<p class="text-sm">ANY type of game based on the theme! Platformer, visual novel, clicker game, etc. Be as creative as possible!</p>
-			</div>
-		</div>
-	</div>
-
-	<div class="absolute top-0 left-0 w-full h-full bg-[url('brushstroking.png')] bg-size-[100vw_100vh] bg-repeat mix-blend-overlay opacity-60 pointer-events-none"></div>
 </div>
 
 <Footer />

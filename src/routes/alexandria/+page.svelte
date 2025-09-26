@@ -12,7 +12,7 @@
 	const eventAddress = ""; // Leave this empty if you don't want an address
 	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=rec7aH0mYLpLLLlov"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = "" // ex: https://www.google.com/maps/search/1600+pennsylvania+avenue+washington+dc/
+	const directionsURL = "https://maps.app.goo.gl/3cS5r8TQqyAbcBN9A" // ex: https://www.google.com/maps/search/1600+pennsylvania+avenue+washington+dc/
 	const contactLink = "mailto:alexandria@daydream.hackclub.com" // ex: mailto:example@daydream.hackclub.com
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
@@ -37,18 +37,6 @@
 				{ event: "Keep Working", time: "7:00 PM" },
                 { event: "Shipping Guide", time: "8:00 PM" },
 				{ event: "First Day Closing", time: "9:00 PM" }
-			]
-		},
-		{
-			title: "Sunday, September 28th",
-			items: [
-                { event: "Doors Open", time: "10:00 AM" },
-				{ event: "Workshop: Debugging & Polish", time: "10:30 AM" },
-                { event: "Brunch!", time: "11:30 AM" },
-				{ event: "Workshop: Publishing on itch.io", time: "12:30 PM" },
-                { event: "Submission Deadline", time: "3:00 PM" },
-                { event: "Playtesting Arcade", time: "3:30 PM" },
-				{ event: "Closing ceremony & Awards", time: "5:00 PM" }
 			]
 		}
 	];
@@ -1442,7 +1430,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 

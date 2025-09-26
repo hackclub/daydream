@@ -74,7 +74,7 @@
 			faq: [
 				{
 					q: 'Who can participate in Daydream?',
-					a: 'All high-school & upper-middle-school aged students are welcome to come!'
+					a: 'All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong>'
 				},
 				{
 					q: 'Can I organize a Daydream in my city?',

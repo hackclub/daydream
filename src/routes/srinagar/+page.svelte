@@ -30,9 +30,19 @@
 			url: 'https://github.com'
 		},
 		{
+			image: 'srinagar/risingkashmir.png',
+			name: 'Rising Kashmir',
+			url: 'https://risingkashmir.com'
+		},
+		{
 			image: 'srinagar/sarovar.png',
 			name: 'Sarovar Premiere, Srinagar',
 			url: 'https://www.sarovarhotels.com/sarovar-premiere-srinagar/'
+		},
+		{
+			image: 'srinagar/SNTPL.png',
+			name: 'SNTPL',
+			url: 'https://sntisp.com/'
 		},
 		{
 			image: 'srinagar/yubico.png',
@@ -943,8 +953,6 @@ Mumbai`.split('\n');
 		alt=""
 		class="absolute left-0 w-3/12 -bottom-12 translate-y-1/2 z-20 pointer-events-none"
 	/>
-
-	
 </div>
 
 <div class="w-full relative flex items-start justify-center">
@@ -1781,7 +1789,7 @@ Mumbai`.split('\n');
 					Who can participate in Daydream?
 				</h3>
 				<p class="text-sm">
-					All high-school & upper-middle-school aged students are welcome to come!
+					All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong>
 				</p>
 			</div>
 		</div>

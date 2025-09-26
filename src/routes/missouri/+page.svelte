@@ -29,23 +29,25 @@
 				{ event: "Doors open", time: "9:00 AM" },
 				{ event: "Opening ceremony", time: "9:30 AM" },
 				{ event: "Start working on your project!", time: "10:00 AM" },
-				{ event: "Workshop 1", time: "11:00 AM" },
+				{ event: "Workshop 1", time: "10:30 AM" },
 				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Workshop 2", time: "3:00 PM" },
+				{ event: "Activity", time: "2:30 PM" },
+				{ event: "Workshop 2", time: "4:30 PM" },
 				{ event: "Dinner", time: "6:00 PM" },
-				{ event: "Go home and rest", time: "8:00 PM" },
+				{ event: "Go home and rest", time: "8:00 PM" }
 			]
 		},
 		{
 			title: "Sunday, September 28th",
 			items: [
 				{ event: "Doors open", time: "9:00 AM" },
-				{ event: "Breakfast", time: "9:30 AM" },
+				{ event: "Breakfast", time: "9:00 AM" },
 				{ event: "Workshop 3", time: "11:00 AM" },
 				{ event: "Lunch", time: "12:30 AM" },
 				{ event: "Submissions close!", time: "4:00 PM" },
 				{ event: "Demos!", time: "4:30 PM" },
-				{ event: "Closing ceremony", time: "6:00 PM" }
+				{ event: "Closing ceremony", time: "6:00 PM" },
+				{ event: "Home!", time: "6:30 PM" }
 			]
 		}
 	];
@@ -1322,7 +1324,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 
