@@ -30,8 +30,16 @@
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Start", time: "08:00 AM" },
+				{ event: "Attendee Arrival", time: "08:00 AM" },
+				{ event: "Forming Teams", time: "08:30 AM"},
 				{ event: "Opening Ceremony", time: "09:00 AM"},
+				{ event: "Theme Reveal", time: "09:30 AM"},
+				{ event: "Start of Event, Jumpstart Workshop", time: "10:00 AM"},
+				{ event: "Ren'Py Workshop", time: "11:30 AM"},
+				{ event: "Lunch Break", time: "2:00 PM"},
+				{ event: "End of Lunch Break", time: "2:30 PM"},
+				{ event: "KAPLAY Workshop", time: "3:30 PM"},
+				{ event: "Lockpicking activity", time: "5:30 PM"},
 				{ event: "Preparing for end of day one", time: "07:00 PM" },
 				{ event: "End of day one", time: "08:00 PM" },
 			]
@@ -39,9 +47,12 @@
 		{
 			title: "Sunday, September 28th",
 			items: [
-				{ event: "Start", time: "08:00 AM" },
-				{ event: "Playtests", time: "06:00 PM" },
-				{ event: "Giving out rewards and packing up", time: "07:30 PM" },
+				{ event: "Attendee Arrival", time: "08:00 AM" },
+				{ event: "Lunch Break", time: "1:00 PM" },
+				{ event: "Finishing touches", time: "1:30 PM"},
+				{ event: "Shipping the game", time: "3:00 PM"},
+				{ event: "Playtesting the games", time: "3:30 PM"},
+				{ event: "Giving out rewards and ending ceremony", time: "5:30 PM"},
 				{ event: "End of event", time: "08:00 PM" },
 			]
 		}
