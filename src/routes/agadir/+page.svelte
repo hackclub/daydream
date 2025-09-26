@@ -20,6 +20,8 @@
 	const sponsors = [
 		{ image: "/agadir/technopark.jpg", name: "Technopark Souss-Massa", url: "https://www.technopark.ma/reseau/#technopark-agadir" },
 		{ image: "/agadir/flag-orpheus-left.png", name: "Hack Club", url: "https://hackclub.com" }
+		{ image: "/agadir/adamphone.png", name: "Adam Phone"}
+
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
