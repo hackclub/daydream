@@ -57,7 +57,7 @@
 			title: 'Saturday, September 27th',
 			items: [
 				{ event: 'Doors open', time: '10:00 AM' },
-				{ event: 'Opening ceremony', time: '11:00 AM' },
+				{ event: 'Opening ceremony', time: '10:20 AM' },
 				{ event: 'Lunch', time: '12:30 PM' },
 				{ event: 'Start working on your project!', time: '1:00 PM' },
 				{ event: 'Workshop 1', time: '2:00 PM' },
