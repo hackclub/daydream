@@ -19,12 +19,16 @@
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	const sponsors = [
 		{ image: "/sydney/accel2.png", name: "AccelRT", url: "https://accelrt.net" },
+		{ image: "/sydney/SparkCubing.png", name: "Spark Cubing", url: "https://sparkcubing.com.au" },
+		{ image: "/sydney/Sparkedu.png", name: "Spark Education", url: "https://www.sparkedu.com/en-us" },
+		{ image: "/sydney/emu.png", name: "Emu Robotics", url: "https://first.unsw.edu.au/" },
+		{ image: "/sydney/tinkertank.png", name: "TinkerTank", url: "https://www.tinkertank.rocks/" },
 		{ image: "/sydney/xyz.png", name: ".xyz", url: "https://gen.xyz" },
 		{ image: "/sydney/jlcpcb.png", name: "jlcpcb", url: "https://jlcpcb.com/" },
 		{ image: "/sydney/oshw.png", name: "oshw", url: "https://oshwlab.com/" },
 		{ image: "/sydney/easyeda.png", name: "easyeda", url: "https://easyeda.com/" },
 		{ image: "/sydney/logo_horizontal_black_registered.png", name: "janestreet", url: "https://www.janestreet.com/" },
-		{ image: "/sydney/StickerCo.png", name: "StickerCo", url: "https://www.stickerco.au/" },
+		{ image: "/sydney/stickerco.png", name: "StickerCo", url: "https://www.stickerco.au/" },
 		{ image: "/sydney/insertcoin.png", name: "Insert Coin", url: "https://www.insertcoinclothing.com/" },
 		{ image: "/sydney/fluffe.png", name: "Fluffe", url: "https://www.fluffe.com/" },
 		{ image: "/sydney/makersempire.png", name: "Maker's Empire", url: "https://www.makersempire.com/" },
