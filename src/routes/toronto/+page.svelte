@@ -28,7 +28,7 @@
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
-	const scheduleEnable = false; //added temporarily because we dont have a schedule yet
+	const scheduleEnable = true; //added temporarily because we dont have a schedule yet
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
 		{
 			title: "Saturday, September 27th",
