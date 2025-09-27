@@ -33,7 +33,7 @@
 				{ event: "Workshop Godot", time: "10:00 PM" },
                 { event: "Comece a trabalhar nos projetos!", time: "10:00 AM" },
 				{ event: "Almoço", time: "12:30 PM" },
-				{ event: "Encerramento & Apresentação de Projetos", time: "6:00 PM" },
+				{ event: "Encerramento & Apresentação de Projetos", time: "7:00 PM" },
 			]
 		},
 	];
