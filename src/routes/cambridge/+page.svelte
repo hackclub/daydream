@@ -32,10 +32,10 @@
 			items: [
 				{ event: "Doors open", time: "8:45" },
 				{ event: "Opening ceremony", time: "9:10" },
+				{ event: "Workrooms", time: "10:00" },
 				{ event: "Get into teams, start working on your project!", time: "10:00" },
 				{ event: "Lunch", time: "13:00" },
 				{ event: "Continue working on projects", time: "14:00" },
-				{ event: "Workshop", time: "15:00" },
 				{ event: "More projects work :)", time: "16:00" },
 				{ event: "Dinner", time: "18:00" },
 				{ event: "Ship projects and vote", time: "19:00" },
