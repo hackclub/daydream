@@ -33,23 +33,27 @@
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Doors open", time: "11:00 AM" },
+				{ event: "Doors open", time: "11:30 AM" },
 				{ event: "Opening ceremony", time: "12:00 PM" },
-				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Workshop 1", time: "1:30 PM" },
-				{ event: "Workshop 2", time: "2:00 PM" },
-				// { event: "Workshop 3", time: "4:00 PM" },
-				{ event: "Dinner and Lightning Talks", time: "6:00 PM" },
-				// { event: "Midnight surprise (ice cream?)", time: "12:00 AM" }
+				{ event: "Lunch", time: "2:00 PM" },
+				{ event: "Workshop 1", time: "1:00 PM" },
+				{ event: "Workshop 2", time: "3:00 PM" },
+				{ event: "Check In #1", time: "4:00 PM" },
+				{ event: "Dinner and Lightning Talks", time: "8:00 PM" },
+				{ event: "Check In #2", time: "9:00 PM" },
+				{ event: "Karaoke", time: "10:00 PM" },
+				{ event: "Lights Off", time: "11:00 PM" }
 			]
 		},
 		{
 			title: "Sunday, September 28th",
 			items: [
-				{ event: "Breakfast", time: "8:30 AM" },
-				{ event: "Submissions Open", time: "11:00 AM" },
-				{ event: "Submissions Close and Judging Starts", time: "11:30 AM" },
-				{ event: "Closing ceremony", time: "12:30 PM" }
+				{ event: "Lights On", time: "7:00 AM" },
+				{ event: "Breakfast", time: "8:00 AM" },
+				{ event: "Final Check In", time: "10:00 AM" },
+				{ event: "Submit Projects", time: "11:00 AM" },
+				{ event: "Submissions Close and Judging", time: "11:30 AM" },
+				{ event: "Closing Ceremony and Awards", time: "12:00 PM" }
 			]
 		}
 	];
@@ -64,11 +68,13 @@
 	import { page } from '$app/stores';
 	import { writable } from "svelte/store";
 
-	// Countdown logic for time left until September 27th, 2025, 12 PM Central Time
+	// Countdown logic for time left until September 27th, 2025, 12 PM Central Time if before then, otherwise until September 28th, 2025, 12 PM Central Time
 	function getTimeLeft() {
 		// Central Time is UTC-5 during daylight saving (CDT)
-		const target = new Date("2025-09-27T12:00:00-05:00");
 		const now = new Date();
+		const target = now < new Date("2025-09-27T12:00:00-05:00") 
+			? new Date("2025-09-27T12:00:00-05:00") 
+			: new Date("2025-09-28T12:00:00-05:00");
 		let diffMs = target.getTime() - now.getTime();
 		if (diffMs < 0) diffMs = 0;
 		const totalSeconds = Math.floor(diffMs / 1000);
