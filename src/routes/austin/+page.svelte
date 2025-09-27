@@ -863,7 +863,7 @@ Mumbai`.split("\n")
 			<img src="daydream.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
 		</div>
 		<div class="relative inline-block px-4">
-			<div>
+			<a href="https://daydream-timer.urjith.dev/">
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 499 228" version="1.1">
 					<defs>
 					<filter id="alpha" filterUnits="objectBoundingBox" x="0%" y="0%" width="100%" height="100%">
@@ -914,7 +914,7 @@ Mumbai`.split("\n")
 					C 423.403,122.207 443.577,123.714 447.884,117.857"/>
 					<text fill="white" font-weight="bold" font-size="17"><textPath href="#countdown">{timeLeft.days}d {timeLeft.hours}h {timeLeft.minutes}m {timeLeft.seconds}s</textPath></text>
 				</svg>
-			</div>
+			</a>
 			<h3
 				class="text-3xl italic font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent w-max max-sm:text-2xl mx-auto"
 			>
