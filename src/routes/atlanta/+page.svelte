@@ -9,7 +9,7 @@
 	// Configuration - Put your information here!
 	const eventName = "Atlanta";
 	const eventLocation = "Georgia Tech";
-	const eventAddress = ""; // Leave this empty if you don't want an address
+	const eventAddress = "777 Atlantic Dr NW, Atlanta, GA"; // Leave this empty if you don't want an address
 	// These two are optional
 	const directionsURL = ""
 	const contactLink = "mailto:atlanta@daydream.hackclub.com"
@@ -28,9 +28,9 @@
 		{ image: "/atlanta/WCT.png", name: "We Create Tech", url: "https://www.wecreatetech.org/" },
 		{ image: "/atlanta/gtsbe.png", name: "National Society of Black Engineers at Georgia Tech", url: "https://www.gtsbe.org/"},
 		{ image: "/atlanta/WIT.png", name: "Women In Tech", url: "https://mywit.org/programs/wit-campus/"},
-		{ image: "/atlanta/EK.png", name: "Exploding Kittens", url: "https://www.explodingkittens.com/", text: `<p class="text-lg text-[#335969] text-center"> Thank you exploding kittensfor providing us with branded prizes!  </p>`}, 
-		{ image: "/atlanta/VMotiv8.png", name: "VMotiv8", url: "https://vmotiv8.com/", text: `<p class="text-lg text-[#335969] text-center"> Complete academic coverage from Middle School through Graduate School prep. Every subject, every test, every pathway to success. Visit our website to have an ultimate college prep plan </p>`},
-		{ image: "/atlanta/YRI.png", name: "YRI Fellowship", url: "https://www.yriscience.com/", text: `<p class="text-lg text-[#335969] text-center"> The YRI Fellowship pairs ambitious students with PhD mentors and staff who guide you step-by-step to complete original research and get published in top journals. Quickly join the interest list here!</p>`}
+		{ image: "/atlanta/EK.png", name: "Exploding Kittens", url: "https://www.explodingkittens.com/", text: `<p class="text-lg text-[#335969] text-center"> Thank you Exploding Kittens for providing us with branded prizes!  </p>`}, 
+		{ image: "/atlanta/VMotiv8.png", name: "VMotiv8", url: "https://vmotiv8.com/", text: `<p class="text-lg text-[#335969] text-center"> Complete academic coverage from Middle School through Graduate School prep. Covering every pathway to success. </p>`},
+		{ image: "/atlanta/YRI.png", name: "YRI Fellowship", url: "https://www.yriscience.com/", text: `<p class="text-lg text-[#335969] text-center"> Honorable Mentorship program to publish credited research papers. Join the interest list here!</p>`}
 	];
 
 	
@@ -78,11 +78,10 @@
 			{ event: "Mini Opening Ceremony + Progress Check", time: "9:00 AM"},
 			{ event: "Activity 2", time: "10:00 AM"},
 			{ event: "Lunch", time: "12:00 PM"},
-            { event: "Demos!", time: "3:00 PM" },
-			{ event: "Workshop 3", time: "2:00 PM" },
-			{ event: "Final Submission closes", time: "4:30 PM" },
-			{ event: "Mystery Treat", time: "5:00 PM"},
-            { event: "Closing ceremony", time: "5:30 PM" },
+			{ event: "Workshop 3", time: "1:30 PM" },			
+			{ event: "Final Submission closes", time: "2:30 PM" },
+			{ event: "Demos!", time: "3:00 PM" },
+            { event: "Closing ceremony", time: "5:00 PM" },
 			{ event: "End of Daydream Atlanta", time: "6:00 PM"}
         ]
     }
