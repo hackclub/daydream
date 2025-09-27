@@ -73,7 +73,7 @@
 				{ event: 'Workshop 2', time: '4:00 PM' },
 				{ event: 'Dinner Time!', time: '6:00 PM' },
 				{ event: 'Fun Activities and Games', time: '7:30 PM' },
-				{ event: 'Goodbyes', time: '8:30 PM' }
+				{ event: 'Goodbyes', time: '8:30 PM' },
 				{ event: 'Doors Close', time: '9:00 PM' }
 			]
 		},
@@ -87,7 +87,7 @@
 				{ event: 'Dinner', time: '6:30 PM' },
 				{ event: 'Peer Voting!', time: '7:30 PM' },
 				{ event: 'Ending Ceremony', time: '8:00 PM' },
-				{ event: 'Final Goodbyes', time: '8:30 PM' }
+				{ event: 'Final Goodbyes', time: '8:30 PM' },
 				{ event: 'Doors Close', time: '9:00 PM' }
 			]
 		}
