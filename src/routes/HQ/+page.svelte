@@ -33,8 +33,7 @@
 				{ event: "Start working!", time: "2:00 PM" },
 				{ event: "Progress updates", time: "5:00 PM" },
 				{ event: "Folino's Pizza!", time: "6:00 PM" },
-				{ event: "share your learnings", time: "8:00 PM" },
-				{ event: "Midnight surprise", time: "12:00 AM" }
+				{ event: "share your learnings", time: "8:00 PM" }
 			]
 		},
 		{
