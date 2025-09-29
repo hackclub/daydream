@@ -6,7 +6,6 @@
 	 * Then, configure the event name, location, and schedule below:
 	 */
 
-
 	// Configuration - Put your information here!
 	const eventName = "Boston";
 	const eventLocation = "Boston";
