@@ -9,7 +9,7 @@
 	// Configuration - Put your information here!
 	const eventName = "Atlanta";
 	const eventLocation = "Georgia Tech";
-	const eventAddress = ""; // Leave this empty if you don't want an address
+	const eventAddress = "777 Atlantic Dr NW, Atlanta, GA"; // Leave this empty if you don't want an address
 	// These two are optional
 	const directionsURL = ""
 	const contactLink = "mailto:atlanta@daydream.hackclub.com"
@@ -27,8 +27,12 @@
            </p>`		},
 		{ image: "/atlanta/WCT.png", name: "We Create Tech", url: "https://www.wecreatetech.org/" },
 		{ image: "/atlanta/gtsbe.png", name: "National Society of Black Engineers at Georgia Tech", url: "https://www.gtsbe.org/"},
-		{ image: "/atlanta/WIT.png", name: "Women In Tech", url: "https://mywit.org/programs/wit-campus/"}
+		{ image: "/atlanta/WIT.png", name: "Women In Tech", url: "https://mywit.org/programs/wit-campus/"},
+		{ image: "/atlanta/EK.png", name: "Exploding Kittens", url: "https://www.explodingkittens.com/", text: `<p class="text-lg text-[#335969] text-center"> Thank you Exploding Kittens for providing us with branded prizes!  </p>`}, 
+		{ image: "/atlanta/VMotiv8.png", name: "VMotiv8", url: "https://vmotiv8.com/", text: `<p class="text-lg text-[#335969] text-center"> Complete academic coverage from Middle School through Graduate School prep. Covering every pathway to success. </p>`},
+		{ image: "/atlanta/YRI.png", name: "YRI Fellowship", url: "https://www.yriscience.com/", text: `<p class="text-lg text-[#335969] text-center"> Honorable Mentorship program to publish credited research papers. Join the interest list here!</p>`}
 	];
+
 	
 	
 	import { onMount } from "svelte";
@@ -49,18 +53,20 @@
 	$: pageDescription = `Join Daydream ${eventName} in ${eventLocation}! A teen-led game jam where you'll build amazing games with other high schoolers. Food, workshops, and prizes included!`;
 	$: pageKeywords = `game jam, hackathon, teen coding, Hack Club, game development, ${eventLocation}, ${eventName}`;
 
-	// schedule not final
+	// schedule
 	const scheduleData = [
     {
         title: "Saturday, September 27th",
         items: [
-            { event: "Doors open", time: "8:00 AM" },
+            { event: "Doors open  + Breakfast", time: "8:00 AM" },
             { event: "Opening ceremony", time: "9:00 AM" },
-            { event: "Start Working on Your Project + Breakfast", time: "10:00 AM" },
-            { event: "Workshop 1", time: "10:30 AM" },
-            { event: "Activity 1", time: "12:00 PM" },
-            { event: "Progress Check", time: "4:00 PM" },
-            { event: "Workshop 2", time: "5:00 PM" },			
+            { event: "Start Working on Your Project", time: "10:00 AM" },
+            { event: "Workshop 1", time: "10:00 AM" },
+			{ event: "Lunch", time: "12:00 PM"},
+			{ event: "Progress Check", time: "2:00 PM" },
+            { event: "Workshop 2", time: "4:00 PM" },
+			{ event: "Activity 1", time: "5:00 PM" },
+			{ event: "Dinner", time: "6:00 PM"},
             { event: "Start Wrapping Up", time: "7:00 PM" },
             { event: "End of Day 1", time: "8:00 PM" }
         ]
@@ -69,9 +75,14 @@
         title: "Sunday, September 28th",
         items: [
             { event: "Breakfast", time: "8:00 AM" },
-			{ event: "Activity 2", time: "9:00 AM"},
-            { event: "Demos!", time: "10:30 AM" },
-            { event: "Closing ceremony", time: "1:00 PM" }
+			{ event: "Mini Opening Ceremony + Progress Check", time: "9:00 AM"},
+			{ event: "Activity 2", time: "10:00 AM"},
+			{ event: "Lunch", time: "12:00 PM"},
+			{ event: "Workshop 3", time: "1:30 PM" },			
+			{ event: "Final Submission closes", time: "2:30 PM" },
+			{ event: "Demos!", time: "3:00 PM" },
+            { event: "Closing ceremony", time: "5:00 PM" },
+			{ event: "End of Daydream Atlanta", time: "6:00 PM"}
         ]
     }
 ];
@@ -845,7 +856,7 @@ Mumbai`.split("\n")
 			</h4>
 		</div>
 		
-		<ParticipantSignUp {signupLink} {eventName} />
+		<ParticipantSignUp closed {signupLink} {eventName} />
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->
@@ -1454,7 +1465,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 

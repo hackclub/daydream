@@ -19,6 +19,9 @@
 	const sponsorsEnabled = true; // Set to false to hide the entire sponsors section
 	let sponsors: Array<{tier: string, sponsors: Array<{name: string, logo: string, link: string}>}> = [];
 	let sponsorsLoading = true;
+
+	let daysOfTheWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+	let monthsOfTheYear = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 	
 	async function fetchSponsors() {
 		try {
@@ -33,19 +36,67 @@
 		}
 	}
 
-	let scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [];
+	interface ScheduleItem {
+		id: string;
+		title: string;
+		time: {
+			start: string;
+			end: string;
+		};
+		color: string;
+		tag: string | null;
+		track: string;
+	}
+
+	interface ScheduleResponse {
+		timezone: string;
+		event: {
+			title: string;
+			startTime: string;
+			endTime: string;
+			tracks: string[];
+		};
+		schedule: ScheduleItem[];
+	}
+
+	let scheduleData: ScheduleResponse | null = null;
 	let scheduleLoading = true;
 
 	async function fetchScheduleData() {
 		try {
-			const response = await fetch('https://raw.githubusercontent.com/Kaympe20/daydream-dc-config/refs/heads/main/schedule.json');
-			const data = await response.json();
+			const response = await fetch('https://serenidad.click/hacktime/getSchedule/4c89f6a1-467b-406e-b332-77328fe4cb09');
+			const data: ScheduleResponse = await response.json();
 			scheduleData = data;
 		} catch (error) {
 			console.error('Failed to fetch schedule:', error);
-			scheduleData= [];
+			scheduleData = null;
 		} finally {
 			scheduleLoading = false;
+		}
+	}
+
+	function formatTime(timeString: string, timezone: string): string {
+		try {
+			// fix thomas' broken code
+			const localTimeString = timeString.replace('Z', '');
+			const date = new Date(localTimeString);
+			
+			const formatter = new Intl.DateTimeFormat('en-US', {
+				hour: 'numeric',
+				minute: '2-digit',
+				hour12: true,
+				timeZone: timezone
+			});
+			
+			return formatter.format(date);
+		} catch (error) {
+			console.error('Error formatting time:', error);
+			// fallback
+			const localTimeString = timeString.replace('Z', '');
+			const date = new Date(localTimeString);
+			return String(date.getHours() % 12 || 12).padStart(2, '0') + ":" + 
+				String(date.getMinutes()).padStart(2, '0') + 
+				(date.getHours() >= 12 ? ' PM' : ' AM');
 		}
 	}
 
@@ -56,6 +107,7 @@
 	import Footer from "$lib/components/Footer.svelte";
 	import ParticipantSignUp from "$lib/components/ParticipantSignUp.svelte";
 	import { page } from '$app/stores';
+	import { isNoneTheme } from "shiki";
 	
 	
 	/** @type {import('./$types').PageData} */
@@ -952,26 +1004,23 @@ Mumbai`.split("\n")
 						<div class="flex justify-center items-center min-h-40">
                             <p class="text-lg text-[#335969]">Loading schedule...</p>
                         </div>
-					{:else}
-						{#each scheduleData as day, dayIndex}
-							<div class="bg-white/50 py-6 -mx-8 {dayIndex < scheduleData.length - 1 ? 'mb-8' : ''}">
-								<h3 class="text-2xl font-sans font-bold text-[#335969] mb-6 text-center px-8 max-sm:text-xl max-sm:px-4">
-									{day.title}
-								</h3>
-								
-								<div class="max-w-xl mx-auto px-4">
-									{#each day.items as item, index}
-										<div class="flex items-center justify-between py-2">
-											<span class="text-lg font-sans text-[#477783]">{item.event}</span>
-											<span class="text-lg font-sans text-[#477783]">{item.time}</span>
-										</div>
-										{#if index < day.items.length - 1}
-											<div class="h-[2px] bg-white/30"></div>
-										{/if}
-									{/each}
-								</div>
+					{:else if scheduleData}
+						<div class="bg-white/50 py-6 -mx-8">
+							<h3 class="text-2xl font-sans font-bold text-[#335969] mb-6 text-center px-8 max-sm:text-xl max-sm:px-4">
+								{daysOfTheWeek[new Date(scheduleData.schedule[scheduleData.schedule.length - 1].time.start).getDay()] + ", " + monthsOfTheYear[new Date(scheduleData.schedule[scheduleData.schedule.length - 1].time.start).getMonth()] + " " + new Date(scheduleData.schedule[scheduleData.schedule.length - 1].time.start).getDate() + ", " + new Date(scheduleData.schedule[scheduleData.schedule.length - 1].time.start).getFullYear()}
+							</h3>
+							<div class="max-w-xl mx-auto px-4">
+								{#each scheduleData!.schedule as item, itemIndex}
+									<div class="flex items-center justify-between py-2">
+										<span class="text-lg font-sans text-[#477783]">{item.title}</span>
+										<span class="text-lg font-sans text-[#477783]">{formatTime(item.time.start, scheduleData.timezone)}</span>
+									</div>
+									{#if itemIndex < scheduleData.schedule.length - 1}
+										<div class="h-[2px] bg-white/30"></div>
+									{/if}
+								{/each}
 							</div>
-						{/each}
+						</div>
 					{/if}
 				</div>
 			</div>
@@ -1469,7 +1518,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 

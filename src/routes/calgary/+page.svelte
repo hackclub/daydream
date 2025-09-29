@@ -68,15 +68,13 @@
 			items: [
 				{ event: 'Doors open', time: '9:00 AM' },
 				{ event: 'Opening ceremony', time: '9:20AM' },
+				{ event: 'Workshop 1', time: '10:00 AM' },
 				{ event: 'Lunch', time: '12:30 PM' },
-				{ event: 'Workshop 1', time: '1:00 PM' },
-				{ event: 'Break', time: '3:00 PM' },
-				{ event: 'End of Workshop 1', time: '3:00 PM' },
-				{ event: 'Continue working on Projects', time: '4:00 PM' },
 				{ event: 'Workshop 2', time: '4:00 PM' },
 				{ event: 'Dinner Time!', time: '6:00 PM' },
-				{ event: 'Fun Activities, Games, and Sharing your progress!', time: '7:30 PM' },
-				{ event: 'Goodbyes', time: '8:30 PM' }
+				{ event: 'Fun Activities and Games', time: '7:30 PM' },
+				{ event: 'Goodbyes', time: '8:30 PM' },
+				{ event: 'Doors Close', time: '9:00 PM' }
 			]
 		},
 		{
@@ -86,10 +84,11 @@
 				{ event: 'Opening talk', time: '9:20 AM' },
 				{ event: 'Lunch', time: '12:30 PM' },
 				{ event: 'Workshop 3', time: '2:00 PM' },
-				{ event: 'Submit Projects for Voting', time: '6:30 PM' },
-				{ event: 'Dinner & Voting!', time: '7:00 PM' },
+				{ event: 'Dinner', time: '6:30 PM' },
+				{ event: 'Peer Voting!', time: '7:30 PM' },
 				{ event: 'Ending Ceremony', time: '8:00 PM' },
-				{ event: 'Final Goodbyes', time: '8:30 PM' }
+				{ event: 'Final Goodbyes', time: '8:30 PM' },
+				{ event: 'Doors Close', time: '9:00 PM' }
 			]
 		}
 	];
@@ -1791,7 +1790,7 @@ Mumbai`.split('\n');
 					Who can participate in Daydream?
 				</h3>
 				<p class="text-sm">
-					All high-school & upper-middle-school aged students are welcome to come!
+					All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong>
 				</p>
 			</div>
 		</div>

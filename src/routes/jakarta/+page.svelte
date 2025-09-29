@@ -9,9 +9,9 @@
 	// Configuration - Put your information here!
 	const eventName = 'Jakarta';
 	const eventLocation = 'Jakarta';
-	const eventAddress = ''; // Leave this empty if you don't want an address
+	const eventAddress = 'Jl. Rawa Domba No.47A, RT.2/RW.16, Duren Sawit, Kec. Duren Sawit, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13440'; // Leave this empty if you don't want an address
 	// These two are optional
-	const directionsURL = '';
+	const directionsURL = 'https://maps.app.goo.gl/SgC51SrSVBLPAojb9';
 	const contactLink = 'jakarta@daydream.hackclub.com';
 
 	// Fillout Block Notice
@@ -27,7 +27,7 @@
 				'Bergabunglah dengan Daydream di Jakarta! Game jam yang dipimpin remaja di mana kamu akan membuat game luar biasa bersama siswa remaja lainnya. Makanan, workshop, dan hadiah sudah termasuk!',
 			keywords:
 				'game jam, hackathon, coding remaja, Hack Club, pengembangan game, Jakarta, Daydream Jakarta',
-			date: '27 & 28 September 2025',
+			date: '27 September 2025',
 			subtitle: 'Lomba Game Jam untuk siswa!',
 			organizedBy: 'Diselenggarakan oleh Remaja di',
 			getStickers: 'Dapatkan stiker gratis',
@@ -46,8 +46,8 @@
 			withLove: 'Dengan cinta,',
 			fromHq: 'Augie dan Renran dari Hack Club HQ',
 			schedule: 'Jadwal',
-			sponsors: 'Sponsors',
-			communityPartners: 'Media Partners',
+			sponsors: 'Sponsor',
+			communityPartners: 'Media Partner',
 			wantToSponsor: 'Ingin mensponsori Daydream Jakarta?',
 			getInTouch: 'Hubungi kami',
 			howToWin: 'Begini Cara Anda Menang',
@@ -90,20 +90,18 @@
 				'GAME apa saja berdasarkan tema! Platformer, visual novel, clicker game, dll. Jadilah se-kreatif mungkin!',
 			// Schedule translations
 			saturdayTitle: 'Sabtu, 27 September',
-			sundayTitle: 'Minggu, 28 September',
-			doorsOpen: 'Pintu Dibuka',
-			openingCeremony: 'Opening Ceremony',
-			lunch: 'Makan Siang',
-			startWorking: 'Start working on your project!',
-			workshop1: 'Workshop 1',
+			doorsOpen: 'Pintu dibuka',
+			openingCeremony: 'Opening ceremony',
+			lunch: 'Makan siang',
+			workshop1: 'Workshop Godot!',
 			activity1: 'Aktivitas 1',
 			workshop2: 'Workshop 2',
-			dinner: 'Makan Malam',
-			lightningTalks: 'Lightning Talks',
-			midnightSurprise: 'Midnight Surprise',
-			breakfast: 'Sarapan',
-			demos: 'Demo!',
-			closingCeremony: 'Closing Ceremony'
+			dinner: 'Makan malam',
+			codingEndsAndVoting: 'Coding berakhir dan voting!',
+			closingCeremony: 'Closing ceremony',
+			happening: "Akan Berlangsung",
+			clickForDirections: 'Klik untuk petunjuk arah',
+			startCoding: 'Mulai coding!'
 		},
 		en: {
 			title: 'Daydream Jakarta - Game Jam for High Schoolers',
@@ -111,7 +109,7 @@
 				"Join Daydream in Jakarta! A teen-led game jam where you'll build amazing games with other high schoolers. Food, workshops, and prizes included!",
 			keywords:
 				'game jam, hackathon, teen coding, Hack Club, game development, Jakarta, Daydream Jakarta',
-			date: 'September 27th & 28th, 2025',
+			date: 'September 27th, 2025',
 			subtitle: 'Game jam for high schoolers',
 			organizedBy: 'Organized by Teenagers in',
 			getStickers: 'Get free stickers',
@@ -154,7 +152,7 @@
 			dreamIdea: 'Dream an idea for me',
 			faq: 'FAQ',
 			whoCanParticipate: 'Who can participate in Daydream?',
-			allStudents: 'All high-school & upper-middle-school aged students are welcome to come!',
+			allStudents: 'All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong>',
 			forFree: 'All this, for free?',
 			yep: 'Yep! Food, swag and good vibes are all included.',
 			whatDoINeed: 'What do I need?',
@@ -173,20 +171,16 @@
 				'ANY type of game based on the theme! Platformer, visual novel, clicker game, etc. Be as creative as possible!',
 			// Schedule translations
 			saturdayTitle: 'Saturday, September 27th',
-			sundayTitle: 'Sunday, September 28th',
 			doorsOpen: 'Doors open',
 			openingCeremony: 'Opening ceremony',
 			lunch: 'Lunch',
-			startWorking: 'Start working on your project!',
-			workshop1: 'Workshop 1',
-			activity1: 'Activity 1',
-			workshop2: 'Workshop 2',
+			workshop1: 'Godot Workshop',
 			dinner: 'Dinner',
-			lightningTalks: 'Lightning talks',
-			midnightSurprise: 'Midnight surprise',
-			breakfast: 'Breakfast',
-			demos: 'Demos!',
-			closingCeremony: 'Closing ceremony'
+			codingEndsAndVoting: 'Coding ends and voting!',
+			closingCeremony: 'Closing ceremony',
+			happening: 'Happening',
+			clickForDirections: 'Click for directions',
+			startCoding: 'Start working on your project!'
 		}
 	};
 
@@ -212,10 +206,15 @@
 			name: 'Web Programming UNPAS',
 			url: 'https://discord.gg/wpu'
 		},
-        {
+		{
 			image: '/jakarta/partners/logo%20info%20lomba%20IT.png',
 			name: 'Info Lomba IT',
 			url: 'https://www.infolombait.com/'
+		},
+		{
+			image: '/jakarta/partners/ojt-creative.png',
+			name: 'OJT Creative',
+			url: 'https://www.instagram.com/ojt_creative/'
 		}
 	];
 
@@ -224,24 +223,14 @@
 		{
 			title: t.saturdayTitle,
 			items: [
-				{ event: t.doorsOpen, time: '11:00 AM' },
-				{ event: t.openingCeremony, time: '12:00 PM' },
-				{ event: t.lunch, time: '12:30 PM' },
-				{ event: t.startWorking, time: '1:00 PM' },
-				{ event: t.workshop1, time: '2:00 PM' },
-				{ event: t.activity1, time: '4:00 PM' },
-				{ event: t.workshop2, time: '4:00 PM' },
-				{ event: t.dinner, time: '6:00 PM' },
-				{ event: t.lightningTalks, time: '8:00 PM' },
-				{ event: t.midnightSurprise, time: '12:00 AM' }
-			]
-		},
-		{
-			title: t.sundayTitle,
-			items: [
-				{ event: t.breakfast, time: '8:00 AM' },
-				{ event: t.demos, time: '10:30 AM' },
-				{ event: t.closingCeremony, time: '12:00 PM' }
+				{ event: t.doorsOpen, time: '7:00 AM' },
+				{ event: t.openingCeremony, time: '9:00 AM' },
+				{ event: t.startCoding, time: '10:00 AM' },
+				{ event: t.workshop1, time: '11:00 AM' },
+				{ event: t.lunch, time: '12:30 PM' },			
+				{ event: t.dinner, time: '5:30 PM' },
+				{ event: t.codingEndsAndVoting, time: '7:00 PM' },
+				{ event: t.closingCeremony, time: '7:30 PM' }
 			]
 		}
 	];
@@ -251,7 +240,6 @@
 	import { ScrollTrigger } from 'gsap/ScrollTrigger';
 	import Ticker from '$lib/components/Ticker.svelte';
 	import Footer from '$lib/components/Footer.svelte';
-	import ParticipantSignUp from '$lib/components/ParticipantSignUp.svelte';
 	import { page } from '$app/stores';
 	import { toast, Toaster } from 'svelte-sonner';
 
@@ -1103,6 +1091,36 @@ Mumbai`.split('\n');
 				</form>
 			</div>
 		</div>
+
+		{#if eventAddress}
+			<!-- Address Box - Prominent display -->
+			<div
+				class="mt-8 bg-white/80 backdrop-blur-sm border-4 border-[#487DAB] rounded-2xl px-8 py-6 max-w-2xl mx-4 shadow-lg relative z-30"
+			>
+				<div class="text-center">
+					<h3 class="text-2xl font-serif font-bold text-[#487DAB] mb-3 max-sm:text-xl">
+						{t.happening} @ SAJENAK
+					</h3>
+					{#if directionsURL}
+						<a
+							href={directionsURL}
+							class="block text-xl font-sans text-[#60574b] hover:text-[#487DAB] transition-colors underline decoration-2 underline-offset-4 max-sm:text-lg"
+							target="_blank"
+							rel="noopener noreferrer"
+						>
+							{eventAddress}
+						</a>
+					{:else}
+						<p class="text-xl font-sans text-[#60574b] max-sm:text-lg">
+							{eventAddress}
+						</p>
+					{/if}
+					{#if directionsURL}
+						<p class="text-sm text-[#60574b]/70 mt-2 font-sans">{t.clickForDirections}⤴︎</p>
+					{/if}
+				</div>
+			</div>
+		{/if}
 	</div>
 
 	<!-- <img src="hot-air-balloon.png" alt="" class="absolute w-1/8 right-32 bottom-40 z-20"> -->

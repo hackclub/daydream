@@ -130,7 +130,7 @@
 			// FAQ
 			faqItems: {
 				q1: "Who can participate in Daydream?",
-				a1: "All high-school & upper-middle-school aged students are welcome to come!",
+				a1: "All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong>",
 				q2: "Can I organize a Daydream in my city?",
 				a2: "Definitely! Contact us via daydream@hackclub.com or join #daydream on slack.",
 				q3: "All this, for free?",

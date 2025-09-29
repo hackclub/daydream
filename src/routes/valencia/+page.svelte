@@ -25,10 +25,9 @@
 			items: [
 				{ event: "Apertura de puertas", time: "8:00 AM" },
 				{ event: "Ceremonia de apertura", time: "9:00 AM" },
-				{ event: "¡Comienza a trabajar en tu proyecto!", time: "9:30 AM" },
+				{ event: "Workshop - Jumpstart", time: "9:30 AM" },
+				{ event: "Workshop - Kaplay", time: "10:00 AM" },
 				{ event: "Comida", time: "12:30 PM" },
-				{ event: "Workshop 1", time: "2:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
 				{ event: "Despedida", time: "6:00 PM" },
 				{ event: "Cierre del día", time: "6:30 PM" }
 			]
@@ -39,7 +38,6 @@
 				{ event: "Apertura de puertas", time: "8:00 AM" },
 				{ event: "¡Último día para trabajar en tu proyecto!", time: "9:00 AM" },
 				{ event: "Comida", time: "12:30 PM" },
-				{ event: "Workshop 3", time: "2:00 PM" },
 				{ event: "Guía: Cómo subir tu juego", time: "3:00 PM" },
 				{ event: "Cierre de la entrega de proyectos", time: "5:00 PM" },
 				{ event: "Votaciones", time: "5:00 PM" },

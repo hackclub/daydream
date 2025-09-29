@@ -7,13 +7,12 @@
 	 */
 
 	// Configuration - Put your information here!
-	const eventName = "Chitungwiza"; // This should be the name of your event WITHOUT "Daydream" at the start
+	const eventName = "Chitungwiza"; 
 	const eventLocation = "Chitungwiza";
-	const eventAddress = ""; // Leave this empty if you don't want an address
-	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recMLlwG4xNrWCcfm"; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
-	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = ""
-	const contactLink = "" // "mailto:example@daydream.hackclub.com"
+	const eventAddress = "Passion Of Christ, 3rd Church From Seke 1 High"; // Leave this empty if you don't want an address
+	const signupLink = "https://forms.hackclub.com/daydream-sign-up?event=recMLlwG4xNrWCcfm"; 
+	const directionsURL = "https://maps.app.goo.gl/VZJMahzFqcTfvGvr6"
+	const contactLink = "mailto:chitungwiza@daydream.hackclub.com"
 	
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
 	const sponsorsEnabled = false; // Set to false to hide the entire sponsors section
@@ -27,32 +26,38 @@
 		{ image: "/example/logo7.png", name: "Sponsor 7", url: "https://example7.com" }
 	];
 	
-	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
-		{
-			title: "Saturday, September 27th",
-			items: [
-				{ event: "Doors open", time: "11:00 AM" },
-				{ event: "Opening ceremony", time: "12:00 PM" },
-				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Start working on your project!", time: "1:00 PM" },
-				{ event: "Workshop 1", time: "2:00 PM" },
-				{ event: "Activity 1", time: "4:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
-				{ event: "Dinner", time: "6:00 PM" },
-				// { event: "Lightning talks", time: "8:00 PM" },
-				// { event: "Midnight surprise", time: "12:00 AM" }
-			]
-		},
-		{
-			title: "Sunday, September 28th",
-			items: [
-				{ event: "Breakfast", time: "8:00 AM" },
-				{ event: "Demos!", time: "10:30 AM" },
-				{ event: "Closing ceremony", time: "12:00 PM" }
-			]
-		}
-	];
+  {
+    title: "Saturday, September 27th",
+    items: [
+      { event: "Doors Opened", time: "09:00 AM" },
+      { event: "Opening Ceremony", time: "10:00 AM" },
+      { event: "Breakfast", time: "11:00 AM" },
+      { event: "Introduction to Game Development", time: "12:00 PM" },
+      { event: "GODOT Workshop", time: "12:30 PM" },
+      { event: "Lunch", time: "01:30 PM" },
+      { event: "RENPY Workshop", time: "02:00 PM" },
+      { event: "Team Assignment", time: "03:30 PM" },
+      { event: "Project Announcement", time: "03:45 PM" }
+    ]
+  },
+  {
+    title: "Sunday, September 28th",
+    items: [
+      { event: "Coding Begins", time: "09:00 AM" },
+      { event: "Chess Break Or More Coding", time: "10:00 AM" },
+      { event: "Breakfast", time: "11:00 AM" },
+      { event: "Coding Continues", time: "12:00 PM" },
+      { event: "Submission", time: "01:00 PM" },
+      { event: "Lunch + Karaoke", time: "02:30 PM" },
+      { event: "Demonstration & Voting", time: "03:00 PM" },
+      { event: "Closing Ceremony", time: "04:00 PM" }
+    ]
+  }
+];
+
+
+
 
 	
 	import { page } from '$app/stores';
@@ -1461,7 +1466,7 @@ Mumbai`.split("\n")
 			<img src="window-3.png" alt="window" class="w-full h-full object-contain max-md:scale-130 max-xl:scale-110 max-lg:scale-115">
 			<div class="absolute top-20 left-12 right-12 bottom-16 flex flex-col items-center justify-center text-center px-24 opacity-70 max-[900px]:mx-[15vw] max-sm:mx-0 max-sm:px-5 max-lg:px-14 max-xl:px-18">
 				<h3 class="text-xl font-serif font-bold mb-4 max-lg:mb-0 max-md:text-base">Who can participate in Daydream?</h3>
-				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come!</p>
+				<p class="text-sm">All high-school & upper-middle-school aged students are welcome to come! <strong>You must be over 12 or under 19 to participate.</strong></p>
 		</div>
 		</div>
 
