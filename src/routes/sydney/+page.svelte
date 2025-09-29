@@ -22,7 +22,7 @@
 		{ image: "/sydney/emu.png", name: "Emu Robotics", url: "https://first.unsw.edu.au/" },
 		{ image: "/sydney/SparkCubing.png", name: "Spark Cubing", url: "https://sparkcubing.com.au" },
 		{ image: "/sydney/SparkEdu.png", name: "Spark Education", url: "https://www.sparkedu.com/en-us" },
-		{ image: "/sydney/tinkertank.png", name: "TinkerTank", url: "https://www.tinkertank.rocks/" },
+		{ image: "/sydney/tinkertank.png", name: "TinkerTank", url: "https://www.tinkertank.rocks" },
 		{ image: "/sydney/xyz.png", name: ".xyz", url: "https://gen.xyz" },
 		{ image: "/sydney/jlcpcb.png", name: "jlcpcb", url: "https://jlcpcb.com/" },
 		{ image: "/sydney/oshw.png", name: "oshw", url: "https://oshwlab.com/" },
