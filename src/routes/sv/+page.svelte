@@ -57,14 +57,14 @@
 			title: 'Saturday, September 27th',
 			items: [
 				{ event: 'Doors open', time: '10:00 AM' },
-				{ event: 'Opening ceremony', time: '11:00 AM' },
+				{ event: 'Opening ceremony', time: '10:20 AM' },
 				{ event: 'Lunch', time: '12:30 PM' },
 				{ event: 'Start working on your project!', time: '1:00 PM' },
 				{ event: 'Workshop 1', time: '2:00 PM' },
 				{ event: 'Activity 1', time: '4:00 PM' },
 				{ event: 'Workshop 2', time: '4:00 PM' },
 				{ event: 'Dinner', time: '6:00 PM' },
-				{ event: 'Go home :(', time: '7:30 PM' }
+				{ event: 'Go home :(', time: '10:00 PM' }
 			]
 		},
 		{
@@ -74,7 +74,7 @@
 				{ event: 'Lunch', time: '12:30 PM' },
 				{ event: 'Activity 2', time: '2:00 PM' },
 				{ event: 'Demos!', time: '4:30 PM' },
-				{ event: 'Closing ceremony', time: '5:00 PM' }
+				{ event: 'Closing ceremony', time: '6:00 PM' }
 			]
 		}
 	];
@@ -884,7 +884,7 @@ Mumbai`.split('\n');
 			<h4
 				class="text-l opacity-90 mt-1 font-serif bg-gradient-to-b from-[#6398c6] to-[#5b8bb6] bg-clip-text text-transparent min-sm:text-xl"
 			>
-				Co-hosted by YRI
+				Co-hosted by YRI Fellowship
 			</h4>
 		</div>
 

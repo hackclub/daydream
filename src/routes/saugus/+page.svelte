@@ -25,22 +25,33 @@
                 class="underline hover:text-[#477783] transition-colors">
                custom stickers</a>!
            </p>`		},
+		{ image: "/saugus/BGD_fulltext_left_png.webp", name: "BGD", url: "https://bostongamedev.org/",
+			text: `<p class="text-lg text-[#335969] text-center">
+             Huge thanks to Boston Game Dev!
+           </p>`		},
 	];
+
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
 		{
 			title: "Sunday, September 28th",
 			items: [
 				{ event: "Doors open", time: "8:00 AM" },
-				{ event: "Opening ceremony", time: "9:00 AM" },
-				{ event: "Start working on your project!", time: "1:00 PM" },
-				{ event: "Workshop 1", time: "10:00 AM" },
-				{ event: "Lunch", time: "12:30 PM" },
+				{ event: "Opening Ceremony", time: "8:30 AM" },
+				{ event: "Setup Workshop — Start Working!", time: "9:00 AM" },
+				{ event: "Workshop 1 — Game Dev with JS", time: "10:00 AM" },
+				{ event: "Workshop 2 — Platformers with Godot", time: "10:30 AM" },
+				{ event: "Workshop 3 — Visual Novels with Ren'Py", time: "11:00 AM" },
+				{ event: "Surprise???", time: "12:30 PM" },
+				{ event: "Lunch", time: "1:00 PM" },
 				{ event: "Late-start Introduction", time: "1:30 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
+				{ event: "Setup Workshop 2", time: "2:00 PM" },
+				{ event: "Late Workshop 1 — Game Dev with JS", time: "2:30 PM" },
+				{ event: "Late Workshop 2 — Platformers with Godot", time: "3:00 PM" },
+				{ event: "Late Workshop 3 — Visual Novels with Ren'Py", time: "3:30 PM" },
 				{ event: "Dinner", time: "6:30 PM" },
 				{ event: "Voting", time: "7:00 PM" },
-				{ event: "Closing", time: "7:00 PM" },
+				{ event: "Closing Ceremony", time: "7:30 PM" },
 				{ event: "Dismissal", time: "8:00 PM" },
 			]
 		}
@@ -810,7 +821,7 @@ Mumbai`.split("\n")
 			<h2
 			class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
 			>
-				September 27th & 28th, 2025
+				September 27th, 2025
 			</h2>
 			<img src="daydream.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
 			<a href="https://hackclub.com" class="absolute top-0 -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
@@ -833,11 +844,6 @@ Mumbai`.split("\n")
 			>
 				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
 			</h4>
-			<h5
-				class="text-xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
-			>
-				<a href="https://www.jukeboxprint.com/custom-stickers">Custom Stickers</a> provided by Jukebox!
-			</h5>
 		</div>
 		
 		<ParticipantSignUp {signupLink} {eventName} />
@@ -1032,6 +1038,9 @@ Mumbai`.split("\n")
 									<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
 										<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
 									</a>
+									<div class="mt-2 text-center text-sm">
+										{@html sponsor.text}
+									</div>
 								{/each}
 							</div>
 							
@@ -1045,6 +1054,9 @@ Mumbai`.split("\n")
 												target="_blank" rel="noopener noreferrer">
 												<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
 											</a>
+											<div class="mt-2 text-center text-sm">
+												{@html sponsor.text}
+											</div>
 										{/each}
 									</div>
 								</div>
@@ -1057,6 +1069,9 @@ Mumbai`.split("\n")
 										<a href={sponsor.url} class="bg-white/20 rounded-lg p-4 w-full h-20 flex items-center justify-center hover:bg-white/40 transition-colors" target="_blank" rel="noopener noreferrer">
 											<img src={sponsor.image} alt={sponsor.name} class="max-w-full max-h-full object-contain">
 										</a>
+										<div class="mt-2 text-center text-sm">
+											{@html sponsor.text}
+										</div>
 									{/each}
 								</div>
 							</div>

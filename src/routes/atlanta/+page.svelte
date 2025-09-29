@@ -9,7 +9,7 @@
 	// Configuration - Put your information here!
 	const eventName = "Atlanta";
 	const eventLocation = "Georgia Tech";
-	const eventAddress = ""; // Leave this empty if you don't want an address
+	const eventAddress = "777 Atlantic Dr NW, Atlanta, GA"; // Leave this empty if you don't want an address
 	// These two are optional
 	const directionsURL = ""
 	const contactLink = "mailto:atlanta@daydream.hackclub.com"
@@ -27,8 +27,12 @@
            </p>`		},
 		{ image: "/atlanta/WCT.png", name: "We Create Tech", url: "https://www.wecreatetech.org/" },
 		{ image: "/atlanta/gtsbe.png", name: "National Society of Black Engineers at Georgia Tech", url: "https://www.gtsbe.org/"},
-		{ image: "/atlanta/WIT.png", name: "Women In Tech", url: "https://mywit.org/programs/wit-campus/"}
+		{ image: "/atlanta/WIT.png", name: "Women In Tech", url: "https://mywit.org/programs/wit-campus/"},
+		{ image: "/atlanta/EK.png", name: "Exploding Kittens", url: "https://www.explodingkittens.com/", text: `<p class="text-lg text-[#335969] text-center"> Thank you Exploding Kittens for providing us with branded prizes!  </p>`}, 
+		{ image: "/atlanta/VMotiv8.png", name: "VMotiv8", url: "https://vmotiv8.com/", text: `<p class="text-lg text-[#335969] text-center"> Complete academic coverage from Middle School through Graduate School prep. Covering every pathway to success. </p>`},
+		{ image: "/atlanta/YRI.png", name: "YRI Fellowship", url: "https://www.yriscience.com/", text: `<p class="text-lg text-[#335969] text-center"> Honorable Mentorship program to publish credited research papers. Join the interest list here!</p>`}
 	];
+
 	
 	
 	import { onMount } from "svelte";
@@ -49,18 +53,20 @@
 	$: pageDescription = `Join Daydream ${eventName} in ${eventLocation}! A teen-led game jam where you'll build amazing games with other high schoolers. Food, workshops, and prizes included!`;
 	$: pageKeywords = `game jam, hackathon, teen coding, Hack Club, game development, ${eventLocation}, ${eventName}`;
 
-	// schedule not final
+	// schedule
 	const scheduleData = [
     {
         title: "Saturday, September 27th",
         items: [
-            { event: "Doors open", time: "8:00 AM" },
+            { event: "Doors open  + Breakfast", time: "8:00 AM" },
             { event: "Opening ceremony", time: "9:00 AM" },
-            { event: "Start Working on Your Project + Breakfast", time: "10:00 AM" },
-            { event: "Workshop 1", time: "10:30 AM" },
-            { event: "Activity 1", time: "12:00 PM" },
-            { event: "Progress Check", time: "4:00 PM" },
-            { event: "Workshop 2", time: "5:00 PM" },			
+            { event: "Start Working on Your Project", time: "10:00 AM" },
+            { event: "Workshop 1", time: "10:00 AM" },
+			{ event: "Lunch", time: "12:00 PM"},
+			{ event: "Progress Check", time: "2:00 PM" },
+            { event: "Workshop 2", time: "4:00 PM" },
+			{ event: "Activity 1", time: "5:00 PM" },
+			{ event: "Dinner", time: "6:00 PM"},
             { event: "Start Wrapping Up", time: "7:00 PM" },
             { event: "End of Day 1", time: "8:00 PM" }
         ]
@@ -69,11 +75,14 @@
         title: "Sunday, September 28th",
         items: [
             { event: "Breakfast", time: "8:00 AM" },
-			{ event: "Activity 2", time: "9:00 AM"},
-            { event: "Demos!", time: "2:30 PM" },
-			{ event: "Workshop 3", time: "3:00 PM" },
-			{ event: "Final Submission closes", time: "4:30 PM" },
-            { event: "Closing ceremony", time: "5:00 PM" }
+			{ event: "Mini Opening Ceremony + Progress Check", time: "9:00 AM"},
+			{ event: "Activity 2", time: "10:00 AM"},
+			{ event: "Lunch", time: "12:00 PM"},
+			{ event: "Workshop 3", time: "1:30 PM" },			
+			{ event: "Final Submission closes", time: "2:30 PM" },
+			{ event: "Demos!", time: "3:00 PM" },
+            { event: "Closing ceremony", time: "5:00 PM" },
+			{ event: "End of Daydream Atlanta", time: "6:00 PM"}
         ]
     }
 ];

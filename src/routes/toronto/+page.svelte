@@ -24,32 +24,46 @@
 		{ image: "/toronto/shopify.png", name: "Shopify", url: "https://www.shopify.com/ca" },
 		{ image: "/toronto/jukebox.png", name: "Jukebox", url: "https://www.jukeboxprint.com/" },
 		{ image: "/toronto/tailed.png", name: "Tailed", url: "https://tailed.ca/" },
+		{ image: "/toronto/keybay.png", name: "Keybay", url: "https://keybay.tech/" },
 	];
 	
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
-	const scheduleEnable = false; //added temporarily because we dont have a schedule yet
+	const scheduleEnable = true; //added temporarily because we dont have a schedule yet
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
 		{
 			title: "Saturday, September 27th",
 			items: [
-				{ event: "Doors open", time: "11:00 AM" },
-				{ event: "Opening ceremony", time: "12:00 PM" },
-				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Start working on your project!", time: "1:00 PM" },
-				{ event: "Workshop 1", time: "2:00 PM" },
-				{ event: "Activity 1", time: "4:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
-				{ event: "Dinner", time: "6:00 PM" },
-				{ event: "Lightning talks", time: "8:00 PM" },
-				{ event: "Midnight surprise", time: "12:00 AM" }
+				{ event: "Doors open", time: "07:45 AM" },
+				{ event: "Icebreakers", time: "8:00-8:45 AM" },
+				{ event: "Opening Ceremony", time: "9:00-9:45 AM" },
+				{ event: "Godot Workshop", time: "10:15 AM - 12:15 PM" },
+				{ event: "Lunch", time: "12:45-1:45 PM" },
+				{ event: "Ren'py Workshop", time: "2:00-3:00 PM" },
+				{ event: "Hackathon Hosting 101 With Hack Canada", time: "3:00-3:30 PM" },
+				{ event: "Typing Contest", time: "4:00-4:15 PM" },
+				{ event: "Project Pitch and Dinner", time: "6:00-7:00 PM" },
+				{ event: "Just Dance", time: "6:45-7:30 PM" },
+				{ event: "Semi-Closing", time: "7:35-7:45 PM" },
 			]
 		},
 		{
 			title: "Sunday, September 28th",
 			items: [
-				{ event: "Breakfast", time: "8:00 AM" },
-				{ event: "Demos!", time: "10:30 AM" },
-				{ event: "Closing ceremony", time: "12:00 PM" }
+				{ event: "Quick Opening", time: "8:00-8:30 AM" },
+				{ event: "Breakfast", time: "9:00-10:00 AM" },
+				{ event: "Hackercard Workshop", time: "10:00-11:00 AM" },
+				{ event: "Mario Kart", time: "11:00-11:45 AM" },
+				{ event: "Art Workshop", time: "1:00-1:30 PM" },
+				{ event: "Lunch", time: "1:00-2:00 PM" },
+				{ event: "Shopify Dev Degree Panel", time: "2:00-2:30 PM" },
+				{ event: "Karaoke", time: "2:30-3:30 PM" },
+				{ event: "Submission (LOCK IN)", time: "3:30-5:30 PM" },
+				{ event: "Talent Show", time: "4:30-5:30 PM" },
+				{ event: "Dinner", time: "5:00-6:00 PM" },
+				{ event: "Project Demo/Showcase", time: "6:00-6:45 PM" },
+				{ event: "Voting", time: "6:45-7:00 PM" },
+				{ event: "Closing Ceremony", time: "7:00-7:45 PM" },
+				{ event: "EVERYONE GET OUT", time: "7:45-8:00 PM" }
 			]
 		}
 	];
