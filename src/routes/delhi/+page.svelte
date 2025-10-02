@@ -27,7 +27,7 @@
 		{
 			title: "Saturday, October 4th",
 			items: [
-				{ event: "Doors open", time: "8:00 AM" },
+				{ event: "Doors open", time: "9:00 AM" },
 				{ event: "Opening ceremony", time: "8:30 AM" },
 				{ event: "Snacks", time: "9:30 AM" },
 				{ event: "Godot Workshop", time: "10:00 AM" },
