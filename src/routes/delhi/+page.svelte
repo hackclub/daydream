@@ -28,13 +28,13 @@
 			title: "Saturday, October 4th",
 			items: [
 				{ event: "Doors open", time: "9:00 AM" },
-				{ event: "Opening ceremony", time: "8:30 AM" },
-				{ event: "Snacks", time: "9:30 AM" },
+				{ event: "Opening ceremony", time: "9:30 am" },
+				{ event: "Scaler + stacks introduction ", time: "10:00 AM" },
 				{ event: "Godot Workshop", time: "10:00 AM" },
-				{ event: "Ren'Py Workshop", time: "11:00 AM" },
+				{ event: "Tech Session 1", time: "11:00 AM" },
+				{ event: "Ren'py workshop", time: "11:40 PM" },
 				{ event: "Lunch", time: "1:00 PM" },
-				{ event: "Sponsor Session", time: "3:00 PM" },
-				{ event: "Snacks", time: "4:00 PM" },
+				{ event: "Scaler brief + gratefullness", time: "3:00 PM" },
 				{ event: "Lightning talks", time: "5:00 PM" },
 				{ event: "Dinner", time: "6:30 PM" },
 				{ event: "Day 1 Wrap-up", time: "7:45 PM" }
