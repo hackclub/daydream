@@ -29,7 +29,7 @@
 	// Schedule Configuration - You don't need to use this schedule, this is just an example!
 	const scheduleData = [
 		{
-			title: 'Saturday, September 27th',
+			title: 'Sunday, October 12th',
 			items: [
 				{ event: 'Doors open', time: '08:00 AM' },
 				{ event: 'Opening ceremony', time: '09:00 AM' },
@@ -38,20 +38,6 @@
 				{ event: 'Workshop 2', time: '10:00 AM' },
 				{ event: 'Lunch', time: '01:00 PM' },
 				{ event: 'Activity 1', time: '3:00 PM' },
-				{ event: 'Wrap up', time: '06:00 PM' }
-			]
-		},
-		{
-			title: 'Sunday, September 28th',
-			items: [
-				{ event: 'Doors open', time: '08:00 AM' },
-				{ event: 'Start working on your project!', time: '8:30 AM' },
-				{ event: 'Activity 1', time: '11:00 AM' },
-				{ event: 'Lunch', time: '01:00 PM' },
-				{ event: 'Hackathon Ends', time: '02:45 PM' },
-				{ event: 'Demos Start', time: '03:00 PM' },
-				{ event: 'Voting Begins', time: '04:30 PM' },
-				{ event: 'Closing Ceremony', time: '05:00 PM' },
 				{ event: 'Wrap up', time: '06:00 PM' }
 			]
 		}
@@ -829,7 +815,7 @@ Mumbai`.split('\n');
 			<h2
 				class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
 			>
-				September 27th & 28th, 2025
+				October 12th, 2025
 			</h2>
 			<img
 				src="daydream.png"
