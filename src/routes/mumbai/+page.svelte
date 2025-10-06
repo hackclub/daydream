@@ -28,20 +28,23 @@
 
 	// Schedule Configuration - You don't need to use this schedule, this is just an example!
 	const scheduleData = [
-		{
-			title: 'Sunday, October 12th',
-			items: [
-				{ event: 'Doors open', time: '08:00 AM' },
-				{ event: 'Opening ceremony', time: '09:00 AM' },
-				{ event: 'Start working on your project!', time: '9:30 AM' },
-				{ event: 'Workshop 1', time: '10:00 AM' },
-				{ event: 'Workshop 2', time: '10:00 AM' },
-				{ event: 'Lunch', time: '01:00 PM' },
-				{ event: 'Activity 1', time: '3:00 PM' },
-				{ event: 'Wrap up', time: '06:00 PM' }
-			]
-		}
-	];
+{
+	title: 'Sunday, October 12th',
+	items: [
+		{ event: 'Doors open', time: '08:00 AM' },
+		{ event: 'Opening ceremony', time: '08:15 AM' },
+		{ event: 'Breakfast', time: '08:30 AM' },
+		{ event: 'Start working on your project!', time: '09:00 AM' },
+		{ event: 'Workshop 1', time: '09:30 AM' },
+		{ event: 'Workshop 2', time: '11:30 AM' },
+		{ event: 'Lunch', time: '01:00 PM' },
+		{ event: 'Activity', time: '02:30 PM' },
+		{ event: 'Wrap up', time: '06:30 PM' },
+		{ event: 'Awards ceremony and prizes', time: '07:15 PM' },
+		{ event: 'Doors close', time: '08:00 PM' }
+	]
+}
+
 
 	import { onMount } from 'svelte';
 	import { gsap } from 'gsap';
