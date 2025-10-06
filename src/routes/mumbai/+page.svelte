@@ -9,10 +9,10 @@
 	// Configuration - Put your information here!
 	const eventName = 'Mumbai'; // This should be the name of your event WITHOUT "Daydream" at the start
 	const eventLocation = 'Mumbai';
-	const eventAddress = ''; // Leave this empty if you don't want an address
+	const eventAddress = 'MCMCR Powai; B-Wing, 5th floor, near Union Bank of India, New Mhada Colony, Savarkar Nagar, Powai, Mumbai, Maharashtra 400072'; // Leave this empty if you don't want an address
 	const signupLink = 'https://forms.hackclub.com/daydream-sign-up?event=recIumHrJyUybveWI'; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = '';
+	const directionsURL = 'https://maps.app.goo.gl/ug3QBBieFgx8eds78';
 	const contactLink = '';
 
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
