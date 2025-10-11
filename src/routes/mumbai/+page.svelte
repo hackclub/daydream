@@ -31,14 +31,19 @@
 		{
 			title: 'Sunday, October 12th',
 			items: [
-				{ event: 'Doors open', time: '08:00 AM' },
-				{ event: 'Opening ceremony', time: '09:00 AM' },
-				{ event: 'Start working on your project!', time: '9:30 AM' },
-				{ event: 'Workshop 1', time: '10:00 AM' },
-				{ event: 'Workshop 2', time: '10:00 AM' },
+				{ event: 'Doors open & Sign In', time: '08:00 AM' },
+				{ event: 'Opening ceremony', time: '8:15 AM' },
+				{ event: 'Breakfast', time: '8:30 AM' },
+				{ event: 'Make teams & start working', time: '9:00 AM' },
+				{ event: 'Workshop 1 (introduction to Godot)', time: '09:15 AM' },
+				{ event: 'Workshop 2 (storyboard; visual novel, ren'py)', time: '10:30 AM' },
+				{ event: 'Activity 1 (karaoke)', time: '11:00 AM' },
 				{ event: 'Lunch', time: '01:00 PM' },
-				{ event: 'Activity 1', time: '3:00 PM' },
-				{ event: 'Wrap up', time: '06:00 PM' }
+				{ event: 'Activity 2 (speedcubing contest)', time: '2:00 PM' },
+				{ event: 'Wrap up, submission', time: '6:45 PM' }
+				{ event: 'Award Ceremony!', time: '07:15 PM' }
+				{ event: 'Dinner', time: '07:30 PM' }
+				{ event: 'Doors close', time: '8:00 PM' }
 			]
 		}
 	];
