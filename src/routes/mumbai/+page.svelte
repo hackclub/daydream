@@ -28,22 +28,25 @@
 
 	// Schedule Configuration - You don't need to use this schedule, this is just an example!
 	const scheduleData = [
-{
-	title: 'Sunday, October 12th',
-	items: [
-		{ event: 'Doors open', time: '08:00 AM' },
-		{ event: 'Opening ceremony', time: '08:15 AM' },
-		{ event: 'Breakfast', time: '08:30 AM' },
-		{ event: 'Start working on your project!', time: '09:00 AM' },
-		{ event: 'Workshop 1', time: '09:30 AM' },
-		{ event: 'Workshop 2', time: '11:30 AM' },
-		{ event: 'Lunch', time: '01:00 PM' },
-		{ event: 'Activity', time: '02:30 PM' },
-		{ event: 'Wrap up', time: '06:30 PM' },
-		{ event: 'Awards ceremony and prizes', time: '07:15 PM' },
-		{ event: 'Doors close', time: '08:00 PM' }
-	]
-}
+		{
+			title: 'Sunday, October 12th',
+			items: [
+				{ event: 'Doors open & Sign In', time: '08:00 AM' },
+				{ event: 'Opening ceremony', time: '8:15 AM' },
+				{ event: 'Breakfast', time: '8:30 AM' },
+				{ event: 'Make teams & start working', time: '9:00 AM' },
+				{ event: 'Workshop 1 (introduction to Godot)', time: '09:15 AM' },
+				{ event: 'Workshop 2 (storyboard; visual novel, ren'py)', time: '11:30 AM' },
+				{ event: 'Activity 1 (karaoke)', time: '11:00 AM' },
+				{ event: 'Lunch', time: '01:00 PM' },
+				{ event: 'Activity 2 (speedcubing contest)', time: '2:00 PM' },
+				{ event: 'Wrap up, submission', time: '6:45 PM' }
+				{ event: 'Award Ceremony!', time: '07:15 PM' }
+				{ event: 'Dinner', time: '07:30 PM' }
+				{ event: 'Doors close', time: '07:30 PM' }
+			]
+		}
+	];
 
 
 	import { onMount } from 'svelte';
