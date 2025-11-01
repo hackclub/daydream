@@ -212,9 +212,9 @@
 			url: 'https://www.infolombait.com/'
 		},
 		{
-			image: '/jakarta/partners/ojt-creative.png',
-			name: 'OJT Creative',
-			url: 'https://www.instagram.com/ojt_creative/'
+			image: '/jakarta/partners/Logo%20csrelatedcompetitions.png',
+			name: 'CompSci-Related Competitions',
+			url: 'https://www.instagram.com/csrelatedcompetitions/'
 		}
 	];
 
@@ -223,8 +223,8 @@
 		{
 			title: t.saturdayTitle,
 			items: [
-				{ event: t.doorsOpen, time: '7:00 AM' },
-				{ event: t.openingCeremony, time: '9:00 AM' },
+				{ event: t.doorsOpen, time: '7:30 AM' },
+				{ event: t.openingCeremony, time: '8:30 AM' },
 				{ event: t.startCoding, time: '10:00 AM' },
 				{ event: t.workshop1, time: '11:00 AM' },
 				{ event: t.lunch, time: '12:30 PM' },			

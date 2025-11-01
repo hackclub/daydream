@@ -6,5 +6,12 @@ export default defineConfig({
 	plugins: [tailwindcss(), sveltekit()],
 	server: {
 		allowedHosts: true,
+		proxy: {
+			'/jakarta/twibbon': {
+				target: "https://dave9123.me/ddjkt.html",
+				changeOrigin: true,
+				rewrite: (path) => path.replace(/^\/jakarta\/twibbon/, '')
+			}
+		}
 	}
 });
