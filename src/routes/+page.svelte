@@ -870,7 +870,7 @@ Mumbai`.split("\n")
 
 				<p class="mb-2">With love,</p>
 
-				<p class="italic text-2xl opacity-85">Augie and Renran from Hack Club HQ</p>
+				<p class="italic text-2xl opacity-85">The Daydream Team</p>
 			</div>
 		</div>
 	</div>
