@@ -247,7 +247,7 @@
 				}).setView([20, 0], 2);
 				
 				// Add tile layer with custom styling
-				L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+				L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png?key=cb1_3re3_1_2e388e1094141dafe50c387d', {
 					attribution: '© OpenStreetMap contributors © CARTO',
 					detectRetina: true
 				}).addTo(map);
