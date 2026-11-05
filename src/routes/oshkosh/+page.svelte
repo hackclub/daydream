@@ -8,11 +8,11 @@
 
 	// Configuration - Put your information here!
 	const eventName = 'Oshkosh'; // This should be the name of your event WITHOUT "Daydream" at the start
-	const eventLocation = 'Oshkosh';
-	const eventAddress = 'TBD'; // Leave this empty if you don't want an address
+	const eventLocation = 'The Oshkosh Public Library';
+	const eventAddress = '106 Washington Ave, Oshkosh, WI'; // Leave this empty if you don't want an address
 	const signupLink = 'https://forms.hackclub.com/daydream-sign-up?event=recoaH6KudPxjwIy1'; // Get your custom sign up link from this page: https://airtable.com/apppg7RHZv6feM66l/shr4kFqURo8fMIRie
 	// These two are optional-- leave them empty if you don't have anything!
-	const directionsURL = '';
+	const directionsURL = 'Please enter the front door by the lion statue! Someone will be waiting at the door to check you in! (You can park in the parking lot and walk around to the front doors outside the building!)';
 	const contactLink = 'mailto:oshkosh@daydream.hackclub.com';
 
 	// Sponsors Configuration - disable this if you don't have any sponsors to display!
