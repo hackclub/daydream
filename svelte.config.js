@@ -1,5 +1,6 @@
 import adapterNode from '@sveltejs/adapter-node';
 import adapterStatic from '@sveltejs/adapter-static';
+import adapterVercel from '@sveltejs/adapter-vercel';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex, escapeSvelte } from 'mdsvex';
 import { createHighlighter } from 'shiki';
@@ -34,7 +35,7 @@ const config = {
 		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
 		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
 		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
-		adapter: process.env.STATIC_PREVIEW === "true" ? adapterStatic({ strict: false }) : adapterNode(),
+		adapter: process.env.VERCEL ? adapterVercel() : process.env.STATIC_PREVIEW === "true" ? adapterStatic({ strict: false }) : adapterNode(),
 	}
 };
 

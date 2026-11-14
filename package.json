@@ -31,6 +31,7 @@
 		"@fontsource/jersey-15": "^5.2.6",
 		"@sveltejs/adapter-node": "^5.2.13",
 		"@sveltejs/adapter-static": "^3.0.8",
+		"@sveltejs/adapter-vercel": "~5.7.2",
 		"@tailwindcss/typography": "^0.5.16",
 		"@types/leaflet": "^1.9.20",
 		"airtable": "^0.12.2",
