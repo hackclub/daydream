@@ -15,9 +15,10 @@
         { image: "/sao-paulo/hacksp.png", name: "Hack SP", url: "https://hacksp.org" },
 		{ image: "/sao-paulo/imeusp.png", name: "IME USP", url: "https://ime.usp.br" },
 		{ image: "/sao-paulo/gdgsp.png", name: "Google Developers Group Sao Paulo", url: "https://gdg.community.dev/gdg-sao-paulo/" },
-		{ image: "/sao-paulo/noic.webp", name: "NOIC", url: "https://noic.com.br/" },
+		{ image: "/sao-paulo/semparar.png", name: "Projeto Sem Parar", url: "https://www.instagram.com/sempararprojeto/" },
 		{ image: "/sao-paulo/flg.png", name: "First Lego Girls", url: "https://www.instagram.com/firstlegogirls/" },
 		{ image: "/sao-paulo/lala.png", name: "LALA", url: "https://latinamericanleadershipacademy.org/" },
+		{ image: "/sao-paulo/serverprog.png", name: "Servidor dos Programadores", url: "https://latinamericanleadershipacademy.org/" },
 		{ image: "/sao-paulo/JukeBox.png", name: "Jukebox", url: "https://www.jukeboxprint.com/custom-stickers" }
 	];
 	
@@ -27,11 +28,12 @@
 			title: "Sábado, 27 de Setembro",
 			items: [
 				{ event: "Portas abertas", time: "8:00 AM" },
-				{ event: "Cerimonia de Abertura", time: "10:00 PM" },
-                { event: "Atividade de Abertura", time: "10:30 PM" },
+				{ event: "Cerimonia de Abertura", time: "9:00 AM" },
+                { event: "Atividade de Abertura", time: "9:30 AM" },
+				{ event: "Workshop Godot", time: "10:00 PM" },
                 { event: "Comece a trabalhar nos projetos!", time: "10:00 AM" },
 				{ event: "Almoço", time: "12:30 PM" },
-				{ event: "Encerramento & Apresentação de Projetos", time: "6:00 PM" },
+				{ event: "Encerramento & Apresentação de Projetos", time: "7:00 PM" },
 			]
 		},
 	];
