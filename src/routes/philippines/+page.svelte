@@ -22,28 +22,29 @@
 	// Schedule Configuration - You don't need to use this exact schedule, this is just an example!
 	const scheduleData: { title: string; items: { event: string; time: string; }[] }[] = [
 		{
-			title: "Saturday, September 27th",
+			title: "Sunday, October 5th",
 			items: [
-				{ event: "Doors open", time: "11:00 AM" },
-				{ event: "Opening ceremony", time: "12:00 PM" },
-				{ event: "Lunch", time: "12:30 PM" },
-				{ event: "Start working on your project!", time: "1:00 PM" },
-				{ event: "Workshop 1", time: "2:00 PM" },
-				{ event: "Activity 1", time: "4:00 PM" },
-				{ event: "Workshop 2", time: "4:00 PM" },
-				{ event: "Dinner", time: "6:00 PM" },
-				{ event: "Lightning talks", time: "8:00 PM" },
-				{ event: "Midnight surprise", time: "12:00 AM" }
+				{ event: "Doors open", time: "8:00 AM" },
+				{ event: "Opening Remarks + Ice Breaker", time: "9:00 AM" },
+				{ event: "Globe Spiel + Small Speech + Sponsors Recognition", time: "9:30 AM" },
+				{ event: "Game Design", time: "9:35 AM" },
+				{ event: "Technical Workshop 1", time: "10:25 AM" },
+				{ event: "Formation of Teams", time: "11:10 AM" },
+				{ event: "Lunch Break", time: "12:30 PM" },
+				{ event: "Globeone Game", time: "12:35 PM" },
+				{ event: "Technical Workshop 2", time: "1:00 PM" },
+				{ event: "Opswerk", time: "1:55 PM" },
+				{ event: "Pinoy Henyo Game", time: "2:35 PM" },
+				{ event: "Snacks", time: "2:45 PM" },
+				{ event: "Inspiring Talk 1: Globe", time: "3:05 PM" },
+				{ event: "Game Development", time: "3:40 PM" },
+				{ event: "Dinner", time: "6:05 PM" },
+				{ event: "Submission of Games", time: "6:40 PM" },
+				{ event: "Gathering Results and Voting", time: "7:05 PM" },
+				{ event: "Announcement of Winners", time: "7:25 PM" },
+				{ event: "Egress", time: "8:05 PM" },
 			]
 		},
-		{
-			title: "Sunday, September 28th",
-			items: [
-				{ event: "Breakfast", time: "8:00 AM" },
-				{ event: "Demos!", time: "10:30 AM" },
-				{ event: "Closing ceremony", time: "12:00 PM" }
-			]
-		}
 	];
 
 	
@@ -810,7 +811,7 @@ Mumbai`.split("\n")
 			<h2
 			class="text-xl font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent absolute left-1/2 max-sm:translate-y-4 max-sm:mb-0 max-md:-mb-8 md:left-[calc(50%+4rem)] -translate-x-1/2 bottom-8 italic w-max md:text-lg max-sm:text-lg"
 			>
-				September 27th & 28th, 2025
+				October 5th, 2025
 			</h2>
 			<img src="daydream.png" alt="Daydream" class="h-40 mb-6 w-auto object-contain max-w-full px-4" />
 			<a href="https://hackclub.com" class="absolute top-0 -right-6 max-sm:right-0 max-sm:scale-80 animate-hover ![animation-delay:0.9s] ![--hover:-0.2rem]">
