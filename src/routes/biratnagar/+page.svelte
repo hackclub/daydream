@@ -840,6 +840,7 @@ Mumbai`.split("\n")
 				class="text-2xl opacity-90 mt-2 font-serif bg-gradient-to-b from-[#487DAB] to-[#3F709A] bg-clip-text text-transparent max-sm:text-xl"
 			>
 				Organized by Teenagers in {@html eventLocation.replaceAll(" ", "&nbsp;")}
+				with <a href="https://arnikohackclub.com" class="underline" target="_blank" rel="noopener">Arniko&nbsp;Hack&nbsp;Club</a>
 			</h4>
 		</div>
 		
