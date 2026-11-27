@@ -57,7 +57,7 @@
 	import { ScrollTrigger } from "gsap/ScrollTrigger";
 	import Ticker from "$lib/components/Ticker.svelte";
 	import Footer from "$lib/components/Footer.svelte";
-	import ParticipantSignUp from "$lib/components/ParticipantSignUp.svelte";
+	import EventEnded from "$lib/components/EventEnded.svelte";
 	import { page } from '$app/stores';
 	
 	
@@ -706,16 +706,8 @@
 			</h4>
 		</div>
 		
+						<EventEnded />
 						<div class="flex flex-col sm:flex-row items-center justify-center gap-4 my-8">
-							<a
-								href="https://forms.hackclub.com/daydream-sign-up"
-								target="_blank"
-								rel="noopener noreferrer"
-								class="px-10 py-4 rounded-full font-sans text-lg sm:text-xl font-semibold text-white bg-gradient-to-r from-[#F472B6] via-[#E879F9] to-[#6366F1] shadow-[0_6px_0_0_#9d3d75] hover:shadow-[0_8px_0_0_#7a2e59] active:shadow-[0_2px_0_0_#7a2e59] active:translate-y-0.5 transition-all duration-150 focus:outline-none focus:ring-4 focus:ring-pink-300/40"
-								style="background-image: linear-gradient(90deg,#F472B6,#E879F9,#6366F1);"
-							>
-								Sign Up
-							</a>
 							<a
 								href="https://butwalhacks.com" 
 								target="_blank" 
@@ -759,25 +751,6 @@
 	<img src="/clouds-top-left.png" alt="" class="absolute left-0 w-3/12 -bottom-12  translate-y-1/2 z-20 pointer-events-none">
 	
 
-	<!-- Desktop stickers button (bottom right) -->
-	<a
-		href="https://forms.hackclub.com/daydream-stickers"
-		target="_blank"
-		class="hidden md:block absolute bottom-16 right-16 z-50 w-max px-4 py-2 bg-blue-500 border-b-2 border-b-blue-700 text-white rounded-full active:transform active:translate-y-0.5 transition-all duration-100 font-sans cursor-pointer overflow-visible hover:shadow-[0_2px_0_0_#1e40af] hover:-translate-y-[2px] active:border-transparent active:shadow-none"
-	>
-		Claim Free Swag!
-		<img
-			src="button-clouds.svg" 
-			alt="" 
-			class="absolute bottom-0 left-1/2 -translate-x-1/2 w-auto object-contain pointer-events-none"
-		>
-		<img
-			src="rock-sticker.png"
-			alt=""
-			class="absolute bottom-2 right-3 translate-2/3 w-18 h-18 object-contain pointer-events-none animate-hover ![animation-delay:1.2s] ![--hover:-0.2rem]"
-			style="transform: rotate(-15deg);"
-		>
-	</a>
 
 	<!-- Main site button (bottom left) -->
 	<a
@@ -1067,7 +1040,7 @@
 			<div class="relative w-72 h-40 max-md:w-80 animate-hover ![--hover:-0.15rem] ![animation-delay:1.7s] z-20" data-point="1">
 				<img src="paper1.png" alt="" class="w-full h-full object-contain">
 				<div class="absolute inset-0 justify-center text-center p-6 text-xl font-serif max-md:text-lg text-[#8B4513] inline-block content-center">
-					<span class="font-sans text-[#E472AB] font-bold text-[1.3rem] mr-1">#1:</span> <a href="https://forms.hackclub.com/daydream-sign-up" class="underline">Sign up</a> for Daydream {eventName}
+					<span class="font-sans text-[#E472AB] font-bold text-[1.3rem] mr-1">#1:</span> Sign up for Daydream {eventName}
 				</div>
 			</div>
 		</div>
